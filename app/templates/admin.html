@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="admin-shell">
+    <section class="admin-header">
+      <div>
+        <h1>zam-tv Admin</h1>
+        <p>Hier bearbeiten wir die gesamte Playlist direkt als YAML.</p>
+      </div>
+      <a class="button secondary" href="{{ url_for('main.screen') }}" target="_blank" rel="noreferrer">Screen oeffnen</a>
+    </section>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <section class="flash-list">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    {% endwith %}
+
+    <section class="admin-grid">
+      <form class="editor-card" method="post" action="{{ url_for('main.save_admin') }}">
+        <label for="config_text">Konfiguration</label>
+        <textarea id="config_text" name="config_text" spellcheck="false">{{ config_text }}</textarea>
+        <div class="form-actions">
+          <button class="button" type="submit">Speichern</button>
+        </div>
+      </form>
+
+      <aside class="help-card">
+        <h2>Schnellhilfe</h2>
+        <p>Typen fuer Eintraege: <code>image</code>, <code>video</code>, <code>web</code>, <code>calendar</code>.</p>
+        <p>Fuer Bilder und Videos zeigt <code>path</code> auf eine Datei in <code>data/uploads</code>.</p>
+        <p><code>orientation</code> ist aktuell <code>portrait</code> oder <code>landscape</code>.</p>
+        <p>Die Screen-Seite liest diese Datei bei jedem Aufruf neu ein.</p>
+
+        {% if config and config.get("items") %}
+          <h3>Aktive Struktur</h3>
+          <ul>
+            <li>Ausrichtung: {{ config.get("orientation", "portrait") }}</li>
+            <li>Eintraege: {{ config.get("items", []) | length }}</li>
+            <li>Rotation fallback: {{ config.get("rotation_seconds", 10) }} Sekunden</li>
+          </ul>
+        {% endif %}
+      </aside>
+    </section>
+  </main>
+{% endblock %}

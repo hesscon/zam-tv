@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main
+    class="screen-shell orientation-{{ orientation }}"
+    data-default-duration="{{ rotation_seconds }}"
+    data-playlist='{{ playlist | tojson }}'
+  >
+    <div class="screen-empty" id="screen-empty">
+      <h1>Keine aktiven Inhalte</h1>
+      <p>Aktiviere Eintraege in der YAML-Konfiguration unter <code>/admin</code>.</p>
+    </div>
+
+    <section class="screen-frame" id="screen-frame" hidden>
+      <div class="screen-meta" id="screen-meta"></div>
+      <div class="screen-content" id="screen-content"></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='screen.js') }}"></script>
+{% endblock %}

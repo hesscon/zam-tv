@@ -1,0 +1,22 @@
+orientation: portrait
+rotation_seconds: 10
+items:
+  - type: image
+    title: Beispielbild
+    path: sample.jpg
+    duration: 8
+    enabled: false
+
+  - type: web
+    title: OpenAI
+    url: https://www.openai.com
+    duration: 15
+    enabled: false
+
+  - type: calendar
+    title: Veranstaltungen
+    duration: 15
+    enabled: false
+    ics_url: https://example.com/calendar.ics
+    include_titles: []
+    max_events: 5
