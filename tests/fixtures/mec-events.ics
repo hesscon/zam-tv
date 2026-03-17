@@ -1,0 +1,4649 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+PRODID:-//WordPress - MECv7.25.0//EN
+X-ORIGINAL-URL:https://www.zam.haus/
+X-WR-CALNAME:ZAM
+X-WR-CALDESC:Zentrum für Austausch und Machen
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:20260329T030000
+RRULE:FREQ=YEARLY;BYMONTH=03;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:20261025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=4SU
+END:STANDARD
+END:VTIMEZONE
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-PUBLISHED-TTL:PT1H
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-33866f3a2397f4b156ed5a31f5ba7964@zam.haus
+DTSTART;TZID=Europe/Berlin:20260318T180000
+DTEND;TZID=Europe/Berlin:20260318T193000
+DTSTAMP:20260313T143006Z
+CREATED:20260313
+LAST-MODIFIED:20260313
+PRIORITY:5
+SEQUENCE:41
+TRANSP:OPAQUE
+SUMMARY:Das ZAM Haupthaus entwickeln!
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/oeffentlicher-auftakt-stadtentwicklungskonzept-stek-397-924-635-565-423/
+CATEGORIES:Haupthaus,Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/260226-Haupthaus-Atttraktivieren.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d79c8788088c2193f0244d8f1f36d2db@zam.haus
+DTSTART;TZID=Europe/Berlin:20260315T160000
+DTEND;TZID=Europe/Berlin:20260315T190000
+DTSTAMP:20260310T115611Z
+CREATED:20260310
+LAST-MODIFIED:20260311
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Tag der Druckkunst
+DESCRIPTION:
+URL:https://www.zam.haus/programm/tag-der-druckkunst/
+CATEGORIES:Druck,Haupthaus,Mitmachen
+LOCATION:Hauptstr. 65-67
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/03/papierbox-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8ede06ecd4c633266fdced4089d42ddd@zam.haus
+DTSTART;TZID=Europe/Berlin:20260320T212000
+DTEND;TZID=Europe/Berlin:20260320T230000
+DTSTAMP:20260228T154226Z
+CREATED:20260228
+LAST-MODIFIED:20260228
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Pecha Kucha Night Erlangen
+DESCRIPTION:Pecha Kucha Nacht in Erlangen: Seit 2011 versuchen wir mit unseren Veranstaltungen die Präsentationspraxis in der Region zu verbessern, indem wir bessere Präsentationen auf unserer Bühne haben, als das bei den meisten Firmen- oder Bildungspräsentationen der Fall ist. Pecha Kucha hat 3 Grundregeln: – jeder Vortrag hat genau 20 Folien. – jede Folie wird genau 20s angezeigt. Der Sprecher hat keinen Einfluß auf den Wechsel der Folien – es wird viel Bild und wenig Text genutzt. Die sich so ergebenden Vorträge mit einer Länge von 6:40 sind kurzweilig, unterhaltsam und je nach Inhalt informativ oder einfach amüsant. Pecha Kucha Erlangen wurde initiiert von Tobias Müller-Zielke, der den Event auch seit der ersten Ausgabe im Februar 2011 organisiert. Pecha Kucha Erlangen ist offizieller Teil des globalen Pecha Kucha Netzwerks, das inzwischen über 1.000 Städte weltweit umfasst.\nDies ist die erste Pecha Kucha Nacht im ZAM.\n
+URL:https://www.zam.haus/programm/pecha-kucha-night-erlangen-937/
+ORGANIZER;CN=Pecha Kucha Erlangen, Tobias Müller-Zielke:MAILTO:
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/pkerlangen_cover.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d042be1b4b72c110d21287b3dad13867@zam.haus
+DTSTART;TZID=Europe/Berlin:20260303T190000
+DTEND;TZID=Europe/Berlin:20260303T210000
+DTSTAMP:20260227T113946Z
+CREATED:20260227
+LAST-MODIFIED:20260227
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Stillleben
+DESCRIPTION:
+URL:https://www.zam.haus/programm/7689-645/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/20260224_155402-1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-77330e1330ae2b086e5bfcae50d9ffae@zam.haus
+DTSTART;TZID=Europe/Berlin:20260304T170000
+DTEND;TZID=Europe/Berlin:20260304T183000
+DTSTAMP:20260226T152452Z
+CREATED:20260226
+LAST-MODIFIED:20260226
+PRIORITY:5
+SEQUENCE:40
+TRANSP:OPAQUE
+SUMMARY:Das ZAM Haupthaus entwickeln!
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/oeffentlicher-auftakt-stadtentwicklungskonzept-stek-397-924-635-565/
+CATEGORIES:Haupthaus,Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/260226-Haupthaus-Atttraktivieren.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fe60c129a74980578dc8fb0f8fe39b39@zam.haus
+DTSTART;TZID=Europe/Berlin:20260306T170000
+DTEND;TZID=Europe/Berlin:20260306T190000
+DTSTAMP:20260223T194204Z
+CREATED:20260223
+LAST-MODIFIED:20260223
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Offener Schnupper-Workshop: Petrykiwka-Malerei entdecken
+DESCRIPTION:
+URL:https://www.zam.haus/programm/petrykiwka-workshop-mit-tetiana-liudvychenko-264/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/Screenshot_20251216_125916_Gmail-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-48d4167a0f3bc10686a1ad20a8008c73@zam.haus
+DTSTART;TZID=Europe/Berlin:20260425T120000
+DTEND;TZID=Europe/Berlin:20260425T140000
+DTSTAMP:20260218T145157Z
+CREATED:20260218
+LAST-MODIFIED:20260218
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Gründungscafé
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zam-gruendungscafe-2/
+CATEGORIES:Haupthaus,Mitmachen,Veranstaltung
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0127b06252935c330e9f23651b398ce4@zam.haus
+DTSTART;TZID=Europe/Berlin:20260328T110000
+DTEND;TZID=Europe/Berlin:20260328T130000
+DTSTAMP:20260218T142350Z
+CREATED:20260218
+LAST-MODIFIED:20260311
+PRIORITY:5
+SEQUENCE:18
+TRANSP:OPAQUE
+SUMMARY:Gründungscafé (in Kooperation mit Wirtschaftsjunioren Erlangen & FAU Gründungsberatung)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zam-gruendungscafe-1/
+CATEGORIES:Haupthaus,Mitmachen,Veranstaltung
+LOCATION:Hauptstr. 65-67
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/Gruendungscafe-FAU-ZAM-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-84253ffce9853bdf2518c53ddf3bce65@zam.haus
+DTSTART;TZID=Europe/Berlin:20260301T160000
+DTEND;TZID=Europe/Berlin:20260301T190000
+DTSTAMP:20260217T121024Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=1SU
+CREATED:20260217
+LAST-MODIFIED:20260302
+PRIORITY:5
+SEQUENCE:14
+TRANSP:OPAQUE
+SUMMARY:DI.Day Digital Independence Day
+DESCRIPTION:
+URL:https://www.zam.haus/programm/di-day/
+CATEGORIES:Haupthaus,Treffen
+LOCATION:Hauptstr. 65-67
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2026/01/Unknown_enmhf2p-2.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1f8f69b53d86cf2a952bf95d87a59b0c@zam.haus
+DTSTART;TZID=Europe/Berlin:20260213T170000
+DTEND;TZID=Europe/Berlin:20260213T183000
+DTSTAMP:20260211T180127Z
+CREATED:20260211
+LAST-MODIFIED:20260226
+PRIORITY:5
+SEQUENCE:36
+TRANSP:OPAQUE
+SUMMARY:Das ZAM Haupthaus entwickeln!
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/oeffentlicher-auftakt-stadtentwicklungskonzept-stek-397-924-635/
+CATEGORIES:Haupthaus,Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/Grundmoeblierung-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-340b706fb4f5035f33fcfa07fbbaf411@zam.haus
+DTSTART;TZID=Europe/Berlin:20260213T180000
+DTEND;TZID=Europe/Berlin:20260213T200000
+DTSTAMP:20260210T185901Z
+CREATED:20260210
+LAST-MODIFIED:20260210
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Lesezeichen gestalten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/7689/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/20260209_103219-rotated.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-09853c7fb1d3f8ee67a61b6bf4a7f8e6@zam.haus
+DTSTART;TZID=Europe/Berlin:20260217T190000
+DTEND;TZID=Europe/Berlin:20260217T210000
+DTSTAMP:20260209T113242Z
+CREATED:20260209
+LAST-MODIFIED:20260210
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Faschings-Spezial:  Konfetti, Luftschlangen und mehr
+DESCRIPTION:
+URL:https://www.zam.haus/programm/faschings-spezial-599/
+CATEGORIES:Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/20260208_162704.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6531b32f8d02fece98ff36a64a7c8260@zam.haus
+DTSTART;TZID=Europe/Berlin:20260226T130000
+DTEND;TZID=Europe/Berlin:20260301T170000
+DTSTAMP:20260202T175217Z
+CREATED:20260202
+LAST-MODIFIED:20260203
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:WICMP11
+DESCRIPTION:
+URL:https://www.zam.haus/programm/wicmp11/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/IMG_20250302_054358-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-74a9d40b0df3a01eda99c4463b607dd1@zam.haus
+DTSTART;TZID=Europe/Berlin:20260202T200000
+DTEND;TZID=Europe/Berlin:20260203T010000
+DTSTAMP:20260202T133356Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=1MO
+CREATED:20260202
+LAST-MODIFIED:20260203
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Babbeln’n’Basteln
+DESCRIPTION:
+URL:https://www.zam.haus/programm/babbelnnbasteln/
+CATEGORIES:Treffen
+LOCATION:Hauptstr. 65-67
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/02/featured.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-febb7aafcbde43930cdedf8c5153c867@zam.haus
+DTSTART;TZID=Europe/Berlin:20260212T160000
+DTEND;TZID=Europe/Berlin:20260212T180000
+DTSTAMP:20260209T134314Z
+RRULE:FREQ=WEEKLY;UNTIL=20260312T160000Z
+EXDATE:20260226T140000Z
+CREATED:20260209
+LAST-MODIFIED:20260226
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Ehrenamtliche Beratung für ein gutes Leben im Alter
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/gutes-leben-im-alter/
+CATEGORIES:Beratung,Haupthaus
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2026/01/Beede1.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-01b36d0eae3771391455661b45834805@zam.haus
+DTSTART;TZID=Europe/Berlin:20260224T190000
+DTEND;TZID=Europe/Berlin:20260224T210000
+DTSTAMP:20260128T152547Z
+CREATED:20260128
+LAST-MODIFIED:20260211
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Papierblüten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/papierblueten/
+CATEGORIES:Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_2885.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6caf88727c2cacf39df54ecc2f53de65@zam.haus
+DTSTART;TZID=Europe/Berlin:20260212T160000
+DTEND;TZID=Europe/Berlin:20260212T200000
+DTSTAMP:20260128T140225Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=2TH
+EXDATE:20260818T130000Z
+CREATED:20260128
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Repair Café
+DESCRIPTION:
+URL:https://www.zam.haus/programm/repair-cafe-124-146/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/ZAM-Repair-e1691346765619.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b3d6e130a30b176f2ca5af7d1e73953f@zam.haus
+DTSTART;TZID=Europe/Berlin:20260127T160000
+DTEND;TZID=Europe/Berlin:20260127T200000
+DTSTAMP:20260128T135837Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=4TU
+EXDATE:20260825T130000Z
+CREATED:20260128
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:Repair Café
+DESCRIPTION:
+URL:https://www.zam.haus/programm/repair-cafe-124/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/ZAM-Repair-e1691346765619.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-43207fd5e34f87c48d584fc5c11befb8@zam.haus
+DTSTART;TZID=Europe/Berlin:20260303T190000
+DTEND;TZID=Europe/Berlin:20260303T213000
+DTSTAMP:20260130T090616Z
+CREATED:20260130
+LAST-MODIFIED:20260205
+PRIORITY:5
+SEQUENCE:19
+TRANSP:OPAQUE
+SUMMARY:Gründungscafé von FAU und ZAM
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/gruendungscafe-fau-zam/
+CATEGORIES:Haupthaus,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/Gruendungscafe-FAU-ZAM-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ba7e36c43aff315c00ec2b8625e3b719@zam.haus
+DTSTART;TZID=Europe/Berlin:20260207T140000
+DTEND;TZID=Europe/Berlin:20260207T200000
+DTSTAMP:20260127T162414Z
+RRULE:FREQ=WEEKLY;BYDAY=SA
+EXDATE:20231226T120000Z,20240102T120000Z,20241224T120000Z,20241231T120000Z,20250805T110000Z,20250812T110000Z,20250819T110000Z,20250826T110000Z,20251202T120000Z,20251230T120000Z,20260106T120000Z
+CREATED:20260127
+LAST-MODIFIED:20260213
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:ZAMräumen
+DESCRIPTION:Das ZAM ist im Umbau und das mit viel Eigenleistung:\nWir packen es an!\nKomm dazu und hilf uns, das ZAM für den Normalbetrieb vorzubereiten und triff dabei viele nette Menschen. Falls du uns nicht an der Hauptstr. 65-67 (Südhaus, ehem. Haupeingang Greiner) findest, sind wir an der Westlichen Stadtmauerstraße 62 (Nordhaus).\n
+URL:https://www.zam.haus/programm/zamraeumen/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/10/IMG_4641-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-3b220b436e5f3d917a1e649a0dc0281c@zam.haus
+DTSTART;TZID=Europe/Berlin:20260203T190000
+DTEND;TZID=Europe/Berlin:20260203T210000
+DTSTAMP:20260126T140635Z
+CREATED:20260126
+LAST-MODIFIED:20260126
+PRIORITY:5
+SEQUENCE:13
+TRANSP:OPAQUE
+SUMMARY:„mal weniger bunt“
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137-547-849-541/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/1000027994.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9b8ef27229c42198631813f1d2f60aaf@zam.haus
+DTSTART;TZID=Europe/Berlin:20260413T183000
+DTEND;TZID=Europe/Berlin:20260413T213000
+DTSTAMP:20260121T171330Z
+CREATED:20260121
+LAST-MODIFIED:20260121
+PRIORITY:5
+SEQUENCE:13
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grossmaschinengrundkurs-mit-schreinermeister-lukas-677-235-764/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-25702d4234f4c7dc542adde64426a7ca@zam.haus
+DTSTART;TZID=Europe/Berlin:20260302T173000
+DTEND;TZID=Europe/Berlin:20260302T203000
+DTSTAMP:20260121T171103Z
+CREATED:20260121
+LAST-MODIFIED:20260218
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grossmaschinengrundkurs-mit-schreinermeister-lukas-677-235/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-236f119f58f5fd102c5a2ca609fdcbd8@zam.haus
+DTSTART;TZID=Europe/Berlin:20260209T173000
+DTEND;TZID=Europe/Berlin:20260209T203000
+DTSTAMP:20260121T170945Z
+CREATED:20260121
+LAST-MODIFIED:20260121
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grossmaschinengrundkurs-mit-schreinermeister-lukas-677/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-088660d31e3314b1c5817fa45e9f25f1@zam.haus
+DTSTART;TZID=Europe/Berlin:20260420T110000
+DTEND;TZID=Europe/Berlin:20260420T193000
+DTSTAMP:20260121T165928Z
+CREATED:20260121
+LAST-MODIFIED:20260121
+PRIORITY:5
+SEQUENCE:27
+TRANSP:OPAQUE
+SUMMARY:Längsholzschneidbrett-Kurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-992-389-409-464-940-189-964-910/
+CATEGORIES:Holz,Mitmachen,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/Schneidbrettkurs2.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-20f79a5fa90c0796d2cfdbe8763dfb67@zam.haus
+DTSTART;TZID=Europe/Berlin:20260120T210000
+DTEND;TZID=Europe/Berlin:20260120T220000
+DTSTAMP:20260120T124337Z
+RRULE:FREQ=WEEKLY;UNTIL=20260513T190000Z;BYDAY=TU
+EXDATE:20260127T190000Z,20260210T190000Z,20260224T190000Z,20260310T190000Z,20260324T190000Z,20260407T180000Z,20260421T180000Z,20260505T180000Z
+CREATED:20260120
+LAST-MODIFIED:20260126
+PRIORITY:5
+SEQUENCE:12
+TRANSP:OPAQUE
+SUMMARY:Einweisung Lasercutter Trotec Speedy 400 & Trotec Speedy 100
+DESCRIPTION:
+URL:https://ticketing.zam.haus/ZAM/prototypenwerkstatt/
+CATEGORIES:Prototypen,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/0e5d17dd-3b7e-43de-9d29-c8a90014a4b71-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a62178a8e59f8331e1cb4f057cbf0a55@zam.haus
+DTSTART;TZID=Europe/Berlin:20260122T160000
+DTEND;TZID=Europe/Berlin:20260122T180000
+DTSTAMP:20260116T155615Z
+RRULE:FREQ=WEEKLY
+EXDATE:20260226T140000Z
+CREATED:20260116
+LAST-MODIFIED:20260223
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Medizinischer Hilfsdienst – Arztbriefe erklärt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/medizinischer-hilfsdienst-arztbriefe-erklaert/
+CATEGORIES:Beratung
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/260116-Med-Hilfsdienst-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-256bf8e6923a52fda8ddf7dc050a1148@zam.haus
+DTSTART;TZID=Europe/Berlin:20260317T190000
+DTEND;TZID=Europe/Berlin:20260317T210000
+DTSTAMP:20260115T180220Z
+CREATED:20260115
+LAST-MODIFIED:20260311
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Linien begegnen farbigen Flächen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137-547-849-892/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/20260114_171350-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cba2a355dc11678a805de3839a03e32d@zam.haus
+DTSTART;TZID=Europe/Berlin:20260116T180000
+DTEND;TZID=Europe/Berlin:20260116T200000
+DTSTAMP:20260115T175503Z
+CREATED:20260115
+LAST-MODIFIED:20260115
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Fische malen auf Karton
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137-547-849/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/20260115_132205-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a1d2b0ef5b72772ee48ce14b993e225c@zam.haus
+DTSTART;TZID=Europe/Berlin:20260113T193000
+DTEND;TZID=Europe/Berlin:20260113T220000
+DTSTAMP:20260112T190000Z
+CREATED:20260112
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Öffentlicher Auftakt Stadtentwicklungskonzept – STEK
+DESCRIPTION:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Damit Erlangen sich weiterhin dynamisch und erfolgreich entwickeln kann, arbeitet die Stadt an einem neuen Stadtentwicklungskonzept (STEK). Unter dem Motto Erlangen weiterdenken lädt die Stadt alle Interessierten ein, sich zu beteiligen und gemeinsam Ideen für die Zukunft zu entwickeln.\nDialog und Beteiligung sind zentrale Bestandteile des STEK-Prozesses. Damit das Stadtentwicklungskonzept erfolgreich wird, müssen viele Menschen über mehrere Jahre hinweg informiert, beteiligt und motiviert werden.”\nIm ZAM findet am 13.01.2026 von 18.30 bis 21 Uhr der öffentliche Auftakt zu STEK (Stadtentwicklungskonzept) Erlangen statt.\nAlle Bürgerinnen und Bürger sind eingeladen, sich schon in einer frühen Phase des mehrjährigen Vorhabens zu beteiligen.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNach KNOW HOW TEILEN MACHT STÄDTE STARK, dem Erlanger Beitrag zum Projektaufruf Post Corona Stadt des BBSR (Bundesinstitut für Bau-, Stadt- und Raumforschung), ist dies ein weiterer Anlass, bei dem sich das ZAM als kommunikative Plattform fürs “Stadtmachen” im Herzen der (Alt)stadt bewähren kann..\nWir freuen uns auf regen Besuch – bitte auch weitersagen. Denn die Stadt gehört ganz besonders denen, die sie (mit)gestalten. Und das ist die Gelegenheit.\n\n\n\n\n\n\n\n\n\n\n\n
+URL:https://www.zam.haus/programm/oeffentlicher-auftakt-stadtentwicklungskonzept-stek/
+CATEGORIES:Haupthaus,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2026/01/251211_STER_FlyerDINlang_Seite_2-e1768241273748.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-11958dfee29b6709f48a9ba0387a2431@zam.haus
+DTSTART;TZID=Europe/Berlin:20260418T150000
+DTEND;TZID=Europe/Berlin:20260418T180000
+DTSTAMP:20260112T194204Z
+CREATED:20260112
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print Fototransfer
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-2-komposition-farbschichten-146-535-134/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_20240228_153846_sULg9Z2-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a45a1d12ee0fb7f1f872ab91da18f899@zam.haus
+DTSTART;TZID=Europe/Berlin:20260328T140000
+DTEND;TZID=Europe/Berlin:20260328T170000
+DTSTAMP:20260112T194120Z
+CREATED:20260112
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print Fototransfer
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-2-komposition-farbschichten-146-535/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_20240228_153846_sULg9Z2-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-054ab897023645cd7ad69525c46992a0@zam.haus
+DTSTART;TZID=Europe/Berlin:20260321T140000
+DTEND;TZID=Europe/Berlin:20260321T180000
+DTSTAMP:20260111T174606Z
+CREATED:20260111
+LAST-MODIFIED:20260222
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Linoltextildruck
+DESCRIPTION:
+URL:https://www.zam.haus/programm/7509/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/rn_image_picker_lib_temp_967206ec-4027-479d-ad15-793108153a15-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4b2ae7d938d2edc52ee760535f0003e2@zam.haus
+DTSTART;TZID=Europe/Berlin:20260220T180000
+DTEND;TZID=Europe/Berlin:20260220T210000
+DTSTAMP:20260111T172026Z
+CREATED:20260111
+LAST-MODIFIED:20260205
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Papier Workshop Zeichenmappe
+DESCRIPTION:
+URL:https://www.zam.haus/programm/hardcover-652/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/20251113_134728_phz6Dab.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-475cc020a2dc98e1bd061ddfdf162fdc@zam.haus
+DTSTART;TZID=Europe/Berlin:20260304T190000
+DTEND;TZID=Europe/Berlin:20260304T203000
+DTSTAMP:20260111T171047Z
+CREATED:20260111
+LAST-MODIFIED:20260303
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:3D modellieren für Anfänger
+DESCRIPTION:
+URL:https://www.zam.haus/programm/3d-modellieren-fuer-anfaenger/
+CATEGORIES:Haupthaus,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/LegoZAM_in_use_2_pFSxKQN-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e9de722f5fee30a9bb44216eaa70ae09@zam.haus
+DTSTART;TZID=Europe/Berlin:20260425T160000
+DTEND;TZID=Europe/Berlin:20260425T200000
+DTSTAMP:20260110T131426Z
+CREATED:20260110
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:12
+TRANSP:OPAQUE
+SUMMARY:Linoldruck auf Textilie
+DESCRIPTION:
+URL:https://www.zam.haus/programm/hin-731/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_6744_wbFYo4l.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6a130f1dc6f0c829f874e92e5458dced@zam.haus
+DTSTART;TZID=Europe/Berlin:20260412T120000
+DTEND;TZID=Europe/Berlin:20260412T180000
+DTSTAMP:20260110T130909Z
+CREATED:20260110
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Milchkarton-Radierung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/milchkarton-radierung-278/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/12/IMG_0167_S345VHb.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c82b013313066e0702d58dc70db033ca@zam.haus
+DTSTART;TZID=Europe/Berlin:20260411T130000
+DTEND;TZID=Europe/Berlin:20260411T183000
+DTSTAMP:20260109T204913Z
+CREATED:20260109
+LAST-MODIFIED:20260204
+PRIORITY:5
+SEQUENCE:36
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z-198-461-754-666-521-516/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/rn_image_picker_lib_temp_49644145-e640-4251-bff1-7918579c0856-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a46b6b588543109f13ff64b2bf1104f0@zam.haus
+DTSTART;TZID=Europe/Berlin:20260307T120000
+DTEND;TZID=Europe/Berlin:20260307T173000
+DTSTAMP:20260109T204817Z
+CREATED:20260109
+LAST-MODIFIED:20260127
+PRIORITY:5
+SEQUENCE:33
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z-198-461-754-666-521/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/rn_image_picker_lib_temp_49644145-e640-4251-bff1-7918579c0856-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fcdf698a5d673435e0a5a6f9ffea05ca@zam.haus
+DTSTART;TZID=Europe/Berlin:20260419T150000
+DTEND;TZID=Europe/Berlin:20260419T190000
+DTSTAMP:20260109T204117Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:14
+TRANSP:OPAQUE
+SUMMARY:Risografie-Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/risografie-workshop-969-917-939/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/riso-workshop-paul.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c2f8e6f7f5a740e5b753357c9bb2c664@zam.haus
+DTSTART;TZID=Europe/Berlin:20260329T150000
+DTEND;TZID=Europe/Berlin:20260329T190000
+DTSTAMP:20260109T203959Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:13
+TRANSP:OPAQUE
+SUMMARY:Risografie-Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/risografie-workshop-969-917/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/riso-workshop-paul.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-97c99dd2a042908aabc0bafc64ddc028@zam.haus
+DTSTART;TZID=Europe/Berlin:20260418T163000
+DTEND;TZID=Europe/Berlin:20260418T193000
+DTSTAMP:20260109T203801Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Entdecke deine Kreativität
+DESCRIPTION:
+URL:https://www.zam.haus/programm/entdecke-deine-kreativitaet-960/
+CATEGORIES:Farben,Workshop
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/a404389e-3d39-4b78-883c-e50e5423f08b_CaASaX4.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-2639ba2137371773aa1e64e7735cdb30@zam.haus
+DTSTART;TZID=Europe/Berlin:20260307T110000
+DTEND;TZID=Europe/Berlin:20260307T130000
+DTSTAMP:20260109T203426Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Kleine Tiere aus Altpapier
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kleine-tiere-aus-altpapier-934/
+CATEGORIES:Farben,Workshop
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/Fisch_aus_Papier_dGpLI6w.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-2c048d74b3410237704eb7f93a10c9d7@zam.haus
+DTSTART;TZID=Europe/Berlin:20260324T193000
+DTEND;TZID=Europe/Berlin:20260324T210000
+DTSTAMP:20260109T133407Z
+CREATED:20260109
+LAST-MODIFIED:20260306
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Verändert KI die Arbeitswelt?
+DESCRIPTION:
+URL:https://www.zam.haus/programm/veraendert-ki-die-arbeitswelt/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2026/01/Unknown_enmhf2p-2.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-889fbd1aec443cef389ea10c93b498d8@zam.haus
+DTSTART;TZID=Europe/Berlin:20260211T170000
+DTEND;TZID=Europe/Berlin:20260211T210000
+DTSTAMP:20260109T205642Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:20
+TRANSP:OPAQUE
+SUMMARY:Drehmaschinen Kurs
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804-888-255-410/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/rn_image_picker_lib_temp_73cb0906-d23a-4fd1-af23-93f71baed695.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-34f5297ef0ba66f4b3ca225078560d11@zam.haus
+DTSTART;TZID=Europe/Berlin:20260411T160000
+DTEND;TZID=Europe/Berlin:20260411T190000
+DTSTAMP:20260109T132510Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:22
+TRANSP:OPAQUE
+SUMMARY:Biegekunst Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804-888-255-839-512/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/signal-2026-01-28-144320_002.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ca9541826e97c4530b07dda2eba0e013@zam.haus
+DTSTART;TZID=Europe/Berlin:20260214T150000
+DTEND;TZID=Europe/Berlin:20260214T180000
+DTSTAMP:20260109T132353Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:20
+TRANSP:OPAQUE
+SUMMARY:Biegekunst Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804-888-255-839/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/signal-2026-01-28-144320_002.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-239f914f30ea3c948fce2ea07a9efb33@zam.haus
+DTSTART;TZID=Europe/Berlin:20260419T150000
+DTEND;TZID=Europe/Berlin:20260419T200000
+DTSTAMP:20260109T130016Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:16
+TRANSP:OPAQUE
+SUMMARY:Grundkurs MAG- & WIG-Schweißen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804-888-255/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_4266-Juha_quer-scaled_JE83g3C.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c6d4eb15f1e84a36eff58eca3627c82e@zam.haus
+DTSTART;TZID=Europe/Berlin:20260315T140000
+DTEND;TZID=Europe/Berlin:20260315T190000
+DTSTAMP:20260109T125836Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:15
+TRANSP:OPAQUE
+SUMMARY:Grundkurs MAG- & WIG-Schweißen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804-888/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_4266-Juha_quer-scaled_JE83g3C.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cd19a3a0867f69f400961b5dd502fbc6@zam.haus
+DTSTART;TZID=Europe/Berlin:20260321T153000
+DTEND;TZID=Europe/Berlin:20260321T183000
+DTSTAMP:20260109T120649Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Entdecke deine Kreativität
+DESCRIPTION:
+URL:https://www.zam.haus/programm/entdecke-deine-kreativitaet-268/
+CATEGORIES:Farben,Workshop
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/a404389e-3d39-4b78-883c-e50e5423f08b_CaASaX4.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9cd3598a91516950427c605ae29cff68@zam.haus
+DTSTART;TZID=Europe/Berlin:20260328T150000
+DTEND;TZID=Europe/Berlin:20260328T183000
+DTSTAMP:20260109T115020Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Einstieg Acryl
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einstieg-acryl/
+CATEGORIES:Farben,Workshop
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_5893_XVrih72.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f94778df58fec780ff952344ac5a2442@zam.haus
+DTSTART;TZID=Europe/Berlin:20260411T130000
+DTEND;TZID=Europe/Berlin:20260411T160000
+DTSTAMP:20260109T113318Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Zeichnen mit Beschummeltechnik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zeichnen-mit-beschummeltechnik/
+CATEGORIES:Farben,Workshop
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_7892_sfn1aYF.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7bd66825e9a97424ffe5645549270832@zam.haus
+DTSTART;TZID=Europe/Berlin:20260228T140000
+DTEND;TZID=Europe/Berlin:20260228T190000
+DTSTAMP:20260109T125601Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:17
+TRANSP:OPAQUE
+SUMMARY:Grundkurs MAG- & WIG-Schweißen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133-804/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_4266-Juha_quer-scaled_JE83g3C.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9f820adf84bf8a1c259f464ba89ea11f@zam.haus
+DTSTART;TZID=Europe/Berlin:20260314T110000
+DTEND;TZID=Europe/Berlin:20260314T150000
+DTSTAMP:20260109T105623Z
+CREATED:20260109
+LAST-MODIFIED:20260109
+PRIORITY:5
+SEQUENCE:13
+TRANSP:OPAQUE
+SUMMARY:Wildes Nest aus Naturmaterial
+DESCRIPTION:
+URL:https://www.zam.haus/programm/wildes-nest-naturmaterial-995-126/
+CATEGORIES:Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/1000013173_HZeKfxB.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6c19e0a6da12dc02239312f151072ddd@zam.haus
+DTSTART;TZID=Europe/Berlin:20260425T130000
+DTEND;TZID=Europe/Berlin:20260425T180000
+DTSTAMP:20260109T104310Z
+CREATED:20260109
+LAST-MODIFIED:20260109
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Mend in Public Day
+DESCRIPTION:
+URL:https://www.zam.haus/programm/mend-in-public-day/
+CATEGORIES:Haupthaus,Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/20250318_085317_PzrpxUt.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d11509055cea2caaa57bc2abe499b3e5@zam.haus
+DTSTART;TZID=Europe/Berlin:20260402T110000
+DTEND;TZID=Europe/Berlin:20260402T140000
+DTSTAMP:20260109T103724Z
+CREATED:20260109
+LAST-MODIFIED:20260109
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Kinderprogramm Osterbasteln
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kinderprogramm-osterbasteln/
+CATEGORIES:Mitmachen,Textil
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/20250409_103935_vfeVqCh.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-987b75e2727ae55289abd70d3f5864e6@zam.haus
+DTSTART;TZID=Europe/Berlin:20260331T190000
+DTEND;TZID=Europe/Berlin:20260331T220000
+DTSTAMP:20260109T103254Z
+CREATED:20260109
+LAST-MODIFIED:20260109
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Hasentag
+DESCRIPTION:
+URL:https://www.zam.haus/programm/hasentag/
+CATEGORIES:Mitmachen,Textil
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_6551_LALOvqv.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e9dcb63ca828d0e00cd05b445099ed2e@zam.haus
+DTSTART;TZID=Europe/Berlin:20260207T120000
+DTEND;TZID=Europe/Berlin:20260207T173000
+DTSTAMP:20260109T204633Z
+CREATED:20260109
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:32
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z-198-461-754-666/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/rn_image_picker_lib_temp_49644145-e640-4251-bff1-7918579c0856-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e41990b122b864f164d2ab96e8322690@zam.haus
+DTSTART;TZID=Europe/Berlin:20260210T180000
+DTEND;TZID=Europe/Berlin:20260210T210000
+DTSTAMP:20260108T111557Z
+CREATED:20260108
+LAST-MODIFIED:20260108
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Herzchen Tag
+DESCRIPTION:
+URL:https://www.zam.haus/programm/herzchen-tag/
+CATEGORIES:Mitmachen,Textil
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_20250912_080909_GwrEvaN.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-178b0113689dce8a7e48360c3886dc99@zam.haus
+DTSTART;TZID=Europe/Berlin:20260113T190000
+DTEND;TZID=Europe/Berlin:20260113T210000
+DTSTAMP:20260107T152400Z
+CREATED:20260107
+LAST-MODIFIED:20260107
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Origami-Ornamente
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137-547/
+CATEGORIES:Farben,Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/IMG_2835-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-54eea69746513c0b90bbe6227b6f46c3@zam.haus
+DTSTART;TZID=Europe/Berlin:20260201T110000
+DTEND;TZID=Europe/Berlin:20260201T170000
+DTSTAMP:20260105T120656Z
+CREATED:20260105
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:OpenFootwear Workshop: Mach dir dein eigenes Schuhwerk
+DESCRIPTION:
+URL:https://www.zam.haus/programm/openfootwear-workshop-mach-dir-dein-eigenes-schuhwerk-768/
+CATEGORIES:Druck,Prototypen,Textil,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/ZAMpicture-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0c12278389532e91c601af4c8adef7fc@zam.haus
+DTSTART;TZID=Europe/Berlin:20260131T110000
+DTEND;TZID=Europe/Berlin:20260131T170000
+DTSTAMP:20260105T115039Z
+CREATED:20260105
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:OpenFootwear Workshop: Mach dir dein eigenes Schuhwerk
+DESCRIPTION:
+URL:https://www.zam.haus/programm/openfootwear-workshop-mach-dir-dein-eigenes-schuhwerk/
+CATEGORIES:Druck,Prototypen,Textil,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2026/01/ZAMpicture-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ce1aad92b939420fc17005e5461e6f48@zam.haus
+DTSTART;TZID=Europe/Berlin:20260112T173000
+DTEND;TZID=Europe/Berlin:20260112T203000
+DTSTAMP:20251218T162517Z
+CREATED:20251218
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grossmaschinengrundkurs-mit-schreinermeister-lukas/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1abf005ea3f957c5cb79941ab7707c11@zam.haus
+DTSTART;TZID=Europe/Berlin:20251223T000000
+DTEND;TZID=Europe/Berlin:20260102T000000
+DTSTAMP:20251218T145233Z
+CREATED:20251218
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Weihnachtsschließung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/weihnachtsschliessung/
+CATEGORIES:Schließung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/PXL_20251213_141121328.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b6cf334c22c8f4ce8eb920bb7b512ed0@zam.haus
+DTSTART;TZID=Europe/Berlin:20240105T173000
+DTEND;TZID=Europe/Berlin:20240105T190000
+DTSTAMP:20251218T142732Z
+RRULE:FREQ=WEEKLY;BYDAY=FR
+EXDATE:20241122T153000Z,20241101T153000Z,20250418T143000Z,20250530T143000Z,20251003T143000Z,20251226T153000Z
+CREATED:20251218
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Holzwerkstatt Orgatreffen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/holzwerkstatt-orgatreffen-289/
+CATEGORIES:Holz,Treffen
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2024/09/Bildschirmfoto-2025-05-07-um-15.13.05.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-95c8ba4434e9db2bf3e20c639b04c56f@zam.haus
+DTSTART;TZID=Europe/Berlin:20260124T140000
+DTEND;TZID=Europe/Berlin:20260124T150000
+DTSTAMP:20260123T130220Z
+RRULE:FREQ=WEEKLY;UNTIL=20251210T130000Z;BYDAY=TU
+EXDATE:20251118T120000Z
+CREATED:20260123
+LAST-MODIFIED:20260126
+PRIORITY:5
+SEQUENCE:17
+TRANSP:OPAQUE
+SUMMARY:Einweisung Lasercutter Trotec Speedy 400 & Trotec Speedy 100
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einweisung-lasercutter-trotec-speedy-400-trotec-speedy-100-378-588/
+CATEGORIES:Prototypen,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/0e5d17dd-3b7e-43de-9d29-c8a90014a4b71-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d82f9436247aa0049767b776dceab4ed@zam.haus
+DTSTART;TZID=Europe/Berlin:20260131T140000
+DTEND;TZID=Europe/Berlin:20260131T190000
+DTSTAMP:20251218T152401Z
+CREATED:20251218
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:Grundkurs MAG- & WIG-Schweißen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/133/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_4266-Juha_quer-scaled_JE83g3C.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-3e9f7c16bd1cdea78f8e2eea72dfdfbe@zam.haus
+DTSTART;TZID=Europe/Berlin:20260125T140000
+DTEND;TZID=Europe/Berlin:20260125T180000
+DTSTAMP:20251218T153057Z
+CREATED:20251218
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:Risografie-Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/risografie-workshop/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/riso-workshop-paul.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5fd2c06f558321eff612bbbe455f6fbd@zam.haus
+DTSTART;TZID=Europe/Berlin:20260117T140000
+DTEND;TZID=Europe/Berlin:20260117T190000
+DTSTAMP:20251218T151417Z
+CREATED:20251218
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Grundkurs MAG- & WIG-Schweißen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grundkurs-mag-wig-schweissen/
+CATEGORIES:Metall,Workshop
+LOCATION:ZAM - Metallwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/IMG_4266-Juha_quer-scaled_JE83g3C.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1387a00f03b4b423e63127b08c261bdc@zam.haus
+DTSTART;TZID=Europe/Berlin:20260104T110000
+DTEND;TZID=Europe/Berlin:20260104T170000
+DTSTAMP:20251218T144527Z
+CREATED:20251218
+LAST-MODIFIED:20251222
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Milchkarton-Radierung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/milchkarton-radierung/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/12/IMG_0167_S345VHb.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d26e5e36c1b0b620407eadabb6c0c5c2@zam.haus
+DTSTART;TZID=Europe/Berlin:20260130T190000
+DTEND;TZID=Europe/Berlin:20260131T005500
+DTSTAMP:20251218T142601Z
+CREATED:20251218
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:26
+TRANSP:OPAQUE
+SUMMARY:RambaZamba
+DESCRIPTION:
+URL:https://www.zam.haus/programm/rambazamba/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/Rambazamba-4-zu-3.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4e093aa7417fe0881bc5fbda7322a74e@zam.haus
+DTSTART;TZID=Europe/Berlin:20260109T170000
+DTEND;TZID=Europe/Berlin:20260109T190000
+DTSTAMP:20251216T130610Z
+CREATED:20251216
+LAST-MODIFIED:20251216
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Petrykiwka-Workshop mit Tetiana Liudvychenko
+DESCRIPTION:
+URL:https://www.zam.haus/programm/petrykiwka-workshop-mit-tetiana-liudvychenko/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/Screenshot_20251216_125916_Gmail-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8b1ecf6d8049bb062a356f1cc812e69e@zam.haus
+DTSTART;TZID=Europe/Berlin:20260105T200000
+DTEND;TZID=Europe/Berlin:20260105T230000
+DTSTAMP:20251211T095232Z
+RDATE;VALUE=PERIOD:20260105T180000Z/20260105T210000Z,20260126T180000Z/20260126T210000Z,20260216T180000Z/20260216T210000Z,20260309T180000Z/20260309T210000Z,20260330T170000Z/20260330T200000Z,20260420T170000Z/20260420T200000Z,20260511T170000Z/20260511T200000Z,20260601T170000Z/20260601T200000Z,20260622T170000Z/20260622T200000Z,20260713T170000Z/20260713T200000Z,20260803T170000Z/20260803T200000Z,20260824T170000Z/20260824T200000Z,20260914T170000Z/20260914T200000Z,20261005T170000Z/20261005T200000Z,20261026T180000Z/20261026T210000Z,20261116T180000Z/20261116T210000Z,20261207T180000Z/20261207T210000Z
+EXDATE:20260126T180000Z,20260216T180000Z
+CREATED:20251211
+LAST-MODIFIED:20260213
+PRIORITY:5
+SEQUENCE:21
+TRANSP:OPAQUE
+SUMMARY:ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137-563/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/ZAMkreativ.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f005e17eabbb0d38b06b8a78f3637d85@zam.haus
+DTSTART;TZID=Europe/Berlin:20251216T190000
+DTEND;TZID=Europe/Berlin:20251216T210000
+DTSTAMP:20251208T172242Z
+CREATED:20251208
+LAST-MODIFIED:20251208
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Origami- und Plissee-Kugeln
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt-137/
+CATEGORIES:Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/12/142E3BCA-F364-4930-B828-5918696038FB-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9d702ffd99ad9c70ac37e506facc8c38@zam.haus
+DTSTART;TZID=Europe/Berlin:20251219T193000
+DTEND;TZID=Europe/Berlin:20251219T203000
+DTSTAMP:20251128T184239Z
+CREATED:20251128
+LAST-MODIFIED:20251129
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:C.M. Rother – Seltsam Anders – Lesung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/c-m-rother-seltsam-anders-lesung/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/PHOTO-2025-11-19-18-13-07.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cf5ff72ca35f112b361de3e312c088f4@zam.haus
+DTSTART;TZID=Europe/Berlin:20251202T190000
+DTEND;TZID=Europe/Berlin:20251202T210000
+DTSTAMP:20251125T162826Z
+CREATED:20251125
+LAST-MODIFIED:20251127
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Solino-Sterne und Steck-Sterne in der Farbwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sterne-farbwerkstatt/
+CATEGORIES:Mitmachen
+LOCATION:ZAM - Farbwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/Sterne-Mirjam_5C2EBA47-C881-41F9-BCB7-EB12F3909A11-189stf65ep84jdz3d68sbqbm7h-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-2d45cbe914655ca562553cb81fdfc464@zam.haus
+DTSTART;TZID=Europe/Berlin:20251128T190000
+DTEND;TZID=Europe/Berlin:20251129T000000
+DTSTAMP:20251123T134428Z
+CREATED:20251123
+LAST-MODIFIED:20251124
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Näh dir deine Einkaufstasche!
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einkaufstasche/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/Einkaufstasche-1000031074-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-75da5036f659fe64b53f3d9b39412967@zam.haus
+DTSTART;TZID=Europe/Berlin:20251216T180000
+DTEND;TZID=Europe/Berlin:20251216T210000
+DTSTAMP:20251122T120732Z
+CREATED:20251122
+LAST-MODIFIED:20251125
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Last-Minute-Geschenke
+DESCRIPTION:
+URL:https://www.zam.haus/programm/last-minute-geschenke/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/Textil-Schleifen-1000030850-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-118921efba23fc329e6560b27861f0c2@zam.haus
+DTSTART;TZID=Europe/Berlin:20251202T180000
+DTEND;TZID=Europe/Berlin:20251202T210000
+DTSTAMP:20251122T115751Z
+CREATED:20251122
+LAST-MODIFIED:20251122
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Raffinierte Handtaschen nähen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/handtaschen/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/Textil-Handtaschen-1000030427-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-19f01591b6ca3ba03f1aedc8db12cdb9@zam.haus
+DTSTART;TZID=Europe/Berlin:20251122T130000
+DTEND;TZID=Europe/Berlin:20251123T130000
+DTSTAMP:20251120T151807Z
+CREATED:20251120
+LAST-MODIFIED:20251122
+PRIORITY:5
+SEQUENCE:17
+TRANSP:OPAQUE
+SUMMARY:24 Stunden ComicZeichnen im ZAM
+DESCRIPTION:
+URL:https://www.zam.haus/programm/24h-comic-zeichnen/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/11/24h-Comic.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b2005ea31710de47466d9e53068edc71@zam.haus
+DTSTART;TZID=Europe/Berlin:20251207T120000
+DTEND;TZID=Europe/Berlin:20251207T170000
+DTSTAMP:20251118T140659Z
+CREATED:20251118
+LAST-MODIFIED:20251130
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Weihnachtskarten im Linoldruck
+DESCRIPTION:
+URL:https://www.zam.haus/programm/weihnachtskarten-im-linoldruck/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/Linol1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-581b41df0cd50ace849e061ef74827fc@zam.haus
+DTSTART;TZID=Europe/Berlin:20251213T150000
+DTEND;TZID=Europe/Berlin:20251213T200000
+DTSTAMP:20251117T200101Z
+CREATED:20251117
+LAST-MODIFIED:20251204
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Sternwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sternenwerkstatt-978/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-28-at-12.30.28.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-bcc2bdb799f873f02080ae277f291da1@zam.haus
+DTSTART;TZID=Europe/Berlin:20251128T190000
+DTEND;TZID=Europe/Berlin:20251129T000000
+DTSTAMP:20251113T164516Z
+CREATED:20251113
+LAST-MODIFIED:20251127
+PRIORITY:5
+SEQUENCE:40
+TRANSP:OPAQUE
+SUMMARY:Pfannenwender – Weihnachtsgeschenk
+DESCRIPTION:
+URL:https://www.zam.haus/programm/pfannenwender-weihnachtsgeschenk/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/20251123_160036.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ffa1e107c6469dafa0016703450e26ed@zam.haus
+DTSTART;TZID=Europe/Berlin:20251111T213000
+DTEND;TZID=Europe/Berlin:20251111T223000
+DTSTAMP:20251111T134456Z
+RRULE:FREQ=WEEKLY;UNTIL=20251210T203000Z;BYDAY=TU
+EXDATE:20251118T193000Z
+CREATED:20251111
+LAST-MODIFIED:20251203
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Einweisung Lasercutter Trotec Speedy 400 & Trotec Speedy 100
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einweisung-lasercutter-trotec-speedy-400-trotec-speedy-100-378/
+CATEGORIES:Prototypen,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/0e5d17dd-3b7e-43de-9d29-c8a90014a4b71-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-3501672ebc68a5524629080e3ef60aef@zam.haus
+DTSTART;TZID=Europe/Berlin:20251114T130000
+DTEND;TZID=Europe/Berlin:20251114T143000
+DTSTAMP:20251110T103717Z
+RRULE:FREQ=WEEKLY;BYDAY=FR
+EXDATE:20251226T110000Z,20260102T110000Z,20260227T110000Z
+CREATED:20251110
+LAST-MODIFIED:20260224
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:ZAMlöffeln mit SuppKultur
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamloeffeln-mit-suppkultur/
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/11/SuppKultur-ZAM.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ba7609ee5789cc4dff171045a693a65f@zam.haus
+DTSTART;TZID=Europe/Berlin:20260314T133000
+DTEND;TZID=Europe/Berlin:20260314T150000
+DTSTAMP:20251107T082642Z
+CREATED:20251107
+LAST-MODIFIED:20251122
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Dr. Stuhl in der Holzwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/dr-stuhl-holzwerkstatt/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/stuhl-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1ab60b5e8bd4eac8a7537abb5936aadc@zam.haus
+DTSTART;TZID=Europe/Berlin:20260214T133000
+DTEND;TZID=Europe/Berlin:20260214T150000
+DTSTAMP:20251107T082539Z
+CREATED:20251107
+LAST-MODIFIED:20251208
+PRIORITY:5
+SEQUENCE:34
+TRANSP:OPAQUE
+SUMMARY:Dr. Stuhl in der Holzwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/dr-stuhl-in-der-holzwerkstatt-3/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/stuhl-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7da9fd85999f583e3906f99a3ee58911@zam.haus
+DTSTART;TZID=Europe/Berlin:20260124T133000
+DTEND;TZID=Europe/Berlin:20260124T150000
+DTSTAMP:20251107T082404Z
+CREATED:20251107
+LAST-MODIFIED:20251208
+PRIORITY:5
+SEQUENCE:33
+TRANSP:OPAQUE
+SUMMARY:Dr. Stuhl in der Holzwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/dr-stuhl-in-der-holzwerkstatt-2/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/stuhl-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a9d34fb66d81367590fdd5337324233a@zam.haus
+DTSTART;TZID=Europe/Berlin:20251210T180000
+DTEND;TZID=Europe/Berlin:20251210T210000
+DTSTAMP:20251106T162444Z
+CREATED:20251106
+LAST-MODIFIED:20251122
+PRIORITY:5
+SEQUENCE:12
+TRANSP:OPAQUE
+SUMMARY:Workshop Hand-Oberfräse
+DESCRIPTION:
+URL:https://www.zam.haus/programm/hand-oberfraese-holzwerkstatt/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/20251106_160028.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-77ab78641fb740c101b96c74ca7c15f6@zam.haus
+DTSTART;TZID=Europe/Berlin:20251122T133000
+DTEND;TZID=Europe/Berlin:20251122T150000
+DTSTAMP:20251106T152459Z
+CREATED:20251106
+LAST-MODIFIED:20251106
+PRIORITY:5
+SEQUENCE:31
+TRANSP:OPAQUE
+SUMMARY:Dr. Stuhl in der Holzwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cajon_maddin-852-206-577-284-360/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/stuhl-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7cc980b0f894bd0cf05c37c246f215f3@zam.haus
+DTSTART;TZID=Europe/Berlin:20251128T180000
+DTEND;TZID=Europe/Berlin:20251128T200000
+DTSTAMP:20251103T150009Z
+CREATED:20251103
+LAST-MODIFIED:20251119
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Farbwerkstatt Weihnachtskarten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/farbwerkstatt-weihnachtskarten/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/11/Wei1.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1e9f65024cd764a33b94a14b0e79f42d@zam.haus
+DTSTART;TZID=Europe/Berlin:20251107T180000
+DTEND;TZID=Europe/Berlin:20251107T200000
+DTSTAMP:20251103T144455Z
+CREATED:20251103
+LAST-MODIFIED:20251103
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:Farbwerkstatt Eröffnung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/farbwerkstatt-eroeffnung/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/11/A8908576-9876-4347-B544-84940E739151.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7012ef0335aa2adbab58bd6d0702ba41@zam.haus
+DTSTART;TZID=Europe/Berlin:20251114T190000
+DTEND;TZID=Europe/Berlin:20251114T193000
+DTSTAMP:20251101T142649Z
+RRULE:FREQ=WEEKLY;INTERVAL=2
+EXDATE:20251226T170000Z
+CREATED:20251101
+LAST-MODIFIED:20260112
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:ZAMimpulse – 5 Minuten Inspiration im ZAM
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamimpulse-5-minuten-inspiration-im-zam/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/11/PXL_20251024_183414660.MP_.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-29e11ea8ec6c7804a7f939e8e78e9c18@zam.haus
+DTSTART;TZID=Europe/Berlin:20251115T133000
+DTEND;TZID=Europe/Berlin:20251115T150000
+DTSTAMP:20251106T152123Z
+CREATED:20251106
+LAST-MODIFIED:20251107
+PRIORITY:5
+SEQUENCE:30
+TRANSP:OPAQUE
+SUMMARY:Dr. Stuhl in der Holzwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cajon_maddin-852-206-577-284/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/stuhl-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-812469e49663025b39e8d25fdaad81a7@zam.haus
+DTSTART;TZID=Europe/Berlin:20251117T100000
+DTEND;TZID=Europe/Berlin:20251117T183000
+DTSTAMP:20251024T150927Z
+CREATED:20251024
+LAST-MODIFIED:20251024
+PRIORITY:5
+SEQUENCE:16
+TRANSP:OPAQUE
+SUMMARY:Längsholzschneidbrett-Kurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-992-389-409-464/
+CATEGORIES:Holz,Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/Schneidbrettkurs2.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-169806bb68ccbf5e6f96ddc60c40a044@zam.haus
+DTSTART;TZID=Europe/Berlin:20251027T200000
+DTEND;TZID=Europe/Berlin:20251027T220000
+DTSTAMP:20251023T154936Z
+CREATED:20251023
+LAST-MODIFIED:20251024
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Haupthaus Plenum
+DESCRIPTION:
+URL:https://www.zam.haus/programm/haupthaus-plenum/
+CATEGORIES:Plenum
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/20251011_145638-scaled-e1761226663569.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-885fe656777008c335ac96072a45be15@zam.haus
+DTSTART;TZID=Europe/Berlin:20251206T103000
+DTEND;TZID=Europe/Berlin:20251206T183000
+DTSTAMP:20251016T090642Z
+CREATED:20251016
+LAST-MODIFIED:20251122
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Bayerisches Rotes Kreuz: Erste Hilfe Kurs
+DESCRIPTION:
+URL:https://www.zam.haus/programm/brk-erste-hilfe/
+ORGANIZER;CN=Bayerisches Rotes Kreuz Erlangen-Höchstadt:MAILTO:
+CATEGORIES:Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/Ausbildung-21.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-204904e461002b28511d5880e1c36a0f@zam.haus
+DTSTART;TZID=Europe/Berlin:20251118T093000
+DTEND;TZID=Europe/Berlin:20251118T173000
+DTSTAMP:20251016T090429Z
+CREATED:20251016
+LAST-MODIFIED:20251016
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Bayerisches Rotes Kreuz: Erste Hilfe Kurs
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-2-komposition-farbschichten-562/
+ORGANIZER;CN=Bayerisches Rotes Kreuz Erlangen-Höchstadt:MAILTO:
+CATEGORIES:Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/Ausbildung-21.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f1404c2624fa7f2507ba04fd9dfc5fb1@zam.haus
+DTSTART;TZID=Europe/Berlin:20251025T160000
+DTEND;TZID=Europe/Berlin:20251026T013000
+DTSTAMP:20251013T124551Z
+CREATED:20251013
+LAST-MODIFIED:20251024
+PRIORITY:5
+SEQUENCE:17
+TRANSP:OPAQUE
+SUMMARY:Der Natur auf der Spur: Die Lange Nacht der Wissenschaften im ZAM
+DESCRIPTION:
+URL:https://www.zam.haus/programm/der-natur-auf-der-spur-die-lange-nacht-der-wissenschaften-im-zam/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/221013-Myzel-Pixelmonster-LNdW.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-64a4250dded75fcc7ac237f910e8a54e@zam.haus
+DTSTART;TZID=Europe/Berlin:20251028T180000
+DTEND;TZID=Europe/Berlin:20251028T210000
+DTSTAMP:20251013T123724Z
+CREATED:20251013
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Halloween Basteln in der Textilwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/new-ukiyo-e-japanese-woodblock-print-workshop-339-433/
+CATEGORIES:Mitmachen,Textil
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/10/Halloween-Icon.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7813d1590d28a7dd372ad54b5d29d033@zam.haus
+DTSTART;TZID=Europe/Berlin:20251008T210000
+DTEND;TZID=Europe/Berlin:20251009T000000
+DTSTAMP:20251007T130927Z
+CREATED:20251007
+LAST-MODIFIED:20251007
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print: Komposition & Farbschichten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-2-komposition-farbschichten-146/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d347df3d73566108aa6d1b5d37b59703@zam.haus
+DTSTART;TZID=Europe/Berlin:20260111T120000
+DTEND;TZID=Europe/Berlin:20260111T173000
+DTSTAMP:20251002T130818Z
+CREATED:20251002
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:24
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z-198-461-754/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/20250103_1514092-e1754559994503.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6fd86e0ad726b778e37cf270fa0247d7@zam.haus
+DTSTART;TZID=Europe/Berlin:20251026T120000
+DTEND;TZID=Europe/Berlin:20251026T173000
+DTSTAMP:20251002T130010Z
+CREATED:20251002
+LAST-MODIFIED:20251002
+PRIORITY:5
+SEQUENCE:18
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z-198/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/20250103_1514092-e1754559994503.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-54ee290e80589a2a1225c338a71839f5@zam.haus
+DTSTART;TZID=Europe/Berlin:20251117T190000
+DTEND;TZID=Europe/Berlin:20251117T210000
+DTSTAMP:20250930T144816Z
+CREATED:20250930
+LAST-MODIFIED:20250930
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Batik – Kunst und Technik aus Indonesien
+DESCRIPTION:
+URL:https://www.zam.haus/programm/traditionelles-indonesisches-batik-545/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/IMG_20250804_223205_730.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f5cfbc876972bd0d031c8abc37344c28@zam.haus
+DTSTART;TZID=Europe/Berlin:20251003T160000
+DTEND;TZID=Europe/Berlin:20251003T190000
+DTSTAMP:20250930T111556Z
+CREATED:20250930
+LAST-MODIFIED:20250930
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Türen auf mit der Maus
+DESCRIPTION:
+URL:https://www.zam.haus/programm/tueren-auf-mit-der-maus/
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/20250930_112543-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a424ded436368e3f9f10da14c23acc85@zam.haus
+DTSTART;TZID=Europe/Berlin:20250924T223000
+DTEND;TZID=Europe/Berlin:20250924T233000
+DTSTAMP:20250922T205136Z
+RRULE:FREQ=WEEKLY;UNTIL=20251030T203000Z;BYDAY=WE
+CREATED:20250922
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Einweisung Lasercutter Trotec Speedy 400 & Trotec Speedy 100
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einweisung-lasercutter-trotec-speedy-400-trotec-speedy-100/
+CATEGORIES:Prototypen,Workshop
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/0e5d17dd-3b7e-43de-9d29-c8a90014a4b71-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-caaa29eab72b231b0af62fbdff89bfce@zam.haus
+DTSTART;TZID=Europe/Berlin:20251121T212000
+DTEND;TZID=Europe/Berlin:20251121T230000
+DTSTAMP:20250919T172550Z
+CREATED:20250919
+LAST-MODIFIED:20250919
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Pecha Kucha Night Erlangen
+DESCRIPTION:Pecha Kucha Nacht in Erlangen: Seit 2011 versuchen wir mit unseren Veranstaltungen die Präsentationspraxis in der Region zu verbessern, indem wir bessere Präsentationen auf unserer Bühne haben, als das bei den meisten Firmen- oder Bildungspräsentationen der Fall ist. Pecha Kucha hat 3 Grundregeln: – jeder Vortrag hat genau 20 Folien. – jede Folie wird genau 20s angezeigt. Der Sprecher hat keinen Einfluß auf den Wechsel der Folien – es wird viel Bild und wenig Text genutzt. Die sich so ergebenden Vorträge mit einer Länge von 6:40 sind kurzweilig, unterhaltsam und je nach Inhalt informativ oder einfach amüsant. Pecha Kucha Erlangen wurde initiiert von Tobias Müller-Zielke, der den Event auch seit der ersten Ausgabe im Februar 2011 organisiert. Pecha Kucha Erlangen ist offizieller Teil des globalen Pecha Kucha Netzwerks, das inzwischen über 1.000 Städte weltweit umfasst.\nDies ist die erste Pecha Kucha Nacht im ZAM.\n
+URL:https://www.zam.haus/programm/pecha-kucha-night-erlangen/
+ORGANIZER;CN=Pecha Kucha Erlangen, Tobias Müller-Zielke:MAILTO:
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/09/pkerlangen_cover.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0ad5292c158f3924f8b480367fcbeb94@zam.haus
+DTSTART;TZID=Europe/Berlin:20251006T200000
+DTEND;TZID=Europe/Berlin:20251006T220000
+DTSTAMP:20250917T105837Z
+CREATED:20250917
+LAST-MODIFIED:20250917
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:New Ukiyo-e – Japanese Woodblock Print Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/new-ukiyo-e-japanese-woodblock-print-workshop-339/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/IMG_20250717_173152-1-4stmne87stgmij1imkt9tdfxew-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5cc3749a6e56ef6d656735dff9176074@zam.haus
+DTSTART;TZID=Europe/Berlin:20251208T173000
+DTEND;TZID=Europe/Berlin:20251208T203000
+DTSTAMP:20250916T162053Z
+CREATED:20250916
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:36
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118-769-407-796-884-223-160/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-39e98420b5e98bfbdc8a619bef7b8f61@zam.haus
+DTSTART;TZID=Europe/Berlin:20251110T173000
+DTEND;TZID=Europe/Berlin:20251110T203000
+DTSTAMP:20250916T161846Z
+CREATED:20250916
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:30
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118-769-407-796-884/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-659b7b42e9c002ce0075077cd55a1623@zam.haus
+DTSTART;TZID=Europe/Berlin:20251027T173000
+DTEND;TZID=Europe/Berlin:20251027T203000
+DTSTAMP:20250916T161729Z
+CREATED:20250916
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:28
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118-769-407-796/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b670dfc593340027581047db105f3347@zam.haus
+DTSTART;TZID=Europe/Berlin:20251013T183000
+DTEND;TZID=Europe/Berlin:20251013T213000
+DTSTAMP:20250916T161550Z
+CREATED:20250916
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:26
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118-769-407/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-009c434cab57de48a31f6b669e7ba266@zam.haus
+DTSTART;TZID=Europe/Berlin:20250929T183000
+DTEND;TZID=Europe/Berlin:20250929T213000
+DTSTAMP:20250916T161350Z
+CREATED:20250916
+LAST-MODIFIED:20250916
+PRIORITY:5
+SEQUENCE:22
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118-769/
+CATEGORIES:Holz,Mitmachen,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-615299acbbac3e21302bbc435091ad9f@zam.haus
+DTSTART;TZID=Europe/Berlin:20251002T200000
+DTEND;TZID=Europe/Berlin:20251002T230000
+DTSTAMP:20250916T125616Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=1TH
+CREATED:20250916
+LAST-MODIFIED:20260305
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Open Source Contributor Meetup
+DESCRIPTION:
+URL:https://www.zam.haus/programm/software-contributor-meetup-monthly/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/08/ChatGPT-Image-27.-Aug.-2025-11_36_23.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a569398d13eb87b14276380d2921ddbc@zam.haus
+DTSTART;TZID=Europe/Berlin:20251006T110000
+DTEND;TZID=Europe/Berlin:20251006T193000
+DTSTAMP:20250903T121723Z
+CREATED:20250903
+LAST-MODIFIED:20250903
+PRIORITY:5
+SEQUENCE:13
+TRANSP:OPAQUE
+SUMMARY:Längsholzschneidbrett-Kurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-992-389-409/
+CATEGORIES:Holz,Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/Schneidbrettkurs2.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e32cc80bf07915058ce90722ee17bb71@zam.haus
+DTSTART;TZID=Europe/Berlin:20250908T200000
+DTEND;TZID=Europe/Berlin:20250908T230000
+DTSTAMP:20250827T113334Z
+CREATED:20250827
+LAST-MODIFIED:20250827
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Software Contributor Meetup
+DESCRIPTION:
+URL:https://www.zam.haus/programm/software-contributor-meetup/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/08/ChatGPT-Image-27.-Aug.-2025-11_36_23.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-55ed523b2ca4371a31d7dbd7a2877bea@zam.haus
+DTSTART;TZID=Europe/Berlin:20251011T150000
+DTEND;TZID=Europe/Berlin:20251011T220000
+DTSTAMP:20250811T091642Z
+CREATED:20250811
+LAST-MODIFIED:20250812
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:Frei Bordsteinkante
+DESCRIPTION:
+URL:https://www.zam.haus/programm/new-ukiyo-e-japanese-woodblock-print-workshop-503/
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/Feed-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fc5dda17bef960b7c200e7d8063142ec@zam.haus
+DTSTART;TZID=Europe/Berlin:20250908T183000
+DTEND;TZID=Europe/Berlin:20250908T213000
+DTSTAMP:20250808T082450Z
+CREATED:20250808
+LAST-MODIFIED:20250902
+PRIORITY:5
+SEQUENCE:20
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992-890-118/
+CATEGORIES:Holz,Mitmachen,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-349f36aa789af083b8e26839bd498af9@zam.haus
+DTSTART;TZID=Europe/Berlin:20250921T130000
+DTEND;TZID=Europe/Berlin:20250921T180000
+DTSTAMP:20250807T114717Z
+CREATED:20250807
+LAST-MODIFIED:20250820
+PRIORITY:5
+SEQUENCE:14
+TRANSP:OPAQUE
+SUMMARY:Siebdruck-Grundkurs von A bis Z
+DESCRIPTION:
+URL:https://www.zam.haus/programm/siebdruck-grundkurs-von-a-bis-z/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/20250103_1514092-e1754559994503.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4d0b954f0bef437c29dfa73fafdf3fa5@zam.haus
+DTSTART;TZID=Europe/Berlin:20250918T200000
+DTEND;TZID=Europe/Berlin:20250918T220000
+DTSTAMP:20250807T113700Z
+CREATED:20250807
+LAST-MODIFIED:20250820
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:New Ukiyo-e – Japanese Woodblock Print Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/new-ukiyo-e-japanese-woodblock-print-workshop/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/IMG_20250717_173152-1-4stmne87stgmij1imkt9tdfxew-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6194a1ee187acd6606989f03769e8f7f@zam.haus
+DTSTART;TZID=Europe/Berlin:20250814T210000
+DTEND;TZID=Europe/Berlin:20250814T230000
+DTSTAMP:20250805T173134Z
+CREATED:20250805
+LAST-MODIFIED:20250805
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Ausstellung „Machen in Erlangen“: Midissage
+DESCRIPTION:
+URL:https://www.zam.haus/programm/ausstellung-machen-in-erlangen-midissage/
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/08/20250530_213458-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1458c6647dbf7cca56dff7bfe0576ebb@zam.haus
+DTSTART;TZID=Europe/Berlin:20251103T103000
+DTEND;TZID=Europe/Berlin:20251103T173000
+DTSTAMP:20250709T144231Z
+CREATED:20250709
+LAST-MODIFIED:20250727
+PRIORITY:5
+SEQUENCE:21
+TRANSP:OPAQUE
+SUMMARY:Cajon Bau – Herbstkurs mit Meister Martin
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cajon_maddin-852-206/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/07/Cajon-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f72f78a365657d56853b6867fb37dc3c@zam.haus
+DTSTART;TZID=Europe/Berlin:20250805T113000
+DTEND;TZID=Europe/Berlin:20250805T183000
+DTSTAMP:20250709T143851Z
+CREATED:20250709
+LAST-MODIFIED:20250727
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Cajon Bau – Sommerkurs mit Meister Martin
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cajon_maddin-852/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/07/Cajon-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4670c07872d5314c6ad6ffa633d4a059@zam.haus
+DTSTART;TZID=Europe/Berlin:20250728T183000
+DTEND;TZID=Europe/Berlin:20250728T213000
+DTSTAMP:20250709T141329Z
+CREATED:20250709
+LAST-MODIFIED:20250709
+PRIORITY:5
+SEQUENCE:15
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133-992/
+CATEGORIES:Holz,Mitmachen,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4eb0194ddf4d6c7a72dca4fd3149e92e@zam.haus
+DTSTART;TZID=Europe/Berlin:20250702T210000
+DTEND;TZID=Europe/Berlin:20250702T230000
+DTSTAMP:20250625T091401Z
+CREATED:20250625
+LAST-MODIFIED:20250625
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:
+DESCRIPTION:
+URL:https://www.zam.haus/programm/6574/
+CATEGORIES:Veranstaltung
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/06/header_image.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9379c23ac12dc94053207373040bc791@zam.haus
+DTSTART;TZID=Europe/Berlin:20260106T180000
+DTEND;TZID=Europe/Berlin:20260106T200000
+DTSTAMP:20250618T125737Z
+RRULE:FREQ=WEEKLY;BYDAY=TU
+EXDATE:20251223T160000Z
+CREATED:20250618
+LAST-MODIFIED:20260116
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:Computersprechstunde
+DESCRIPTION:
+URL:https://www.zam.haus/programm/computersprechstunde/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/rn_image_picker_lib_temp_1a88e1be-490c-4150-8ed4-a8b544f3681a-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b9a25e422ba96f7572089a00b838c3f8@zam.haus
+DTSTART;TZID=Europe/Berlin:20250816T120000
+DTEND;TZID=Europe/Berlin:20250816T160000
+DTSTAMP:20250616T101057Z
+CREATED:20250616
+LAST-MODIFIED:20250616
+PRIORITY:5
+SEQUENCE:14
+TRANSP:OPAQUE
+SUMMARY:Filzkissen To Go
+DESCRIPTION:
+URL:https://www.zam.haus/programm/phantastische-filzwesen-292/
+CATEGORIES:Mitmachen,Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/05/Filzwesen1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fc2e6a440b94f64831840137698021e1@zam.haus
+DTSTART;TZID=Europe/Berlin:20250614T120000
+DTEND;TZID=Europe/Berlin:20250614T160000
+DTSTAMP:20250612T173357Z
+CREATED:20250612
+LAST-MODIFIED:20250612
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:knit in public day im ZAM
+DESCRIPTION:Du hast Lust auf Häkeln oder Stricken? Dann komm am internationalen knit in public day im ZAM vorbei um gemeinsam kreativ zu werden.\n
+URL:https://www.zam.haus/programm/knit-in-public-day-im-zam/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/06/Untitled_Artwork-e1749743149782.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-aef546f29283b6ccef3c61f58fb8e79b@zam.haus
+DTSTART;TZID=Europe/Berlin:20250628T123000
+DTEND;TZID=Europe/Berlin:20250628T153000
+DTSTAMP:20250604T165455Z
+CREATED:20250604
+LAST-MODIFIED:20250604
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print 2: Komposition & Farbschichten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-2-komposition-farbschichten/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a0afdf1ac166b8652ffe9dee6eac779e@zam.haus
+DTSTART;TZID=Europe/Berlin:20251108T110000
+DTEND;TZID=Europe/Berlin:20251108T170000
+DTSTAMP:20250523T091641Z
+CREATED:20250523
+LAST-MODIFIED:20251013
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:welcome to the jungle – Filzworkshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/random-weaving-995/
+CATEGORIES:Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/05/Naturmaterial1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d994e3728ba5e28defb88a3289cd7ee8@zam.haus
+DTSTART;TZID=Europe/Berlin:20250809T120000
+DTEND;TZID=Europe/Berlin:20250809T160000
+DTSTAMP:20250513T152427Z
+CREATED:20250513
+LAST-MODIFIED:20250513
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Jeans Upcyling
+DESCRIPTION:
+URL:https://www.zam.haus/programm/jeans-upcyling/
+CATEGORIES:Mitmachen,Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/05/Jeansupcycling2.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5e62d03aec0d17facfc5355dd90d441c@zam.haus
+DTSTART;TZID=Europe/Berlin:20250719T120000
+DTEND;TZID=Europe/Berlin:20250719T160000
+DTSTAMP:20250513T151502Z
+CREATED:20250513
+LAST-MODIFIED:20250513
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Phantastische Filzwesen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/phantastische-filzwesen/
+CATEGORIES:Mitmachen,Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/05/Filzwesen1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a6869a35be893ac2d85989c5cd605539@zam.haus
+DTSTART;TZID=Europe/Berlin:20250601T130000
+DTEND;TZID=Europe/Berlin:20250601T180000
+DTSTAMP:20250507T150907Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Festliche Eröffnung | 30. Mai bis 1. Juni 2025
+DESCRIPTION:
+URL:https://www.zam.haus/programm/festliche-eroeffnung-30-mai-bis-1-juni-2025-121-781/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/04/ZAM_Eroeffnung_Einladung.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-436db71e03605b5aea1e08078f29f7f2@zam.haus
+DTSTART;TZID=Europe/Berlin:20250531T160000
+DTEND;TZID=Europe/Berlin:20250601T010000
+DTSTAMP:20250507T150614Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Festliche Eröffnung | 30. Mai bis 1. Juni 2025
+DESCRIPTION:
+URL:https://www.zam.haus/programm/festliche-eroeffnung-30-mai-bis-1-juni-2025-121/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/04/ZAM_Eroeffnung_Einladung.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5ef78f63ba22e7dfb2fa44613311b932@zam.haus
+DTSTART;TZID=Europe/Berlin:20250530T200000
+DTEND;TZID=Europe/Berlin:20250531T010000
+DTSTAMP:20250507T150429Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Festliche Eröffnung | 30. Mai bis 1. Juni 2025
+DESCRIPTION:
+URL:https://www.zam.haus/programm/festliche-eroeffnung-30-mai-bis-1-juni-2025/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/04/ZAM_Eroeffnung_Einladung.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f8580959e35cb0934479bb007fb241c2@zam.haus
+DTSTART;TZID=Europe/Berlin:20250531T220000
+DTEND;TZID=Europe/Berlin:20250531T230000
+DTSTAMP:20250507T134339Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:schauspiel Tanzperformance: Nocturnes for Restlessness
+DESCRIPTION:
+URL:https://www.zam.haus/programm/schauspiel-tanzperformance-nocturnes-for-restlessness-640/
+ORGANIZER;CN=schauspiel Erlangen:MAILTO:
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-38eb982ee635354d3febf457beeee736@zam.haus
+DTSTART;TZID=Europe/Berlin:20250530T200000
+DTEND;TZID=Europe/Berlin:20250530T210000
+DTSTAMP:20250507T133832Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:schauspiel Tanzperformance: Nocturnes for Restlessness
+DESCRIPTION:
+URL:https://www.zam.haus/programm/schauspiel-tanzperformance-nocturnes-for-restlessness-814/
+ORGANIZER;CN=schauspiel Erlangen:MAILTO:
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2025/05/Bildschirmfoto-2025-05-07-um-16.52.47.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7fd29ee0cb4b910d96d0ef86f16c8854@zam.haus
+DTSTART;TZID=Europe/Berlin:20250531T170000
+DTEND;TZID=Europe/Berlin:20250531T180000
+DTSTAMP:20250507T133340Z
+CREATED:20250507
+LAST-MODIFIED:20250507
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:schauspiel Tanzperformance: Nocturnes for Restlessness
+DESCRIPTION:
+URL:https://www.zam.haus/programm/schauspiel-tanzperformance-nocturnes-for-restlessness/
+ORGANIZER;CN=schauspiel Erlangen:MAILTO:
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c16882e007c5c7a773acd7c5e8869ab7@zam.haus
+DTSTART;TZID=Europe/Berlin:20250707T183000
+DTEND;TZID=Europe/Berlin:20250707T213000
+DTSTAMP:20250505T185127Z
+CREATED:20250505
+LAST-MODIFIED:20250505
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808-833-950-133/
+CATEGORIES:Holz,Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-141661fa46b11782745bb974d5140004@zam.haus
+DTSTART;TZID=Europe/Berlin:20250517T123000
+DTEND;TZID=Europe/Berlin:20250517T153000
+DTSTAMP:20250416T164507Z
+CREATED:20250416
+LAST-MODIFIED:20250416
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print 1: Farbe, Werkzeuge und Strukturen
+DESCRIPTION:
+URL:https://www.vhs-erlangen.de/p/kultur/malen-zeichnen-grafik-druck/gelli-print-1-farbe-werkzeuge-und-strukturen-480-C-25S332121
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d4cd91e80f36f8f3103617ded9128560@zam.haus
+DTSTART;TZID=Europe/Berlin:20250405T130000
+DTEND;TZID=Europe/Berlin:20250405T150000
+DTSTAMP:20250403T171214Z
+CREATED:20250403
+LAST-MODIFIED:20250404
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Nistkasten bauen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/nistkasten-bauen/
+CATEGORIES:Holz,Workshop
+LOCATION:Westliche Stadtmauerstraße 62 · Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/04/525DC7A3-CCAB-4059-85E4-5C95C260AE61-e1743720516510.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0e1bacf07b14673fcdb553da51b999a5@zam.haus
+DTSTART;TZID=Europe/Berlin:20250402T220000
+DTEND;TZID=Europe/Berlin:20250403T000000
+DTSTAMP:20250319T204046Z
+CREATED:20250319
+LAST-MODIFIED:20250319
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Keine Prototypenwerkstatt (entfällt aufgrund der Mitgliederversammlung)
+DESCRIPTION:Die Prototypenwerkstatt im Aquarium ist offen – komm vorbei zum 3D-Drucken, Lasercutten oder für Unterstützung bei deinem Projekt!\n
+URL:https://www.zam.haus/programm/offene-prototypenwerkstatt-599/
+CATEGORIES:Prototypen
+LOCATION:Westliche Stadtmauerstr. 62 - EG
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/01/250107_3DDruckLaser_breitformat-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-3d7d9461075eb7c37fbbfcad1d7042c1@zam.haus
+DTSTART;TZID=Europe/Berlin:20250407T183000
+DTEND;TZID=Europe/Berlin:20250407T213000
+DTSTAMP:20250306T161535Z
+CREATED:20250306
+LAST-MODIFIED:20250306
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:Großmaschinengrundkurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas-808/
+CATEGORIES:Holz,Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/20250301_171801.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-618faa1728eb2ef6e3733645273ab145@zam.haus
+DTSTART;TZID=Europe/Berlin:20250414T180000
+DTEND;TZID=Europe/Berlin:20250415T220000
+DTSTAMP:20250306T155745Z
+CREATED:20250306
+LAST-MODIFIED:20250313
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Längsholzschneidbrett-Kurs mit Schreinermeister Lukas
+DESCRIPTION:
+URL:https://www.zam.haus/programm/laengsholzschneidbrett-kurs-mit-schreinermeister-lukas/
+CATEGORIES:Holz,Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/03/Schneidbrettkurs2.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-2cfa47a65809ea0496bbf9aa363dc5da@zam.haus
+DTSTART;TZID=Europe/Berlin:20250415T190000
+DTEND;TZID=Europe/Berlin:20250415T210000
+DTSTAMP:20250212T135129Z
+CREATED:20250212
+LAST-MODIFIED:20250212
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Einführung ins Nassfilzen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einfuehrung-ins-nassfilzen/
+CATEGORIES:Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/02/Nassfilzen.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5cd7edbe7a1a668fdc63c138002cc43a@zam.haus
+DTSTART;TZID=Europe/Berlin:20250412T120000
+DTEND;TZID=Europe/Berlin:20250412T150000
+DTSTAMP:20250207T142536Z
+CREATED:20250207
+LAST-MODIFIED:20250207
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Osternester und -kränze aus Naturmaterialien flechten
+DESCRIPTION:
+URL:https://www.zam.haus/programm/osternester-und-kraenze-aus-naturmaterialien-flechten/
+CATEGORIES:Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/02/Osternester_1_crop.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4e55139e019a58e0084f194f758ffdea@zam.haus
+DTSTART;TZID=Europe/Berlin:20250406T160000
+DTEND;TZID=Europe/Berlin:20250406T180000
+DTSTAMP:20250207T142606Z
+CREATED:20250207
+LAST-MODIFIED:20250207
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Nähmaschinen-Führerschein (Einführung)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/naehmaschinen-fuehrerschein-einfuehrung-636/
+CATEGORIES:Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2025/02/Naehmaschinenfuehrerschein_1_crop-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-50c1f44e426560f3f2cdcb3e19e39903@zam.haus
+DTSTART;TZID=Europe/Berlin:20250625T210000
+DTEND;TZID=Europe/Berlin:20250625T230000
+DTSTAMP:20250120T150351Z
+CREATED:20250120
+LAST-MODIFIED:20250618
+PRIORITY:5
+SEQUENCE:9
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: In welchen Welten lebe ich? – Reflexions-Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797-999-181-446-327-217/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-636efd4f9aeb5781e9ea815cdd633e52@zam.haus
+DTSTART;TZID=Europe/Berlin:20250507T210000
+DTEND;TZID=Europe/Berlin:20250507T230000
+DTSTAMP:20250120T150259Z
+RDATE;VALUE=PERIOD:20250507T170000Z/20250507T190000Z
+CREATED:20250120
+LAST-MODIFIED:20250429
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Unser Herz kennt eine bessere Welt (Teil 2)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797-999-181-446-327/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7acba01022004f2ce03bf56ca56ec6f4@zam.haus
+DTSTART;TZID=Europe/Berlin:20250403T210000
+DTEND;TZID=Europe/Berlin:20250403T230000
+DTSTAMP:20250120T150219Z
+RDATE;VALUE=PERIOD:20250403T170000Z/20250403T190000Z
+CREATED:20250120
+LAST-MODIFIED:20250320
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Unser Herz kennt eine schönere Welt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797-999-181-446-501/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8a88d5f412f2ad376f8597d28cbd3720@zam.haus
+DTSTART;TZID=Europe/Berlin:20250113T200000
+DTEND;TZID=Europe/Berlin:20250113T230000
+DTSTAMP:20241217T183630Z
+RDATE;VALUE=PERIOD:20250113T180000Z/20250113T210000Z,20250203T180000Z/20250203T210000Z,20250224T180000Z/20250224T210000Z,20250317T180000Z/20250317T210000Z,20250407T170000Z/20250407T200000Z,20250428T170000Z/20250428T200000Z,20250519T170000Z/20250519T200000Z,20250609T170000Z/20250609T200000Z,20250630T170000Z/20250630T200000Z,20250721T170000Z/20250721T200000Z,20250811T170000Z/20250811T200000Z,20250901T170000Z/20250901T200000Z,20250922T170000Z/20250922T200000Z,20251013T170000Z/20251013T200000Z,20251103T180000Z/20251103T210000Z,20251124T180000Z/20251124T210000Z,20251215T180000Z/20251215T210000Z
+CREATED:20241217
+LAST-MODIFIED:20251216
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamkreativ-835/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/ZAMkreativ.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9ba196c7a6e89eafd0954de80fc1b224@zam.haus
+DTSTART;TZID=Europe/Berlin:20241212T170000
+DTEND;TZID=Europe/Berlin:20241212T190000
+DTSTAMP:20241209T110956Z
+CREATED:20241209
+LAST-MODIFIED:20241209
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Große Weihnachtskartendruckerei
+DESCRIPTION:
+URL:https://www.zam.haus/programm/grosse-weihnachtskartendruckerei/
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/12/24j-12-ZAM-Druckwerkstatt-W-karten-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c950cde9b3f83f41721788e3315a14a3@zam.haus
+DTSTART;TZID=Europe/Berlin:20241209T200000
+DTEND;TZID=Europe/Berlin:20241209T220000
+DTSTAMP:20241125T230705Z
+CREATED:20241125
+LAST-MODIFIED:20241125
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Reihe „Andere Sichtweisen“:  Dein Wohn- und Lebensraum, Intuitiv – tiefgehend – ganzheitlich – systemisch
+DESCRIPTION:
+URL:https://www.zam.haus/programm/reihe-andere-sichtweisen-dein-wohn-und-lebensraum-intuitiv-tiefgehend-ganzheitlich-systemisch/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/11/IMG_20161012_130441-2.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0a54b19a13b6712dc04d1b49215423d8@zam.haus
+DTSTART;TZID=Europe/Berlin:20241128T200000
+DTEND;TZID=Europe/Berlin:20241128T220000
+DTSTAMP:20241125T225946Z
+CREATED:20241125
+LAST-MODIFIED:20241128
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis: Unser Herz kennt eine schönere Welt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765-422-129-846/
+CATEGORIES:Veranstaltung,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7cfd5df443b4eb0d69886a583b33de4c@zam.haus
+DTSTART;TZID=Europe/Berlin:20241129T185500
+DTEND;TZID=Europe/Berlin:20241129T220000
+DTSTAMP:20241125T215025Z
+CREATED:20241125
+LAST-MODIFIED:20241220
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:Sternenwerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/sternenwerkstatt/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/11/sternwerkstatt-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ecb287ff763c169694f682af52c1f309@zam.haus
+DTSTART;TZID=Europe/Berlin:20241122T190000
+DTEND;TZID=Europe/Berlin:20241122T220000
+DTSTAMP:20241121T094838Z
+CREATED:20241121
+LAST-MODIFIED:20241121
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:We and Our City – ein Themenabend zu ZAM und Stadt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/we-and-our-city-ein-themenabend-zu-zam-und-stadt/
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/11/20241121_094219-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f19c44d068fecac1d6d13a80df4f8e96@zam.haus
+DTSTART;TZID=Europe/Berlin:20241112T200000
+DTEND;TZID=Europe/Berlin:20241112T210000
+DTSTAMP:20241107T162516Z
+RRULE:FREQ=WEEKLY;UNTIL=20241221T190000Z;BYDAY=TU
+CREATED:20241107
+LAST-MODIFIED:20241217
+PRIORITY:5
+SEQUENCE:7
+TRANSP:OPAQUE
+SUMMARY:ZAM-Baustellenführung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zam-baustellenfuehrung-959/
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/11/20241105_144144-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f41ff84e7cbd129397c11f8c5d20c0f4@zam.haus
+DTSTART;TZID=Europe/Berlin:20241109T170000
+DTEND;TZID=Europe/Berlin:20241109T180000
+DTSTAMP:20241107T162047Z
+RRULE:FREQ=WEEKLY;UNTIL=20241221T160000Z;BYDAY=SA
+EXDATE:20241123T150000Z
+CREATED:20241107
+LAST-MODIFIED:20241217
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:ZAM-Baustellenführung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zam-baustellenfuehrung/
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/11/20241105_144144-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b7f520a55897b35e6eb462bbf80915c6@zam.haus
+DTSTART;TZID=Europe/Berlin:20241120T000000
+DTEND;TZID=Europe/Berlin:20241125T000000
+DTSTAMP:20241027T112827Z
+CREATED:20241027
+LAST-MODIFIED:20241121
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:VULCA Seminar
+DESCRIPTION:
+URL:https://www.zam.haus/programm/vulca-seminar-vow-jhv-2024/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/12/VulcaSeminar.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f93486bfff38ca69d76d85c089569a09@zam.haus
+DTSTART;TZID=Europe/Berlin:20250705T120000
+DTEND;TZID=Europe/Berlin:20250705T160000
+DTSTAMP:20241024T170017Z
+CREATED:20241024
+LAST-MODIFIED:20250725
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Linoldruck 2
+DESCRIPTION:Linoldruck für Einsteiger*innen\n\nDer Linoldruck ist ein Hochdruckverfahren, das durch seinen grafischen Ausdruck besticht. Mit speziellen Werkzeugen schnitzen wir das gewünschte Motiv als Negativmuster in unsere Linoldruckplatten (Linolschnitt). Diese kontrastreiche Technik überzeugt durch ihre Klarheit. Im Anschluss drucken wir unsere Motive auf Papier. Berühmte Künstler*innen wie Henri\nMatisse, Pablo Picasso oder Käthe Kollwitz nutzten den Linolschnitt und ließen viele Kunstwerke mit dieser Technik entstehen. Materialkosten für DIN A5 Druckplatte, Papier und Druckfarbe in Höhe von 25 Euro sind bei der Kursleiterin zu entrichten.\nBitte mitbringen: Kleidung die schmutzig werden darf sowie Vorauswahl eigener Druckmotive\n\n\n\nKursleiter*in: Martina Dorsch\nEine Kooperation zwischen der vhs Erlangen und dem ZAM – Zentrum für Austausch und Machen\n\n
+URL:https://www.zam.haus/programm/linoldruck-660-762/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/09/Linoldruck-Martina-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-bdc8b08ca966b6626e1f186f03c9a060@zam.haus
+DTSTART;TZID=Europe/Berlin:20250524T120000
+DTEND;TZID=Europe/Berlin:20250524T160000
+DTSTAMP:20241024T165917Z
+CREATED:20241024
+LAST-MODIFIED:20241024
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Linoldruck
+DESCRIPTION:Linoldruck für Einsteiger*innen\n\nDer Linoldruck ist ein Hochdruckverfahren, das durch seinen grafischen Ausdruck besticht. Mit speziellen Werkzeugen schnitzen wir das gewünschte Motiv als Negativmuster in unsere Linoldruckplatten (Linolschnitt). Diese kontrastreiche Technik überzeugt durch ihre Klarheit. Im Anschluss drucken wir unsere Motive auf Papier. Berühmte Künstler*innen wie Henri\nMatisse, Pablo Picasso oder Käthe Kollwitz nutzten den Linolschnitt und ließen viele Kunstwerke mit dieser Technik entstehen. Materialkosten für DIN A5 Druckplatte, Papier und Druckfarbe in Höhe von 25 Euro sind bei der Kursleiterin zu entrichten.\nBitte mitbringen: Kleidung die schmutzig werden darf sowie Vorauswahl eigener Druckmotive\n\n\n\nKursleiter*in: Martina Dorsch\nEine Kooperation zwischen der vhs Erlangen und dem ZAM – Zentrum für Austausch und Machen\n\n
+URL:https://www.zam.haus/programm/linoldruck-660/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/09/Linoldruck-Martina-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1ce4fe042832e6bd7d06697a43055373@zam.haus
+DTSTART;TZID=Europe/Berlin:20250510T120000
+DTEND;TZID=Europe/Berlin:20250510T190000
+DTSTAMP:20250326T161744Z
+CREATED:20250326
+LAST-MODIFIED:20250326
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Cyanotypie für Fortgeschrittene
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cyanotypie-fuer-fortgeschrittene/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/10/IMG_0405-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ba4002d88b8860b6a684ade8357aba56@zam.haus
+DTSTART;TZID=Europe/Berlin:20250405T120000
+DTEND;TZID=Europe/Berlin:20250405T190000
+DTSTAMP:20241024T165636Z
+CREATED:20241024
+LAST-MODIFIED:20250326
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Cyanotypie (Blaudruck) für Anfänger*innen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/cyanotopie-fuer-anfaenger/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/10/IMG_0365-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cff34ad343b069ea6920464ad17d4bcf@zam.haus
+DTSTART;TZID=Europe/Berlin:20241204T180000
+DTEND;TZID=Europe/Berlin:20241204T220000
+DTSTAMP:20241018T154138Z
+CREATED:20241018
+LAST-MODIFIED:20241126
+PRIORITY:5
+SEQUENCE:10
+TRANSP:OPAQUE
+SUMMARY:Kerzenziehen 3
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kerzenziehen-1-521-620/
+ORGANIZER;CN=JuKS Erlangen:MAILTO:
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/10/Kerzenzeihen_ZAM_1000072401-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7e448ed9dd44e6e22442dac8e21856ae@zam.haus
+DTSTART;TZID=Europe/Berlin:20241203T180000
+DTEND;TZID=Europe/Berlin:20241203T220000
+DTSTAMP:20241018T153835Z
+CREATED:20241018
+LAST-MODIFIED:20241126
+PRIORITY:5
+SEQUENCE:8
+TRANSP:OPAQUE
+SUMMARY:Kerzenziehen 2
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kerzenziehen-1-521/
+ORGANIZER;CN=JuKS Erlangen:MAILTO:
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/10/Kerzenzeihen_ZAM_1000072401-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-bbc12a3a98d8487f58a87d3a3070516e@zam.haus
+DTSTART;TZID=Europe/Berlin:20241202T180000
+DTEND;TZID=Europe/Berlin:20241202T200000
+DTSTAMP:20241018T152923Z
+CREATED:20241018
+LAST-MODIFIED:20241126
+PRIORITY:5
+SEQUENCE:5
+TRANSP:OPAQUE
+SUMMARY:Kerzenziehen 1
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kerzenziehen-1/
+ORGANIZER;CN=JuKS Erlangen:MAILTO:
+CATEGORIES:Mitmachen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/10/Kerzenzeihen_ZAM_1000072401-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-588e343066cf54ec3db5132231df7d68@zam.haus
+DTSTART;TZID=Europe/Berlin:20241029T150000
+DTEND;TZID=Europe/Berlin:20241029T180000
+DTSTAMP:20241015T183834Z
+CREATED:20241015
+LAST-MODIFIED:20241024
+PRIORITY:5
+SEQUENCE:4
+TRANSP:OPAQUE
+SUMMARY:Halloweenbasteln für Kinder und Eltern
+DESCRIPTION:ZAM-Basteln für Halloween:\n\nAm Dienstag den 29.10 findet bei uns in der Textilwerkstatt Halloweenbasteln für Kinder und Eltern statt. Jede*r ist herzlich eingeladen zu kommen und mit uns kreativ zu werden.\nAngeboten wird:\n\nSelbst gestalten von Filzmasken (Materialpauschale: 5€)\nGruselpins gestalten: Diese können aus Filz mit leuchtenden Akzenten gestaltet werden, gestickt sein oder als gefilzte Flaschgeister (Materialpauschale: 5€)\nT-Shirts plotten: Auf eigene oder im ZAM erhältliche T-Shirts können Motive aus (nachtleuchtender) Plotfolie aufgebracht werden. Entweder aus eigenem Design oder aus einer Auswahl von Motiven, die wir zur Verfügung stellen (Materialkosten: 10€, bei eigenem Textil 5€)\n\n\n\n
+URL:https://www.zam.haus/programm/halloweenbasteln-fuer-kinder-und-eltern/
+CATEGORIES:Mitmachen,Textil,Workshop
+LOCATION:ZAM - Textilwerkstatt
+ATTACH;FMTTYPE=:https://www.zam.haus/wp-content/uploads/2024/10/IMG_8323-2.heic
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-7f848746fe2599dc199a75f0d02fc3d6@zam.haus
+DTSTART;TZID=Europe/Berlin:20241109T110000
+DTEND;TZID=Europe/Berlin:20241109T150000
+DTSTAMP:20240927T153047Z
+CREATED:20240927
+LAST-MODIFIED:20241022
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:Linoldruck
+DESCRIPTION:Linoldruck für Einsteiger*innen\n\nDer Linoldruck ist ein Hochdruckverfahren, das durch seinen grafischen Ausdruck besticht. Mit speziellen Werkzeugen schnitzen wir das gewünschte Motiv als Negativmuster in unsere Linoldruckplatten (Linolschnitt). Diese kontrastreiche Technik überzeugt durch ihre Klarheit. Im Anschluss drucken wir unsere Motive auf Papier. Berühmte Künstler*innen wie Henri\nMatisse, Pablo Picasso oder Käthe Kollwitz nutzten den Linolschnitt und ließen viele Kunstwerke mit dieser Technik entstehen. Materialkosten für DIN A5 Druckplatte, Papier und Druckfarbe in Höhe von 25 Euro sind bei der Kursleiterin zu entrichten.\nBitte mitbringen: Kleidung die schmutzig werden darf sowie Vorauswahl eigener Druckmotive\n\n\n\nKursleiter*in: Martina Dorsch\nEine Kooperation zwischen der vhs Erlangen und dem ZAM – Zentrum für Austausch und Machen\n\n
+URL:https://www.zam.haus/programm/linoldruck/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM - Druckwerkstatt
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/09/Linoldruck-Martina-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b597460c506e8e35fb0cc1c1905dd3bc@zam.haus
+DTSTART;TZID=Europe/Berlin:20240921T120000
+DTEND;TZID=Europe/Berlin:20240921T150000
+DTSTAMP:20240927T151032Z
+CREATED:20240927
+LAST-MODIFIED:20240927
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einfach drucken: Safttütendruck und Monotypie
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einfach-drucken-safttuetendruck-und-monotypie-388-366-465/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/24j-1-VHS-kurs-Druckwerkstatt.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9cea10c7ff109c6e61727a0d45492ead@zam.haus
+DTSTART;TZID=Europe/Berlin:20241128T200000
+DTEND;TZID=Europe/Berlin:20241128T220000
+DTSTAMP:20240927T104834Z
+RDATE;VALUE=PERIOD:20241128T180000Z/20241128T200000Z,20241216T180000Z/20241216T200000Z
+EXDATE:20241128T180000Z
+CREATED:20240927
+LAST-MODIFIED:20241125
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765-422-129-312-144/
+CATEGORIES:Veranstaltung,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1f029c1e1abaaf0605807b7f91552d36@zam.haus
+DTSTART;TZID=Europe/Berlin:20241021T210000
+DTEND;TZID=Europe/Berlin:20241021T230000
+DTSTAMP:20240927T173236Z
+CREATED:20240927
+LAST-MODIFIED:20240927
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Bring deine Idee in die Welt (Dragon Dreaming)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797-999-181/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/09/Projektrad-Zeichnung_groA-1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-07bb5fdef1ee99d35eaccce14f8b5540@zam.haus
+DTSTART;TZID=Europe/Berlin:20241009T210000
+DTEND;TZID=Europe/Berlin:20241009T230000
+DTSTAMP:20240927T103357Z
+RDATE;VALUE=PERIOD:20241009T170000Z/20241009T190000Z,20241106T180000Z/20241106T200000Z,20241204T180000Z/20241204T200000Z
+CREATED:20240927
+LAST-MODIFIED:20240927
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Jodeln macht glücklich – Jodelkurs für Alle
+DESCRIPTION:
+URL:https://www.zam.haus/programm/jodeln-macht-gluecklich-jodelkurs-fuer-alle-300-199-256/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1959eb9d5a0f7ebc58ebde81d5df400d@zam.haus
+DTSTART;TZID=Europe/Berlin:20241002T210000
+DTEND;TZID=Europe/Berlin:20241010T233000
+DTSTAMP:20240927T102909Z
+RDATE;VALUE=PERIOD:20241002T170000Z/20241010T193000Z,20241111T180000Z/20241111T203000Z,20241223T180000Z/19700101T203000Z
+CREATED:20240927
+LAST-MODIFIED:20240927
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Experimentalmusik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/experimentalmusik-175-660-152-447/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/09/Experimentalmusik-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cca8f108b55ec9e39d7885e24f7da0af@zam.haus
+DTSTART;TZID=Europe/Berlin:20241108T160000
+DTEND;TZID=Europe/Berlin:20241108T190000
+DTSTAMP:20240925T222930Z
+CREATED:20240925
+LAST-MODIFIED:20240925
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Druckkunst – Lithografie mit der Nudelmaschine 2
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-drucken-mit-der-gelli-platte-836-776-371-971/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image003-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f1ee083baf7bb88affb4bbe77dd229f0@zam.haus
+DTSTART;TZID=Europe/Berlin:20241019T123000
+DTEND;TZID=Europe/Berlin:20241019T153000
+DTSTAMP:20240925T221502Z
+CREATED:20240925
+LAST-MODIFIED:20240925
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print: Drucken mit der Gelli-Platte
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-drucken-mit-der-gelli-platte-836-776/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e7c573c14a09b84f6b7782ce3965f335@zam.haus
+DTSTART;TZID=Europe/Berlin:20240928T123000
+DTEND;TZID=Europe/Berlin:20240928T153000
+DTSTAMP:20240925T221317Z
+CREATED:20240925
+LAST-MODIFIED:20240925
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print: Drucken mit der Gelli-Platte
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-drucken-mit-der-gelli-platte-836/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4d386d01419c083e8df5de53eb5a0254@zam.haus
+DTSTART;TZID=Europe/Berlin:20240930T220000
+DTEND;TZID=Europe/Berlin:20240930T230000
+DTSTAMP:20240920T133923Z
+RRULE:FREQ=WEEKLY;UNTIL=20250106T200000Z;BYDAY=TU
+EXDATE:20241028T190000Z,20241224T190000Z,20241231T190000Z
+CREATED:20240920
+LAST-MODIFIED:20250108
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:🎲 Die Spiele-Erfinder:innen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/die-spiele-erfinderinnen-2/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/220706-ZAMstival-kaze-Spieleerfinder-lo-res-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-3cc697419ea18cc98d525999665cb94a@zam.haus
+DTSTART;TZID=Europe/Berlin:20240712T210000
+DTEND;TZID=Europe/Berlin:20240712T220000
+DTSTAMP:20240709T115048Z
+CREATED:20240709
+LAST-MODIFIED:20240709
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Die Enigma-Verschlüsselungsmaschine
+DESCRIPTION:
+URL:https://www.zam.haus/programm/die-enigma-verschluesselungsmaschine/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/07/signal-2024-07-07-111354_002.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b05bf587ec7ce83518b72eb0d011a353@zam.haus
+DTSTART;TZID=Europe/Berlin:20240806T120000
+DTEND;TZID=Europe/Berlin:20240806T150000
+DTSTAMP:20240708T101020Z
+CREATED:20240708
+LAST-MODIFIED:20240708
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Fineliner Zeichnungen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/fineliner-zeichnungen/
+CATEGORIES:Mitmachen,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/07/13216_Dorsch_Fineliner-dorsch-2-.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-618b0fffdfdb50766e4d51574bc4e533@zam.haus
+DTSTART;TZID=Europe/Berlin:20240614T200000
+DTEND;TZID=Europe/Berlin:20240614T220000
+DTSTAMP:20240612T154335Z
+CREATED:20240612
+LAST-MODIFIED:20240612
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Gemeinschaftsstricken mit ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gemeinschaftsstricken-mit-zamkreativ/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/strick-1-rotated.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-479b4864e55e12e0fb411eadb115c095@zam.haus
+DTSTART;TZID=Europe/Berlin:20240622T123000
+DTEND;TZID=Europe/Berlin:20240622T173000
+DTSTAMP:20240610T123910Z
+CREATED:20240610
+LAST-MODIFIED:20240610
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Gelli-Print: Drucken mit der Gelli-Platte
+DESCRIPTION:
+URL:https://www.zam.haus/programm/gelli-print-drucken-mit-der-gelli-platte/
+ORGANIZER;CN=VHS Erlangen:MAILTO:
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/06/image001.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ddb1b62e0c8c0b8b020fb2a35cee6494@zam.haus
+DTSTART;TZID=Europe/Berlin:20240606T190000
+DTEND;TZID=Europe/Berlin:20240606T210000
+DTSTAMP:20240604T174129Z
+RDATE;VALUE=PERIOD:20240606T150000Z/20240606T170000Z
+CREATED:20240604
+LAST-MODIFIED:20240604
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Debattierforum zum Thema Effektiver Altruismus
+DESCRIPTION:
+URL:https://www.zam.haus/programm/altruismus-effektiv-get-together-680-486/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/02/IMG_6444-rotated.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-56dc0997d871e9177069bb472574eb29@zam.haus
+DTSTART;TZID=Europe/Berlin:20240711T190000
+DTEND;TZID=Europe/Berlin:20240711T210000
+DTSTAMP:20240604T172402Z
+RDATE;VALUE=PERIOD:20240711T150000Z/20240711T170000Z
+CREATED:20240604
+LAST-MODIFIED:20240604
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Debattierforum zum Thema Effektiver Altruismus
+DESCRIPTION:
+URL:https://www.zam.haus/programm/altruismus-effektiv-get-together-680/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/02/IMG_6444-rotated.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ee389847678a3a9d1ce9e4ca69200d06@zam.haus
+DTSTART;TZID=Europe/Berlin:20240531T203000
+DTEND;TZID=Europe/Berlin:20240531T223000
+DTSTAMP:20240530T113639Z
+CREATED:20240530
+LAST-MODIFIED:20240531
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Spontaneous Hack & Brainstorming Session with OwnTech.org
+DESCRIPTION:\nLet’s meet OwnTech.org and have a look at their Open Source Electronics development!\n \nTo try their boards in Real life they came to the ZAM.haus in Erlangen and use the Vhelio.de OS Cargobike build by OSE-Germany.org as a Prototype Platform. Come Friday night 6pm to find out with HealthHackers.de if the OpenSource power system could be put to use in Medical devices like electric Wheelchairs as well!\n\n
+URL:https://www.zam.haus/programm/spontaneous-hack-brainstorming-session-with-owntech-org/
+CATEGORIES:Mitmachen,Treffen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/05/Firefly-Symbolfoto-Gruppe-von-Menschen-Meetup-Comupter-nerds-having-fun-creating-stuff-related-to.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-543bec10c8325987595fcdc492a525f4@zam.haus
+DTSTART;TZID=Europe/Berlin:20240602T160000
+DTEND;TZID=Europe/Berlin:20240602T190000
+DTSTAMP:20240524T131420Z
+RDATE;VALUE=PERIOD:20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Kannst du es zeichnen, kannst du es lasern!
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kannst-du-es-zeichnen-kannst-du-es-lasern-848/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c778a2d8bf30ef1d3c2d6bc5696defad@zam.haus
+DTSTART;TZID=Europe/Berlin:20240602T160000
+DTEND;TZID=Europe/Berlin:20240602T190000
+DTSTAMP:20240524T131203Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Button Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/buttons-927-421-568/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6b5ce5a5aa1b506c66ece16c4cd9138d@zam.haus
+DTSTART;TZID=Europe/Berlin:20240601T160000
+DTEND;TZID=Europe/Berlin:20240601T190000
+DTSTAMP:20240524T131127Z
+RDATE;VALUE=PERIOD:20240601T120000Z/20240601T150000Z,20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Button Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/buttons-927-421/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-484a231d05ee0b8331980daf4c1749fb@zam.haus
+DTSTART;TZID=Europe/Berlin:20240531T160000
+DTEND;TZID=Europe/Berlin:20240531T190000
+DTSTAMP:20240524T130956Z
+RDATE;VALUE=PERIOD:20240531T120000Z/20240531T150000Z,20240601T120000Z/20240601T150000Z,20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Button Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/buttons-927/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b3dd760eb02d2e669c604f6b2f1e803f@zam.haus
+DTSTART;TZID=Europe/Berlin:20240601T160000
+DTEND;TZID=Europe/Berlin:20240601T190000
+DTSTAMP:20240524T130556Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Comic-Masken aus Filz Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/comic-masken-aus-filz-864/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-543e83748234f7cbab21aa0ade66565f@zam.haus
+DTSTART;TZID=Europe/Berlin:20240602T160000
+DTEND;TZID=Europe/Berlin:20240602T190000
+DTSTAMP:20240524T130247Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: T-Shirt Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/t-shirts-gestalten-527/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0cd6a40ae578078bc72e5310df41e918@zam.haus
+DTSTART;TZID=Europe/Berlin:20240601T160000
+DTEND;TZID=Europe/Berlin:20240601T190000
+DTSTAMP:20240524T125646Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Visitor-3D-Scan Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/visitor-3d-scan-155/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-90610aa0e24f63ec6d2637e06f9b9af2@zam.haus
+DTSTART;TZID=Europe/Berlin:20240531T160000
+DTEND;TZID=Europe/Berlin:20240531T190000
+DTSTAMP:20240524T124911Z
+RDATE;VALUE=PERIOD:20240531T120000Z/20240531T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: LED Blinky Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/led-blinky-120/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-04a1bf2d968f1ce381cf1f9184a807a9@zam.haus
+DTSTART;TZID=Europe/Berlin:20240602T160000
+DTEND;TZID=Europe/Berlin:20240602T190000
+DTSTAMP:20240524T123106Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Visitor-3D-Scan Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/visitor-3d-scan/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e7a0ac723159df05cb1edaa7683e1a53@zam.haus
+DTSTART;TZID=Europe/Berlin:20240601T160000
+DTEND;TZID=Europe/Berlin:20240601T190000
+DTSTAMP:20240524T122638Z
+RDATE;VALUE=PERIOD:20240601T120000Z/20240601T150000Z,20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: T-Shirt Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/t-shirts-gestalten/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4f3d7d38d24b740c95da2b03dc3a2333@zam.haus
+DTSTART;TZID=Europe/Berlin:20240531T160000
+DTEND;TZID=Europe/Berlin:20240531T190000
+DTSTAMP:20240524T121818Z
+RDATE;VALUE=PERIOD:20240531T120000Z/20240531T150000Z,20240601T120000Z/20240601T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Comic-Masken aus Filz Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/comic-masken-aus-filz/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f461285987ddc0629f8a4ab6477642b5@zam.haus
+DTSTART;TZID=Europe/Berlin:20240530T160000
+DTEND;TZID=Europe/Berlin:20240530T190000
+DTSTAMP:20240524T120115Z
+RDATE;VALUE=PERIOD:20240530T120000Z/20240530T150000Z,20240531T120000Z/20240531T150000Z,20240601T120000Z/20240601T150000Z,20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Button Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/buttons/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-46cd618b83bec844b0dc2c7258f4de11@zam.haus
+DTSTART;TZID=Europe/Berlin:20240530T160000
+DTEND;TZID=Europe/Berlin:20240530T190000
+DTSTAMP:20240524T114342Z
+RDATE;VALUE=PERIOD:20240530T120000Z/20240530T150000Z,20240531T120000Z/20240531T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: LED Blinky Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/led-blinky/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-5dbc8390f17e019d300d5a162c3ce3bc@zam.haus
+DTSTART;TZID=Europe/Berlin:20240530T160000
+DTEND;TZID=Europe/Berlin:20240530T190000
+DTSTAMP:20240524T112325Z
+RDATE;VALUE=PERIOD:20240530T120000Z/20240530T150000Z,20240602T120000Z/20240602T150000Z
+CREATED:20240524
+LAST-MODIFIED:20240524
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Comic Salon: Kannst du es zeichnen, kannst du es lasern!
+DESCRIPTION:
+URL:https://www.zam.haus/programm/kannst-du-es-zeichnen-kannst-du-es-lasern/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/22-06-18-18-01-23-9010-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-510731ac096ebcb3989fb1ed5b7075bb@zam.haus
+DTSTART;TZID=Europe/Berlin:20240629T120000
+DTEND;TZID=Europe/Berlin:20240629T150000
+DTSTAMP:20240411T135230Z
+CREATED:20240411
+LAST-MODIFIED:20240411
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einfach drucken: Safttütendruck und Monotypie
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einfach-drucken-safttuetendruck-und-monotypie-388-366/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/24j-1-VHS-kurs-Druckwerkstatt.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-db90f689b1567600818428ca3dfc88a3@zam.haus
+DTSTART;TZID=Europe/Berlin:20240608T120000
+DTEND;TZID=Europe/Berlin:20240608T150000
+DTSTAMP:20240411T135041Z
+CREATED:20240411
+LAST-MODIFIED:20240411
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einfach drucken: Safttütendruck und Monotypie
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einfach-drucken-safttuetendruck-und-monotypie-388/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/24j-1-VHS-kurs-Druckwerkstatt.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a4a8a31750a23de2da88ef6a491dfd5c@zam.haus
+DTSTART;TZID=Europe/Berlin:20240504T120000
+DTEND;TZID=Europe/Berlin:20240504T150000
+DTSTAMP:20240411T134441Z
+CREATED:20240411
+LAST-MODIFIED:20240419
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einstieg in Instagram
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einstieg-in-instagram-2-605/
+CATEGORIES:Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/rn_image_picker_lib_temp_55fe56b0-a74e-43f7-bac2-77a0a7e64696.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8da57fac3313174128cc5f13328d4573@zam.haus
+DTSTART;TZID=Europe/Berlin:20240413T120000
+DTEND;TZID=Europe/Berlin:20240413T150000
+DTSTAMP:20240411T134237Z
+CREATED:20240411
+LAST-MODIFIED:20240419
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einstieg in Instagram
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einstieg-in-instagram-2/
+CATEGORIES:Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/04/rn_image_picker_lib_temp_55fe56b0-a74e-43f7-bac2-77a0a7e64696.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ed383ec94720d62a939bfb6bdd98f50c@zam.haus
+DTSTART;TZID=Europe/Berlin:20240515T203000
+DTEND;TZID=Europe/Berlin:20240515T220000
+DTSTAMP:20240328T151753Z
+CREATED:20240328
+LAST-MODIFIED:20240423
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Technologie im Gesundheitswesen – Health Hacker Stammtisch & Birne 7
+DESCRIPTION:
+URL:https://www.zam.haus/programm/technologie-im-gesundheitswesen-health-hacker-stammtisch-birne-7/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/03/signal-2024-04-22-173556_002.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e8855b3528cb03d1def9803220bd3cb9@zam.haus
+DTSTART;TZID=Europe/Berlin:20240403T120000
+DTEND;TZID=Europe/Berlin:20240403T150000
+DTSTAMP:20240327T192520Z
+CREATED:20240327
+LAST-MODIFIED:20240328
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Workshop Pilzanbau
+DESCRIPTION:
+URL:https://www.zam.haus/programm/workshop-pilzanbau-mittwoch/
+CATEGORIES:Bio,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/35-Fungarium2-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c4bbac870026694953a91cbd99149a13@zam.haus
+DTSTART;TZID=Europe/Berlin:20240402T180000
+DTEND;TZID=Europe/Berlin:20240402T210000
+DTSTAMP:20240327T191627Z
+CREATED:20240327
+LAST-MODIFIED:20240328
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Workshop Pilzanbau
+DESCRIPTION:
+URL:https://www.zam.haus/programm/workshop-pilzanbau/
+CATEGORIES:Bio,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/35-Fungarium2-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-02a3c7fb3f489288ae6942498498db20@zam.haus
+DTSTART;TZID=Europe/Berlin:20240502T210000
+DTEND;TZID=Europe/Berlin:20240503T000000
+DTSTAMP:20240328T150548Z
+RDATE;VALUE=PERIOD:20240502T170000Z/20240502T200000Z,20240321T180000Z/20240321T210000Z,20240502T170000Z/20240502T200000Z,20240613T170000Z/20240613T200000Z,20240725T170000Z/20240725T200000Z
+CREATED:20240328
+LAST-MODIFIED:20240328
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Experimentalmusik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/experimentalmusik-175-660-152/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/09/Experimentalmusik-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f127a3f714240273e254d740ed23f001@zam.haus
+DTSTART;TZID=Europe/Berlin:20240415T210000
+DTEND;TZID=Europe/Berlin:20240415T230000
+DTSTAMP:20240328T150627Z
+CREATED:20240328
+LAST-MODIFIED:20240328
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Gemeinwohlökonomie in Theorie und Praxis
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797-999/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/03/IMG_20230608_134854.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6332a8f62e3a9d5831724f2ffe55cae0@zam.haus
+DTSTART;TZID=Europe/Berlin:20240506T210000
+DTEND;TZID=Europe/Berlin:20240506T230000
+DTSTAMP:20240328T150609Z
+CREATED:20240328
+LAST-MODIFIED:20240328
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Buddhistische Praxis – Meditation
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-721/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/Buddhist_ohne_Text.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8ef0327d29dfae100751f4ed0a042790@zam.haus
+DTSTART;TZID=Europe/Berlin:20240418T203000
+DTEND;TZID=Europe/Berlin:20240418T203000
+DTSTAMP:20240326T125210Z
+CREATED:20240326
+LAST-MODIFIED:20240326
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Technologie im Gesundheitswesen – Health Hacker Stammtisch
+DESCRIPTION:
+URL:https://www.zam.haus/programm/technologie-im-gesundheitswesen-health-hacker-stammtisch/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/03/IMG_20190110_194415-1-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fea16e782bc1b1240e4b3c797012e289@zam.haus
+DTSTART;TZID=Europe/Berlin:20240617T210000
+DTEND;TZID=Europe/Berlin:20240617T230000
+DTSTAMP:20240320T103137Z
+CREATED:20240320
+LAST-MODIFIED:20240608
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen – Bewusstseinsforschung
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462-504-488-797/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f50c7035e532c49a0f6993d988e2e843@zam.haus
+DTSTART;TZID=Europe/Berlin:20240703T210000
+DTEND;TZID=Europe/Berlin:20240703T230000
+DTSTAMP:20240320T102741Z
+CREATED:20240320
+LAST-MODIFIED:20240628
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765-422-129-312/
+CATEGORIES:Veranstaltung,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-f4d0e2e7fc057a58f7ca4a391f01940a@zam.haus
+DTSTART;TZID=Europe/Berlin:20240529T210000
+DTEND;TZID=Europe/Berlin:20240529T230000
+DTSTAMP:20240320T102555Z
+CREATED:20240320
+LAST-MODIFIED:20240515
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis: Inner Development Goals
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765-422-129/
+CATEGORIES:Veranstaltung,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9e95248d9b714a96f47fd159b4c6e911@zam.haus
+DTSTART;TZID=Europe/Berlin:20240326T110000
+DTEND;TZID=Europe/Berlin:20240330T230000
+DTSTAMP:20240227T125827Z
+CREATED:20240227
+LAST-MODIFIED:20240227
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:moskitOS Workshop
+DESCRIPTION:
+URL:https://www.zam.haus/programm/moskitos-workshop/
+CATEGORIES:Mitmachen,Projekte,Workshop
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/02/MOS3.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-2406a0a94c80406914ff2f6c9fdd67d5@zam.haus
+DTSTART;TZID=Europe/Berlin:20240411T190000
+DTEND;TZID=Europe/Berlin:20240411T210000
+DTSTAMP:20240227T124920Z
+RDATE;VALUE=PERIOD:20240411T150000Z/20240411T170000Z,20240509T151500Z/20240509T164500Z,20240718T150000Z/20240718T170000Z
+CREATED:20240227
+LAST-MODIFIED:20240604
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Altruismus effektiv? – Get together
+DESCRIPTION:
+URL:https://www.zam.haus/programm/altruismus-effektiv-get-together/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/02/IMG_6444-rotated.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4eff0720836a198b6174eecf02cbfdbf@zam.haus
+DTSTART;TZID=Europe/Berlin:20240328T181500
+DTEND;TZID=Europe/Berlin:20240328T201000
+DTSTAMP:20240227T123642Z
+RDATE;VALUE=PERIOD:20240328T161500Z/20240328T181000Z,20240425T151500Z/20240425T171000Z,20240523T151500Z/20240523T171000Z,20240620T150000Z/20240620T170000Z
+CREATED:20240227
+LAST-MODIFIED:20240604
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Altruismus effektiv? – Projektarbeit
+DESCRIPTION:
+URL:https://www.zam.haus/programm/alturismus-effektiv-projektarbeit/
+CATEGORIES:Treffen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/02/IMG_6444-rotated.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e1cd50f4a9880333cdad4a24ee9d550c@zam.haus
+DTSTART;TZID=Europe/Berlin:20240219T200000
+DTEND;TZID=Europe/Berlin:20240219T230000
+DTSTAMP:20240125T091645Z
+RDATE;VALUE=PERIOD:20240219T180000Z/20240219T210000Z,20240321T180000Z/20240321T210000Z
+CREATED:20240125
+LAST-MODIFIED:20240409
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Experimentalmusik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/experimentalmusik-175-660/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/09/Experimentalmusik-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-785736838d7b51f2cabb00e6b28a8969@zam.haus
+DTSTART;TZID=Europe/Berlin:20240229T200000
+DTEND;TZID=Europe/Berlin:20240229T220000
+DTSTAMP:20240124T175701Z
+CREATED:20240124
+LAST-MODIFIED:20240126
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Zukunftswerkstatt: „Bring deine Verbindungs-Vision mit“
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zukunfts-werkstatt-verbindungs-visionen-542/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8074856808ebec0c49403ce3589b28de@zam.haus
+DTSTART;TZID=Europe/Berlin:20240215T200000
+DTEND;TZID=Europe/Berlin:20240215T220000
+DTSTAMP:20240124T175343Z
+CREATED:20240124
+LAST-MODIFIED:20240126
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis: Thema „Was hält unsere Gesellschaft zusammen?“
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765-422/
+CATEGORIES:Veranstaltung,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9f4768b4bd4a205e1d3a60398ab022a2@zam.haus
+DTSTART;TZID=Europe/Berlin:20240304T200000
+DTEND;TZID=Europe/Berlin:20240304T220000
+DTSTAMP:20240124T174825Z
+CREATED:20240124
+LAST-MODIFIED:20240219
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Buddhist in Erlangen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818-462/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/Buddhist_ohne_Text.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-bdb3c278f45e6734c35733d24299d3f4@zam.haus
+DTSTART;TZID=Europe/Berlin:20240201T203000
+DTEND;TZID=Europe/Berlin:20240201T223000
+DTSTAMP:20240124T144121Z
+RDATE;VALUE=PERIOD:20240201T183000Z/20240201T203000Z,20240314T180000Z/20240314T200000Z,20240508T170000Z/20240508T190000Z,20240605T170000Z/20240605T190000Z,20240710T170000Z/20240710T190000Z
+CREATED:20240124
+LAST-MODIFIED:20240410
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Jodeln macht glücklich – Jodelkurs für Alle
+DESCRIPTION:
+URL:https://www.zam.haus/programm/jodeln-macht-gluecklich-jodelkurs-fuer-alle-300-199/
+CATEGORIES:Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/PM-01-Foto-Rolf-Klug-2023.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e7a425c6ece20cbc9056f98699b53c6f@zam.haus
+DTSTART;TZID=Europe/Berlin:20240113T110000
+DTEND;TZID=Europe/Berlin:20240113T140000
+DTSTAMP:20240109T110528Z
+CREATED:20240109
+LAST-MODIFIED:20240109
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einfach drucken: Safttütendruck und Monotypie
+DESCRIPTION:
+URL:https://www.zam.haus/programm/einfach-drucken-safttuetendruck-und-monotypie/
+CATEGORIES:Druck,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2024/01/24j-1-VHS-kurs-Druckwerkstatt.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-9238b8c482371600b4448da21405865a@zam.haus
+DTSTART;TZID=Europe/Berlin:20240102T170000
+DTEND;TZID=Europe/Berlin:20240102T220000
+DTSTAMP:20231218T105601Z
+CREATED:20231218
+LAST-MODIFIED:20251216
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:ZAMräumen
+DESCRIPTION:Das ZAM ist im Umbau und das mit viel Eigenleistung:\nWir packen es an!\nKomm dazu und hilf uns, das ZAM für den Normalbetrieb vorzubereiten und triff dabei viele nette Menschen. Falls du uns nicht an der Hauptstr. 65-67 (Südhaus, ehem. Haupeingang Greiner) findest, sind wir an der Westlichen Stadtmauerstraße 62 (Nordhaus).\n
+URL:https://www.zam.haus/programm/zamraeumen-419/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/10/IMG_4641-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-39dd987a9d27f1045aa0ad3ed5995dd2@zam.haus
+DTSTART;TZID=Europe/Berlin:20240115T200000
+DTEND;TZID=Europe/Berlin:20240115T230000
+DTSTAMP:20231205T153821Z
+RRULE:FREQ=WEEKLY;INTERVAL=3;UNTIL=20241216T210000Z
+CREATED:20231205
+LAST-MODIFIED:20251216
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamkreativ/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/ZAMkreativ.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b65f2ecd2900ba6ae49a14d9c4b16fb4@zam.haus
+DTSTART;TZID=Europe/Berlin:20231211T200000
+DTEND;TZID=Europe/Berlin:20231211T230000
+DTSTAMP:20231205T153236Z
+CREATED:20231205
+LAST-MODIFIED:20240102
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamkreativ-11-12-23/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/ZAMkreativ.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b645e524a1512ce68947d3b9c948aa46@zam.haus
+DTSTART;TZID=Europe/Berlin:20231207T190000
+DTEND;TZID=Europe/Berlin:20231207T203000
+DTSTAMP:20231205T095405Z
+CREATED:20231205
+LAST-MODIFIED:20231206
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Geographien von „Open Collaboration“ und „Digital Commons“: Auftaktveranstaltung
+DESCRIPTION:Die Auseinandersetzung mit offenen und kollaborativen Organisationsformen, die auf die gemein­schaftliche Herstellung und Nutzung von Wissen und weiteren Gütern zielen, erlebt einen Auf­schwung.\nWir laden zur Auftaktveranstaltung für einen Workshop nach Erlangen ein, in dem wir konzeptionelle Perspektiven auf sowie vor allem auch die Geographien von „Open Collaboration“ und „Digital Commons“ diskutieren möch­ten.\nPodiumsdiskussion…mit Einblicken in Projekte der offenen Zusammenarbeit in der Metropolregion Nürnberg (ZAM Erlangen, FabLab Fürth…) sowie in einige aktuelle Debatten um Open Collaboration und Digital Commons von Albrecht Fritzsche (Rabat Business School), Christoph Schimmel (Universität Innsbruck), Susanne Schröder-Bergen\n
+URL:https://www.zam.haus/programm/geographien-von-open-collaboration-und-digital-commons-auftaktveranstaltung/
+ORGANIZER;CN=Institut für Geographie | FAU Erlangen Nürnberg Kontakt: Finn Dammannn:MAILTO:finn.dammann@fau.de
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/12/workshop-open-commons.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-fd1d83de2517a02d4e221ede9a681432@zam.haus
+DTSTART;TZID=Europe/Berlin:20231216T120000
+DTEND;TZID=Europe/Berlin:20231216T160000
+DTSTAMP:20231128T144832Z
+CREATED:20231128
+LAST-MODIFIED:20231205
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Adventskalender 2023
+DESCRIPTION:
+URL:https://www.zam.haus/programm/adventskalender-2023/
+CATEGORIES:Veranstaltung
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/11/IMG_1358-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-0e189c35adab992d274c294586143ec9@zam.haus
+DTSTART;TZID=Europe/Berlin:20231111T110000
+DTEND;TZID=Europe/Berlin:20231111T140000
+DTSTAMP:20231110T074931Z
+CREATED:20231110
+LAST-MODIFIED:20231110
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Einstieg in Instagram
+DESCRIPTION:Einstieg in Instagram (Workshop)\n\nIn diesem kompakten Workshop lernen Sie die ersten Schritte und Grundlagen für Ihren Instagram Account.\nInhalte: Beiträge und Storys posten, Hashtags verwenden, Profileinstellungen und Sicherheit, Musik und Links einfügen, Tipps und Tricks zum Reposting.\nVoraussetzung: Medienaffinität und Lust am Ausprobieren\nBitte mitbringen: eigenes Smartphone\nEine Kooperation zwischen der vhs Erlangen und dem ZAM – Zentrum für Austausch und Machen\n\nHier geht es zur Anmeldung über die Seite der VHS.\n
+URL:https://www.zam.haus/programm/einstieg-in-instagram/
+CATEGORIES:Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6b9bb055c60428fa01686736b18f39fc@zam.haus
+DTSTART;TZID=Europe/Berlin:20230103T170000
+DTEND;TZID=Europe/Berlin:20230103T220000
+DTSTAMP:20231031T162200Z
+RRULE:FREQ=WEEKLY;UNTIL=20260127T200000Z;BYDAY=TU
+EXDATE:20231226T150000Z,20240102T150000Z,20241224T150000Z,20241231T150000Z,20250805T140000Z,20250812T140000Z,20250819T140000Z,20250826T140000Z,20251202T150000Z,20251230T150000Z,20260106T150000Z
+CREATED:20231031
+LAST-MODIFIED:20260127
+PRIORITY:5
+SEQUENCE:12
+TRANSP:OPAQUE
+SUMMARY:ZAMräumen
+DESCRIPTION:Das ZAM ist im Umbau und das mit viel Eigenleistung:\nWir packen es an!\nKomm dazu und hilf uns, das ZAM für den Normalbetrieb vorzubereiten und triff dabei viele nette Menschen. Falls du uns nicht an der Hauptstr. 65-67 (Südhaus, ehem. Haupeingang Greiner) findest, sind wir an der Westlichen Stadtmauerstraße 62 (Nordhaus).\n
+URL:https://www.zam.haus/programm/zamraeumen-dienstag/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/10/IMG_6498-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-cd61a580392a70389e27b0bc2b439f49@zam.haus
+DTSTART;TZID=Europe/Berlin:20240228T150000
+DTEND;TZID=Europe/Berlin:20240228T170000
+DTSTAMP:20231030T114246Z
+CREATED:20231030
+LAST-MODIFIED:20231030
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Grau-Stiftung, Sitzung des Stiftungsrates
+DESCRIPTION:Die Otto und Hildegard Grau-Kulturstiftung wurde 1993 errichtet und wird vom Bezirk Mittelfranken verwaltet. Aus den Erlösen der Stiftung wird alle zwei Jahre der mit 5.000 € dotierte Otto-Grau-Kulturpreis an eine herausragende fränkische Künstlerpersönlichkeit verliehen.\nDie Preisträgerinnen und Preisträger müssen in den Bereichen Bildende Kunst, Musik, Literatur oder Kunstwissenschaft tätig sein und durch ihr Leben oder Werk eine Beziehung zu Franken haben oder den Werken von Otto Grau besonders verbunden sein. Über die Vergabe des Stiftungspreises entscheidet ein Stiftungsrat.\n
+URL:https://www.zam.haus/programm/grau-stiftung-sitzung-des-stiftungsrates/
+ORGANIZER;CN=Bürgermeisteramt Stadt Erlangen:MAILTO:sabine.lotter@stadt.erlangen.de
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-be3ac64e67e84198f03f45b661f2124a@zam.haus
+DTSTART;TZID=Europe/Berlin:20231028T120000
+DTEND;TZID=Europe/Berlin:20231028T150000
+DTSTAMP:20231012T181810Z
+CREATED:20231012
+LAST-MODIFIED:20231012
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Bildbearbeitung mit GIMP
+DESCRIPTION:In diesem Kurs lernt ihr den Einstieg in das Bildbearbeitungsprogramm GIMP. Ihr erfahrt etwas über erste Schritte, Grundlagen in Gimp und die Arbeitsoberfläche. Wir schauen uns auch einige sogenannte Werkzeuge genauer an: Pinsel, Radiergummi , Text, „Speichern unter“ und „Exportieren als“. Hinweis: Voraussetzung: Sicherer Umgang am PC. Gegebenenfalls werden in diesem Kurs unter fachkundiger Anleitung, dem Alter und den Fähigkeiten des Kindes entsprechend, Werkzeuge oder Geräte eingesetzt. In Kooperation mit dem ZAM – Zentrum für Austausch und Machen, Betreiberverein Makerspace für Erlangen e.V.\nBitte mitbringen: Eigenen Laptop / GIMP bitte vorab installieren\nhttps://www.gimp.org/downloads/\n
+URL:https://www.zam.haus/programm/bildbearbeitung-mit-gimp/
+CATEGORIES:Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/10/gimp-logo.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ca8a2d76a5bcc212226417361a5f0740@zam.haus
+DTSTART;TZID=Europe/Berlin:20231214T200000
+DTEND;TZID=Europe/Berlin:20231214T220000
+DTSTAMP:20230906T142135Z
+CREATED:20230906
+LAST-MODIFIED:20231213
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen: Ist unsere Erde ein Lebewesen? Die Gaia-Hypothese
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-818/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-84f74ce4511e0c9531af1182fb636f0f@zam.haus
+DTSTART;TZID=Europe/Berlin:20231204T200000
+DTEND;TZID=Europe/Berlin:20231204T220000
+DTSTAMP:20230906T141805Z
+CREATED:20230906
+LAST-MODIFIED:20231031
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Jodeln macht glücklich – Jodelkurs für Alle
+DESCRIPTION:
+URL:https://www.zam.haus/programm/jodeln-macht-gluecklich-jodelkurs-fuer-alle-300/
+CATEGORIES:Mitmachen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-92fde850d824c2ba9b563cb6fa4078c3@zam.haus
+DTSTART;TZID=Europe/Berlin:20231116T200000
+DTEND;TZID=Europe/Berlin:20231116T220000
+DTSTAMP:20230906T140435Z
+CREATED:20230906
+LAST-MODIFIED:20231031
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis: Wissen – Ansichten – Narrative
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch-765/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-6098ed616e715171f0dabad60a8e5197@zam.haus
+DTSTART;TZID=Europe/Berlin:20231017T210000
+DTEND;TZID=Europe/Berlin:20231017T230000
+DTSTAMP:20230906T135916Z
+CREATED:20230906
+LAST-MODIFIED:20231024
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen – Die erstaunlichen Forschungen des Ernst Muldashev
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch-197/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c79ec57a8e72a87d8a69d2c6b8a2a8d4@zam.haus
+DTSTART;TZID=Europe/Berlin:20231016T210000
+DTEND;TZID=Europe/Berlin:20231016T230000
+DTSTAMP:20230906T135047Z
+CREATED:20230906
+LAST-MODIFIED:20230906
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Jodeln macht glücklich – Jodelkurs für Alle
+DESCRIPTION:
+URL:https://www.zam.haus/programm/jodeln-macht-gluecklich-jodelkurs-fuer-alle/
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-b986700c627db479a4d9460b75de7222@zam.haus
+DTSTART;TZID=Europe/Berlin:20231009T210000
+DTEND;TZID=Europe/Berlin:20231009T230000
+DTSTAMP:20230906T134337Z
+CREATED:20230906
+LAST-MODIFIED:20240126
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Zukunfts-Werkstatt – Verbindungs-Visionen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zukunfts-werkstatt-verbindungs-visionen/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-de3c1a733c9c51de130bc7ae775fd930@zam.haus
+DTSTART;TZID=Europe/Berlin:20231005T210000
+DTEND;TZID=Europe/Berlin:20231005T230000
+DTSTAMP:20230906T133335Z
+CREATED:20230906
+LAST-MODIFIED:20230906
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Musizieren für Nichtmusiker:innen
+DESCRIPTION:Jeder Mensch ist musikalisch\nEntdecke deine – noch schlummernden – musikalischen Potenziale und erlebe dich neu mit Rhythmus und Harmonien im Zusammenwirken in der Gruppe. Mit einfachen, erprobten Improvisations-Methoden wirst du entführt in ungeahnte neue Welten der Intuition und der darstellenden Kunst. Trau dich, Spaß-Faktor-Garantie.\nKeine Vorkenntnisse nötig.\nWorkshop im Rahmen des Projekts im ZAM „Verbindung der Welten“, kostenfrei.\nKursleiter: Rolf Klug\nAnmeldung bitte an info@verbindungderwelten.de oder über https://verbindungderwelten.de/projekt-im-zam/ ( https://verbindungderwelten.de/projekt-im-zam/ )\nOrt: EG Freifläche, ZAM\n
+URL:https://www.zam.haus/programm/musizieren-fuer-nichtmusikerinnen-355/
+CATEGORIES:Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c1aeb6517a1c7f33514f7ff69047e74e@zam.haus
+DTSTART;TZID=Europe/Berlin:20230925T210000
+DTEND;TZID=Europe/Berlin:20230925T230000
+DTSTAMP:20230906T125430Z
+CREATED:20230906
+LAST-MODIFIED:20231024
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Philo-Praxis – Zufrieden und glücklich sein (Impulsvortrag und Austausch)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/philo-praxis-impulsvortrag-und-austausch/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-1e8ca836c962598551882e689265c1c5@zam.haus
+DTSTART;TZID=Europe/Berlin:20230914T210000
+DTEND;TZID=Europe/Berlin:20230914T230000
+DTSTAMP:20230906T124728Z
+CREATED:20230906
+LAST-MODIFIED:20231024
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Andere Sichtweisen – Über dem Tellerrand (Vortrag und Austausch)
+DESCRIPTION:
+URL:https://www.zam.haus/programm/andere-sichtweisen-vortrag-und-austausch/
+CATEGORIES:Treffen,Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-a5ff5d4b0a0d7b3e4d64147037d8c344@zam.haus
+DTSTART;TZID=Europe/Berlin:20231106T200000
+DTEND;TZID=Europe/Berlin:20231106T220000
+DTSTAMP:20230906T123043Z
+CREATED:20230906
+LAST-MODIFIED:20231031
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Experimentalmusik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/experimentalmusik-175/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/09/Experimentalmusik-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-ab24cd2b811ee48a416fc7a833d736a9@zam.haus
+DTSTART;TZID=Europe/Berlin:20230923T210000
+DTEND;TZID=Europe/Berlin:20230923T230000
+DTSTAMP:20230906T122105Z
+CREATED:20230906
+LAST-MODIFIED:20230906
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Experimentalmusik
+DESCRIPTION:
+URL:https://www.zam.haus/programm/experimentalmusik/
+CATEGORIES:Veranstaltung
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-bbbe7ef28a0018c4484eaa8b2d0a0328@zam.haus
+DTSTART;TZID=Europe/Berlin:20230911T200000
+DTEND;TZID=Europe/Berlin:20230912T000000
+DTSTAMP:20230809T090938Z
+RRULE:FREQ=WEEKLY;INTERVAL=6;UNTIL=20231101T210000Z
+CREATED:20230809
+LAST-MODIFIED:20251218
+PRIORITY:5
+SEQUENCE:1
+TRANSP:OPAQUE
+SUMMARY:Open Source Contributors Meetup
+DESCRIPTION:
+URL:https://www.zam.haus/programm/open-source-contributors-meetup/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2022/05/cropped-ZAM_ohne_Text-Logo-square.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-43d762ca733a839226415450b0dbf9d2@zam.haus
+DTSTART;TZID=Europe/Berlin:20231007T140000
+DTEND;TZID=Europe/Berlin:20231008T000000
+DTSTAMP:20230806T200613Z
+CREATED:20230806
+LAST-MODIFIED:20230806
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Frei Bordsteinkante im und mit dem ZAM
+DESCRIPTION:
+URL:https://www.zam.haus/programm/frei-bordsteinkante-im-und-mit-dem-zam/
+CATEGORIES:Veranstaltung
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/08/2022-09-24-Freie-Bordsteinkante-JuHa-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-db9ad56c71619aeed9723314d1456037@zam.haus
+DTSTART;TZID=Europe/Berlin:20230830T120000
+DTEND;TZID=Europe/Berlin:20230830T150000
+DTSTAMP:20230806T195914Z
+CREATED:20230806
+LAST-MODIFIED:20230806
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Fineliner Zeichnen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/fineliner-zeichnen/
+CATEGORIES:Workshop
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-c563c2c394023a07d56ad6b3eb09537a@zam.haus
+DTSTART;TZID=Europe/Berlin:20230424T000000
+DTEND;TZID=Europe/Berlin:20230426T000000
+DTSTAMP:20230311T212839Z
+CREATED:20230311
+LAST-MODIFIED:20230312
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Post-Corona-Stadt: 3. Vernetzungswerkstatt
+DESCRIPTION:
+URL:https://www.zam.haus/programm/post-corona-stadt/
+CATEGORIES:Post Corona Stadt
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/KnowHowTeilen-2-e1678610863777.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-4ecb679fd35dcfd0f0894c399590be1a@zam.haus
+DTSTART;TZID=Europe/Berlin:20230916T130000
+DTEND;TZID=Europe/Berlin:20230916T170000
+DTSTAMP:20230308T213006Z
+RRULE:FREQ=MONTHLY;WKST=MO;BYDAY=3SA
+EXDATE:20250816T090000Z,20260815T090000Z
+CREATED:20230308
+LAST-MODIFIED:20260129
+PRIORITY:5
+SEQUENCE:3
+TRANSP:OPAQUE
+SUMMARY:Repair Café
+DESCRIPTION:
+URL:https://www.zam.haus/programm/repair-cafe/
+CATEGORIES:Mitmachen
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/ZAM-Repair-e1691346765619.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e73fecc08ee9b0e1a876614ec3178bac@zam.haus
+DTSTART;TZID=Europe/Berlin:20230316T200000
+DTEND;TZID=Europe/Berlin:20230316T220000
+DTSTAMP:20230308T212009Z
+CREATED:20230308
+LAST-MODIFIED:20230308
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Verbindungs-Vision – Wir bauen Zukunft
+DESCRIPTION:
+URL:https://www.zam.haus/programm/verbindungs-vision-wir-bauen-zukunft/
+CATEGORIES:Treffen,Veranstaltung
+ATTACH;FMTTYPE=image/png:https://www.zam.haus/wp-content/uploads/2023/03/VerbindungDerWelten.png
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-335d3d1cd7ef05ec77714a215134914c@zam.haus
+DTSTART;TZID=Europe/Berlin:20220926T210000
+DTEND;TZID=Europe/Berlin:20220927T000000
+DTSTAMP:20230308T211508Z
+RRULE:FREQ=WEEKLY;INTERVAL=3;UNTIL=20231211T210000Z
+EXDATE:20231211T180000Z
+CREATED:20230308
+LAST-MODIFIED:20251216
+PRIORITY:5
+SEQUENCE:2
+TRANSP:OPAQUE
+SUMMARY:ZAM:kreativ
+DESCRIPTION:
+URL:https://www.zam.haus/programm/zamkreativ-23/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/ZAMkreativ.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-d0aa518d4d3bfc721aa0b8ab4ef32269@zam.haus
+DTSTART;TZID=Europe/Berlin:20240111T210000
+DTEND;TZID=Europe/Berlin:20240111T230000
+DTSTAMP:20230228T083532Z
+RRULE:FREQ=WEEKLY;UNTIL=20260501T200000Z
+EXDATE:20240808T180000Z,20240815T180000Z,20240822T180000Z,20240829T180000Z,20240905T180000Z,20241121T190000Z,20241226T190000Z,20250102T190000Z,20250619T180000Z,20250807T180000Z,20250814T180000Z,20250821T180000Z,20250828T180000Z,20250904T180000Z,20251225T190000Z,20260101T190000Z,20260226T190000Z
+CREATED:20230228
+LAST-MODIFIED:20260223
+PRIORITY:5
+SEQUENCE:12
+TRANSP:OPAQUE
+SUMMARY:Aktzeichnen
+DESCRIPTION:
+URL:https://www.zam.haus/programm/aktzeichnen/
+CATEGORIES:Farben,Mitmachen,Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/02/aktzeichnen.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-8a057268a74a5f1201285aa667585e15@zam.haus
+DTSTART;TZID=Europe/Berlin:20230301T210000
+DTEND;TZID=Europe/Berlin:20230301T220000
+DTSTAMP:20230227T213511Z
+RRULE:FREQ=WEEKLY;UNTIL=20240703T190000Z;BYDAY=WE
+EXDATE:20231101T190000Z,20231108T190000Z,20231115T190000Z,20231122T190000Z,20231129T190000Z,20240327T190000Z,20240522T180000Z,20240529T180000Z
+CREATED:20230227
+LAST-MODIFIED:20240708
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:🎲 Die Spiele-Erfinder:innen
+DESCRIPTION:Hier wollen wir zusammen Spiele entwickeln, ganz klassisch analog und auch digital. Eingeladen sind kreative Köpfe, die Lust an der Ideenfindung und Realisierung neuer Spiele haben. Zusammen können wir die Spiele-Entwicklung voranbringen, indem wir gleichzeitig zu motivierten Testspieler:innen der Spielideen anderer werden. So schaffen wir „echte“ Spielsituationen!\nKernzeit für das Treffen ist jeder erste Mittwoch im Monat von 20:00 bis 21:00 Uhr, es kann nach Absprache auch früher begonnen oder nach hinten verlängert werden.\nInfo und Ansprechpartner: mail@monsieurbernard.art\n
+URL:https://www.zam.haus/programm/die-spiele-erfinderinnen/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/03/220706-ZAMstival-kaze-Spieleerfinder-lo-res-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e7e69cdf28f8ce6b69b4e1853ee21bab@zam.haus
+DTSTART;TZID=Europe/Berlin:20260106T160000
+DTEND;TZID=Europe/Berlin:20260106T210000
+DTSTAMP:20230224T202631Z
+CREATED:20230224
+LAST-MODIFIED:20260213
+PRIORITY:5
+SEQUENCE:11
+TRANSP:OPAQUE
+SUMMARY:ZAMräumen
+DESCRIPTION:Das ZAM ist im Umbau und das mit viel Eigenleistung:\nWir packen es an!\nKomm dazu und hilf uns, das ZAM für den Normalbetrieb vorzubereiten und triff dabei viele nette Menschen. Falls du uns nicht an der Hauptstr. 65-67 (Südhaus, ehem. Haupeingang Greiner) findest, sind wir an der Westlichen Stadtmauerstraße 62 (Nordhaus).\n
+URL:https://www.zam.haus/programm/zamraeumen-old/
+CATEGORIES:Mitmachen,Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/10/IMG_4641-scaled.jpeg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-52c409f1571f500e28f490a302a12540@zam.haus
+DTSTART;TZID=Europe/Berlin:20230227T200000
+DTEND;TZID=Europe/Berlin:20230227T220000
+DTSTAMP:20230224T174805Z
+CREATED:20230224
+LAST-MODIFIED:20230224
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Musizieren für Nichtmusiker:innen
+DESCRIPTION:Jeder Mensch ist musikalisch\nEntdecke deine – noch schlummernden – musikalischen Potenziale und erlebe dich neu mit Rhythmus und Harmonien im Zusammenwirken in der Gruppe. Mit einfachen, erprobten Improvisations-Methoden wirst du entführt in ungeahnte neue Welten der Intuition und der darstellenden Kunst. Trau dich, Spaß-Faktor-Garantie.\nKeine Vorkenntnisse nötig.\nWorkshop im Rahmen des Projekts im ZAM „Verbindung der Welten“, kostenfrei.\nKursleiter: Rolf Klug\nAnmeldung bitte an info@verbindungderwelten.de oder über https://verbindungderwelten.de/projekt-im-zam/ ( https://verbindungderwelten.de/projekt-im-zam/ )\nOrt: EG Freifläche, ZAM\n
+URL:https://www.zam.haus/programm/musizieren-fuer-nichtmusikerinnen/
+CATEGORIES:Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2022/05/cropped-ZAM_ohne_Text-Logo-square.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-69f357fcc8e6d119f3d95f33cedb5915@zam.haus
+DTSTART;TZID=Europe/Berlin:20230224T190000
+DTEND;TZID=Europe/Berlin:20230225T000000
+DTSTAMP:20230224T122839Z
+RRULE:FREQ=WEEKLY
+EXDATE:20241122T170000Z,20250530T160000Z,20250801T160000Z,20250808T160000Z,20250815T160000Z,20250822T160000Z,20250829T160000Z,20251226T170000Z,20260102T170000Z,20251128T170000Z
+CREATED:20230224
+LAST-MODIFIED:20260223
+PRIORITY:5
+SEQUENCE:6
+TRANSP:OPAQUE
+SUMMARY:Freitagstreffen
+DESCRIPTION:Das Freitagstreffen!\n
+URL:https://www.zam.haus/programm/freitagstreffen/
+CATEGORIES:Treffen
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+ATTACH;FMTTYPE=image/jpeg:https://www.zam.haus/wp-content/uploads/2023/01/5698-3205-max-scaled.jpg
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+UID:MEC-e57c6b956a6521b28495f2886ca0977a@zam.haus
+DTSTART;TZID=Europe/Berlin:20221006T210000
+DTEND;TZID=Europe/Berlin:20221006T230000
+DTSTAMP:20230214T092640Z
+CREATED:20230214
+LAST-MODIFIED:20230212
+PRIORITY:5
+SEQUENCE:0
+TRANSP:OPAQUE
+SUMMARY:Tech-Reflexion
+DESCRIPTION:Wann ist Machen gut ? – für ZAM-Aktive\nWelchen Zwecken dienen die technischen Dinge und Projekte, die wir planen, entwickeln, verbreiten und einsetzen? Welchen Sinn erfüllen sie? Was sind die Folgen oder Risiken und was die Alternativen? Wo gibt es sogar Grenzen die wir respektieren sollten?\nOffener, moderierter Gesprächskreis im Rahmen des Projekts im ZAM „Verbindung der Welten“, kostenlos.\nModeration: Rolf Klug\nAnmeldung bitte an info@verbindungderwelten.de ( mailto:info@verbindungderwelten.de )\noder über https://verbindungderwelten.de/projekt-im-zam/ ( https://verbindungderwelten.de/projekt-im-zam/ )\n
+URL:https://www.zam.haus/programm/tech-reflexion/
+CATEGORIES:Workshop
+LOCATION:ZAM, Hauptstraße 65-67, 91052 Erlangen
+END:VEVENT
+END:VCALENDAR

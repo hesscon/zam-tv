@@ -1,10 +1,12 @@
-from datetime import datetime, time, timezone
+from datetime import datetime, time, timedelta, timezone
 
 import requests
 from icalendar import Calendar
 
+GERMAN_WEEKDAYS = ["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."]
 
-def build_calendar_entries(item: dict) -> list[dict]:
+
+def build_calendar_slides(item: dict) -> list[dict]:
     ics_url = item.get("content")
     if not ics_url:
         return []
@@ -17,33 +19,39 @@ def build_calendar_entries(item: dict) -> list[dict]:
     except Exception:
         return []
 
-    include_titles = {title.strip() for title in item.get("include_titles", []) if title}
-    now = datetime.now(timezone.utc)
-    events = []
+    categories_filter = {value.strip() for value in item.get("categories", []) if value}
+    now = _utc_now()
+    window_end = now + timedelta(days=int(item.get("days_ahead", 14)))
+    slides = []
 
     for component in calendar.walk("VEVENT"):
-        summary = str(component.get("summary", "")).strip()
         start_value = component.get("dtstart")
         if not start_value:
             continue
 
         start = _normalize_datetime(start_value.dt)
-        if start < now:
+        if start < now or start > window_end:
             continue
 
-        if include_titles and summary not in include_titles:
+        categories = _normalize_categories(component.get("categories"))
+        matching_categories = [category for category in categories if category in categories_filter]
+        if categories_filter and not matching_categories:
             continue
 
-        events.append(
+        slides.append(
             {
-                "title": summary or "Ohne Titel",
+                "type": "calendar_event",
+                "duration": item.get("duration", 15),
+                "category": matching_categories[0] if matching_categories else (categories[0] if categories else ""),
+                "summary": str(component.get("summary", "")).strip() or "Ohne Titel",
+                "image_url": str(component.get("attach", "")).strip(),
                 "start_iso": start.isoformat(),
-                "start_label": start.astimezone().strftime("%d.%m.%Y %H:%M"),
+                "start_label": _format_start_label(start),
             }
         )
 
-    events.sort(key=lambda entry: entry["start_iso"])
-    return events[: item.get("max_events", 5)]
+    slides.sort(key=lambda entry: entry["start_iso"])
+    return slides
 
 
 def _normalize_datetime(value) -> datetime:
@@ -54,3 +62,33 @@ def _normalize_datetime(value) -> datetime:
         return value.astimezone(timezone.utc)
 
     return datetime.combine(value, time.min, tzinfo=timezone.utc)
+
+
+def _utc_now() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def _format_start_label(value: datetime) -> str:
+    local_value = value.astimezone()
+    weekday = GERMAN_WEEKDAYS[local_value.weekday()]
+    return f"{weekday} {local_value.strftime('%d.%m.%Y %H:%M Uhr')}"
+
+
+def _normalize_categories(value) -> list[str]:
+    if value is None:
+        return []
+
+    if hasattr(value, "cats"):
+        raw_values = value.cats
+    elif isinstance(value, list):
+        raw_values = value
+    else:
+        raw_values = [value]
+
+    categories = []
+    for raw_value in raw_values:
+        text = str(raw_value)
+        parts = [part.strip() for part in text.split(",")]
+        categories.extend([part for part in parts if part])
+
+    return categories

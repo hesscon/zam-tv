@@ -80,26 +80,22 @@ function buildMarkup(item) {
     `;
   }
 
-  if (item.type === "calendar") {
-    const events = Array.isArray(item.events) ? item.events : [];
-    const eventMarkup = events.length
-      ? events
-          .map(
-            (event) => `
-              <li>
-                ${escapeHtml(event.title)}
-                <span class="calendar-date">${escapeHtml(event.start_label)}</span>
-              </li>
-            `
-          )
-          .join("")
-      : "<li>Keine passenden Termine gefunden.</li>";
+  if (item.type === "calendar_event") {
+    const imageMarkup = item.image_url
+      ? `
+        <div class="calendar-event-image">
+          <img src="${escapeAttribute(item.image_url)}" alt="${escapeHtml(item.summary || "Veranstaltung")}">
+        </div>
+      `
+      : "";
 
     return `
-      <article class="calendar-card">
-        <div class="calendar-inner">
-          <h1>Kalender</h1>
-          <ul class="calendar-list">${eventMarkup}</ul>
+      <article class="calendar-event-card ${item.image_url ? "with-image" : "without-image"}">
+        ${imageMarkup}
+        <div class="calendar-event-body">
+          <div class="calendar-event-category">${escapeHtml(item.category || "Veranstaltung")}</div>
+          <h1 class="calendar-event-title">${escapeHtml(item.summary || "Ohne Titel")}</h1>
+          <p class="calendar-event-date">${escapeHtml(item.start_label || "")}</p>
         </div>
       </article>
     `;

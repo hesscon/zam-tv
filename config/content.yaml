@@ -9,12 +9,20 @@ items:
   - type: web
     content: https://zam.haus
     duration: 5
-    enabled: true
+    enabled: false
 
   - type: image
     content: ZAM-Tische.png
     duration: 5
     enabled: true
+
+  - type: calendar
+    content: https://www.zam.haus/?mec-ical-feed=1
+    duration: 12
+    enabled: true
+    categories:
+      - Veranstaltung
+    days_ahead: 30
 
   # Media paths are resolved relative to data/uploads/.
   - type: video

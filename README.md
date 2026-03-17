@@ -29,6 +29,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
+- `calendar` erzeugt zur Laufzeit einzelne Event-Slides aus einer ICS-Quelle
 
 ## Routen
 
@@ -59,6 +60,14 @@ items:
   - type: video
     content: clip.mp4
     enabled: true
+
+  - type: calendar
+    content: https://example.com/events.ics
+    duration: 12
+    enabled: true
+    categories:
+      - Veranstaltung
+    days_ahead: 14
 ```
 
 Wichtige Felder:
@@ -68,6 +77,7 @@ Wichtige Felder:
 - `content`: URL fuer `web` und `calendar`, Dateiname relativ zu `data/uploads/` fuer `image` und `video`
 - `duration`: Pflicht fuer `image`, `web` und `calendar`
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
+- `calendar` kann mit `categories` und `days_ahead` gefiltert werden
 
 ## Besonderheiten und Grenzen
 
@@ -80,6 +90,7 @@ Wichtige Felder:
 
 - `config/content.yaml`: Zentrale Playlist-Konfiguration
 - `data/uploads/`: Bilder und Videos fuer lokale Medieninhalte
+- `docs/calendar.md`: Entscheidungen und Plan fuer die ICS-/Kalender-Logik
 - `app/templates/`: HTML-Templates fuer Admin und Screen
 - `app/static/`: CSS und JavaScript fuer die Anzeige
 

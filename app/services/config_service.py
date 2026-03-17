@@ -20,8 +20,9 @@ items:
     content: https://example.com/calendar.ics
     duration: 15
     enabled: false
-    include_titles: []
-    max_events: 5
+    categories:
+      - Veranstaltung
+    days_ahead: 14
 
   - type: video
     content: sample.mp4
@@ -89,5 +90,17 @@ def parse_config(config_text: str) -> dict:
 
         if item_type != "video" and "duration" not in item:
             raise ConfigError(f"Eintrag {index} vom Typ `{item_type}` braucht `duration`.")
+
+        if item_type == "calendar":
+            categories = item.get("categories", [])
+            if categories and not isinstance(categories, list):
+                raise ConfigError(f"Eintrag {index} vom Typ `calendar` braucht `categories` als Liste.")
+
+            days_ahead = item.get("days_ahead", 14)
+            try:
+                if int(days_ahead) < 0:
+                    raise ValueError
+            except (TypeError, ValueError) as exc:
+                raise ConfigError(f"Eintrag {index} vom Typ `calendar` braucht `days_ahead` als Zahl >= 0.") from exc
 
     return config

@@ -10,7 +10,7 @@ from flask import (
 )
 from werkzeug.utils import secure_filename
 
-from .services.calendar_service import build_calendar_entries
+from .services.calendar_service import build_calendar_slides
 from .services.config_service import ConfigError, load_config, save_config, validate_config_text
 
 
@@ -115,14 +115,8 @@ def screen():
             continue
 
         if item.get("type") == "calendar":
-            # Calendar items are resolved on the server into plain event data for the template.
-            playlist.append(
-                {
-                    "type": "calendar",
-                    "duration": item.get("duration", 15),
-                    "events": build_calendar_entries(item),
-                }
-            )
+            # A single calendar source can expand into several event slides.
+            playlist.extend(build_calendar_slides(item))
             continue
 
         playlist.append(item)
