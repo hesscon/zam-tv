@@ -3,6 +3,7 @@ from pathlib import Path
 import yaml
 
 
+# Used on first start so the app has a working example even in an empty repo.
 DEFAULT_CONFIG = """orientation: portrait
 rotation_seconds: 10
 items:
@@ -46,6 +47,7 @@ def load_config(config_path: Path) -> dict:
 
 
 def save_config(config_path: Path, config_text: str) -> None:
+    # Normalize trailing whitespace so manual edits stay reasonably tidy.
     normalized = config_text.strip() + "\n"
     config_path.write_text(normalized, encoding="utf-8")
 
@@ -67,6 +69,7 @@ def parse_config(config_text: str) -> dict:
     if not isinstance(items, list):
         raise ConfigError("`items` muss eine Liste sein.")
 
+    # Keep validation intentionally small for V1: just enough to catch obvious mistakes.
     orientation = config.get("orientation", "portrait")
     if orientation not in {"portrait", "landscape"}:
         raise ConfigError("`orientation` muss `portrait` oder `landscape` sein.")

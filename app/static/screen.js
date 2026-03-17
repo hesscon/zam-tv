@@ -2,7 +2,6 @@ const root = document.querySelector(".screen-shell");
 const frame = document.getElementById("screen-frame");
 const emptyState = document.getElementById("screen-empty");
 const content = document.getElementById("screen-content");
-const meta = document.getElementById("screen-meta");
 
 const playlist = JSON.parse(root?.dataset.playlist || "[]");
 const defaultDuration = Number(root?.dataset.defaultDuration || "10");
@@ -21,8 +20,6 @@ function renderCurrentItem() {
   frame.hidden = false;
 
   const item = playlist[index];
-  meta.textContent = item.title || item.type || "Inhalt";
-
   const duration = Number(item.duration || defaultDuration) * 1000;
   content.innerHTML = buildMarkup(item);
 
@@ -35,7 +32,14 @@ function renderCurrentItem() {
 
   window.clearTimeout(timeoutId);
   timeoutId = window.setTimeout(() => {
-    index = (index + 1) % playlist.length;
+    // The simplest way to pick up YAML changes is to reload after one full pass.
+    const isLastItem = index >= playlist.length - 1;
+    if (isLastItem) {
+      window.location.reload();
+      return;
+    }
+
+    index += 1;
     renderCurrentItem();
   }, duration);
 }
@@ -100,6 +104,7 @@ function buildMarkup(item) {
 }
 
 function escapeHtml(value) {
+  // Small helper because item titles and URLs come from editable YAML.
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")

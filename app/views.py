@@ -37,6 +37,7 @@ def save_admin():
     config_text = request.form.get("config_text", "")
 
     try:
+        # Validate before writing so the previous working config stays intact on errors.
         validate_config_text(config_text)
         save_config(current_app.config["CONFIG_PATH"], config_text)
     except ConfigError as exc:
@@ -61,6 +62,7 @@ def screen():
             continue
 
         if item.get("type") == "calendar":
+            # Calendar items are resolved on the server into plain event data for the template.
             playlist.append(
                 {
                     "type": "calendar",
@@ -75,6 +77,7 @@ def screen():
 
     return render_template(
         "screen.html",
+        body_class="screen-body",
         orientation=config.get("orientation", "portrait"),
         rotation_seconds=config.get("rotation_seconds", 10),
         playlist=playlist,

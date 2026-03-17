@@ -20,6 +20,15 @@ body {
   color: var(--text);
 }
 
+body.screen-body {
+  background: #000;
+}
+
+/* Our own layout CSS would otherwise override the HTML hidden attribute. */
+[hidden] {
+  display: none !important;
+}
+
 code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
@@ -138,8 +147,10 @@ textarea {
   justify-content: center;
   overflow: hidden;
   position: relative;
+  background: #000;
 }
 
+/* Orientation is handled at the page level so the content types can stay simple. */
 .screen-shell.orientation-portrait {
   aspect-ratio: 9 / 16;
 }
@@ -189,6 +200,7 @@ textarea {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background: #000;
 }
 
 .media-card img,
@@ -198,6 +210,11 @@ textarea {
   height: 100%;
   object-fit: contain;
   border: 0;
+}
+
+.web-card iframe {
+  /* White fallback looks better than transparent if the embedded page has no background. */
+  background: #fff;
 }
 
 .calendar-card {

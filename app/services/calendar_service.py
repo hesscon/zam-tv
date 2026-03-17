@@ -10,6 +10,7 @@ def build_calendar_entries(item: dict) -> list[dict]:
         return []
 
     try:
+        # Calendar fetch errors should not break the whole signage screen.
         response = requests.get(ics_url, timeout=10)
         response.raise_for_status()
         calendar = Calendar.from_ical(response.text)
@@ -46,6 +47,7 @@ def build_calendar_entries(item: dict) -> list[dict]:
 
 
 def _normalize_datetime(value) -> datetime:
+    # ICS feeds may contain either full datetimes or date-only values.
     if isinstance(value, datetime):
         if value.tzinfo is None:
             return value.replace(tzinfo=timezone.utc)
