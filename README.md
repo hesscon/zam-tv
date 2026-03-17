@@ -24,7 +24,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 
 - Eine einzelne Flask-App fuer Admin und Screen
 - Konfiguration komplett ueber `config/content.yaml`
-- Admin-Seite mit einem grossen YAML-Textfeld
+- Admin-Seite mit YAML-Editor, Dateiliste, Upload-Funktion und Aufraeumen unbenutzter Medien
 - Screen zeigt aktive Inhalte nacheinander an
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
@@ -33,6 +33,8 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 ## Routen
 
 - `/admin`: YAML-Konfiguration ansehen und bearbeiten
+- `/admin/cleanup-unused`: Nicht referenzierte Upload-Dateien loeschen
+- `/admin/upload`: Medien nach `data/uploads/` hochladen
 - `/admin/save`: Formularziel zum Speichern der YAML
 - `/screen`: Signage-Ansicht fuer den Bildschirm
 - `/uploads/<filename>`: Lokale Medien aus `data/uploads/`

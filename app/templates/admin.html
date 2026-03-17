@@ -29,21 +29,56 @@
         </div>
       </form>
 
-      <aside class="help-card">
-        <h2>Schnellhilfe</h2>
-        <p>Typen fuer Eintraege: <code>image</code>, <code>video</code>, <code>web</code>, <code>calendar</code>.</p>
-        <p>Das Feld <code>content</code> enthaelt je nach Typ eine URL oder einen Dateinamen aus <code>data/uploads</code>.</p>
-        <p><code>orientation</code> ist aktuell <code>portrait</code> oder <code>landscape</code>.</p>
-        <p>Die Screen-Seite liest diese Datei bei jedem Aufruf neu ein.</p>
+      <aside class="side-column">
+        <section class="help-card">
+          <h2>Uploads</h2>
+          <form class="upload-form" method="post" action="{{ url_for('main.upload_media') }}" enctype="multipart/form-data">
+            <label class="upload-dropzone" id="upload-dropzone" for="media_files">
+              <span>Dateien hier ablegen</span>
+              <span>oder klicken zum Auswaehlen</span>
+            </label>
+            <input id="media_files" class="upload-input" type="file" name="media_files" multiple>
+            <div class="upload-selection" id="upload-selection">Noch keine Dateien ausgewaehlt.</div>
+            <div class="form-actions">
+              <button class="button" type="submit">Dateien hochladen</button>
+            </div>
+          </form>
+          <form id="cleanup-form" method="post" action="{{ url_for('main.cleanup_unused_uploads') }}">
+            <div class="form-actions">
+              <button class="button secondary danger" type="submit">Loesche nicht benutzte</button>
+            </div>
+          </form>
 
-        {% if config and config.get("items") %}
-          <h3>Aktive Struktur</h3>
-          <ul>
-            <li>Ausrichtung: {{ config.get("orientation", "portrait") }}</li>
-            <li>Eintraege: {{ config.get("items", []) | length }}</li>
-          </ul>
-        {% endif %}
+          <h3>Vorhandene Dateien</h3>
+          {% if uploads %}
+            <ul class="upload-list">
+              {% for filename in uploads %}
+                <li><code>{{ filename }}</code></li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>Noch keine Dateien im Upload-Ordner.</p>
+          {% endif %}
+        </section>
+
+        <section class="help-card">
+          <h2>Schnellhilfe</h2>
+          <p>Typen fuer Eintraege: <code>image</code>, <code>video</code>, <code>web</code>, <code>calendar</code>.</p>
+          <p>Das Feld <code>content</code> enthaelt je nach Typ eine URL oder einen Dateinamen aus <code>data/uploads</code>.</p>
+          <p><code>orientation</code> ist aktuell <code>portrait</code> oder <code>landscape</code>.</p>
+          <p>Die Screen-Seite liest diese Datei bei jedem Aufruf neu ein.</p>
+
+          {% if config and config.get("items") %}
+            <h3>Aktive Struktur</h3>
+            <ul>
+              <li>Ausrichtung: {{ config.get("orientation", "portrait") }}</li>
+              <li>Eintraege: {{ config.get("items", []) | length }}</li>
+            </ul>
+          {% endif %}
+        </section>
       </aside>
     </section>
   </main>
+
+  <script src="{{ url_for('static', filename='admin.js') }}"></script>
 {% endblock %}

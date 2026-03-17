@@ -8,6 +8,7 @@ from flask import (
     send_from_directory,
     url_for,
 )
+from werkzeug.utils import secure_filename
 
 from .services.calendar_service import build_calendar_entries
 from .services.config_service import ConfigError, load_config, save_config, validate_config_text
@@ -29,6 +30,7 @@ def admin():
         "admin.html",
         config=config,
         config_text=config_text,
+        uploads=list_uploads(current_app.config["UPLOADS_DIR"]),
     )
 
 
@@ -46,9 +48,60 @@ def save_admin():
             "admin.html",
             config=None,
             config_text=config_text,
+            uploads=list_uploads(current_app.config["UPLOADS_DIR"]),
         ), 400
 
     flash("Konfiguration gespeichert.", "success")
+    return redirect(url_for("main.admin"))
+
+
+@main_bp.post("/admin/upload")
+def upload_media():
+    files = request.files.getlist("media_files")
+    saved_files = []
+
+    for file in files:
+        filename = secure_filename(file.filename or "")
+        if not filename:
+            continue
+
+        target_path = current_app.config["UPLOADS_DIR"] / filename
+        file.save(target_path)
+        saved_files.append(filename)
+
+    if saved_files:
+        flash(f"Hochgeladen: {', '.join(saved_files)}", "success")
+    if not saved_files:
+        flash("Keine Datei ausgewaehlt.", "error")
+
+    return redirect(url_for("main.admin"))
+
+
+@main_bp.post("/admin/cleanup-unused")
+def cleanup_unused_uploads():
+    config = load_config(current_app.config["CONFIG_PATH"])
+    referenced_files = {
+        item.get("content")
+        for item in config.get("items", [])
+        if item.get("type") in {"image", "video"} and item.get("content")
+    }
+    deleted_files = []
+
+    for path in current_app.config["UPLOADS_DIR"].iterdir():
+        if not path.is_file() or path.name.startswith("."):
+            continue
+
+        if path.name in referenced_files:
+            continue
+
+        path.unlink()
+        deleted_files.append(path.name)
+
+    if deleted_files:
+        flash(f"Nicht benutzte Dateien geloescht: {', '.join(sorted(deleted_files, key=str.lower))}", "success")
+    else:
+        flash("Keine unbenutzten Dateien gefunden.", "success")
+
     return redirect(url_for("main.admin"))
 
 
@@ -85,3 +138,10 @@ def screen():
 @main_bp.get("/uploads/<path:filename>")
 def uploads(filename: str):
     return send_from_directory(current_app.config["UPLOADS_DIR"], filename)
+
+
+def list_uploads(uploads_dir) -> list[str]:
+    return sorted(
+        [path.name for path in uploads_dir.iterdir() if path.is_file() and not path.name.startswith(".")],
+        key=str.lower,
+    )

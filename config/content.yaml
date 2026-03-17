@@ -11,7 +11,12 @@ items:
     duration: 5
     enabled: true
 
+  - type: image
+    content: ZAM-Tische.png
+    duration: 5
+    enabled: true
+
   # Media paths are resolved relative to data/uploads/.
   - type: video
-    content: Farbwerkstatt.mp4
-    enabled: true
+    content: Communitykuche_.mp4
+    enabled: false

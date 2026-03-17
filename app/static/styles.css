@@ -79,8 +79,14 @@ code {
   flex: 1 1 760px;
 }
 
-.help-card {
+.help-card,
+.side-column {
   width: 320px;
+}
+
+.side-column {
+  display: grid;
+  gap: 20px;
 }
 
 label,
@@ -104,6 +110,54 @@ textarea {
   resize: vertical;
 }
 
+.upload-form {
+  margin-bottom: 20px;
+}
+
+.upload-dropzone {
+  display: grid;
+  gap: 6px;
+  place-items: center;
+  min-height: 140px;
+  padding: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.5);
+  color: var(--muted);
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-dropzone.is-dragover {
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--text);
+}
+
+.upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.upload-selection {
+  margin: 12px 0 16px;
+  color: var(--muted);
+}
+
+.upload-list {
+  max-height: 280px;
+  margin: 0;
+  padding-left: 18px;
+  overflow: auto;
+}
+
+.upload-list li {
+  margin-bottom: 8px;
+}
+
 .button {
   display: inline-block;
   padding: 12px 18px;
@@ -119,6 +173,11 @@ textarea {
 .button.secondary {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text);
+}
+
+.button.secondary.danger {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fecaca;
 }
 
 .flash-list {
@@ -246,7 +305,8 @@ textarea {
     flex-direction: column;
   }
 
-  .help-card {
+  .help-card,
+  .side-column {
     width: 100%;
   }
 
