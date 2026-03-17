@@ -66,7 +66,6 @@ def screen():
             playlist.append(
                 {
                     "type": "calendar",
-                    "title": item.get("title", "Kalender"),
                     "duration": item.get("duration", 15),
                     "events": build_calendar_entries(item),
                 }
@@ -79,7 +78,6 @@ def screen():
         "screen.html",
         body_class="screen-body",
         orientation=config.get("orientation", "portrait"),
-        rotation_seconds=config.get("rotation_seconds", 10),
         playlist=playlist,
     )
 

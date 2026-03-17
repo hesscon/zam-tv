@@ -1,22 +1,17 @@
 orientation: portrait
-rotation_seconds: 10
 items:
   # Web pages are embedded in an iframe, so not every site will allow this.
   - type: web
-    title: ZAM
-    url: https://zam.haus/monitor?dummy
+    content: https://zam.haus/monitor?dummy
     duration: 10
     enabled: false
 
   - type: web
-    title: ZAM
-    url: https://zam.haus
-    duration: 10
+    content: https://zam.haus
+    duration: 5
     enabled: true
 
   # Media paths are resolved relative to data/uploads/.
-  - type: image
-    title: ZAM
-    path: Farbwerkstatt.mp4
-    duration: 10
+  - type: video
+    content: Farbwerkstatt.mp4
     enabled: true

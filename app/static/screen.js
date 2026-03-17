@@ -4,7 +4,6 @@ const emptyState = document.getElementById("screen-empty");
 const content = document.getElementById("screen-content");
 
 const playlist = JSON.parse(root?.dataset.playlist || "[]");
-const defaultDuration = Number(root?.dataset.defaultDuration || "10");
 
 let index = 0;
 let timeoutId = null;
@@ -20,35 +19,47 @@ function renderCurrentItem() {
   frame.hidden = false;
 
   const item = playlist[index];
-  const duration = Number(item.duration || defaultDuration) * 1000;
   content.innerHTML = buildMarkup(item);
 
   if (item.type === "video") {
     const video = content.querySelector("video");
     if (video) {
+      window.clearTimeout(timeoutId);
+      video.addEventListener(
+        "ended",
+        () => {
+          goToNextItem();
+        },
+        { once: true }
+      );
       video.play().catch(() => {});
+      return;
     }
   }
 
   window.clearTimeout(timeoutId);
   timeoutId = window.setTimeout(() => {
-    // The simplest way to pick up YAML changes is to reload after one full pass.
-    const isLastItem = index >= playlist.length - 1;
-    if (isLastItem) {
-      window.location.reload();
-      return;
-    }
+    goToNextItem();
+  }, Number(item.duration) * 1000);
+}
 
-    index += 1;
-    renderCurrentItem();
-  }, duration);
+function goToNextItem() {
+  // The simplest way to pick up YAML changes is to reload after one full pass.
+  const isLastItem = index >= playlist.length - 1;
+  if (isLastItem) {
+    window.location.reload();
+    return;
+  }
+
+  index += 1;
+  renderCurrentItem();
 }
 
 function buildMarkup(item) {
   if (item.type === "image") {
     return `
       <article class="media-card">
-        <img src="/uploads/${item.path}" alt="${escapeHtml(item.title || "Bild")}">
+        <img src="/uploads/${item.content}" alt="${escapeHtml(item.type || "image")}">
       </article>
     `;
   }
@@ -56,7 +67,7 @@ function buildMarkup(item) {
   if (item.type === "video") {
     return `
       <article class="media-card">
-        <video src="/uploads/${item.path}" autoplay muted playsinline></video>
+        <video src="/uploads/${item.content}" autoplay muted playsinline></video>
       </article>
     `;
   }
@@ -64,7 +75,7 @@ function buildMarkup(item) {
   if (item.type === "web") {
     return `
       <article class="web-card">
-        <iframe src="${escapeAttribute(item.url || "")}" referrerpolicy="no-referrer"></iframe>
+        <iframe src="${escapeAttribute(item.content || "")}" referrerpolicy="no-referrer"></iframe>
       </article>
     `;
   }
@@ -87,7 +98,7 @@ function buildMarkup(item) {
     return `
       <article class="calendar-card">
         <div class="calendar-inner">
-          <h1>${escapeHtml(item.title || "Kalender")}</h1>
+          <h1>Kalender</h1>
           <ul class="calendar-list">${eventMarkup}</ul>
         </div>
       </article>
@@ -104,7 +115,7 @@ function buildMarkup(item) {
 }
 
 function escapeHtml(value) {
-  // Small helper because item titles and URLs come from editable YAML.
+  // Small helper because content comes from editable YAML.
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")

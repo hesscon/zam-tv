@@ -5,27 +5,27 @@ import yaml
 
 # Used on first start so the app has a working example even in an empty repo.
 DEFAULT_CONFIG = """orientation: portrait
-rotation_seconds: 10
 items:
   - type: image
-    title: Beispielbild
-    path: sample.jpg
+    content: sample.jpg
     duration: 8
     enabled: false
 
   - type: web
-    title: OpenAI
-    url: https://www.openai.com
+    content: https://www.openai.com
     duration: 15
     enabled: false
 
   - type: calendar
-    title: Veranstaltungen
+    content: https://example.com/calendar.ics
     duration: 15
     enabled: false
-    ics_url: https://example.com/calendar.ics
     include_titles: []
     max_events: 5
+
+  - type: video
+    content: sample.mp4
+    enabled: false
 """
 
 
@@ -83,5 +83,11 @@ def parse_config(config_text: str) -> dict:
             raise ConfigError(
                 f"Eintrag {index} hat einen ungueltigen Typ. Erlaubt sind image, video, web, calendar."
             )
+
+        if not item.get("content"):
+            raise ConfigError(f"Eintrag {index} braucht ein Feld `content`.")
+
+        if item_type != "video" and "duration" not in item:
+            raise ConfigError(f"Eintrag {index} vom Typ `{item_type}` braucht `duration`.")
 
     return config

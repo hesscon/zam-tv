@@ -5,7 +5,7 @@ from icalendar import Calendar
 
 
 def build_calendar_entries(item: dict) -> list[dict]:
-    ics_url = item.get("ics_url")
+    ics_url = item.get("content")
     if not ics_url:
         return []
 

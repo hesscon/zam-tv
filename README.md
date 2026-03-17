@@ -27,6 +27,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - Admin-Seite mit einem grossen YAML-Textfeld
 - Screen zeigt aktive Inhalte nacheinander an
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
+- Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
 
 ## Routen
@@ -42,28 +43,29 @@ Ein minimales Beispiel:
 
 ```yaml
 orientation: portrait
-rotation_seconds: 10
 items:
   - type: web
-    title: ZAM
-    url: https://zam.haus
+    content: https://zam.haus
     duration: 10
     enabled: true
 
   - type: image
-    title: Beispielbild
-    path: bild.jpg
+    content: bild.jpg
     duration: 8
+    enabled: true
+
+  - type: video
+    content: clip.mp4
     enabled: true
 ```
 
 Wichtige Felder:
 - `orientation`: `portrait` oder `landscape`
-- `rotation_seconds`: Fallback-Dauer, wenn ein Eintrag keine eigene `duration` hat
 - `items`: Liste aller Inhalte in Wiedergabereihenfolge
 - `enabled`: Nur aktive Eintraege werden auf dem Screen gezeigt
-- `path`: Dateiname relativ zu `data/uploads/`
-- `url`: Zieladresse fuer Web-Inhalte
+- `content`: URL fuer `web` und `calendar`, Dateiname relativ zu `data/uploads/` fuer `image` und `video`
+- `duration`: Pflicht fuer `image`, `web` und `calendar`
+- `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 
 ## Besonderheiten und Grenzen
 
