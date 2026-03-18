@@ -124,7 +124,6 @@ def screen():
     return render_template(
         "screen.html",
         body_class="screen-body",
-        orientation=config.get("orientation", "portrait"),
         playlist=playlist,
     )
 

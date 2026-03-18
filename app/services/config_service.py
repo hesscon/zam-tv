@@ -4,8 +4,7 @@ import yaml
 
 
 # Used on first start so the app has a working example even in an empty repo.
-DEFAULT_CONFIG = """orientation: portrait
-items:
+DEFAULT_CONFIG = """items:
   - type: image
     content: sample.jpg
     duration: 8
@@ -69,11 +68,6 @@ def parse_config(config_text: str) -> dict:
     items = config.get("items", [])
     if not isinstance(items, list):
         raise ConfigError("`items` muss eine Liste sein.")
-
-    # Keep validation intentionally small for V1: just enough to catch obvious mistakes.
-    orientation = config.get("orientation", "portrait")
-    if orientation not in {"portrait", "landscape"}:
-        raise ConfigError("`orientation` muss `portrait` oder `landscape` sein.")
 
     for index, item in enumerate(items, start=1):
         if not isinstance(item, dict):

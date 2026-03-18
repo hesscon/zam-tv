@@ -81,20 +81,17 @@ function buildMarkup(item) {
   }
 
   if (item.type === "calendar_event") {
-    const imageMarkup = item.image_url
-      ? `
-        <div class="calendar-event-image">
-          <img src="${escapeAttribute(item.image_url)}" alt="${escapeHtml(item.summary || "Veranstaltung")}">
-        </div>
-      `
+    const cardStyle = item.image_url
+      ? ` style="--calendar-event-image: url('${escapeCssUrl(item.image_url)}');"`
       : "";
+    const title = item.summary || "";
+    const longTitleClass = isLongTitle(title) ? " is-long-title" : "";
 
     return `
-      <article class="calendar-event-card ${item.image_url ? "with-image" : "without-image"}">
-        ${imageMarkup}
+      <article class="calendar-event-card ${item.image_url ? "with-image" : "without-image"}${longTitleClass}"${cardStyle}>
         <div class="calendar-event-body">
           <div class="calendar-event-category">${escapeHtml(item.category || "Veranstaltung")}</div>
-          <h1 class="calendar-event-title">${escapeHtml(item.summary || "Ohne Titel")}</h1>
+          <h1 class="calendar-event-title">${escapeHtml(title || "Ohne Titel")}</h1>
           <p class="calendar-event-date">${escapeHtml(item.start_label || "")}</p>
         </div>
       </article>
@@ -122,6 +119,17 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value);
+}
+
+function escapeCssUrl(value) {
+  return String(value)
+    .replaceAll("\\", "\\\\")
+    .replaceAll("'", "\\'");
+}
+
+function isLongTitle(value) {
+  const text = String(value || "").trim();
+  return text.length > 42 || text.split(/\s+/).length > 5;
 }
 
 renderCurrentItem();

@@ -1,4 +1,3 @@
-orientation: portrait
 items:
   # Web pages are embedded in an iframe, so not every site will allow this.
   - type: web

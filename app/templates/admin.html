@@ -65,13 +65,11 @@
           <h2>Schnellhilfe</h2>
           <p>Typen fuer Eintraege: <code>image</code>, <code>video</code>, <code>web</code>, <code>calendar</code>.</p>
           <p>Das Feld <code>content</code> enthaelt je nach Typ eine URL oder einen Dateinamen aus <code>data/uploads</code>.</p>
-          <p><code>orientation</code> ist aktuell <code>portrait</code> oder <code>landscape</code>.</p>
           <p>Die Screen-Seite liest diese Datei bei jedem Aufruf neu ein.</p>
 
           {% if config and config.get("items") %}
             <h3>Aktive Struktur</h3>
             <ul>
-              <li>Ausrichtung: {{ config.get("orientation", "portrait") }}</li>
               <li>Eintraege: {{ config.get("items", []) | length }}</li>
             </ul>
           {% endif %}

@@ -45,7 +45,6 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 Ein minimales Beispiel:
 
 ```yaml
-orientation: portrait
 items:
   - type: web
     content: https://zam.haus
@@ -71,7 +70,6 @@ items:
 ```
 
 Wichtige Felder:
-- `orientation`: `portrait` oder `landscape`
 - `items`: Liste aller Inhalte in Wiedergabereihenfolge
 - `enabled`: Nur aktive Eintraege werden auf dem Screen gezeigt
 - `content`: URL fuer `web` und `calendar`, Dateiname relativ zu `data/uploads/` fuer `image` und `video`
