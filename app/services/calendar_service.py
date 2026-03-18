@@ -3,7 +3,21 @@ from datetime import datetime, time, timedelta, timezone
 import requests
 from icalendar import Calendar
 
-GERMAN_WEEKDAYS = ["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."]
+GERMAN_WEEKDAY_NAMES = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+GERMAN_MONTH_NAMES = [
+    "Januar",
+    "Februar",
+    "März",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember",
+]
 
 
 def build_calendar_slides(item: dict) -> list[dict]:
@@ -70,8 +84,9 @@ def _utc_now() -> datetime:
 
 def _format_start_label(value: datetime) -> str:
     local_value = value.astimezone()
-    weekday = GERMAN_WEEKDAYS[local_value.weekday()]
-    return f"{weekday} {local_value.strftime('%d.%m.%Y %H:%M Uhr')}"
+    weekday = GERMAN_WEEKDAY_NAMES[local_value.weekday()]
+    month = GERMAN_MONTH_NAMES[local_value.month - 1]
+    return f"{weekday}, {local_value.day}. {month} {local_value.strftime('%H:%M')}"
 
 
 def _normalize_categories(value) -> list[str]:

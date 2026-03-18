@@ -56,6 +56,7 @@ class BuildCalendarSlidesTest(TestCase):
             slides[0]["image_url"],
         )
         self.assertEqual("2026-03-20T20:20:00+00:00", slides[0]["start_iso"])
+        self.assertEqual("Freitag, 20. März 21:20", slides[0]["start_label"])
 
     def test_keeps_event_without_attach_and_uses_empty_image_url(self) -> None:
         item = {
@@ -78,6 +79,7 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertEqual("", slides[0]["image_url"])
         self.assertEqual("Veranstaltung", slides[0]["category"])
         self.assertEqual(20, slides[0]["duration"])
+        self.assertEqual("Samstag, 25. April 12:00", slides[0]["start_label"])
 
 
 def _fixture_response() -> FakeResponse:
