@@ -18,6 +18,8 @@ GERMAN_MONTH_NAMES = [
     "November",
     "Dezember",
 ]
+CACHE_TTL = timedelta(hours=1)
+_slides_cache: dict[tuple[str, tuple[str, ...], int], dict] = {}
 
 
 def build_calendar_slides(item: dict) -> list[dict]:
@@ -25,17 +27,41 @@ def build_calendar_slides(item: dict) -> list[dict]:
     if not ics_url:
         return []
 
+    cache_key = _build_cache_key(item)
+    now = _utc_now()
+    cache_entry = _slides_cache.get(cache_key)
+    if cache_entry and cache_entry["expires_at"] > now:
+        return cache_entry["slides"]
+
     try:
-        # Calendar fetch errors should not break the whole signage screen.
-        response = requests.get(ics_url, timeout=10)
-        response.raise_for_status()
-        calendar = Calendar.from_ical(response.text)
+        slides = _build_uncached_slides(item, now)
     except Exception:
+        if cache_entry:
+            return cache_entry["slides"]
         return []
 
-    categories_filter = {value.strip() for value in item.get("categories", []) if value}
-    now = _utc_now()
-    window_end = now + timedelta(days=int(item.get("days_ahead", 14)))
+    _slides_cache[cache_key] = {
+        "slides": slides,
+        "expires_at": now + CACHE_TTL,
+    }
+    return slides
+
+
+def _build_cache_key(item: dict) -> tuple[str, tuple[str, ...], int]:
+    categories = tuple(sorted({value.strip() for value in item["categories"] if value}))
+    return (item["content"], categories, item["days_ahead"])
+
+
+def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:
+    ics_url = item.get("content")
+
+    # Calendar fetch errors should not break the whole signage screen.
+    response = requests.get(ics_url, timeout=10)
+    response.raise_for_status()
+    calendar = Calendar.from_ical(response.text)
+
+    categories_filter = {value.strip() for value in item["categories"] if value}
+    window_end = now + timedelta(days=item["days_ahead"])
     slides = []
 
     for component in calendar.walk("VEVENT"):

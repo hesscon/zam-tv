@@ -92,9 +92,13 @@ def parse_config(config_text: str) -> dict:
 
             days_ahead = item.get("days_ahead", 14)
             try:
-                if int(days_ahead) < 0:
+                days_ahead = int(days_ahead)
+                if days_ahead < 0:
                     raise ValueError
             except (TypeError, ValueError) as exc:
                 raise ConfigError(f"Eintrag {index} vom Typ `calendar` braucht `days_ahead` als Zahl >= 0.") from exc
+
+            item["categories"] = categories
+            item["days_ahead"] = days_ahead
 
     return config
