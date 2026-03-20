@@ -30,6 +30,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
 - `calendar` erzeugt zur Laufzeit einzelne Event-Slides aus einer ICS-Quelle
+- Die erzeugten `calendar`-Slides werden fuer 1 Stunde im Speicher gecacht, damit ICS-Fetch und Parsing nicht bei jedem Request erneut passieren
 
 ## Routen
 
@@ -76,6 +77,7 @@ Wichtige Felder:
 - `duration`: Pflicht fuer `image`, `web` und `calendar`
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
+- Wenn ein spaeterer Kalender-Refresh fehlschlaegt, wird der letzte erfolgreiche Stand weiterverwendet
 
 ## Besonderheiten und Grenzen
 

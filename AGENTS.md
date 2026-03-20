@@ -88,6 +88,7 @@ tests/
 - Halte Dateizugriff, Validierung und Darstellung getrennt.
 - Schreibe kleine, klar benannte Module.
 - Dokumentiere nur dort, wo die Absicht nicht sofort offensichtlich ist.
+- Versehen Code und Konfiguration immer mit kurzen, relevanten Kommentaren, wenn sie beim Verstaendnis helfen.
 - Fuege nur dann neue Tools oder Frameworks hinzu, wenn sie klaren Nutzen bringen.
 
 ## Entscheidungsregeln fuer Codex
