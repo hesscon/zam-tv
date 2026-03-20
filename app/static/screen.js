@@ -7,9 +7,11 @@ const playlist = JSON.parse(root?.dataset.playlist || "[]");
 
 let index = 0;
 let timeoutId = null;
+let manualAdvanceEnabled = false;
 
 function renderCurrentItem() {
   if (!playlist.length) {
+    window.clearTimeout(timeoutId);
     emptyState.hidden = false;
     frame.hidden = true;
     return;
@@ -25,6 +27,9 @@ function renderCurrentItem() {
     const video = content.querySelector("video");
     if (video) {
       window.clearTimeout(timeoutId);
+      if (manualAdvanceEnabled) {
+        return;
+      }
       video.addEventListener(
         "ended",
         () => {
@@ -38,6 +43,9 @@ function renderCurrentItem() {
   }
 
   window.clearTimeout(timeoutId);
+  if (manualAdvanceEnabled) {
+    return;
+  }
   timeoutId = window.setTimeout(() => {
     goToNextItem();
   }, Number(item.duration) * 1000);
@@ -131,5 +139,19 @@ function isLongTitle(value) {
   const text = String(value || "").trim();
   return text.length > 42 || text.split(/\s+/).length > 5;
 }
+
+window.addEventListener("keydown", () => {
+  if (!playlist.length) {
+    return;
+  }
+
+  if (!manualAdvanceEnabled) {
+    manualAdvanceEnabled = true;
+    window.clearTimeout(timeoutId);
+    return;
+  }
+
+  goToNextItem();
+});
 
 renderCurrentItem();
