@@ -59,7 +59,6 @@ Warum diese Wahl:
 - Spaeter erweiterbar um Datei-Uploads fuer Medien
 - Signage-Ansicht fuer den Bildschirm
 - Einfache Verarbeitung einer ICS-Quelle fuer ausgewaehlte Events
-- Umschaltung oder Konfiguration fuer Hoch- und Querformat
 
 ## Nicht-Ziele fuer die erste Version
 - Mehrbenutzerbetrieb
@@ -108,8 +107,6 @@ Conrad ist neu in Codex und im Projektsetup. Deshalb gilt:
 
 ## Offene Entscheidungen
 Diese Punkte sind noch nicht final und duerfen spaeter gemeinsam entschieden werden:
-- Exakte YAML-Struktur fuer alle Inhaltstypen
 - Exakte Python-Bibliotheken fuer ICS-Verarbeitung
-- Ob externe Webseiten per `iframe` oder eingebettetem Browser-View behandelt werden
 - Wie die Bildschirmansicht auf dem Raspberry Pi genau gestartet wird
 - Wann aus dem YAML-Editor ein komfortableres Admin-UI werden soll
