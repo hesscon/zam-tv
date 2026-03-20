@@ -34,9 +34,9 @@ code {
 }
 
 .admin-shell {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 32px 20px 48px;
+  padding: 2rem 1.25rem 3rem;
 }
 
 .admin-header,
@@ -58,36 +58,36 @@ code {
 }
 
 .admin-grid {
-  gap: 20px;
+  gap: 1.25rem;
   align-items: flex-start;
 }
 
 .editor-card,
 .help-card,
 .flash {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.125rem;
   background: rgba(17, 24, 39, 0.88);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1.125rem 3rem rgba(0, 0, 0, 0.24);
 }
 
 .editor-card,
 .help-card {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .editor-card {
-  flex: 1 1 760px;
+  flex: 1 1 47.5rem;
 }
 
 .help-card,
 .side-column {
-  width: 320px;
+  width: 20rem;
 }
 
 .side-column {
   display: grid;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 label,
@@ -102,27 +102,27 @@ li {
 textarea {
   width: 100%;
   min-height: 70vh;
-  margin-top: 10px;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  margin-top: 0.625rem;
+  padding: 1rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
   background: #020617;
   color: var(--text);
   resize: vertical;
 }
 
 .upload-form {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .upload-dropzone {
   display: grid;
-  gap: 6px;
+  gap: 0.375rem;
   place-items: center;
-  min-height: 140px;
-  padding: 20px;
-  border: 2px dashed rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
+  min-height: 8.75rem;
+  padding: 1.25rem;
+  border: 0.125rem dashed rgba(255, 255, 255, 0.18);
+  border-radius: 0.875rem;
   background: rgba(2, 6, 23, 0.5);
   color: var(--muted);
   text-align: center;
@@ -137,33 +137,33 @@ textarea {
 
 .upload-input {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
   overflow: hidden;
   opacity: 0;
 }
 
 .upload-selection {
-  margin: 12px 0 16px;
+  margin: 0.75rem 0 1rem;
   color: var(--muted);
 }
 
 .upload-list {
-  max-height: 280px;
+  max-height: 17.5rem;
   margin: 0;
-  padding-left: 18px;
+  padding-left: 1.125rem;
   overflow: auto;
 }
 
 .upload-list li {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .button {
   display: inline-block;
-  padding: 12px 18px;
+  padding: 0.75rem 1.125rem;
   border: 0;
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: var(--accent);
   color: #111827;
   text-decoration: none;
@@ -182,12 +182,12 @@ textarea {
 }
 
 .flash-list {
-  margin: 16px 0;
+  margin: 1rem 0;
 }
 
 .flash {
-  margin-bottom: 12px;
-  padding: 14px 16px;
+  margin-bottom: 0.75rem;
+  padding: 0.875rem 1rem;
 }
 
 .flash.error {
@@ -229,7 +229,7 @@ textarea {
 
 .screen-empty {
   text-align: center;
-  padding: 32px;
+  padding: 2rem;
 }
 
 .screen-frame {
@@ -238,11 +238,11 @@ textarea {
 
 .screen-meta {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 1rem;
+  left: 1rem;
   z-index: 20;
-  padding: 8px 12px;
-  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 62.4375rem;
   background: rgba(15, 23, 42, 0.72);
   color: var(--muted);
 }
@@ -270,14 +270,31 @@ textarea {
 }
 
 .calendar-card {
-  padding: 48px;
+  padding: 3rem;
 }
 
 .calendar-inner {
-  width: min(960px, 90vw);
+  width: min(60rem, 90vw);
 }
 
 .calendar-event-card {
+  --calendar-event-body-gap: 1.125rem;
+  --calendar-event-body-padding: 2.5rem 2.625rem 3rem;
+  --calendar-event-body-max-width: 56.25rem;
+  --calendar-event-body-justify-items: start;
+  --calendar-event-body-margin-right: auto;
+  --calendar-event-body-text-align: left;
+  --calendar-event-title-size: clamp(2.4rem, 5.9vw, 5.4rem);
+  --calendar-event-title-max-width: 18ch;
+  --calendar-event-date-size: clamp(1.25rem, 2.5vw, 2.2rem);
+  --calendar-event-overlay:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.06) 0%, rgba(3, 7, 18, 0.18) 38%, rgba(3, 7, 18, 0.82) 72%, rgba(3, 7, 18, 0.96) 100%),
+    linear-gradient(135deg, rgba(245, 158, 11, 0.16), transparent 36%);
+  --calendar-event-long-title-size: clamp(2rem, 5vw, 4.2rem);
+  --calendar-event-long-title-line-height: 0.92;
+  --calendar-event-long-title-max-width: 20ch;
+  --calendar-event-long-body-gap: 0.875rem;
+  --calendar-event-long-date-size: var(--calendar-event-date-size);
   align-items: stretch;
   background:
     radial-gradient(circle at top left, rgba(245, 158, 11, 0.18), transparent 34%),
@@ -310,21 +327,22 @@ textarea {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.06) 0%, rgba(3, 7, 18, 0.18) 38%, rgba(3, 7, 18, 0.82) 72%, rgba(3, 7, 18, 0.96) 100%),
-    linear-gradient(135deg, rgba(245, 158, 11, 0.16), transparent 36%);
+  background: var(--calendar-event-overlay);
 }
 
 .calendar-event-body {
   display: grid;
   align-content: end;
-  gap: 18px;
-  padding: 40px 42px 48px;
+  gap: var(--calendar-event-body-gap);
+  justify-items: var(--calendar-event-body-justify-items);
+  padding: var(--calendar-event-body-padding);
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 900px;
+  max-width: var(--calendar-event-body-max-width);
   margin: 0 auto;
+  margin-right: var(--calendar-event-body-margin-right);
+  text-align: var(--calendar-event-body-text-align);
 }
 
 .calendar-event-category {
@@ -336,76 +354,67 @@ textarea {
 }
 
 .calendar-event-title {
-  font-size: clamp(2.4rem, 5.8vw, 5.4rem);
+  font-size: var(--calendar-event-title-size);
   line-height: 0.98;
   margin-bottom: 0;
-  max-width: 14ch;
+  max-width: var(--calendar-event-title-max-width);
   text-wrap: balance;
 }
 
 .calendar-event-card.is-long-title .calendar-event-title {
-  font-size: clamp(2rem, 4.9vw, 4.2rem);
-  line-height: 0.92;
-  max-width: 16ch;
+  font-size: var(--calendar-event-long-title-size);
+  line-height: var(--calendar-event-long-title-line-height);
+  max-width: var(--calendar-event-long-title-max-width);
 }
 
 .calendar-event-card.is-long-title .calendar-event-body {
-  gap: 14px;
+  gap: var(--calendar-event-long-body-gap);
 }
 
 .calendar-event-date {
   color: #e5e7eb;
-  font-size: clamp(1.25rem, 2.5vw, 2.2rem);
+  font-size: var(--calendar-event-date-size);
   font-weight: 600;
   margin-bottom: 0;
 }
 
+.calendar-event-card.is-long-title .calendar-event-date {
+  font-size: var(--calendar-event-long-date-size);
+}
+
 @media (orientation: landscape) {
-  .calendar-event-card.with-image::after {
-    background:
+  .calendar-event-card {
+    --calendar-event-body-padding: 3rem 2.125rem 2.75rem 3.625rem;
+    --calendar-event-body-max-width: 47.5rem;
+    --calendar-event-body-justify-items: end;
+    --calendar-event-body-margin-right: 0;
+    --calendar-event-body-text-align: right;
+    --calendar-event-title-max-width: 15ch;
+    --calendar-event-overlay:
       linear-gradient(90deg, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.18) 34%, rgba(3, 7, 18, 0.72) 72%, rgba(3, 7, 18, 0.92) 100%),
       linear-gradient(135deg, rgba(245, 158, 11, 0.14), transparent 36%);
+    --calendar-event-long-body-gap: 0.625rem;
+    --calendar-event-long-date-size: clamp(1.05rem, 1.8vw, 1.5rem);
   }
 
   .calendar-event-body {
     height: 100%;
-    justify-items: end;
-    text-align: right;
-    padding: 56px 58px;
-  }
-
-  .calendar-event-title {
-    max-width: 10ch;
-  }
-
-  .calendar-event-card.is-long-title .calendar-event-title {
-    font-size: clamp(1.8rem, 4vw, 3.4rem);
-    max-width: 12ch;
   }
 }
 
 @media (orientation: portrait) {
-  .calendar-event-body {
-    padding: 32px 28px 42px;
-  }
-
-  .calendar-event-title {
-    font-size: clamp(2.2rem, 9vw, 4.6rem);
-    max-width: 12ch;
-  }
-
-  .calendar-event-date {
-    font-size: clamp(1.15rem, 4.2vw, 1.7rem);
-  }
-
-  .calendar-event-card.is-long-title .calendar-event-title {
-    font-size: clamp(1.7rem, 7.2vw, 3.5rem);
-    line-height: 0.94;
-    max-width: 13ch;
+  .calendar-event-card {
+    --calendar-event-body-padding: 2rem 1.75rem 2.625rem;
+    --calendar-event-title-size: clamp(2.2rem, 9vw, 4.6rem);
+    --calendar-event-title-max-width: 12ch;
+    --calendar-event-date-size: clamp(1.15rem, 4.2vw, 1.7rem);
+    --calendar-event-long-title-size: clamp(1.7rem, 7.2vw, 3.5rem);
+    --calendar-event-long-title-line-height: 0.94;
+    --calendar-event-long-title-max-width: 13ch;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 60rem) {
   .admin-grid {
     flex-direction: column;
   }
