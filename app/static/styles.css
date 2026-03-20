@@ -290,9 +290,9 @@ textarea {
   --calendar-event-overlay:
     linear-gradient(180deg, rgba(3, 7, 18, 0.06) 0%, rgba(3, 7, 18, 0.18) 38%, rgba(3, 7, 18, 0.82) 72%, rgba(3, 7, 18, 0.96) 100%),
     linear-gradient(135deg, rgba(245, 158, 11, 0.16), transparent 36%);
-  --calendar-event-long-title-size: clamp(2rem, 5vw, 4.2rem);
+  --calendar-event-long-title-size: clamp(2rem, 4.5vw, 4.2rem);
   --calendar-event-long-title-line-height: 0.92;
-  --calendar-event-long-title-max-width: 20ch;
+  --calendar-event-long-title-max-width: 22ch;
   --calendar-event-long-body-gap: 0.875rem;
   --calendar-event-long-date-size: var(--calendar-event-date-size);
   align-items: stretch;
@@ -384,8 +384,8 @@ textarea {
 
 @media (orientation: landscape) {
   .calendar-event-card {
-    --calendar-event-body-padding: 3rem 2.125rem 2.75rem 3.625rem;
-    --calendar-event-body-max-width: 47.5rem;
+    --calendar-event-body-padding: 2.75rem 1.125rem 2.25rem 4rem;
+    --calendar-event-body-max-width: 41rem;
     --calendar-event-body-justify-items: end;
     --calendar-event-body-margin-right: 0;
     --calendar-event-body-text-align: right;
