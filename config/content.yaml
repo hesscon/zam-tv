@@ -13,7 +13,7 @@ items:
   - type: image
     content: ZAM-Tische.png
     duration: 5
-    enabled: true
+    enabled: false
 
   - type: calendar
     content: https://www.zam.haus/?mec-ical-feed=1

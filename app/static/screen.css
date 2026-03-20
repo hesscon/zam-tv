@@ -1,0 +1,265 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --panel-soft: #1f2937;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #111827 55%, #1e293b);
+  color: var(--text);
+}
+
+body.screen-body {
+  background: #000;
+}
+
+/* Our own layout CSS would otherwise override the HTML hidden attribute. */
+[hidden] {
+  display: none !important;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+p,
+li {
+  margin-top: 0;
+}
+
+.screen-shell,
+.screen-content,
+.calendar-card,
+.calendar-event-card,
+.media-card,
+.web-card {
+  display: flex;
+}
+
+.screen-shell {
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.screen-empty,
+.screen-frame,
+.media-card,
+.web-card,
+.calendar-card,
+.calendar-event-card {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-empty,
+.media-card,
+.calendar-card {
+  display: grid;
+  place-items: center;
+}
+
+.screen-empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.screen-frame {
+  position: relative;
+}
+
+.screen-meta {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.5rem 0.75rem;
+  border-radius: 62.4375rem;
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--muted);
+}
+
+.screen-content {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.media-card img,
+.media-card video,
+.web-card iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+}
+
+.web-card iframe {
+  /* White fallback looks better than transparent if the embedded page has no background. */
+  background: #fff;
+}
+
+.calendar-card {
+  padding: 3rem;
+}
+
+.calendar-inner {
+  width: min(60rem, 90vw);
+}
+
+.calendar-event-card {
+  --calendar-event-body-gap: 1.125rem;
+  --calendar-event-body-padding: 2.5rem 2.625rem 3rem;
+  --calendar-event-body-max-width: 56.25rem;
+  --calendar-event-body-justify-items: start;
+  --calendar-event-body-margin-right: auto;
+  --calendar-event-body-text-align: left;
+  --calendar-event-title-size: clamp(2.4rem, 5.9vw, 5.4rem);
+  --calendar-event-title-max-width: 18ch;
+  --calendar-event-date-size: clamp(1.25rem, 2.5vw, 2.2rem);
+  --calendar-event-overlay:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.06) 0%, rgba(3, 7, 18, 0.18) 38%, rgba(3, 7, 18, 0.82) 72%, rgba(3, 7, 18, 0.96) 100%),
+    linear-gradient(135deg, rgba(245, 158, 11, 0.16), transparent 36%);
+  --calendar-event-long-title-size: clamp(2rem, 4.5vw, 4.2rem);
+  --calendar-event-long-title-line-height: 0.92;
+  --calendar-event-long-title-max-width: 22ch;
+  --calendar-event-long-body-gap: 0.875rem;
+  --calendar-event-long-date-size: var(--calendar-event-date-size);
+  align-items: stretch;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.18), transparent 34%),
+    linear-gradient(135deg, #0b1220, #111827 55%, #0f172a);
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-event-card.with-image {
+  color: #f8fafc;
+}
+
+.calendar-event-card.without-image {
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-event-card.with-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--calendar-event-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.02);
+}
+
+.calendar-event-card.with-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--calendar-event-overlay);
+}
+
+.calendar-event-body {
+  display: grid;
+  align-content: end;
+  gap: var(--calendar-event-body-gap);
+  justify-items: var(--calendar-event-body-justify-items);
+  padding: var(--calendar-event-body-padding);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--calendar-event-body-max-width);
+  margin: 0 auto;
+  margin-right: var(--calendar-event-body-margin-right);
+  text-align: var(--calendar-event-body-text-align);
+}
+
+.calendar-event-category {
+  color: #fbbf24;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calendar-event-title {
+  font-size: var(--calendar-event-title-size);
+  line-height: 0.98;
+  margin-bottom: 0;
+  max-width: var(--calendar-event-title-max-width);
+  text-wrap: balance;
+}
+
+.calendar-event-card.is-long-title .calendar-event-title {
+  font-size: var(--calendar-event-long-title-size);
+  line-height: var(--calendar-event-long-title-line-height);
+  max-width: var(--calendar-event-long-title-max-width);
+}
+
+.calendar-event-card.is-long-title .calendar-event-body {
+  gap: var(--calendar-event-long-body-gap);
+}
+
+.calendar-event-date {
+  color: #e5e7eb;
+  font-size: var(--calendar-event-date-size);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.calendar-event-card.is-long-title .calendar-event-date {
+  font-size: var(--calendar-event-long-date-size);
+}
+
+@media (orientation: landscape) {
+  .calendar-event-card {
+    --calendar-event-body-padding: 2.75rem 1.125rem 2.25rem 4rem;
+    --calendar-event-body-max-width: 41rem;
+    --calendar-event-body-justify-items: end;
+    --calendar-event-body-margin-right: 0;
+    --calendar-event-body-text-align: right;
+    --calendar-event-title-max-width: 15ch;
+    --calendar-event-overlay:
+      linear-gradient(90deg, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.18) 34%, rgba(3, 7, 18, 0.72) 72%, rgba(3, 7, 18, 0.92) 100%),
+      linear-gradient(135deg, rgba(245, 158, 11, 0.14), transparent 36%);
+    --calendar-event-long-body-gap: 0.625rem;
+    --calendar-event-long-date-size: clamp(1.05rem, 1.8vw, 1.5rem);
+  }
+
+  .calendar-event-body {
+    height: 100%;
+  }
+}
+
+@media (orientation: portrait) {
+  .calendar-event-card {
+    --calendar-event-body-padding: 2rem 1.75rem 2.625rem;
+    --calendar-event-title-size: clamp(2.2rem, 9vw, 4.6rem);
+    --calendar-event-title-max-width: 12ch;
+    --calendar-event-date-size: clamp(1.15rem, 4.2vw, 1.7rem);
+    --calendar-event-long-title-size: clamp(1.7rem, 7.2vw, 3.5rem);
+    --calendar-event-long-title-line-height: 0.94;
+    --calendar-event-long-title-max-width: 13ch;
+  }
+}
