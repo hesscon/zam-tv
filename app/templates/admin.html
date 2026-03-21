@@ -9,7 +9,6 @@
     <section class="admin-header">
       <div>
         <h1>zam-tv Admin</h1>
-        <p>Hier bearbeiten wir die gesamte Playlist direkt als YAML.</p>
       </div>
       <a class="button secondary" href="{{ url_for('main.screen') }}" target="_blank" rel="noreferrer">Screen oeffnen</a>
     </section>
@@ -25,13 +24,42 @@
     {% endwith %}
 
     <section class="admin-grid">
-      <form class="editor-card" method="post" action="{{ url_for('main.save_admin') }}">
-        <label for="config_text">Konfiguration</label>
-        <textarea id="config_text" name="config_text" spellcheck="false">{{ config_text }}</textarea>
-        <div class="form-actions">
-          <button class="button" type="submit">Speichern</button>
-        </div>
-      </form>
+      <section class="editor-column">
+        <form class="editor-card" method="post" action="{{ url_for('main.save_admin') }}">
+          <h2>Aktive Konfiguration</h2>
+          <textarea id="config_text" name="config_text" spellcheck="false">{{ config_text }}</textarea>
+          <div class="form-actions">
+            <button class="button" type="submit">Speichern</button>
+          </div>
+        </form>
+
+        <section class="help-card">
+          <h2>Beispiel</h2>
+          <pre><code>items:
+  - type: image
+    # Medien werden aus Uploads geholt
+    content: poster.png
+    duration: 8
+    enabled: true
+
+  - type: video
+    content: clip.mp4
+    enabled: true
+
+  - type: web
+    content: https://example.org
+    duration: 15
+    enabled: true
+
+  - type: calendar
+    content: https://example.org/events.ics
+    duration: 15
+    enabled: true
+    categories:
+      - Veranstaltung
+    days_ahead: 30</code></pre>
+        </section>
+      </section>
 
       <aside class="side-column">
         <section class="help-card">
@@ -47,11 +75,6 @@
               <button class="button" type="submit">Dateien hochladen</button>
             </div>
           </form>
-          <form id="cleanup-form" method="post" action="{{ url_for('main.cleanup_unused_uploads') }}">
-            <div class="form-actions">
-              <button class="button secondary danger" type="submit">Loesche nicht benutzte</button>
-            </div>
-          </form>
 
           <h3>Vorhandene Dateien</h3>
           {% if uploads %}
@@ -60,23 +83,15 @@
                 <li><code>{{ filename }}</code></li>
               {% endfor %}
             </ul>
+            <form id="cleanup-form" method="post" action="{{ url_for('main.cleanup_unused_uploads') }}">
+              <div class="form-actions">
+                <button class="button secondary danger" type="submit">Loesche nicht benutzte</button>
+              </div>
+            </form>
           {% else %}
             <p>Noch keine Dateien im Upload-Ordner.</p>
           {% endif %}
-        </section>
 
-        <section class="help-card">
-          <h2>Schnellhilfe</h2>
-          <p>Typen fuer Eintraege: <code>image</code>, <code>video</code>, <code>web</code>, <code>calendar</code>.</p>
-          <p>Das Feld <code>content</code> enthaelt je nach Typ eine URL oder einen Dateinamen aus <code>data/uploads</code>.</p>
-          <p>Die Screen-Seite liest diese Datei bei jedem Aufruf neu ein.</p>
-
-          {% if config and config.get("items") %}
-            <h3>Aktive Struktur</h3>
-            <ul>
-              <li>Eintraege: {{ config.get("items", []) | length }}</li>
-            </ul>
-          {% endif %}
         </section>
       </aside>
     </section>

@@ -1,9 +1,9 @@
 items:
-  # Web pages are embedded in an iframe, so not every site will allow this.
+
   - type: web
     content: https://zam.haus/monitor?dummy
     duration: 10
-    enabled: false
+    enabled: true
 
   - type: web
     content: https://zam.haus

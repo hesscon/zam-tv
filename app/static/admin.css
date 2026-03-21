@@ -47,6 +47,12 @@ code {
   align-items: flex-start;
 }
 
+.editor-column {
+  flex: 1 1 47.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
 .editor-card,
 .help-card,
 .flash {
@@ -61,8 +67,8 @@ code {
   padding: 1.25rem;
 }
 
-.editor-card {
-  flex: 1 1 47.5rem;
+.editor-column .help-card {
+  width: 100%;
 }
 
 .help-card,
@@ -93,7 +99,23 @@ textarea {
   border-radius: 0.75rem;
   background: #020617;
   color: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   resize: vertical;
+}
+
+pre {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(2, 6, 23, 0.8);
+  overflow: auto;
+}
+
+pre code {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .upload-form {
@@ -190,6 +212,7 @@ textarea {
     flex-direction: column;
   }
 
+  .editor-column,
   .help-card,
   .side-column {
     width: 100%;
