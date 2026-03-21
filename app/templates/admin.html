@@ -10,7 +10,7 @@
       <div>
         <h1>zam-tv Admin</h1>
       </div>
-      <a class="button secondary" href="{{ url_for('main.screen') }}" target="_blank" rel="noreferrer">Screen oeffnen</a>
+      <a class="button secondary" href="{{ url_for('main.screen') }}" target="_blank" rel="noreferrer">Screen öffnen</a>
     </section>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -85,7 +85,7 @@
             </ul>
             <form id="cleanup-form" method="post" action="{{ url_for('main.cleanup_unused_uploads') }}">
               <div class="form-actions">
-                <button class="button secondary danger" type="submit">Loesche nicht benutzte</button>
+                <button class="button secondary danger" type="submit">Lösche unbenutzte</button>
               </div>
             </form>
           {% else %}
