@@ -18,7 +18,7 @@ GERMAN_MONTH_NAMES = [
     "November",
     "Dezember",
 ]
-CACHE_TTL = timedelta(hours=1)
+CACHE_TTL = timedelta(minutes=15)
 _slides_cache: dict[tuple[str, tuple[str, ...], int], dict] = {}
 
 
