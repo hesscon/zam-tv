@@ -22,6 +22,7 @@ body {
 
 body.screen-body {
   background: #000;
+  font-family: Arial, Helvetica, "Liberation Sans", "Nimbus Sans L", sans-serif;
 }
 
 /* Our own layout CSS would otherwise override the HTML hidden attribute. */
@@ -135,15 +136,17 @@ li {
   --calendar-event-body-margin-right: auto;
   --calendar-event-body-text-align: left;
   --calendar-event-title-size: clamp(2.4rem, 5.9vw, 5.4rem);
-  --calendar-event-title-max-width: 18ch;
+  --calendar-event-title-line-height: 1.02;
+  --calendar-event-title-max-width: 19ch;
   --calendar-event-date-size: clamp(1.25rem, 2.5vw, 2.2rem);
+  --calendar-event-date-line-height: 1.15;
   --calendar-event-overlay:
     linear-gradient(180deg, rgba(3, 7, 18, 0.06) 0%, rgba(3, 7, 18, 0.18) 38%, rgba(3, 7, 18, 0.82) 72%, rgba(3, 7, 18, 0.96) 100%),
     linear-gradient(135deg, rgba(245, 158, 11, 0.16), transparent 36%);
   --calendar-event-long-title-size: clamp(2rem, 4.5vw, 4.2rem);
-  --calendar-event-long-title-line-height: 0.92;
-  --calendar-event-long-title-max-width: 22ch;
-  --calendar-event-long-body-gap: 0.875rem;
+  --calendar-event-long-title-line-height: 0.98;
+  --calendar-event-long-title-max-width: 23ch;
+  --calendar-event-long-body-gap: 1rem;
   --calendar-event-long-date-size: var(--calendar-event-date-size);
   align-items: stretch;
   background:
@@ -189,7 +192,7 @@ li {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: var(--calendar-event-body-max-width);
+  max-width: min(100%, var(--calendar-event-body-max-width));
   margin: 0 auto;
   margin-right: var(--calendar-event-body-margin-right);
   text-align: var(--calendar-event-body-text-align);
@@ -205,10 +208,10 @@ li {
 
 .calendar-event-title {
   font-size: var(--calendar-event-title-size);
-  line-height: 0.98;
+  line-height: var(--calendar-event-title-line-height);
   margin-bottom: 0;
   max-width: var(--calendar-event-title-max-width);
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .calendar-event-card.is-long-title .calendar-event-title {
@@ -225,6 +228,7 @@ li {
   color: #e5e7eb;
   font-size: var(--calendar-event-date-size);
   font-weight: 600;
+  line-height: var(--calendar-event-date-line-height);
   margin-bottom: 0;
 }
 
@@ -235,15 +239,15 @@ li {
 @media (orientation: landscape) {
   .calendar-event-card {
     --calendar-event-body-padding: 2.75rem 1.125rem 2.25rem 4rem;
-    --calendar-event-body-max-width: 41rem;
+    --calendar-event-body-max-width: 43rem;
     --calendar-event-body-justify-items: end;
     --calendar-event-body-margin-right: 0;
     --calendar-event-body-text-align: right;
-    --calendar-event-title-max-width: 15ch;
+    --calendar-event-title-max-width: 16ch;
     --calendar-event-overlay:
       linear-gradient(90deg, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.18) 34%, rgba(3, 7, 18, 0.72) 72%, rgba(3, 7, 18, 0.92) 100%),
       linear-gradient(135deg, rgba(245, 158, 11, 0.14), transparent 36%);
-    --calendar-event-long-body-gap: 0.625rem;
+    --calendar-event-long-body-gap: 0.75rem;
     --calendar-event-long-date-size: clamp(1.05rem, 1.8vw, 1.5rem);
   }
 
@@ -256,10 +260,10 @@ li {
   .calendar-event-card {
     --calendar-event-body-padding: 2rem 1.75rem 2.625rem;
     --calendar-event-title-size: clamp(2.2rem, 9vw, 4.6rem);
-    --calendar-event-title-max-width: 12ch;
+    --calendar-event-title-max-width: 13ch;
     --calendar-event-date-size: clamp(1.15rem, 4.2vw, 1.7rem);
     --calendar-event-long-title-size: clamp(1.7rem, 7.2vw, 3.5rem);
-    --calendar-event-long-title-line-height: 0.94;
-    --calendar-event-long-title-max-width: 13ch;
+    --calendar-event-long-title-line-height: 1;
+    --calendar-event-long-title-max-width: 14ch;
   }
 }
