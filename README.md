@@ -91,6 +91,7 @@ Wichtige Felder:
 - `config/content.yaml`: Zentrale Playlist-Konfiguration
 - `data/uploads/`: Bilder und Videos fuer lokale Medieninhalte
 - `docs/calendar.md`: Entscheidungen und Plan fuer die ICS-/Kalender-Logik
+- `docs/raspberry-pi-installation.md`: Konkrete Installationsanleitung fuer Raspberry Pi, Docker und Kiosk-Modus
 - `app/templates/`: HTML-Templates fuer Admin und Screen
 - `app/static/`: CSS und JavaScript fuer die Anzeige
 

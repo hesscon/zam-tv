@@ -1,0 +1,386 @@
+# Raspberry Pi Installation
+
+## Ziel
+Diese Anleitung beschreibt einen einfachen und robusten Betrieb von `zam-tv` auf einem Raspberry Pi 4 mit genau einem Bildschirm.
+
+Die empfohlene Zielumgebung ist:
+- Raspberry Pi 4
+- Raspberry Pi OS (64-bit) mit Desktop
+- Docker Engine + Docker Compose Plugin
+- Chromium im Kiosk-Modus
+- automatischer Start nach dem Boot
+
+Warum Desktop und nicht Lite:
+- Fuer den Kiosk-Modus brauchen wir einen grafischen Browser.
+- Raspberry Pi OS Bookworm nutzt dafuer standardmaessig `labwc`.
+- Mit Desktop + Auto-Login ist der Start von Chromium am einfachsten.
+
+## Uebersicht
+Der Startpfad auf dem Geraet ist:
+
+1. Raspberry Pi bootet
+2. Raspberry Pi OS meldet den Benutzer automatisch am Desktop an
+3. Docker startet beim Boot
+4. Der Container `zam-tv` startet automatisch
+5. `labwc` startet ein kleines Skript
+6. Das Skript wartet auf `http://127.0.0.1:8000/screen`
+7. Chromium startet im Vollbild und zeigt die Signage-Ansicht
+
+## 1. OS vorbereiten
+
+### Empfohlenes Image
+Nutze im Raspberry Pi Imager:
+- `Raspberry Pi OS (64-bit)`
+
+Nicht empfohlen fuer dieses Projekt:
+- `Lite`, weil dann ein eigener Grafik- und Browser-Startpfad noetig waere
+
+### Imager-Einstellungen
+Setze beim Flashen direkt diese Optionen:
+- Hostname, zum Beispiel `zam-tv`
+- Benutzername und Passwort
+- WLAN, falls der Pi nicht per LAN angeschlossen wird
+- SSH aktivieren
+- Zeitzone `Europe/Berlin`
+
+## 2. Erstes System-Setup
+Nach dem ersten Boot lokal oder per SSH anmelden:
+
+```bash
+ssh <user>@zam-tv.local
+```
+
+Dann das System aktualisieren:
+
+```bash
+sudo apt update
+sudo apt -y full-upgrade
+sudo reboot
+```
+
+Nach dem Neustart diese Grundeinstellungen setzen:
+
+```bash
+sudo raspi-config
+```
+
+Empfohlene Punkte:
+- `1 System Options` -> `S5 Boot / Auto Login` -> `B4 Desktop Autologin`
+- `5 Localisation Options` -> Zeitzone pruefen
+- optional Hostname pruefen
+
+## 3. Docker installieren
+Diese Schritte installieren Docker aus dem offiziellen Docker-Repository fuer Debian Bookworm.
+
+Alte Pakete entfernen, falls vorhanden:
+
+```bash
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove -y $pkg; done
+```
+
+Paketquellen vorbereiten:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
+
+Docker-Repository eintragen:
+
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+Docker installieren:
+
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Installation pruefen:
+
+```bash
+sudo systemctl status docker --no-pager
+sudo docker run hello-world
+```
+
+Optional den aktuellen Benutzer zur Docker-Gruppe hinzufuegen:
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+docker ps
+```
+
+Hinweis:
+- Docker startet auf Debian-/Bookworm-Systemen in der Regel automatisch beim Boot.
+- Das Projekt nutzt bereits `restart: unless-stopped` in `docker-compose.yml`.
+
+## 4. Projekt auf den Pi kopieren
+Empfohlener Zielpfad:
+
+```bash
+sudo mkdir -p /opt/zam-tv
+sudo chown $USER:$USER /opt/zam-tv
+```
+
+Dann das Repo dorthin kopieren oder klonen, zum Beispiel:
+
+```bash
+git clone <REPO-URL> /opt/zam-tv
+cd /opt/zam-tv
+```
+
+Falls das Projekt schon lokal vorliegt und per `scp` kopiert wird, danach ebenfalls:
+
+```bash
+cd /opt/zam-tv
+```
+
+## 5. Anwendung starten
+Container bauen und im Hintergrund starten:
+
+```bash
+docker compose up -d --build
+```
+
+Pruefen, ob die App laeuft:
+
+```bash
+docker compose ps
+curl -I http://127.0.0.1:8000/admin
+curl -I http://127.0.0.1:8000/screen
+```
+
+Wichtige URLs:
+- `http://<pi-ip>:8000/admin`
+- `http://<pi-ip>:8000/screen`
+- lokal auf dem Pi: `http://127.0.0.1:8000/screen`
+
+## 6. Kiosk-Pakete installieren
+Fuer den Browser-Start und kleine Hilfswerkzeuge:
+
+```bash
+sudo apt install -y --no-install-recommends chromium-browser curl
+```
+
+Je nach Image heisst das Paket teilweise auch `chromium`.
+Falls `chromium-browser` nicht gefunden wird, pruefe:
+
+```bash
+sudo apt install -y --no-install-recommends chromium
+```
+
+## 7. Kiosk-Startskript anlegen
+Wir starten Chromium nicht direkt aus `labwc`, sondern ueber ein kleines Skript.
+Das Skript wartet zunaechst auf die lokale Web-App. Dadurch landet der Browser nach einem Boot nicht auf einer Fehlerseite, waehrend Docker noch startet.
+
+Datei anlegen:
+
+```bash
+mkdir -p ~/.local/bin
+nano ~/.local/bin/start-zam-tv-kiosk.sh
+```
+
+Inhalt:
+
+```bash
+#!/bin/bash
+
+set -eu
+
+APP_URL="http://127.0.0.1:8000/screen"
+LOG_FILE="$HOME/.local/state/zam-tv-kiosk.log"
+
+mkdir -p "$HOME/.local/state"
+
+# Falls Chromium aus einer alten Sitzung noch lebt, beenden wir ihn sauber.
+pkill -f chromium || true
+
+# Auf die Flask-App im Docker-Container warten.
+until curl -fsS "$APP_URL" > /dev/null; do
+  sleep 2
+done
+
+exec chromium-browser \
+  "$APP_URL" \
+  --kiosk \
+  --start-maximized \
+  --noerrdialogs \
+  --disable-infobars \
+  --no-first-run \
+  --disable-session-crashed-bubble \
+  --check-for-update-interval=31536000 \
+  --password-store=basic \
+  >> "$LOG_FILE" 2>&1
+```
+
+Falls das Binary auf deinem System `chromium` statt `chromium-browser` heisst, ersetze die letzte Kommandozeile entsprechend.
+
+Warum `--password-store=basic`:
+- Im Kiosk-Betrieb auf Raspberry Pi OS taucht sonst je nach Desktop-Umgebung eine stoerende Passwort- oder Schluesselbund-Abfrage von Chromium auf.
+- Fuer diesen einfachen Einzelgeraet-Einsatz ist `basic` die pragmatische Variante, damit der Browser ohne Rueckfrage startet.
+
+Skript ausfuehrbar machen:
+
+```bash
+chmod +x ~/.local/bin/start-zam-tv-kiosk.sh
+```
+
+## 8. Autostart fuer den Desktop setzen
+Unter Raspberry Pi OS Bookworm wird Desktop-Autostart ueber `labwc` konfiguriert.
+
+Datei anlegen:
+
+```bash
+mkdir -p ~/.config/labwc
+nano ~/.config/labwc/autostart
+```
+
+Empfohlener Inhalt:
+
+```bash
+# Bildschirm nicht abdunkeln oder sperren.
+wlr-randr --output HDMI-A-1 --on || true
+
+# Kiosk-Browser im Hintergrund starten.
+$HOME/.local/bin/start-zam-tv-kiosk.sh &
+```
+
+Hinweis:
+- Die konkrete Display-Bezeichnung kann je nach Setup abweichen.
+- Wenn `wlr-randr` nicht noetig ist, kann die erste Zeile auch entfallen.
+
+## 9. Bildschirm-Blanking deaktivieren
+Bei Signage soll der Bildschirm dauerhaft an bleiben.
+
+Oeffne:
+
+```bash
+sudo nano /boot/firmware/cmdline.txt
+```
+
+Ergaenze in der bestehenden einzelnen Zeile am Ende:
+
+```text
+ consoleblank=0
+```
+
+Dann neu starten:
+
+```bash
+sudo reboot
+```
+
+Optional kann zusaetzlich im Desktop die automatische Bildschirmabschaltung deaktiviert werden, falls aktiv.
+
+## 10. Funktion testen
+Nach dem Neustart sollte automatisch Chromium im Vollbild erscheinen.
+
+Pruefe bei Problemen in dieser Reihenfolge:
+
+### Docker-Status
+```bash
+docker compose -f /opt/zam-tv/docker-compose.yml ps
+docker compose -f /opt/zam-tv/docker-compose.yml logs --tail=100
+```
+
+### App lokal erreichbar
+```bash
+curl -I http://127.0.0.1:8000/screen
+curl -I http://127.0.0.1:8000/admin
+```
+
+### Kiosk-Log
+```bash
+tail -n 100 ~/.local/state/zam-tv-kiosk.log
+```
+
+### Labwc-Autostart pruefen
+```bash
+cat ~/.config/labwc/autostart
+```
+
+## 11. Alltag und Betrieb
+
+### Konfiguration bearbeiten
+Im Netzwerk:
+
+- `http://<pi-ip>:8000/admin`
+
+### Medien hochladen
+Die App speichert Uploads in:
+
+- `/opt/zam-tv/data/uploads/`
+
+### Nach Updates neu bauen
+Wenn du den Code aktualisiert hast:
+
+```bash
+cd /opt/zam-tv
+docker compose up -d --build
+```
+
+### Komplett neu starten
+```bash
+sudo reboot
+```
+
+## 12. Sinnvolle spaetere Verbesserungen
+Nicht noetig fuer V1, aber praktisch im Dauerbetrieb:
+
+- SSH-Login nur noch per Key
+- kleines Watchdog-Skript fuer Chromium, falls der Browser haengen bleibt
+- `/admin` im lokalen Netz per Reverse Proxy oder Firewall einschraenken
+- Betrieb auf SSD statt nur auf microSD
+
+## Troubleshooting
+
+### Chromium startet nicht
+Pruefe den Programmnamen:
+
+```bash
+which chromium-browser
+which chromium
+```
+
+Passe dann `~/.local/bin/start-zam-tv-kiosk.sh` an.
+
+### Chromium zeigt eine Passwort- oder Keyring-Abfrage
+Pruefe, ob das Startskript diese Option enthaelt:
+
+```bash
+--password-store=basic
+```
+
+Ohne diese Option kann Chromium auf Raspberry Pi OS im Kiosk-Betrieb versuchen, einen nativen Passwortspeicher zu verwenden und dabei eine blockierende Rueckfrage anzeigen.
+
+### Browser startet, zeigt aber nichts an
+Pruefe zuerst:
+
+```bash
+curl -I http://127.0.0.1:8000/screen
+docker compose logs --tail=100
+```
+
+### Externe Webseiten bleiben leer
+Das ist bei `web`-Eintraegen moeglich, wenn die Zielseite das Einbetten per `iframe` verbietet.
+Das ist eine in `README.md` bereits beschriebene Einschraenkung des aktuellen Projekts.
+
+### Kalenderdaten laden nicht
+Pruefe Netzwerk, Ziel-URL und die Logs des Containers:
+
+```bash
+docker compose logs --tail=100
+```
+
+## Quellen
+- Raspberry Pi Kiosk Tutorial: https://www.raspberrypi.com/tutorials/how-to-use-a-raspberry-pi-in-kiosk-mode/
+- Docker Engine auf Debian: https://docs.docker.com/engine/install/debian/
