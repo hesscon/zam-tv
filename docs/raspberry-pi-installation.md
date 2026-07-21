@@ -168,7 +168,8 @@ Wichtige URLs:
 Fuer den Browser-Start und kleine Hilfswerkzeuge:
 
 ```bash
-sudo apt install -y --no-install-recommends chromium-browser curl
+sudo apt install -y --no-install-recommends curl swayidle wtype
+sudo apt install -y --no-install-recommends chromium-browser
 ```
 
 Je nach Image heisst das Paket teilweise auch `chromium`.
@@ -237,6 +238,50 @@ chmod +x ~/.local/bin/start-zam-tv-kiosk.sh
 ## 8. Autostart fuer den Desktop setzen
 Unter Raspberry Pi OS Bookworm wird Desktop-Autostart ueber `labwc` konfiguriert.
 
+### Mauszeiger automatisch ausblenden
+
+Raspberry Pi OS Bookworm verwendet standardmaessig `labwc` mit Wayland. Das fuer X11 gedachte Werkzeug `unclutter` funktioniert dort nicht. Stattdessen nutzen wir die in `labwc` eingebaute Aktion `HideCursor`. Dabei wird kein unsichtbares Cursor-Bild verwendet: `labwc` blendet den Mauszeiger aus und zeigt ihn bei der naechsten Mausbewegung wieder an.
+
+Zuerst die installierte Version pruefen:
+
+```bash
+labwc --version
+```
+
+Die Version muss mindestens `0.8.4` sein. Falls eine aeltere Version angezeigt wird, zuerst Raspberry Pi OS aktualisieren wie in Abschnitt 2 beschrieben.
+
+Die systemweite `labwc`-Konfiguration einmalig als Benutzerkonfiguration uebernehmen. Eine bereits vorhandene Datei wird durch `cp -n` nicht ueberschrieben:
+
+```bash
+mkdir -p ~/.config/labwc
+cp -n /etc/xdg/labwc/rc.xml ~/.config/labwc/rc.xml
+nano ~/.config/labwc/rc.xml
+```
+
+Im vorhandenen `<keyboard>`-Abschnitt, am besten direkt nach `<default />`, diese Tastenzuordnung ergaenzen:
+
+```xml
+<keybind key="A-W-h">
+  <action name="HideCursor" />
+</keybind>
+```
+
+Die geaenderte Konfiguration neu einlesen:
+
+```bash
+labwc --reconfigure
+```
+
+Zum direkten Testen diesen Befehl ausfuehren:
+
+```bash
+wtype -M alt -M logo h -m alt -m logo
+```
+
+Der Mauszeiger sollte sofort verschwinden und bei der naechsten Mausbewegung wieder erscheinen.
+
+### Autostart-Datei anlegen
+
 Datei anlegen:
 
 ```bash
@@ -249,6 +294,9 @@ Empfohlener Inhalt:
 ```bash
 # Bildschirm nicht abdunkeln oder sperren.
 wlr-randr --output HDMI-A-1 --on || true
+
+# Mauszeiger nach zwei Sekunden ohne Eingabe ausblenden.
+swayidle -w timeout 2 'wtype -M alt -M logo h -m alt -m logo' &
 
 # Kiosk-Browser im Hintergrund starten.
 $HOME/.local/bin/start-zam-tv-kiosk.sh &
@@ -307,6 +355,24 @@ tail -n 100 ~/.local/state/zam-tv-kiosk.log
 ```bash
 cat ~/.config/labwc/autostart
 ```
+
+### Mauszeiger bleibt sichtbar
+
+Pruefe zuerst Version und Hilfsprogramme:
+
+```bash
+labwc --version
+command -v swayidle
+command -v wtype
+```
+
+`labwc` muss mindestens Version `0.8.4` haben. Teste danach die eingerichtete Tastenzuordnung direkt:
+
+```bash
+wtype -M alt -M logo h -m alt -m logo
+```
+
+Wenn der Mauszeiger dadurch verschwindet, liegt der Fehler wahrscheinlich in der Autostart-Datei. Pruefe dort insbesondere das `&` am Ende der `swayidle`-Zeile.
 
 ## 11. Alltag und Betrieb
 
@@ -384,3 +450,5 @@ docker compose logs --tail=100
 ## Quellen
 - Raspberry Pi Kiosk Tutorial: https://www.raspberrypi.com/tutorials/how-to-use-a-raspberry-pi-in-kiosk-mode/
 - Docker Engine auf Debian: https://docs.docker.com/engine/install/debian/
+- labwc-Aktion `HideCursor`: https://labwc.github.io/labwc-actions.5.html
+- labwc 0.8.4 Release Notes: https://github.com/labwc/labwc/releases/tag/0.8.4
