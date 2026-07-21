@@ -23,7 +23,6 @@ items:
       - Veranstaltung
     days_ahead: 30
 
-  # Media paths are resolved relative to data/uploads/.
   - type: video
     content: Communitykuche_.mp4
     enabled: false
