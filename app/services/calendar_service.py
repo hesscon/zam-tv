@@ -19,7 +19,7 @@ GERMAN_MONTH_NAMES = [
     "Dezember",
 ]
 CACHE_TTL = timedelta(minutes=15)
-_slides_cache: dict[tuple[str, tuple[str, ...], int], dict] = {}
+_slides_cache: dict[tuple[str, tuple[str, ...], int, str], dict] = {}
 
 
 def build_calendar_slides(item: dict) -> list[dict]:
@@ -47,9 +47,9 @@ def build_calendar_slides(item: dict) -> list[dict]:
     return slides
 
 
-def _build_cache_key(item: dict) -> tuple[str, tuple[str, ...], int]:
+def _build_cache_key(item: dict) -> tuple[str, tuple[str, ...], int, str]:
     categories = tuple(sorted({value.strip() for value in item["categories"] if value}))
-    return (item["content"], categories, item["days_ahead"])
+    return (item["content"], categories, item["days_ahead"], str(item["duration"]))
 
 
 def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:

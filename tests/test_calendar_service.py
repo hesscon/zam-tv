@@ -98,7 +98,7 @@ class BuildCalendarSlidesTest(TestCase):
                 "_utc_now",
                 side_effect=[
                     datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
-                    datetime(2026, 3, 14, 0, 30, tzinfo=timezone.utc),
+                    datetime(2026, 3, 14, 0, 10, tzinfo=timezone.utc),
                 ],
             ):
                 first_slides = calendar_service.build_calendar_slides(item)
@@ -106,6 +106,30 @@ class BuildCalendarSlidesTest(TestCase):
 
         self.assertEqual(first_slides, second_slides)
         self.assertEqual(1, get_mock.call_count)
+
+    def test_duration_change_uses_a_new_cache_entry(self) -> None:
+        item = {
+            "content": "https://example.com/events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung"],
+            "days_ahead": 15,
+        }
+
+        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()) as get_mock:
+            with patch.object(
+                calendar_service,
+                "_utc_now",
+                side_effect=[
+                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
+                    datetime(2026, 3, 14, 0, 1, tzinfo=timezone.utc),
+                ],
+            ):
+                first_slides = calendar_service.build_calendar_slides(item)
+                updated_slides = calendar_service.build_calendar_slides({**item, "duration": 20})
+
+        self.assertTrue(all(slide["duration"] == 12 for slide in first_slides))
+        self.assertTrue(all(slide["duration"] == 20 for slide in updated_slides))
+        self.assertEqual(2, get_mock.call_count)
 
     def test_uses_stale_cached_slides_when_refresh_fails(self) -> None:
         item = {
