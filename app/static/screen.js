@@ -94,6 +94,14 @@ function buildMarkup(item) {
       : "";
     const title = item.summary || "";
     const longTitleClass = isLongTitle(title) ? " is-long-title" : "";
+    const qrCode = item.qr_code_data_uri
+      ? `
+        <div class="calendar-event-qr">
+          <img src="${escapeAttribute(item.qr_code_data_uri)}" alt="QR-Code zur Veranstaltungsseite">
+          <span>Mehr Infos</span>
+        </div>
+      `
+      : "";
 
     return `
       <article class="calendar-event-card ${item.image_url ? "with-image" : "without-image"}${longTitleClass}"${cardStyle}>
@@ -102,6 +110,7 @@ function buildMarkup(item) {
           <h1 class="calendar-event-title">${escapeHtml(title || "Ohne Titel")}</h1>
           <p class="calendar-event-date">${escapeHtml(item.start_label || "")}</p>
         </div>
+        ${qrCode}
       </article>
     `;
   }

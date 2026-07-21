@@ -38,6 +38,7 @@ Fuer V1 sollen nur diese Felder ausgewertet werden:
 - `ATTACH`
 - `SUMMARY`
 - `DTSTART`
+- `URL`
 
 Bewusst nicht Teil von V1:
 - `DESCRIPTION`
@@ -71,6 +72,7 @@ Ein erzeugter Kalender-Slide zeigt:
 - Kategorie
 - Titel aus `SUMMARY`
 - Datum/Uhrzeit aus `DTSTART`
+- QR-Code zur Veranstaltungsseite aus `URL`, wenn vorhanden
 
 Wenn kein `ATTACH` vorhanden ist:
 - Das Event wird trotzdem angezeigt
@@ -81,6 +83,7 @@ Wenn kein `ATTACH` vorhanden ist:
 Aus der bereitgestellten Datei ergeben sich diese praktischen Punkte:
 - `CATEGORIES` ist vorhanden und fuer Filter gut nutzbar
 - `ATTACH` ist meist eine direkte Bild-URL
+- `URL` verweist direkt auf die zugehoerige Veranstaltungsseite
 - `DTSTART` kommt mit `TZID=Europe/Berlin`
 - `DESCRIPTION` ist oft leer oder sehr lang und teils unruhig formatiert
 - Es gibt auch `RRULE`

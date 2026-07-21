@@ -30,6 +30,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
 - `calendar` erzeugt zur Laufzeit einzelne Event-Slides aus einer ICS-Quelle
+- Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
 - Die erzeugten `calendar`-Slides werden fuer 15 Minuten im Speicher gecacht, damit ICS-Fetch und Parsing nicht bei jedem Request erneut passieren
 
 ## Routen

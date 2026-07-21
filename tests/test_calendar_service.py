@@ -58,6 +58,11 @@ class BuildCalendarSlidesTest(TestCase):
             "https://www.zam.haus/wp-content/uploads/2025/09/pkerlangen_cover.jpg",
             slides[0]["image_url"],
         )
+        self.assertEqual(
+            "https://www.zam.haus/programm/pecha-kucha-night-erlangen-937/",
+            slides[0]["event_url"],
+        )
+        self.assertTrue(slides[0]["qr_code_data_uri"].startswith("data:image/svg+xml;base64,"))
         self.assertEqual("2026-03-20T20:20:00+00:00", slides[0]["start_iso"])
         self.assertEqual("Freitag, 20. März 21:20", slides[0]["start_label"])
 
@@ -157,6 +162,16 @@ class BuildCalendarSlidesTest(TestCase):
 
         self.assertEqual(first_slides, second_slides)
         self.assertEqual(2, get_mock.call_count)
+
+    def test_ignores_unsafe_or_missing_event_urls(self) -> None:
+        self.assertEqual("", calendar_service._normalize_event_url(None))
+        self.assertEqual("", calendar_service._normalize_event_url("javascript:alert(1)"))
+        self.assertEqual("", calendar_service._build_qr_code_data_uri(""))
+        self.assertEqual(
+            "",
+            calendar_service._build_qr_code_data_uri("https://example.com/" + "a" * 5000),
+        )
+
 
 def _fixture_response() -> FakeResponse:
     return FakeResponse(FIXTURE_PATH.read_text(encoding="utf-8"))

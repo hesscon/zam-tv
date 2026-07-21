@@ -236,6 +236,34 @@ li {
   font-size: var(--calendar-event-long-date-size);
 }
 
+.calendar-event-qr {
+  align-items: center;
+  background: #fff;
+  border-radius: 0.75rem;
+  bottom: 2.25rem;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.32);
+  color: #111827;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  left: 4rem;
+  padding: 0.65rem 0.65rem 0.55rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.calendar-event-qr img {
+  display: block;
+  height: clamp(11rem, 17vw, 15rem);
+  width: clamp(11rem, 17vw, 15rem);
+}
+
+.calendar-event-qr span {
+  font-size: clamp(0.9rem, 1.25vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 @media (orientation: landscape) {
   .calendar-event-card {
     --calendar-event-body-padding: 2.75rem 1.125rem 2.25rem 4rem;
@@ -265,5 +293,17 @@ li {
     --calendar-event-long-title-size: clamp(1.7rem, 7.2vw, 3.5rem);
     --calendar-event-long-title-line-height: 0.94;
     --calendar-event-long-title-max-width: 13ch;
+  }
+
+  .calendar-event-qr {
+    bottom: auto;
+    left: auto;
+    right: 1.75rem;
+    top: 1.75rem;
+  }
+
+  .calendar-event-qr img {
+    height: clamp(9rem, 25vw, 14rem);
+    width: clamp(9rem, 25vw, 14rem);
   }
 }

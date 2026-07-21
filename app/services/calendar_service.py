@@ -1,5 +1,9 @@
+from base64 import b64encode
 from datetime import datetime, time, timedelta, timezone
+from urllib.parse import urlparse
 
+import qrcode
+import qrcode.image.svg
 import requests
 from icalendar import Calendar
 
@@ -78,6 +82,7 @@ def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:
         if categories_filter and not matching_categories:
             continue
 
+        event_url = _normalize_event_url(component.get("url"))
         slides.append(
             {
                 "type": "calendar_event",
@@ -85,6 +90,8 @@ def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:
                 "category": matching_categories[0] if matching_categories else (categories[0] if categories else ""),
                 "summary": str(component.get("summary", "")).strip() or "Ohne Titel",
                 "image_url": str(component.get("attach", "")).strip(),
+                "event_url": event_url,
+                "qr_code_data_uri": _build_qr_code_data_uri(event_url),
                 "start_iso": start.isoformat(),
                 "start_label": _format_start_label(start),
             }
@@ -133,3 +140,24 @@ def _normalize_categories(value) -> list[str]:
         categories.extend([part for part in parts if part])
 
     return categories
+
+
+def _normalize_event_url(value) -> str:
+    event_url = str(value or "").strip()
+    parsed_url = urlparse(event_url)
+    if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+        return ""
+    return event_url
+
+
+def _build_qr_code_data_uri(event_url: str) -> str:
+    if not event_url:
+        return ""
+
+    try:
+        qr_code = qrcode.make(event_url, image_factory=qrcode.image.svg.SvgPathFillImage)
+    except (qrcode.exceptions.DataOverflowError, ValueError):
+        return ""
+
+    encoded_svg = b64encode(qr_code.to_string()).decode("ascii")
+    return f"data:image/svg+xml;base64,{encoded_svg}"
