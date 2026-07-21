@@ -135,7 +135,7 @@ li {
   --calendar-event-body-justify-items: start;
   --calendar-event-body-margin-right: auto;
   --calendar-event-body-text-align: left;
-  --calendar-event-title-size: clamp(2.4rem, 5.9vw, 5.4rem);
+  --calendar-event-title-size: clamp(2.4rem, 5.9vw, 6.4rem);
   --calendar-event-title-line-height: 1.02;
   --calendar-event-title-max-width: 19ch;
   --calendar-event-date-size: clamp(1.25rem, 2.5vw, 2.2rem);
@@ -173,7 +173,18 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transform: scale(1.02);
+  animation: calendar-event-background-movement var(--calendar-event-animation-duration, 15s) linear both;
+  will-change: transform;
+}
+
+@keyframes calendar-event-background-movement {
+  from {
+    transform: scale(1.05) translate3d(-1.5%, -0.75%, 0);
+  }
+
+  to {
+    transform: scale(1.15) translate3d(1.5%, 0.75%, 0);
+  }
 }
 
 .calendar-event-card.with-image::after {
@@ -200,7 +211,7 @@ li {
 
 .calendar-event-category {
   color: #fbbf24;
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-size: clamp(1.55rem, 1.4vw, 2.0rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -305,5 +316,12 @@ li {
   .calendar-event-qr img {
     height: clamp(9rem, 25vw, 14rem);
     width: clamp(9rem, 25vw, 14rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar-event-card.with-image::before {
+    animation: none;
+    transform: scale(1.05);
   }
 }

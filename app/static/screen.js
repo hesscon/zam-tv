@@ -48,7 +48,7 @@ function renderCurrentItem() {
   }
   timeoutId = window.setTimeout(() => {
     goToNextItem();
-  }, Number(item.duration) * 1000);
+  }, getDurationSeconds(item) * 1000);
 }
 
 function goToNextItem() {
@@ -89,8 +89,9 @@ function buildMarkup(item) {
   }
 
   if (item.type === "calendar_event") {
+    const animationDuration = Math.min(getDurationSeconds(item), 15);
     const cardStyle = item.image_url
-      ? ` style="--calendar-event-image: url('${escapeCssUrl(item.image_url)}');"`
+      ? ` style="--calendar-event-image: url('${escapeCssUrl(item.image_url)}'); --calendar-event-animation-duration: ${animationDuration}s;"`
       : "";
     const title = item.summary || "";
     const longTitleClass = isLongTitle(title) ? " is-long-title" : "";
@@ -122,6 +123,11 @@ function buildMarkup(item) {
       </div>
     </article>
   `;
+}
+
+function getDurationSeconds(item) {
+  const duration = Number(item?.duration);
+  return Number.isFinite(duration) && duration > 0 ? duration : 15;
 }
 
 function escapeHtml(value) {
