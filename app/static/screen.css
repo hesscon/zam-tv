@@ -130,7 +130,8 @@ li {
 
 .calendar-event-card {
   --calendar-event-body-gap: 1.125rem;
-  --calendar-event-body-padding: 2.5rem 2.625rem 3rem;
+  --calendar-event-bottom-offset: 3rem;
+  --calendar-event-body-padding: 2.5rem 2.625rem var(--calendar-event-bottom-offset);
   --calendar-event-body-max-width: 56.25rem;
   --calendar-event-body-justify-items: start;
   --calendar-event-body-margin-right: auto;
@@ -173,8 +174,13 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  /*
   animation: calendar-event-background-movement var(--calendar-event-animation-duration, 15s) linear both;
   will-change: transform;
+  */
+  /* Erst mal keine Animation wegen Raspi 3 */
+  animation: none;
+  transform: scale(1.05);
 }
 
 @keyframes calendar-event-background-movement {
@@ -251,7 +257,7 @@ li {
   align-items: center;
   background: #fff;
   border-radius: 0.75rem;
-  bottom: 2.25rem;
+  bottom: var(--calendar-event-bottom-offset);
   box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.32);
   color: #111827;
   display: grid;
@@ -277,8 +283,9 @@ li {
 
 @media (orientation: landscape) {
   .calendar-event-card {
-    --calendar-event-body-padding: 2.75rem 1.125rem 2.25rem 4rem;
-    --calendar-event-body-max-width: 51rem;
+    --calendar-event-bottom-offset: 4.25rem;
+    --calendar-event-body-padding: 2.75rem 1.125rem var(--calendar-event-bottom-offset) 4rem;
+    --calendar-event-body-max-width: 58rem;
     --calendar-event-body-justify-items: end;
     --calendar-event-body-margin-right: 0;
     --calendar-event-body-text-align: right;
@@ -297,7 +304,8 @@ li {
 
 @media (orientation: portrait) {
   .calendar-event-card {
-    --calendar-event-body-padding: 2rem 1.75rem 2.625rem;
+    --calendar-event-bottom-offset: 2.625rem;
+    --calendar-event-body-padding: 2rem 1.75rem var(--calendar-event-bottom-offset);
     --calendar-event-title-size: clamp(2.2rem, 9vw, 4.6rem);
     --calendar-event-title-max-width: 12ch;
     --calendar-event-date-size: clamp(1.15rem, 4.2vw, 1.7rem);
