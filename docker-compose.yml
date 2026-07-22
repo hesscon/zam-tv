@@ -4,7 +4,7 @@ services:
       context: .
     container_name: zam-tv
     ports:
-      - "8000:8000"
+      - "80:8000"
     volumes:
       - ./config:/app/config
       - ./data/uploads:/app/data/uploads
