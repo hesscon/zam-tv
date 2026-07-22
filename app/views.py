@@ -19,7 +19,7 @@ main_bp = Blueprint("main", __name__)
 
 @main_bp.get("/")
 def index():
-    return redirect(url_for("main.screen"))
+    return redirect(url_for("main.admin"))
 
 
 @main_bp.get("/admin")

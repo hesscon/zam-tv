@@ -9,7 +9,7 @@ docker compose up --build
 ```
 
 Danach ist die App unter diesen URLs erreichbar:
-- `http://localhost:8000/admin`
+- `http://localhost:8000/` (Admin-Seite; Weiterleitung auf `/admin`)
 - `http://localhost:8000/screen`
 
 Wenn du Quellcode geaendert hast, brauchst du aktuell einen Rebuild:
@@ -35,6 +35,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 
 ## Routen
 
+- `/`: Weiterleitung zur Admin-Seite unter `/admin`
 - `/admin`: YAML-Konfiguration ansehen und bearbeiten
 - `/admin/cleanup-unused`: Nicht referenzierte Upload-Dateien loeschen
 - `/admin/upload`: Medien nach `data/uploads/` hochladen

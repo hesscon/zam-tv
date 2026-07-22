@@ -155,11 +155,13 @@ Pruefen, ob die App laeuft:
 
 ```bash
 docker compose ps
+curl -I http://127.0.0.1:8000/
 curl -I http://127.0.0.1:8000/admin
 curl -I http://127.0.0.1:8000/screen
 ```
 
 Wichtige URLs:
+- `http://<pi-ip>:8000/` (Admin-Seite; Weiterleitung auf `/admin`)
 - `http://<pi-ip>:8000/admin`
 - `http://<pi-ip>:8000/screen`
 - lokal auf dem Pi: `http://127.0.0.1:8000/screen`
@@ -379,7 +381,7 @@ Wenn der Mauszeiger dadurch verschwindet, liegt der Fehler wahrscheinlich in der
 ### Konfiguration bearbeiten
 Im Netzwerk:
 
-- `http://<pi-ip>:8000/admin`
+- `http://<pi-ip>:8000/`
 
 ### Medien hochladen
 Die App speichert Uploads in:
