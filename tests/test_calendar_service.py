@@ -89,6 +89,31 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertEqual(20, slides[0]["duration"])
         self.assertEqual("Samstag, 25. April 12:00", slides[0]["start_label"])
 
+    def test_expands_rdate_occurrence_in_time_window(self) -> None:
+        item = {
+            "content": "https://example.com/events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung", "Haupthaus"],
+            "days_ahead": 5,
+        }
+
+        with patch.object(calendar_service.requests, "get", return_value=_rdate_fixture_response()):
+            with patch.object(
+                calendar_service,
+                "_utc_now",
+                return_value=datetime(2026, 7, 25, 7, 0, tzinfo=timezone.utc),
+            ):
+                slides = calendar_service.build_calendar_slides(item)
+
+        matching_slides = [
+            slide
+            for slide in slides
+            if slide["summary"].startswith("Gründungscafé (Kooperation von ZAM")
+        ]
+        self.assertEqual(1, len(matching_slides))
+        self.assertEqual("2026-07-25T08:00:00+00:00", matching_slides[0]["start_iso"])
+        self.assertEqual("Samstag, 25. Juli 10:00", matching_slides[0]["start_label"])
+
     def test_reuses_cached_slides_within_ttl_without_fetching_again(self) -> None:
         item = {
             "content": "https://example.com/events.ics",
@@ -175,3 +200,22 @@ class BuildCalendarSlidesTest(TestCase):
 
 def _fixture_response() -> FakeResponse:
     return FakeResponse(FIXTURE_PATH.read_text(encoding="utf-8"))
+
+
+def _rdate_fixture_response() -> FakeResponse:
+    return FakeResponse(
+        """BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZAM Test//DE
+BEGIN:VEVENT
+UID:gruendungscafe@example.com
+DTSTART;TZID=Europe/Berlin:20260328T110000
+DTEND;TZID=Europe/Berlin:20260328T130000
+RDATE;VALUE=PERIOD:20260725T080000Z/20260725T100000Z
+SUMMARY:Gründungscafé (Kooperation von ZAM und Partnern)
+URL:https://www.zam.haus/programm/zam-gruendungscafe-1/
+CATEGORIES:Haupthaus,Mitmachen,Veranstaltung
+END:VEVENT
+END:VCALENDAR
+"""
+    )

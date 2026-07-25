@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 
 import qrcode
 import qrcode.image.svg
+import recurring_ical_events
 import requests
 from icalendar import Calendar
 
@@ -68,14 +69,12 @@ def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:
     window_end = now + timedelta(days=item["days_ahead"])
     slides = []
 
-    for component in calendar.walk("VEVENT"):
+    for component in recurring_ical_events.of(calendar, skip_bad_series=True).between(now, window_end):
         start_value = component.get("dtstart")
         if not start_value:
             continue
 
         start = _normalize_datetime(start_value.dt)
-        if start < now or start > window_end:
-            continue
 
         categories = _normalize_categories(component.get("categories"))
         matching_categories = [category for category in categories if category in categories_filter]

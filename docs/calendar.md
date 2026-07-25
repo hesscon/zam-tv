@@ -38,6 +38,7 @@ Fuer V1 sollen nur diese Felder ausgewertet werden:
 - `ATTACH`
 - `SUMMARY`
 - `DTSTART`
+- `RDATE`, `RRULE` und `EXDATE` fuer Wiederholungen
 - `URL`
 
 Bewusst nicht Teil von V1:
@@ -86,19 +87,18 @@ Aus der bereitgestellten Datei ergeben sich diese praktischen Punkte:
 - `URL` verweist direkt auf die zugehoerige Veranstaltungsseite
 - `DTSTART` kommt mit `TZID=Europe/Berlin`
 - `DESCRIPTION` ist oft leer oder sehr lang und teils unruhig formatiert
-- Es gibt auch `RRULE`
+- Wiederholungen werden mit `RDATE`, `RRULE` und `EXDATE` beschrieben
 
 ## Vereinfachungen fuer V1
 
 Um die Implementierung schlank zu halten:
 - `DESCRIPTION` wird komplett ignoriert
 - fehlendes `ATTACH` blendet nur das Bild aus, nicht das Event
-- RRULE / Wiederholungen werden in V1 noch nicht expandiert
+- Wiederholungen werden nur innerhalb des konfigurierten Zeitfensters expandiert
 
 ## Offene spaetere Erweiterungen
 
 Moegliche spaetere Ausbaustufen:
-- Wiederholungen robuster expandieren
 - sortier- oder priorisierbare Event-Slides
 - weitere Filter, z. B. nach Ort
 - optionale Beschreibung oder Kurztext
