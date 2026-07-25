@@ -8,8 +8,12 @@ ENV APP_HOST=0.0.0.0
 ENV APP_PORT=8000
 ENV APP_DEBUG=false
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt requirements-llm.txt ./
+RUN apt-get update \
+    && apt-get install --no-install-recommends --yes build-essential cmake libgomp1 \
+    && pip install --no-cache-dir -r requirements.txt -r requirements-llm.txt \
+    && apt-get purge --auto-remove --yes build-essential cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY . .
 
