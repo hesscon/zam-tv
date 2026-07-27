@@ -70,6 +70,7 @@ items:
     categories:
       - Veranstaltung
     days_ahead: 14
+    fix_mec_timezone: false
 ```
 
 Wichtige Felder:
@@ -79,6 +80,7 @@ Wichtige Felder:
 - `duration`: Pflicht fuer `image`, `web` und `calendar`
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
+- `fix_mec_timezone: true` aktiviert bei fehlerhaften Modern Events Calendar-Feeds die Korrektur der doppelt aufgeschlagenen Berliner UTC-Abweichung
 - Wenn ein spaeterer Kalender-Refresh fehlschlaegt, wird der letzte erfolgreiche Stand weiterverwendet
 
 ## Besonderheiten und Grenzen

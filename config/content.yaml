@@ -22,6 +22,7 @@ items:
     categories:
       - Veranstaltung
     days_ahead: 30
+    fix_mec_timezone: true
 
   - type: video
     content: Communitykuche_.mp4

@@ -22,6 +22,7 @@ Beispiel:
   categories:
     - Veranstaltung
   days_ahead: 14
+  fix_mec_timezone: false
 ```
 
 Bedeutung:
@@ -30,6 +31,33 @@ Bedeutung:
 - `enabled`: Aktiv/Inaktiv
 - `categories`: Nur Events mit mindestens einer passenden Kategorie werden uebernommen
 - `days_ahead`: Zeitfenster ab jetzt, in dem Events beruecksichtigt werden
+- `fix_mec_timezone`: Optionaler Workaround fuer fehlerhafte ICS-Exporte des WordPress-Plugins Modern Events Calendar (Standard: `false`)
+
+## MEC-Zeitzonen-Workaround
+
+Einige MEC-Exporte addieren den Berliner UTC-Abstand irrtuemlich auf die
+gewuenschte Ortszeit und kennzeichnen das Ergebnis trotzdem mit
+`TZID=Europe/Berlin`. Dadurch liegt ein im Winter angelegter Termin eine Stunde
+und ein im Sommer angelegter Termin zwei Stunden zu spaet.
+
+Fuer eine betroffene MEC-Quelle wird die Korrektur direkt am Kalender-Eintrag
+aktiviert:
+
+```yaml
+- type: calendar
+  content: https://www.zam.haus/?mec-ical-feed=1
+  duration: 12
+  enabled: true
+  categories:
+    - Veranstaltung
+  days_ahead: 30
+  fix_mec_timezone: true
+```
+
+Die Korrektur wird auf `DTSTART`, `DTEND` sowie lokale `RDATE`- und
+`EXDATE`-Werte mit `TZID=Europe/Berlin` angewendet, bevor Wiederholungen
+expandiert werden. UTC-Werte mit einem abschliessenden `Z` bleiben
+unveraendert. Korrekte ICS-Quellen duerfen den Schalter nicht aktivieren.
 
 ## Verwendete ICS-Felder
 

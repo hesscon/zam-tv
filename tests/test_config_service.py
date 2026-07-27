@@ -23,3 +23,29 @@ items:
         item = config["items"][0]
         self.assertEqual([], item["categories"])
         self.assertEqual(14, item["days_ahead"])
+        self.assertFalse(item["fix_mec_timezone"])
+
+    def test_accepts_mec_timezone_fix_for_calendar(self) -> None:
+        config = config_service.parse_config(
+            """
+items:
+  - type: calendar
+    content: https://example.com/events.ics
+    duration: 15
+    fix_mec_timezone: true
+"""
+        )
+
+        self.assertTrue(config["items"][0]["fix_mec_timezone"])
+
+    def test_rejects_non_boolean_mec_timezone_fix(self) -> None:
+        with self.assertRaisesRegex(config_service.ConfigError, "true oder false"):
+            config_service.parse_config(
+                """
+items:
+  - type: calendar
+    content: https://example.com/events.ics
+    duration: 15
+    fix_mec_timezone: "-1"
+"""
+            )

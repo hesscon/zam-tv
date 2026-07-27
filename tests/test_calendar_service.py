@@ -161,6 +161,122 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertTrue(all(slide["duration"] == 20 for slide in updated_slides))
         self.assertEqual(2, get_mock.call_count)
 
+    def test_mec_timezone_fix_corrects_winter_series_before_expansion(self) -> None:
+        item = {
+            "content": "https://example.com/mec-events.ics",
+            "duration": 12,
+            "categories": ["Beratung"],
+            "days_ahead": 2,
+            "fix_mec_timezone": True,
+        }
+
+        with patch.object(
+            calendar_service.requests,
+            "get",
+            return_value=_mec_timezone_fixture_response(),
+        ):
+            with patch.object(
+                calendar_service,
+                "_utc_now",
+                return_value=datetime(2026, 7, 29, 0, 0, tzinfo=timezone.utc),
+            ):
+                slides = calendar_service.build_calendar_slides(item)
+
+        self.assertEqual(1, len(slides))
+        self.assertEqual("Ehrenamtliche Beratung", slides[0]["summary"])
+        self.assertEqual("2026-07-30T13:00:00+00:00", slides[0]["start_iso"])
+        self.assertEqual("Donnerstag, 30. Juli 15:00", slides[0]["start_label"])
+
+    def test_mec_timezone_fix_corrects_summer_event(self) -> None:
+        item = {
+            "content": "https://example.com/mec-events.ics",
+            "duration": 12,
+            "categories": ["Workshop"],
+            "days_ahead": 2,
+            "fix_mec_timezone": True,
+        }
+
+        with patch.object(
+            calendar_service.requests,
+            "get",
+            return_value=_mec_timezone_fixture_response(),
+        ):
+            with patch.object(
+                calendar_service,
+                "_utc_now",
+                return_value=datetime(2026, 8, 8, 0, 0, tzinfo=timezone.utc),
+            ):
+                slides = calendar_service.build_calendar_slides(item)
+
+        self.assertEqual(1, len(slides))
+        self.assertEqual("Zentralperspektive Grundlagen", slides[0]["summary"])
+        self.assertEqual("2026-08-09T08:00:00+00:00", slides[0]["start_iso"])
+        self.assertEqual("Sonntag, 9. August 10:00", slides[0]["start_label"])
+
+    def test_mec_timezone_fix_change_uses_a_new_cache_entry(self) -> None:
+        item = {
+            "content": "https://example.com/events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung"],
+            "days_ahead": 15,
+            "fix_mec_timezone": False,
+        }
+
+        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()) as get_mock:
+            with patch.object(
+                calendar_service,
+                "_utc_now",
+                side_effect=[
+                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
+                    datetime(2026, 3, 14, 0, 1, tzinfo=timezone.utc),
+                ],
+            ):
+                calendar_service.build_calendar_slides(item)
+                calendar_service.build_calendar_slides({**item, "fix_mec_timezone": True})
+
+        self.assertEqual(2, get_mock.call_count)
+
+    def test_formats_labels_in_berlin_timezone(self) -> None:
+        self.assertEqual(
+            "Sonntag, 9. August 10:00",
+            calendar_service._format_start_label(
+                datetime(2026, 8, 9, 8, 0, tzinfo=timezone.utc)
+            ),
+        )
+        self.assertEqual(
+            "Donnerstag, 12. Februar 15:00",
+            calendar_service._format_start_label(
+                datetime(2026, 2, 12, 14, 0, tzinfo=timezone.utc)
+            ),
+        )
+
+    def test_mec_timezone_fix_corrects_local_rdate_and_exdate_values(self) -> None:
+        calendar = calendar_service.Calendar.from_ical(
+            """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:additional-dates@example.com
+DTSTART;TZID=Europe/Berlin:20260801T120000
+RDATE;TZID=Europe/Berlin:20260809T120000,20260816T120000
+EXDATE;TZID=Europe/Berlin:20260816T120000
+END:VEVENT
+END:VCALENDAR
+"""
+        )
+
+        calendar_service._apply_mec_timezone_fix(calendar)
+
+        event = calendar.walk("VEVENT")[0]
+        self.assertEqual("10:00:00", event["DTSTART"].dt.time().isoformat())
+        self.assertEqual(
+            ["10:00:00", "10:00:00"],
+            [value.dt.time().isoformat() for value in event["RDATE"].dts],
+        )
+        self.assertEqual(
+            ["10:00:00"],
+            [value.dt.time().isoformat() for value in event["EXDATE"].dts],
+        )
+
     def test_uses_stale_cached_slides_when_refresh_fails(self) -> None:
         item = {
             "content": "https://example.com/events.ics",
@@ -215,6 +331,31 @@ RDATE;VALUE=PERIOD:20260725T080000Z/20260725T100000Z
 SUMMARY:Gründungscafé (Kooperation von ZAM und Partnern)
 URL:https://www.zam.haus/programm/zam-gruendungscafe-1/
 CATEGORIES:Haupthaus,Mitmachen,Veranstaltung
+END:VEVENT
+END:VCALENDAR
+"""
+    )
+
+
+def _mec_timezone_fixture_response() -> FakeResponse:
+    return FakeResponse(
+        """BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//WordPress - MEC Test//EN
+BEGIN:VEVENT
+UID:beratung@example.com
+DTSTART;TZID=Europe/Berlin:20260212T160000
+DTEND;TZID=Europe/Berlin:20260212T180000
+RRULE:FREQ=WEEKLY
+SUMMARY:Ehrenamtliche Beratung
+CATEGORIES:Beratung
+END:VEVENT
+BEGIN:VEVENT
+UID:zentralperspektive@example.com
+DTSTART;TZID=Europe/Berlin:20260809T120000
+DTEND;TZID=Europe/Berlin:20260809T143000
+SUMMARY:Zentralperspektive Grundlagen
+CATEGORIES:Workshop
 END:VEVENT
 END:VCALENDAR
 """

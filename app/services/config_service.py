@@ -22,6 +22,7 @@ DEFAULT_CONFIG = """items:
     categories:
       - Veranstaltung
     days_ahead: 14
+    fix_mec_timezone: false
 
   - type: video
     content: sample.mp4
@@ -100,5 +101,12 @@ def parse_config(config_text: str) -> dict:
 
             item["categories"] = categories
             item["days_ahead"] = days_ahead
+
+            fix_mec_timezone = item.get("fix_mec_timezone", False)
+            if not isinstance(fix_mec_timezone, bool):
+                raise ConfigError(
+                    f"Eintrag {index} vom Typ `calendar` braucht `fix_mec_timezone` als true oder false."
+                )
+            item["fix_mec_timezone"] = fix_mec_timezone
 
     return config
