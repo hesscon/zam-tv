@@ -185,6 +185,21 @@ Falls das Paket `chromium` auf dem verwendeten Image nicht gefunden wird, versuc
 sudo apt install -y --no-install-recommends chromium-browser
 ```
 
+Damit Chromium im Kiosk-Betrieb keine Uebersetzungs-Sprechblase einblendet, wird die
+Uebersetzungsfunktion ueber eine verwaltete Browser-Richtlinie abgeschaltet:
+
+```bash
+sudo install -d -m 755 /etc/chromium/policies/managed
+sudo tee /etc/chromium/policies/managed/zam-tv.json > /dev/null <<'EOF'
+{
+  "TranslateEnabled": false
+}
+EOF
+```
+
+Die Richtlinie ist zuverlaessiger als der veraltete Chromium-Schalter
+`--disable-translate` und gilt ab dem naechsten Browser-Start.
+
 ## 7. Kiosk-Startskript anlegen
 Wir starten Chromium nicht direkt aus `labwc`, sondern ueber ein kleines Skript.
 Das Skript wartet zunaechst auf die lokale Web-App. Dadurch landet der Browser nach einem Boot nicht auf einer Fehlerseite, waehrend Docker noch startet.
@@ -233,8 +248,6 @@ exec "$CHROMIUM" \
   --start-maximized \
   --noerrdialogs \
   --disable-infobars \
-  --disable-translate \
-  --disable-features=Translate,TranslateUI \
   --lang=de-DE \
   --no-first-run \
   --disable-session-crashed-bubble \
@@ -249,7 +262,8 @@ Warum `--password-store=basic`:
 
 Warum die Wayland- und Sprachoptionen:
 - `--ozone-platform=wayland` sorgt dafuer, dass Chromium auch bei einem manuellen Start per SSH die laufende Wayland-Sitzung verwendet.
-- Die Translate-Optionen und `--lang=de-DE` verhindern eine stoerende Uebersetzungs-Einblendung ueber der Signage-Ansicht.
+- `--lang=de-DE` stellt die Sprache der Browser-Oberflaeche auf Deutsch.
+- Die in Schritt 6 angelegte Richtlinie verhindert die Uebersetzungs-Einblendung.
 
 Skript ausfuehrbar machen:
 
@@ -480,13 +494,14 @@ docker compose logs --tail=100
 ```
 
 ### Chromium zeigt eine Uebersetzungs-Einblendung
-Pruefe, ob das Startskript diese Optionen enthaelt:
+Pruefe, ob die verwaltete Chromium-Richtlinie vorhanden ist:
 
 ```bash
---disable-translate
---disable-features=Translate,TranslateUI
---lang=de-DE
+cat /etc/chromium/policies/managed/zam-tv.json
 ```
+
+Sie muss `"TranslateEnabled": false` enthalten. Starte Chromium anschliessend neu
+oder starte den Raspberry Pi mit `sudo reboot` neu.
 
 ### Externe Webseiten bleiben leer
 Das ist bei `web`-Eintraegen moeglich, wenn die Zielseite das Einbetten per `iframe` verbietet.
