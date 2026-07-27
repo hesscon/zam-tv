@@ -9,8 +9,8 @@ docker compose up --build
 ```
 
 Danach ist die App unter diesen URLs erreichbar:
-- `http://localhost:8000/` (Admin-Seite; Weiterleitung auf `/admin`)
-- `http://localhost:8000/screen`
+- `http://localhost/` (Admin-Seite; Weiterleitung auf `/admin`)
+- `http://localhost/screen`
 
 Wenn du Quellcode geaendert hast, brauchst du aktuell einen Rebuild:
 

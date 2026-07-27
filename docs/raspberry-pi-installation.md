@@ -12,7 +12,7 @@ Die empfohlene Zielumgebung ist:
 
 Warum Desktop und nicht Lite:
 - Fuer den Kiosk-Modus brauchen wir einen grafischen Browser.
-- Raspberry Pi OS Bookworm nutzt dafuer standardmaessig `labwc`.
+- Aktuelle Raspberry-Pi-OS-Versionen nutzen dafuer standardmaessig `labwc`.
 - Mit Desktop + Auto-Login ist der Start von Chromium am einfachsten.
 
 ## Uebersicht
@@ -23,7 +23,7 @@ Der Startpfad auf dem Geraet ist:
 3. Docker startet beim Boot
 4. Der Container `zam-tv` startet automatisch
 5. `labwc` startet ein kleines Skript
-6. Das Skript wartet auf `http://127.0.0.1:8000/screen`
+6. Das Skript wartet auf `http://127.0.0.1/screen`
 7. Chromium startet im Vollbild und zeigt die Signage-Ansicht
 
 ## 1. OS vorbereiten
@@ -70,7 +70,7 @@ Empfohlene Punkte:
 - optional Hostname pruefen
 
 ## 3. Docker installieren
-Diese Schritte installieren Docker aus dem offiziellen Docker-Repository fuer Debian Bookworm.
+Diese Schritte installieren Docker aus dem offiziellen Docker-Repository fuer Debian.
 
 Alte Pakete entfernen, falls vorhanden:
 
@@ -120,7 +120,7 @@ docker ps
 ```
 
 Hinweis:
-- Docker startet auf Debian-/Bookworm-Systemen in der Regel automatisch beim Boot.
+- Docker startet auf Debian-basierten Systemen in der Regel automatisch beim Boot.
 - Das Projekt nutzt bereits `restart: unless-stopped` in `docker-compose.yml`.
 
 ## 4. Projekt auf den Pi kopieren
@@ -155,30 +155,34 @@ Pruefen, ob die App laeuft:
 
 ```bash
 docker compose ps
-curl -I http://127.0.0.1:8000/
-curl -I http://127.0.0.1:8000/admin
-curl -I http://127.0.0.1:8000/screen
+curl -I http://127.0.0.1/
+curl -I http://127.0.0.1/admin
+curl -I http://127.0.0.1/screen
 ```
 
 Wichtige URLs:
-- `http://<pi-ip>:8000/` (Admin-Seite; Weiterleitung auf `/admin`)
-- `http://<pi-ip>:8000/admin`
-- `http://<pi-ip>:8000/screen`
-- lokal auf dem Pi: `http://127.0.0.1:8000/screen`
+- `http://<pi-ip>/` (Admin-Seite; Weiterleitung auf `/admin`)
+- `http://<pi-ip>/admin`
+- `http://<pi-ip>/screen`
+- lokal auf dem Pi: `http://127.0.0.1/screen`
+
+Hinweis zu den Ports:
+- `docker-compose.yml` veroeffentlicht die App auf Port `80` des Raspberry Pi.
+- Im Container selbst laeuft Flask weiterhin auf Port `8000`.
+- Deshalb wird Port `8000` in den von aussen oder vom Pi selbst aufgerufenen URLs nicht angegeben.
 
 ## 6. Kiosk-Pakete installieren
 Fuer den Browser-Start und kleine Hilfswerkzeuge:
 
 ```bash
-sudo apt install -y --no-install-recommends curl swayidle wtype
-sudo apt install -y --no-install-recommends chromium-browser
+sudo apt install -y --no-install-recommends curl swayidle wtype wlr-randr
+sudo apt install -y --no-install-recommends chromium
 ```
 
-Je nach Image heisst das Paket teilweise auch `chromium`.
-Falls `chromium-browser` nicht gefunden wird, pruefe:
+Falls das Paket `chromium` auf dem verwendeten Image nicht gefunden wird, versuche:
 
 ```bash
-sudo apt install -y --no-install-recommends chromium
+sudo apt install -y --no-install-recommends chromium-browser
 ```
 
 ## 7. Kiosk-Startskript anlegen
@@ -199,10 +203,20 @@ Inhalt:
 
 set -eu
 
-APP_URL="http://127.0.0.1:8000/screen"
+APP_URL="http://127.0.0.1/screen"
 LOG_FILE="$HOME/.local/state/zam-tv-kiosk.log"
 
 mkdir -p "$HOME/.local/state"
+
+# Je nach Raspberry-Pi-OS-Version heisst das Programm unterschiedlich.
+if command -v chromium > /dev/null; then
+  CHROMIUM="chromium"
+elif command -v chromium-browser > /dev/null; then
+  CHROMIUM="chromium-browser"
+else
+  echo "Chromium wurde nicht gefunden." >&2
+  exit 1
+fi
 
 # Falls Chromium aus einer alten Sitzung noch lebt, beenden wir ihn sauber.
 pkill -f chromium || true
@@ -212,12 +226,16 @@ until curl -fsS "$APP_URL" > /dev/null; do
   sleep 2
 done
 
-exec chromium-browser \
+exec "$CHROMIUM" \
   "$APP_URL" \
   --kiosk \
+  --ozone-platform=wayland \
   --start-maximized \
   --noerrdialogs \
   --disable-infobars \
+  --disable-translate \
+  --disable-features=Translate,TranslateUI \
+  --lang=de-DE \
   --no-first-run \
   --disable-session-crashed-bubble \
   --check-for-update-interval=31536000 \
@@ -225,11 +243,13 @@ exec chromium-browser \
   >> "$LOG_FILE" 2>&1
 ```
 
-Falls das Binary auf deinem System `chromium` statt `chromium-browser` heisst, ersetze die letzte Kommandozeile entsprechend.
-
 Warum `--password-store=basic`:
 - Im Kiosk-Betrieb auf Raspberry Pi OS taucht sonst je nach Desktop-Umgebung eine stoerende Passwort- oder Schluesselbund-Abfrage von Chromium auf.
 - Fuer diesen einfachen Einzelgeraet-Einsatz ist `basic` die pragmatische Variante, damit der Browser ohne Rueckfrage startet.
+
+Warum die Wayland- und Sprachoptionen:
+- `--ozone-platform=wayland` sorgt dafuer, dass Chromium auch bei einem manuellen Start per SSH die laufende Wayland-Sitzung verwendet.
+- Die Translate-Optionen und `--lang=de-DE` verhindern eine stoerende Uebersetzungs-Einblendung ueber der Signage-Ansicht.
 
 Skript ausfuehrbar machen:
 
@@ -238,11 +258,11 @@ chmod +x ~/.local/bin/start-zam-tv-kiosk.sh
 ```
 
 ## 8. Autostart fuer den Desktop setzen
-Unter Raspberry Pi OS Bookworm wird Desktop-Autostart ueber `labwc` konfiguriert.
+Unter aktuellen Raspberry-Pi-OS-Versionen wird Desktop-Autostart ueber `labwc` konfiguriert.
 
 ### Mauszeiger automatisch ausblenden
 
-Raspberry Pi OS Bookworm verwendet standardmaessig `labwc` mit Wayland. Das fuer X11 gedachte Werkzeug `unclutter` funktioniert dort nicht. Stattdessen nutzen wir die in `labwc` eingebaute Aktion `HideCursor`. Dabei wird kein unsichtbares Cursor-Bild verwendet: `labwc` blendet den Mauszeiger aus und zeigt ihn bei der naechsten Mausbewegung wieder an.
+Raspberry Pi OS verwendet mit `labwc` standardmaessig Wayland. Das fuer X11 gedachte Werkzeug `unclutter` funktioniert dort nicht. Stattdessen nutzen wir die in `labwc` eingebaute Aktion `HideCursor`. Dabei wird kein unsichtbares Cursor-Bild verwendet: `labwc` blendet den Mauszeiger aus und zeigt ihn bei der naechsten Mausbewegung wieder an.
 
 Zuerst die installierte Version pruefen:
 
@@ -268,19 +288,20 @@ Im vorhandenen `<keyboard>`-Abschnitt, am besten direkt nach `<default />`, dies
 </keybind>
 ```
 
-Die geaenderte Konfiguration neu einlesen:
+Wenn du in einem Terminal direkt auf dem Desktop arbeitest, kannst du die geaenderte Konfiguration sofort neu einlesen:
 
 ```bash
 labwc --reconfigure
 ```
 
-Zum direkten Testen diesen Befehl ausfuehren:
+Zum direkten Testen:
 
 ```bash
 wtype -M alt -M logo h -m alt -m logo
 ```
 
 Der Mauszeiger sollte sofort verschwinden und bei der naechsten Mausbewegung wieder erscheinen.
+Bei einer reinen SSH-Installation koennen diese beiden direkten Tests entfallen. Die Konfiguration wird spaetestens beim Neustart in Abschnitt 9 geladen.
 
 ### Autostart-Datei anlegen
 
@@ -337,26 +358,45 @@ Nach dem Neustart sollte automatisch Chromium im Vollbild erscheinen.
 Pruefe bei Problemen in dieser Reihenfolge:
 
 ### Docker-Status
+
 ```bash
 docker compose -f /opt/zam-tv/docker-compose.yml ps
 docker compose -f /opt/zam-tv/docker-compose.yml logs --tail=100
 ```
 
 ### App lokal erreichbar
+
 ```bash
-curl -I http://127.0.0.1:8000/screen
-curl -I http://127.0.0.1:8000/admin
+curl -I http://127.0.0.1/screen
+curl -I http://127.0.0.1/admin
 ```
 
 ### Kiosk-Log
+
 ```bash
 tail -n 100 ~/.local/state/zam-tv-kiosk.log
 ```
 
 ### Labwc-Autostart pruefen
+
 ```bash
 cat ~/.config/labwc/autostart
 ```
+
+### Kiosk-Prozesse pruefen
+
+```bash
+pgrep -af 'chromium.*--kiosk'
+pgrep -af '^swayidle '
+```
+
+### Bildschirm-Blanking pruefen
+
+```bash
+grep -o 'consoleblank=[^ ]*' /proc/cmdline
+```
+
+Die Ausgabe sollte `consoleblank=0` enthalten.
 
 ### Mauszeiger bleibt sichtbar
 
@@ -381,7 +421,7 @@ Wenn der Mauszeiger dadurch verschwindet, liegt der Fehler wahrscheinlich in der
 ### Konfiguration bearbeiten
 Im Netzwerk:
 
-- `http://<pi-ip>:8000/`
+- `http://<pi-ip>/`
 
 ### Medien hochladen
 Die App speichert Uploads in:
@@ -397,6 +437,7 @@ docker compose up -d --build
 ```
 
 ### Komplett neu starten
+
 ```bash
 sudo reboot
 ```
@@ -415,11 +456,11 @@ Nicht noetig fuer V1, aber praktisch im Dauerbetrieb:
 Pruefe den Programmnamen:
 
 ```bash
-which chromium-browser
 which chromium
+which chromium-browser
 ```
 
-Passe dann `~/.local/bin/start-zam-tv-kiosk.sh` an.
+Mindestens einer der beiden Befehle sollte einen Programmpfad ausgeben. Falls beide Ausgaben leer bleiben, installiere Chromium wie in Abschnitt 6 beschrieben.
 
 ### Chromium zeigt eine Passwort- oder Keyring-Abfrage
 Pruefe, ob das Startskript diese Option enthaelt:
@@ -434,8 +475,17 @@ Ohne diese Option kann Chromium auf Raspberry Pi OS im Kiosk-Betrieb versuchen, 
 Pruefe zuerst:
 
 ```bash
-curl -I http://127.0.0.1:8000/screen
+curl -I http://127.0.0.1/screen
 docker compose logs --tail=100
+```
+
+### Chromium zeigt eine Uebersetzungs-Einblendung
+Pruefe, ob das Startskript diese Optionen enthaelt:
+
+```bash
+--disable-translate
+--disable-features=Translate,TranslateUI
+--lang=de-DE
 ```
 
 ### Externe Webseiten bleiben leer
