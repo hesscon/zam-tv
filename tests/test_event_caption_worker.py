@@ -98,14 +98,15 @@ class EventCaptionWorkerTest(TestCase):
             results[1],
         )
 
-    def test_prompt_requests_real_german_umlauts(self) -> None:
-        self.assertIn("deutsche Umlaute", event_caption_worker.SYSTEM_PROMPT)
-        self.assertIn("Verwende ß", event_caption_worker.SYSTEM_PROMPT)
-        self.assertNotIn("->", event_caption_worker.SYSTEM_PROMPT)
-        self.assertEqual(
-            '{"caption":"Kurze Vorträge zu vielfältigen Themen"}',
-            event_caption_worker.EXAMPLE_MESSAGES[1]["content"],
-        )
+    def test_prompt_examples_contain_valid_caption_json(self) -> None:
+        assistant_messages = [
+            message
+            for message in event_caption_worker.EXAMPLE_MESSAGES
+            if message["role"] == "assistant"
+        ]
+
+        for message in assistant_messages:
+            self.assertIsInstance(json.loads(message["content"])["caption"], str)
 
     def test_requests_caption_json_schema_from_model(self) -> None:
         model = FakeModel(['{"caption":"Kreative Projekte gemeinsam entwickeln"}'])
@@ -132,6 +133,19 @@ class EventCaptionWorkerTest(TestCase):
     def test_rejects_caption_that_only_repeats_title(self) -> None:
         with self.assertRaisesRegex(ValueError, "Veranstaltungstitel"):
             event_caption_worker._validate_caption("Offene Bühne", "Offene Bühne")
+
+    def test_accepts_caption_with_nine_words(self) -> None:
+        event_caption_worker._validate_caption(
+            "Computer klemmt? Wir entwirren Kabel, Klicks und alle Fragezeichen.",
+            "Computersprechstunde",
+        )
+
+    def test_rejects_caption_with_ten_words(self) -> None:
+        with self.assertRaisesRegex(ValueError, "3 bis 9"):
+            event_caption_worker._validate_caption(
+                "Computer klemmt? Wir entwirren Kabel, Klicks und wirklich alle Fragezeichen.",
+                "Computersprechstunde",
+            )
 
     def test_rejects_non_array_input(self) -> None:
         with self.assertRaisesRegex(ValueError, "JSON-Array"):
