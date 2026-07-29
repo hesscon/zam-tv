@@ -32,6 +32,9 @@ Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibu
 - Ergebnisse kommen als JSON ueber `stdout` zurueck; Logs gehen nach `stderr`.
 - Die einzelne Modellantwort wird durch ein JSON-Schema auf das Feld `caption` begrenzt.
 - Das Modell wird pro Durchlauf einmal geladen und verarbeitet danach alle neuen oder geaenderten Events.
+- Ein unabhaengiger Validator kann danach `title`, `description` und `caption`
+  mit einem getrennt waehlbaren Modell pruefen und `approved` plus `reason`
+  als JSON ausgeben.
 
 ## Persistenter Cache
 

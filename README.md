@@ -96,6 +96,7 @@ Wichtige Felder:
 - `data/uploads/`: Bilder und Videos fuer lokale Medieninhalte
 - `docs/calendar.md`: Entscheidungen und Plan fuer die ICS-/Kalender-Logik
 - `docs/llm-caption-worker.md`: Lokaler Test fuer automatisch erzeugte Event-Kurztexte
+- `docs/llm-caption-validator.md`: Unabhaengige LLM-Pruefung erzeugter Event-Kurztexte
 - `docs/raspberry-pi-installation.md`: Konkrete Installationsanleitung fuer Raspberry Pi, Docker und Kiosk-Modus
 - `app/templates/`: HTML-Templates fuer Admin und Screen
 - `app/static/`: CSS und JavaScript fuer die Anzeige
