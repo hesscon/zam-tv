@@ -30,7 +30,9 @@ class EventCaptionWorkerTest(TestCase):
         model = FakeModel(
             [
                 '{"caption":"Kurze Vorträge zu vielfältigen Themen"}',
+                '{"caption":"Vielfältige Themen in kurzen Vorträgen"}',
                 '{"caption":"Gemeinsam defekte Geräte reparieren"}',
+                '{"caption":"Defekte Alltagsgeräte gemeinsam reparieren"}',
             ]
         )
         events = [
@@ -54,12 +56,12 @@ class EventCaptionWorkerTest(TestCase):
 
         self.assertEqual(
             [
-                {"uid": "event-1", "caption": "Kurze Vorträge zu vielfältigen Themen"},
-                {"uid": "event-2", "caption": "Gemeinsam defekte Geräte reparieren"},
+                {"uid": "event-1", "caption": "Vielfältige Themen in kurzen Vorträgen"},
+                {"uid": "event-2", "caption": "Defekte Alltagsgeräte gemeinsam reparieren"},
             ],
             results,
         )
-        self.assertEqual(2, len(model.calls))
+        self.assertEqual(4, len(model.calls))
 
     def test_empty_description_does_not_call_model(self) -> None:
         model = FakeModel([])
@@ -73,11 +75,43 @@ class EventCaptionWorkerTest(TestCase):
         self.assertEqual([{"uid": "event-1", "caption": ""}], results)
         self.assertEqual([], model.calls)
 
+    def test_single_shot_skips_improvement_round(self) -> None:
+        model = FakeModel(
+            ['{"caption":"Gemeinsam defekte Geräte reparieren"}']
+        )
+
+        results = event_caption_worker.generate_captions(
+            [
+                {
+                    "uid": "event-1",
+                    "title": "Repair-Café",
+                    "description": "Wir reparieren gemeinsam mitgebrachte Geräte.",
+                }
+            ],
+            model,
+            improve=False,
+            log_stream=StringIO(),
+        )
+
+        self.assertEqual(
+            [{"uid": "event-1", "caption": "Gemeinsam defekte Geräte reparieren"}],
+            results,
+        )
+        self.assertEqual(1, len(model.calls))
+
+    def test_parser_accepts_single_shot_option(self) -> None:
+        args = event_caption_worker.build_argument_parser().parse_args(
+            ["--model", "model.gguf", "--single-shot"]
+        )
+
+        self.assertTrue(args.single_shot)
+
     def test_failure_of_one_event_does_not_abort_batch(self) -> None:
         model = FakeModel(
             [
                 RuntimeError("Modellfehler"),
                 '{"caption":"Musik und spontane Auftritte"}',
+                '{"caption":"Musik, Texte und spontane Auftritte"}',
             ]
         )
         events = [
@@ -94,7 +128,7 @@ class EventCaptionWorkerTest(TestCase):
         self.assertEqual("", results[0]["caption"])
         self.assertEqual("Modellfehler", results[0]["error"])
         self.assertEqual(
-            {"uid": "event-2", "caption": "Musik und spontane Auftritte"},
+            {"uid": "event-2", "caption": "Musik, Texte und spontane Auftritte"},
             results[1],
         )
 
@@ -108,8 +142,27 @@ class EventCaptionWorkerTest(TestCase):
         for message in assistant_messages:
             self.assertIsInstance(json.loads(message["content"])["caption"], str)
 
+    def test_both_system_prompts_use_the_same_rules(self) -> None:
+        self.assertIn(
+            event_caption_worker.CAPTION_RULES,
+            event_caption_worker.GENERATION_SYSTEM_PROMPT,
+        )
+        self.assertIn(
+            event_caption_worker.CAPTION_RULES,
+            event_caption_worker.IMPROVEMENT_SYSTEM_PROMPT,
+        )
+        self.assertNotEqual(
+            event_caption_worker.GENERATION_SYSTEM_PROMPT,
+            event_caption_worker.IMPROVEMENT_SYSTEM_PROMPT,
+        )
+
     def test_requests_caption_json_schema_from_model(self) -> None:
-        model = FakeModel(['{"caption":"Kreative Projekte gemeinsam entwickeln"}'])
+        model = FakeModel(
+            [
+                '{"caption":"Kreative Projekte gemeinsam entwickeln"}',
+                '{"caption":"Gemeinsam kreative Projekte entwickeln"}',
+            ]
+        )
 
         event_caption_worker.generate_captions(
             [{"uid": "event-1", "title": "Werkstatt", "description": "Projekte entwickeln"}],
@@ -128,6 +181,102 @@ class EventCaptionWorkerTest(TestCase):
                 "description": "Projekte entwickeln",
             },
             json.loads(actual_user_message),
+        )
+        improved_user_message = model.calls[1]["messages"][-1]["content"]
+        self.assertEqual(
+            {
+                "title": "Werkstatt",
+                "description": "Projekte entwickeln",
+                "caption": "Kreative Projekte gemeinsam entwickeln",
+            },
+            json.loads(improved_user_message),
+        )
+        self.assertEqual(
+            ["system", "user"],
+            [message["role"] for message in model.calls[1]["messages"]],
+        )
+        self.assertEqual(
+            event_caption_worker.GENERATION_SYSTEM_PROMPT,
+            model.calls[0]["messages"][0]["content"],
+        )
+        self.assertEqual(
+            event_caption_worker.IMPROVEMENT_SYSTEM_PROMPT,
+            model.calls[1]["messages"][0]["content"],
+        )
+
+    def test_second_round_can_repair_invalid_first_caption(self) -> None:
+        model = FakeModel(
+            [
+                '{"caption":"Geräte reparieren"}',
+                '{"caption":"Gemeinsam defekte Geräte reparieren"}',
+            ]
+        )
+
+        results = event_caption_worker.generate_captions(
+            [
+                {
+                    "uid": "event-1",
+                    "title": "Repair-Café",
+                    "description": "Wir reparieren gemeinsam mitgebrachte Geräte.",
+                }
+            ],
+            model,
+            log_stream=StringIO(),
+        )
+
+        self.assertEqual(
+            [{"uid": "event-1", "caption": "Gemeinsam defekte Geräte reparieren"}],
+            results,
+        )
+
+    def test_invalid_improvement_falls_back_to_valid_first_caption(self) -> None:
+        model = FakeModel(
+            [
+                '{"caption":"Gemeinsam defekte Geräte reparieren"}',
+                '{"caption":"Wir reparieren heute gemeinsam alle mitgebrachten defekten Geräte im Café"}',
+            ]
+        )
+
+        results = event_caption_worker.generate_captions(
+            [
+                {
+                    "uid": "event-1",
+                    "title": "Repair-Café",
+                    "description": "Wir reparieren gemeinsam mitgebrachte Geräte.",
+                }
+            ],
+            model,
+            log_stream=StringIO(),
+        )
+
+        self.assertEqual(
+            [{"uid": "event-1", "caption": "Gemeinsam defekte Geräte reparieren"}],
+            results,
+        )
+
+    def test_failed_improvement_falls_back_to_valid_first_caption(self) -> None:
+        model = FakeModel(
+            [
+                '{"caption":"Gemeinsam defekte Geräte reparieren"}',
+                RuntimeError("Verbesserung fehlgeschlagen"),
+            ]
+        )
+
+        results = event_caption_worker.generate_captions(
+            [
+                {
+                    "uid": "event-1",
+                    "title": "Repair-Café",
+                    "description": "Wir reparieren gemeinsam mitgebrachte Geräte.",
+                }
+            ],
+            model,
+            log_stream=StringIO(),
+        )
+
+        self.assertEqual(
+            [{"uid": "event-1", "caption": "Gemeinsam defekte Geräte reparieren"}],
+            results,
         )
 
     def test_rejects_caption_that_only_repeats_title(self) -> None:

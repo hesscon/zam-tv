@@ -1,6 +1,8 @@
 # LLM-Caption-Worker testen
 
-Der Worker liest ein JSON-Array aus `stdin`, laedt das Modell einmal und schreibt die Ergebnisse als JSON nach `stdout`. Das Modell selbst wird per JSON-Schema auf `{"caption":"..."}` beschraenkt. Laufzeiten und Fehler erscheinen auf `stderr`.
+Der Worker liest ein JSON-Array aus `stdin`, laedt das Modell einmal und schreibt die Ergebnisse als JSON nach `stdout`. Pro Event erzeugt das Modell zuerst eine Caption mit Beispielnachrichten und verbessert sie in einem zweiten Aufruf ohne diese Beispiele. Beide Runden verwenden denselben zentral definierten Regelsatz, aber unterschiedliche System-Prompts fuer Erzeugung und strenge Ueberarbeitung. Das Modell selbst wird per JSON-Schema auf `{"caption":"..."}` beschraenkt. Laufzeiten und Fehler erscheinen auf `stderr`.
+
+Ist die verbesserte Caption ungueltig oder schlaegt der zweite Aufruf fehl, verwendet der Worker die erste Caption, sofern diese gueltig ist. Sind beide Fassungen ungueltig, wird fuer das Event eine leere Caption mit `error` ausgegeben.
 
 ## Vorbereitung
 
@@ -53,6 +55,15 @@ docker compose run --rm -T zam-tv \
 ```
 
 Standardmaessig verwendet der Worker zwei CPU-Threads und eine niedrige Temperatur von `0.2`. Fuer Vergleiche auf dem Raspberry Pi koennen beispielsweise `--threads 1`, `--threads 4` oder `--temperature 0.7` gesetzt werden.
+
+Mit `--single-shot` wird die Ueberarbeitungsrunde uebersprungen. Pro Event erfolgt dann nur ein Modellaufruf:
+
+```bash
+python3 app/services/event_caption_worker.py \
+  --model data/models/Qwen3-8B-Q4_K_M.gguf \
+  --single-shot \
+  < tests/fixtures/event-caption-events.json
+```
 
 Alternativ kann der Worker in einer lokalen Python-Umgebung ausgefuehrt werden:
 
