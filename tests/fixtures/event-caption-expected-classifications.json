@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Repair Café",
+    "activity": "explicit",
+    "term": "context_specific",
+    "needs_caption": false
+  },
+  {
+    "title": "Computersprechstunde",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  },
+  {
+    "title": "Papierblüten",
+    "activity": "missing",
+    "term": "common",
+    "needs_caption": true
+  },
+  {
+    "title": "Weltsticktag Embroidery Day",
+    "activity": "generic",
+    "term": "common",
+    "needs_caption": true
+  },
+  {
+    "title": "Ehrenamtliche Beratung für ein gutes Leben im Alter",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  },
+  {
+    "title": "Medizinischer Hilfsdienst – Arztbriefe erklärt",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  },
+  {
+    "title": "Aktzeichnen",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  },
+  {
+    "title": "ZAMlöffeln mit SuppKultur",
+    "activity": "missing",
+    "term": "context_specific",
+    "needs_caption": true
+  },
+  {
+    "title": "Holzwerkstatt Orgatreffen",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  },
+  {
+    "title": "Freitagstreffen",
+    "activity": "generic",
+    "term": "common",
+    "needs_caption": true
+  },
+  {
+    "title": "Tag der Freundschaft",
+    "activity": "generic",
+    "term": "common",
+    "needs_caption": true
+  },
+  {
+    "title": "Cajon Bau",
+    "activity": "explicit",
+    "term": "unfamiliar",
+    "needs_caption": true
+  },
+  {
+    "title": "ZAMräumen",
+    "activity": "missing",
+    "term": "context_specific",
+    "needs_caption": true
+  },
+  {
+    "title": "Katzentag",
+    "activity": "generic",
+    "term": "common",
+    "needs_caption": true
+  },
+  {
+    "title": "DI.Day Digital Independence Day",
+    "activity": "generic",
+    "term": "context_specific",
+    "needs_caption": true
+  },
+  {
+    "title": "Babbeln’n’Basteln",
+    "activity": "explicit",
+    "term": "context_specific",
+    "needs_caption": false
+  },
+  {
+    "title": "Tabletop Spielen",
+    "activity": "explicit",
+    "term": "context_specific",
+    "needs_caption": false
+  },
+  {
+    "title": "Open Source Contributor Meetup",
+    "activity": "generic",
+    "term": "context_specific",
+    "needs_caption": true
+  },
+  {
+    "title": "ZAMimpulse – 5 Minuten Inspiration im ZAM",
+    "activity": "missing",
+    "term": "context_specific",
+    "needs_caption": true
+  },
+  {
+    "title": "OpenFootwear Workshop: Mach dir dein eigenes Schuhwerk",
+    "activity": "explicit",
+    "term": "common",
+    "needs_caption": false
+  }
+]

@@ -2,9 +2,15 @@
 
 ## Ziel
 
-Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibung soll optional eine kurze Erklaer-Beschriftung entstehen, zum Beispiel:
+Kalender-Updates sollen die Anzeige nicht blockieren. Aus Titel und
+ICS-Langbeschreibung soll nur bei Bedarf eine kurze Erklaer-Beschriftung
+entstehen, zum Beispiel:
 
 > Pecha-Kucha-Nacht → Kurze Vortraege zu vielfaeltigen Themen
+
+Ist der Titel bereits aus sich heraus verstaendlich, bleibt die Beschriftung
+leer. Ziel ist nicht, fuer jedes Event Text zu erzeugen, sondern nur die
+kleinste fehlende Erklaerung zu liefern.
 
 ## Aktueller Stand
 
@@ -26,15 +32,24 @@ Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibu
 
 ## LLM-Beschriftungen
 
-- Lokales Testmodell: Qwen3-0.6B; Qwen3-1.7B Q4_K_M liefert im ersten Vergleich bessere Kurztexte.
+- Bevorzugtes Testmodell nach den bisherigen Vergleichen: Gemma E4B Q5_K_M.
 - Ausfuehrung einmal pro Aktualisierung in einem kurzlebigen Unterprozess.
 - Alle zu bearbeitenden Events werden gesammelt als JSON ueber `stdin` uebergeben.
 - Ergebnisse kommen als JSON ueber `stdout` zurueck; Logs gehen nach `stderr`.
-- Die einzelne Modellantwort wird durch ein JSON-Schema auf das Feld `caption` begrenzt.
+- Der erste Modellaufruf erhaelt nur den Titel und bewertet Aktivitaet und
+  Begriffe ueber kurze Enum-Werte.
+- Der Worker leitet daraus deterministisch ab, ob eine Caption erforderlich
+  ist. Nur dann erhaelt ein zweiter Modellaufruf Titel und Beschreibung und
+  erzeugt per eigenem JSON-Schema die `caption`.
 - Das Modell wird pro Durchlauf einmal geladen und verarbeitet danach alle neuen oder geaenderten Events.
-- Ein unabhaengiger Validator kann danach `title`, `description` und `caption`
-  mit einem getrennt waehlbaren Modell pruefen und `approved` plus `reason`
-  als JSON ausgeben.
+- Der Klassifikationsaufruf entscheidet ausschliesslich anhand des Titels, ob
+  ein Mensch ohne Vorwissen unmissverstaendlich auf die konkrete Aktivitaet
+  schliessen kann.
+- Eine Caption soll die Aktivitaet erklaeren oder ungelaeufige Begriffe,
+  Wortspiele und Abkuerzungen verstaendlich machen.
+- Die beiden Aufrufe haben getrennte kurze System-Prompts, Beispiele und
+  JSON-Schemas. Es gibt weiterhin keine Ueberarbeitungs- oder
+  Validierungsrunde.
 
 ## Persistenter Cache
 
