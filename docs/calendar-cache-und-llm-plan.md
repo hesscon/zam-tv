@@ -2,9 +2,15 @@
 
 ## Ziel
 
-Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibung soll optional eine kurze Erklaer-Beschriftung entstehen, zum Beispiel:
+Kalender-Updates sollen die Anzeige nicht blockieren. Aus Titel und
+ICS-Langbeschreibung soll nur bei Bedarf eine kurze Erklaer-Beschriftung
+entstehen, zum Beispiel:
 
 > Pecha-Kucha-Nacht → Kurze Vortraege zu vielfaeltigen Themen
+
+Ist der Titel bereits aus sich heraus verstaendlich, bleibt die Beschriftung
+leer. Ziel ist nicht, fuer jedes Event Text zu erzeugen, sondern nur die
+kleinste fehlende Erklaerung zu liefern.
 
 ## Aktueller Stand
 
@@ -13,6 +19,10 @@ Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibu
 - Bei einem Fehler bleibt der alte Cache erhalten.
 - Der Neuaufbau kann den Browser-Request blockieren.
 - `DESCRIPTION` und `UID` werden bisher nicht fuer Slides verwendet.
+- Der eigenstaendige Caption-Worker mit JSON-Ein-/Ausgabe, Titelklassifikation,
+  optionaler Caption-Erzeugung und `--classify-only` ist implementiert und
+  getestet.
+- Die Anbindung dieses Workers an Kalender-Refresh und Slide-Cache fehlt noch.
 
 ## Geplanter Ablauf
 
@@ -26,15 +36,28 @@ Kalender-Updates sollen die Anzeige nicht blockieren. Aus der ICS-Langbeschreibu
 
 ## LLM-Beschriftungen
 
-- Lokales Testmodell: Qwen3-0.6B; Qwen3-1.7B Q4_K_M liefert im ersten Vergleich bessere Kurztexte.
+- Bevorzugtes Testmodell nach den bisherigen Vergleichen: Gemma E4B Q5_K_M.
 - Ausfuehrung einmal pro Aktualisierung in einem kurzlebigen Unterprozess.
 - Alle zu bearbeitenden Events werden gesammelt als JSON ueber `stdin` uebergeben.
 - Ergebnisse kommen als JSON ueber `stdout` zurueck; Logs gehen nach `stderr`.
-- Die einzelne Modellantwort wird durch ein JSON-Schema auf das Feld `caption` begrenzt.
+- Der erste Modellaufruf erhaelt nur den Titel und bewertet Aktivitaet und
+  Begriffe ueber kurze Enum-Werte.
+- `explicit` und `common` zaehlen null Punkte, `context_specific` einen Punkt
+  und `generic`, `missing` sowie `unfamiliar` zwei Punkte.
+- Ab zwei Punkten erhaelt ein zweiter Modellaufruf Titel und Beschreibung und
+  erzeugt per eigenem JSON-Schema die `caption`.
+- Der Generator darf eine leere Caption liefern, wenn die Beschreibung keine
+  hilfreiche inhaltliche Ergaenzung bietet. Das ist eine erfolgreiche
+  Enthaltung und kein LLM-Fehler.
 - Das Modell wird pro Durchlauf einmal geladen und verarbeitet danach alle neuen oder geaenderten Events.
-- Ein unabhaengiger Validator kann danach `title`, `description` und `caption`
-  mit einem getrennt waehlbaren Modell pruefen und `approved` plus `reason`
-  als JSON ausgeben.
+- Der Klassifikationsaufruf bewertet ausschliesslich anhand des Titels, wie
+  konkret die Aktivitaet und wie allgemein verstaendlich die entscheidenden
+  Begriffe sind. Die Beschreibung beeinflusst diese Stufe nicht.
+- Eine Caption soll die Aktivitaet erklaeren oder ungelaeufige Begriffe,
+  Wortspiele und Abkuerzungen verstaendlich machen.
+- Die beiden Aufrufe haben getrennte kurze System-Prompts, Beispiele und
+  JSON-Schemas. Es gibt weiterhin keine Ueberarbeitungs- oder
+  Validierungsrunde.
 
 ## Persistenter Cache
 
@@ -69,5 +92,5 @@ Der Browser muss die aktualisierte Playlist danach neu abrufen oder die Seite ne
 1. Hintergrundaktualisierung und atomaren Cache-Tausch einfuehren.
 2. `UID` und `DESCRIPTION` aus der ICS-Datei uebernehmen.
 3. Persistenten Kalender-Snapshot inklusive Caption-Daten implementieren.
-4. LLM-Worker mit JSON-Ein-/Ausgabe anbinden.
+4. Vorhandenen LLM-Worker an den Kalender-Refresh anbinden.
 5. Ressourcenverbrauch und Laufzeit auf dem Raspberry Pi 4 messen.
