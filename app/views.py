@@ -10,7 +10,6 @@ from flask import (
 )
 from werkzeug.utils import secure_filename
 
-from .services.calendar_service import build_calendar_slides
 from .services.config_service import ConfigError, load_config, save_config, validate_config_text
 
 
@@ -116,7 +115,8 @@ def screen():
 
         if item.get("type") == "calendar":
             # A single calendar source can expand into several event slides.
-            playlist.extend(build_calendar_slides(item))
+            calendar_cache = current_app.extensions["calendar_slide_cache"]
+            playlist.extend(calendar_cache.get_slides(item))
             continue
 
         playlist.append(item)

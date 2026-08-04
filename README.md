@@ -29,9 +29,10 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
-- `calendar` erzeugt zur Laufzeit einzelne Event-Slides aus einer ICS-Quelle
+- `calendar` erzeugt im Hintergrund einzelne Event-Slides aus einer ICS-Quelle
 - Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
-- Die erzeugten `calendar`-Slides werden fuer 15 Minuten im Speicher gecacht, damit ICS-Fetch und Parsing nicht bei jedem Request erneut passieren
+- Ein Hintergrund-Thread aktualisiert den Kalender-Snapshot sofort nach dem Start und danach alle 15 Minuten
+- `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
 
 ## Routen
 
@@ -81,7 +82,8 @@ Wichtige Felder:
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
 - `fix_mec_timezone: true` aktiviert bei fehlerhaften Modern Events Calendar-Feeds die Korrektur der doppelt aufgeschlagenen Berliner UTC-Abweichung
-- Wenn ein spaeterer Kalender-Refresh fehlschlaegt, wird der letzte erfolgreiche Stand weiterverwendet
+- Waehrend eines Kalender-Refreshs und bei Fehlern wird der letzte erfolgreiche Stand weiterverwendet
+- Beim allerersten Start bleibt der Kalenderbereich leer, bis der erste Hintergrund-Refresh erfolgreich abgeschlossen ist
 
 ## Besonderheiten und Grenzen
 

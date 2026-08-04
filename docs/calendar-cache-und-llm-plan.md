@@ -14,10 +14,10 @@ kleinste fehlende Erklaerung zu liefern.
 
 ## Aktueller Stand
 
-- Der Kalender-Cache gilt 15 Minuten.
-- Nach Ablauf wird er beim naechsten `/screen`-Aufruf synchron neu aufgebaut.
+- Der Kalender-Snapshot wird beim Start und danach alle 15 Minuten in einem
+  Hintergrund-Thread neu aufgebaut.
+- `/screen` liest nur den jeweils fertig aufgebauten Snapshot.
 - Bei einem Fehler bleibt der alte Cache erhalten.
-- Der Neuaufbau kann den Browser-Request blockieren.
 - `DESCRIPTION` und `UID` werden bisher nicht fuer Slides verwendet.
 - Der eigenstaendige Caption-Worker mit JSON-Ein-/Ausgabe, Titelklassifikation,
   optionaler Caption-Erzeugung und `--classify-only` ist implementiert und
@@ -89,7 +89,7 @@ Der Browser muss die aktualisierte Playlist danach neu abrufen oder die Seite ne
 
 ## Umsetzungsschritte
 
-1. Hintergrundaktualisierung und atomaren Cache-Tausch einfuehren.
+1. Hintergrundaktualisierung und atomaren Cache-Tausch einfuehren. (umgesetzt)
 2. `UID` und `DESCRIPTION` aus der ICS-Datei uebernehmen.
 3. Persistenten Kalender-Snapshot inklusive Caption-Daten implementieren.
 4. Vorhandenen LLM-Worker an den Kalender-Refresh anbinden.

@@ -24,51 +24,20 @@ GERMAN_MONTH_NAMES = [
     "November",
     "Dezember",
 ]
-CACHE_TTL = timedelta(minutes=15)
 DISPLAY_TIMEZONE = ZoneInfo("Europe/Berlin")
-_slides_cache: dict[tuple[str, tuple[str, ...], int, str, bool], dict] = {}
 
 
-def build_calendar_slides(item: dict) -> list[dict]:
+def build_calendar_slides(item: dict, now: datetime | None = None) -> list[dict]:
     ics_url = item.get("content")
     if not ics_url:
         return []
 
-    cache_key = _build_cache_key(item)
-    now = _utc_now()
-    cache_entry = _slides_cache.get(cache_key)
-    if cache_entry and cache_entry["expires_at"] > now:
-        return cache_entry["slides"]
-
-    try:
-        slides = _build_uncached_slides(item, now)
-    except Exception:
-        if cache_entry:
-            return cache_entry["slides"]
-        return []
-
-    _slides_cache[cache_key] = {
-        "slides": slides,
-        "expires_at": now + CACHE_TTL,
-    }
-    return slides
+    return _build_slides(item, now or _utc_now())
 
 
-def _build_cache_key(item: dict) -> tuple[str, tuple[str, ...], int, str, bool]:
-    categories = tuple(sorted({value.strip() for value in item["categories"] if value}))
-    return (
-        item["content"],
-        categories,
-        item["days_ahead"],
-        str(item["duration"]),
-        item.get("fix_mec_timezone", False),
-    )
-
-
-def _build_uncached_slides(item: dict, now: datetime) -> list[dict]:
+def _build_slides(item: dict, now: datetime) -> list[dict]:
     ics_url = item.get("content")
 
-    # Calendar fetch errors should not break the whole signage screen.
     response = requests.get(ics_url, timeout=10)
     response.raise_for_status()
     calendar = Calendar.from_ical(response.text)

@@ -23,9 +23,6 @@ class FakeResponse:
 
 
 class BuildCalendarSlidesTest(TestCase):
-    def setUp(self) -> None:
-        calendar_service._slides_cache.clear()
-
     def test_builds_event_slides_for_matching_categories_in_time_window(self) -> None:
         item = {
             "content": "https://example.com/events.ics",
@@ -114,53 +111,6 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertEqual("2026-07-25T08:00:00+00:00", matching_slides[0]["start_iso"])
         self.assertEqual("Samstag, 25. Juli 10:00", matching_slides[0]["start_label"])
 
-    def test_reuses_cached_slides_within_ttl_without_fetching_again(self) -> None:
-        item = {
-            "content": "https://example.com/events.ics",
-            "duration": 12,
-            "categories": ["Veranstaltung"],
-            "days_ahead": 15,
-        }
-
-        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()) as get_mock:
-            with patch.object(
-                calendar_service,
-                "_utc_now",
-                side_effect=[
-                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
-                    datetime(2026, 3, 14, 0, 10, tzinfo=timezone.utc),
-                ],
-            ):
-                first_slides = calendar_service.build_calendar_slides(item)
-                second_slides = calendar_service.build_calendar_slides(item)
-
-        self.assertEqual(first_slides, second_slides)
-        self.assertEqual(1, get_mock.call_count)
-
-    def test_duration_change_uses_a_new_cache_entry(self) -> None:
-        item = {
-            "content": "https://example.com/events.ics",
-            "duration": 12,
-            "categories": ["Veranstaltung"],
-            "days_ahead": 15,
-        }
-
-        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()) as get_mock:
-            with patch.object(
-                calendar_service,
-                "_utc_now",
-                side_effect=[
-                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
-                    datetime(2026, 3, 14, 0, 1, tzinfo=timezone.utc),
-                ],
-            ):
-                first_slides = calendar_service.build_calendar_slides(item)
-                updated_slides = calendar_service.build_calendar_slides({**item, "duration": 20})
-
-        self.assertTrue(all(slide["duration"] == 12 for slide in first_slides))
-        self.assertTrue(all(slide["duration"] == 20 for slide in updated_slides))
-        self.assertEqual(2, get_mock.call_count)
-
     def test_mec_timezone_fix_corrects_winter_series_before_expansion(self) -> None:
         item = {
             "content": "https://example.com/mec-events.ics",
@@ -213,29 +163,6 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertEqual("2026-08-09T08:00:00+00:00", slides[0]["start_iso"])
         self.assertEqual("Sonntag, 9. August 10:00", slides[0]["start_label"])
 
-    def test_mec_timezone_fix_change_uses_a_new_cache_entry(self) -> None:
-        item = {
-            "content": "https://example.com/events.ics",
-            "duration": 12,
-            "categories": ["Veranstaltung"],
-            "days_ahead": 15,
-            "fix_mec_timezone": False,
-        }
-
-        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()) as get_mock:
-            with patch.object(
-                calendar_service,
-                "_utc_now",
-                side_effect=[
-                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
-                    datetime(2026, 3, 14, 0, 1, tzinfo=timezone.utc),
-                ],
-            ):
-                calendar_service.build_calendar_slides(item)
-                calendar_service.build_calendar_slides({**item, "fix_mec_timezone": True})
-
-        self.assertEqual(2, get_mock.call_count)
-
     def test_formats_labels_in_berlin_timezone(self) -> None:
         self.assertEqual(
             "Sonntag, 9. August 10:00",
@@ -277,7 +204,7 @@ END:VCALENDAR
             [value.dt.time().isoformat() for value in event["EXDATE"].dts],
         )
 
-    def test_uses_stale_cached_slides_when_refresh_fails(self) -> None:
+    def test_raises_fetch_error_for_the_cache_to_handle(self) -> None:
         item = {
             "content": "https://example.com/events.ics",
             "duration": 12,
@@ -285,24 +212,9 @@ END:VCALENDAR
             "days_ahead": 15,
         }
 
-        with patch.object(
-            calendar_service.requests,
-            "get",
-            side_effect=[_fixture_response(), Exception("network down")],
-        ) as get_mock:
-            with patch.object(
-                calendar_service,
-                "_utc_now",
-                side_effect=[
-                    datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
-                    datetime(2026, 3, 14, 1, 1, tzinfo=timezone.utc),
-                ],
-            ):
-                first_slides = calendar_service.build_calendar_slides(item)
-                second_slides = calendar_service.build_calendar_slides(item)
-
-        self.assertEqual(first_slides, second_slides)
-        self.assertEqual(2, get_mock.call_count)
+        with patch.object(calendar_service.requests, "get", side_effect=Exception("network down")):
+            with self.assertRaisesRegex(Exception, "network down"):
+                calendar_service.build_calendar_slides(item)
 
     def test_ignores_unsafe_or_missing_event_urls(self) -> None:
         self.assertEqual("", calendar_service._normalize_event_url(None))
