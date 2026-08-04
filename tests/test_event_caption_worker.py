@@ -186,11 +186,10 @@ class EventCaptionWorkerTest(TestCase):
         ]
         caption_payloads = [json.loads(message["content"]) for message in caption_messages]
         self.assertTrue(
-            all(
-                isinstance(payload["caption"], str) and payload["caption"]
-                for payload in caption_payloads
-            )
+            all(isinstance(payload["caption"], str) for payload in caption_payloads)
         )
+        self.assertTrue(any(not payload["caption"] for payload in caption_payloads))
+        self.assertTrue(any(payload["caption"] for payload in caption_payloads))
 
     def test_prompt_examples_do_not_overlap_holdout_titles(self) -> None:
         fixture_path = Path(__file__).parent / "fixtures" / "event-caption-events.json"
@@ -321,7 +320,7 @@ class EventCaptionWorkerTest(TestCase):
         )
         self.assertEqual(2, len(model.calls))
 
-    def test_rejects_missing_caption_after_positive_decision(self) -> None:
+    def test_accepts_empty_caption_after_positive_decision(self) -> None:
         model = FakeModel(
             ['{"activity":"missing","term":"common"}', '{"caption":""}']
         )
@@ -338,8 +337,7 @@ class EventCaptionWorkerTest(TestCase):
             log_stream=StringIO(),
         )
 
-        self.assertEqual("", results[0]["caption"])
-        self.assertIn("keinen Caption-Text", results[0]["error"])
+        self.assertEqual([{"uid": "event-1", "caption": ""}], results)
 
     def test_rejects_caption_that_only_repeats_title(self) -> None:
         with self.assertRaisesRegex(ValueError, "Veranstaltungstitel"):

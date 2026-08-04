@@ -47,7 +47,8 @@ Fuer die Formulierung gelten diese Leitlinien:
 - Eine blosse Wiederholung oder Umstellung des Titels ist keine sinnvolle
   Caption.
 - Ein leerer String ist ein erwuenschtes Ergebnis, wenn der Titel bereits
-  ausreicht.
+  ausreicht oder die Beschreibung keine belegte, wesentliche Ergaenzung
+  ermoeglicht.
 
 Beispiele:
 
@@ -64,7 +65,9 @@ Beispiele:
 Jedes Event mit Beschreibung erhaelt einen kurzen Klassifikationsaufruf. Nur
 wenn eine Caption erforderlich ist, folgt der Aufruf zur Texterzeugung. Beide
 Aufgaben haben getrennte System-Prompts, Beispiele und JSON-Schemas. Das Modell
-wird trotzdem nur einmal pro Worker-Durchlauf geladen.
+wird trotzdem nur einmal pro Worker-Durchlauf geladen. Der zweite Aufruf darf
+sich mit einer leeren Caption enthalten; dies gilt als erfolgreicher Abschluss
+und nicht als Modellfehler.
 
 Die Prompt-Beispiele sind kuenstliche Veranstaltungen und ueberschneiden sich
 nicht mit den Titeln der Test-Fixture. Die erwarteten Klassifikationen der 20
