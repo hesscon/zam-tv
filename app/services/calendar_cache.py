@@ -6,14 +6,18 @@ from pathlib import Path
 from threading import Event, Lock, Thread
 from time import monotonic
 
-from .calendar_service import build_calendar_slides
+from .calendar_snapshot_builder import (
+    CalendarItemKey,
+    CalendarSnapshot,
+    CalendarSnapshotBuilder,
+    build_calendar_item_key,
+)
 from .config_service import load_config
 
 
 logger = logging.getLogger(__name__)
 DEFAULT_REFRESH_INTERVAL = timedelta(minutes=15)
 SNAPSHOT_VERSION = 1
-CalendarItemKey = tuple[str, tuple[str, ...], int, str, bool]
 
 
 class CalendarSlideCache:
@@ -21,12 +25,14 @@ class CalendarSlideCache:
         self,
         config_path: Path,
         snapshot_path: Path,
+        snapshot_builder: CalendarSnapshotBuilder,
         refresh_interval: timedelta = DEFAULT_REFRESH_INTERVAL,
     ) -> None:
         self._config_path = config_path
         self._snapshot_path = snapshot_path
+        self._snapshot_builder = snapshot_builder
         self._refresh_interval = refresh_interval
-        self._snapshot: dict[CalendarItemKey, tuple[dict, ...]] = {}
+        self._snapshot: CalendarSnapshot = {}
         self._snapshot_lock = Lock()
         self._refresh_lock = Lock()
         self._thread_lock = Lock()
@@ -35,7 +41,7 @@ class CalendarSlideCache:
         self._load_snapshot()
 
     def get_slides(self, item: dict) -> list[dict]:
-        key = _build_calendar_item_key(item)
+        key = build_calendar_item_key(item)
         with self._snapshot_lock:
             return list(self._snapshot.get(key, ()))
 
@@ -45,17 +51,9 @@ class CalendarSlideCache:
             logger.info("Kalender-Cache-Refresh gestartet.")
 
             config = load_config(self._config_path)
-            new_snapshot: dict[CalendarItemKey, tuple[dict, ...]] = {}
-            calendar_count = 0
-
-            for item in config.get("items", []):
-                if not item.get("enabled", True) or item.get("type") != "calendar":
-                    continue
-
-                key = _build_calendar_item_key(item)
-                if key not in new_snapshot:
-                    new_snapshot[key] = tuple(build_calendar_slides(item))
-                    calendar_count += 1
+            with self._snapshot_lock:
+                previous_snapshot = self._snapshot
+            new_snapshot = self._snapshot_builder.build(config, previous_snapshot)
 
             refreshed_at = datetime.now(timezone.utc)
             self._write_snapshot(new_snapshot, refreshed_at)
@@ -67,7 +65,7 @@ class CalendarSlideCache:
             logger.info(
                 "Kalender-Cache-Refresh erfolgreich: kalender=%d slides=%d "
                 "dauer=%.2fs naechster_refresh_in=%.0fs",
-                calendar_count,
+                len(new_snapshot),
                 slide_count,
                 monotonic() - started_at,
                 self._refresh_interval.total_seconds(),
@@ -152,19 +150,6 @@ class CalendarSlideCache:
             self._stop_event.wait(self._refresh_interval.total_seconds())
 
 
-def _build_calendar_item_key(item: dict) -> CalendarItemKey:
-    categories = tuple(
-        sorted({value.strip() for value in item.get("categories", []) if value})
-    )
-    return (
-        item["content"],
-        categories,
-        item.get("days_ahead", 14),
-        str(item.get("duration", 15)),
-        item.get("fix_mec_timezone", False),
-    )
-
-
 def _serialize_snapshot(
     snapshot: dict[CalendarItemKey, tuple[dict, ...]],
     refreshed_at: datetime,
@@ -226,7 +211,7 @@ def _deserialize_snapshot(
         ):
             raise ValueError("Kalender-Cache-Schluessel ist ungueltig.")
 
-        key = _build_calendar_item_key(key_data)
+        key = build_calendar_item_key(key_data)
         if key in snapshot:
             raise ValueError("Kalender-Cache enthaelt doppelte Eintraege.")
         snapshot[key] = tuple(slides)

@@ -18,11 +18,15 @@ kleinste fehlende Erklaerung zu liefern.
   Hintergrund-Thread neu aufgebaut.
 - `/screen` liest nur den jeweils fertig aufgebauten Snapshot.
 - Bei einem Fehler bleibt der alte Cache erhalten.
-- `DESCRIPTION` und `UID` werden bisher nicht fuer Slides verwendet.
 - Der eigenstaendige Caption-Worker mit JSON-Ein-/Ausgabe, Titelklassifikation,
   optionaler Caption-Erzeugung und `--classify-only` ist implementiert und
   getestet.
-- Die Anbindung dieses Workers an Kalender-Refresh und Slide-Cache fehlt noch.
+- `calendar_service` liefert `UID` und `DESCRIPTION` als Event-Kandidaten.
+- Der `CalendarSnapshotBuilder` uebernimmt vorhandene Captions und uebergibt
+  nur neue oder in Titel beziehungsweise Beschreibung geaenderte Events
+  gesammelt an den externen Caption-Worker.
+- Der fertige Snapshot enthaelt die Caption bereits; ihre Darstellung auf dem
+  Kalender-Slide folgt separat.
 
 ## Geplanter Ablauf
 
@@ -40,6 +44,10 @@ kleinste fehlende Erklaerung zu liefern.
 - Ausfuehrung einmal pro Aktualisierung in einem kurzlebigen Unterprozess.
 - Alle zu bearbeitenden Events werden gesammelt als JSON ueber `stdin` uebergeben.
 - Ergebnisse kommen als JSON ueber `stdout` zurueck; Logs gehen nach `stderr`.
+- Ist kein Event neu oder inhaltlich geaendert, wird kein Worker-Prozess
+  gestartet.
+- Wiederkehrende Termine mit gleicher Quelle, UID und gleichem Inhalts-Hash
+  werden innerhalb eines Refreshs nur einmal verarbeitet.
 - Der erste Modellaufruf erhaelt nur den Titel und bewertet Aktivitaet und
   Begriffe ueber kurze Enum-Werte.
 - `explicit` und `common` zaehlen null Punkte, `context_specific` einen Punkt
@@ -69,15 +77,14 @@ Caption-Map.
 Ein Kalender-Slide enthaelt zusaetzlich mindestens:
 
 - `uid`
-- Hash aus normalisiertem Titel und `DESCRIPTION`
-- generierte Beschriftung
-- Modell- und Prompt-Version
+- `caption_input_hash` aus normalisiertem Titel und `DESCRIPTION`
+- `caption`
 
 Beim Neuaufbau gilt:
 
 - Passender alter Slide mit gleicher UID und gleichem Hash: Beschriftung uebernehmen
 - Inhalt geaendert oder Event neu: Beschriftung neu erzeugen
-- LLM-Fehler: Event ohne Beschriftung anzeigen
+- LLM-Fehler: Fehler loggen und Event ohne Beschriftung speichern
 
 So kann der Kalender weiterhin komplett neu aufgebaut werden, ohne unveraenderte Texte erneut zu generieren. Beschriftungen ausgefilterter oder abgelaufener Slides werden bewusst nicht dauerhaft aufbewahrt.
 
@@ -94,7 +101,7 @@ Der Browser muss die aktualisierte Playlist danach neu abrufen oder die Seite ne
 ## Umsetzungsschritte
 
 1. Hintergrundaktualisierung und atomaren Cache-Tausch einfuehren. (umgesetzt)
-2. `UID` und `DESCRIPTION` aus der ICS-Datei uebernehmen.
-3. Persistenten Kalender-Snapshot implementieren. (umgesetzt; Caption-Daten folgen mit Schritt 4)
-4. Vorhandenen LLM-Worker an den Kalender-Refresh anbinden.
+2. `UID` und `DESCRIPTION` aus der ICS-Datei uebernehmen. (umgesetzt)
+3. Persistenten Kalender-Snapshot implementieren. (umgesetzt)
+4. Vorhandenen LLM-Worker an den Kalender-Refresh anbinden. (umgesetzt)
 5. Ressourcenverbrauch und Laufzeit auf dem Raspberry Pi 4 messen.

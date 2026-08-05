@@ -5,6 +5,8 @@ from pathlib import Path
 from flask import Flask
 
 from .services.calendar_cache import CalendarSlideCache
+from .services.calendar_snapshot_builder import CalendarSnapshotBuilder
+from .services.caption_worker_client import CaptionWorkerClient
 from .services.config_service import ensure_config_exists
 from .views import main_bp
 
@@ -24,13 +26,36 @@ def create_app(start_calendar_cache: bool = True) -> Flask:
     if refresh_seconds <= 0:
         raise ValueError("CALENDAR_CACHE_REFRESH_SECONDS muss groesser als 0 sein.")
     app.config["CALENDAR_CACHE_REFRESH_SECONDS"] = refresh_seconds
+    model_path = Path(
+        os.environ.get(
+            "EVENT_CAPTION_MODEL_PATH",
+            "data/models/gemma-4-E4B-it-Q5_K_M.gguf",
+        )
+    )
+    if not model_path.is_absolute():
+        model_path = base_dir / model_path
+    app.config["EVENT_CAPTION_MODEL_PATH"] = model_path
+    caption_threads = int(os.environ.get("EVENT_CAPTION_THREADS", "2"))
+    caption_timeout = int(os.environ.get("EVENT_CAPTION_TIMEOUT_SECONDS", "1800"))
+    if caption_threads <= 0 or caption_timeout <= 0:
+        raise ValueError(
+            "EVENT_CAPTION_THREADS und EVENT_CAPTION_TIMEOUT_SECONDS "
+            "muessen groesser als 0 sein."
+        )
 
     ensure_config_exists(app.config["CONFIG_PATH"], app.config["UPLOADS_DIR"])
     app.register_blueprint(main_bp)
 
+    caption_worker = CaptionWorkerClient(
+        model_path,
+        threads=caption_threads,
+        timeout_seconds=caption_timeout,
+    )
+    snapshot_builder = CalendarSnapshotBuilder(caption_worker)
     calendar_cache = CalendarSlideCache(
         app.config["CONFIG_PATH"],
         app.config["CALENDAR_CACHE_PATH"],
+        snapshot_builder,
         refresh_interval=timedelta(seconds=refresh_seconds),
     )
     app.extensions["calendar_slide_cache"] = calendar_cache

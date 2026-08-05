@@ -23,6 +23,28 @@ class FakeResponse:
 
 
 class BuildCalendarSlidesTest(TestCase):
+    def test_exposes_uid_and_description_for_caption_processing(self) -> None:
+        item = {
+            "content": "https://example.com/events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung"],
+            "days_ahead": 15,
+        }
+
+        with patch.object(calendar_service.requests, "get", return_value=_fixture_response()):
+            events = calendar_service.build_calendar_events(
+                item,
+                now=datetime(2026, 3, 14, 0, 0, tzinfo=timezone.utc),
+            )
+
+        self.assertTrue(events[0]["uid"])
+        self.assertEqual(
+            "Pecha Kucha Night Erlangen",
+            events[0]["title"],
+        )
+        self.assertTrue(events[0]["description"])
+        self.assertEqual(events[0]["title"], events[0]["slide"]["summary"])
+
     def test_builds_event_slides_for_matching_categories_in_time_window(self) -> None:
         item = {
             "content": "https://example.com/events.ics",

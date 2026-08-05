@@ -1,5 +1,6 @@
 from base64 import b64encode
 from datetime import datetime, time, timedelta, timezone
+from hashlib import sha256
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
@@ -28,14 +29,21 @@ DISPLAY_TIMEZONE = ZoneInfo("Europe/Berlin")
 
 
 def build_calendar_slides(item: dict, now: datetime | None = None) -> list[dict]:
+    return [
+        event["slide"]
+        for event in build_calendar_events(item, now)
+    ]
+
+
+def build_calendar_events(item: dict, now: datetime | None = None) -> list[dict]:
     ics_url = item.get("content")
     if not ics_url:
         return []
 
-    return _build_slides(item, now or _utc_now())
+    return _build_events(item, now or _utc_now())
 
 
-def _build_slides(item: dict, now: datetime) -> list[dict]:
+def _build_events(item: dict, now: datetime) -> list[dict]:
     ics_url = item.get("content")
 
     response = requests.get(ics_url, timeout=10)
@@ -46,7 +54,7 @@ def _build_slides(item: dict, now: datetime) -> list[dict]:
 
     categories_filter = {value.strip() for value in item["categories"] if value}
     window_end = now + timedelta(days=item["days_ahead"])
-    slides = []
+    events = []
 
     for component in recurring_ical_events.of(calendar, skip_bad_series=True).between(now, window_end):
         start_value = component.get("dtstart")
@@ -60,23 +68,44 @@ def _build_slides(item: dict, now: datetime) -> list[dict]:
         if categories_filter and not matching_categories:
             continue
 
+        summary = str(component.get("summary", "")).strip() or "Ohne Titel"
+        description = str(component.get("description", "")).strip()
+        uid = _event_uid(component, ics_url, summary, start)
         event_url = _normalize_event_url(component.get("url"))
-        slides.append(
+        events.append(
             {
-                "type": "calendar_event",
-                "duration": item.get("duration", 15),
-                "category": matching_categories[0] if matching_categories else (categories[0] if categories else ""),
-                "summary": str(component.get("summary", "")).strip() or "Ohne Titel",
-                "image_url": str(component.get("attach", "")).strip(),
-                "event_url": event_url,
-                "qr_code_data_uri": _build_qr_code_data_uri(event_url),
-                "start_iso": start.isoformat(),
-                "start_label": _format_start_label(start),
+                "uid": uid,
+                "title": summary,
+                "description": description,
+                "slide": {
+                    "type": "calendar_event",
+                    "duration": item.get("duration", 15),
+                    "category": (
+                        matching_categories[0]
+                        if matching_categories
+                        else (categories[0] if categories else "")
+                    ),
+                    "summary": summary,
+                    "image_url": str(component.get("attach", "")).strip(),
+                    "event_url": event_url,
+                    "qr_code_data_uri": _build_qr_code_data_uri(event_url),
+                    "start_iso": start.isoformat(),
+                    "start_label": _format_start_label(start),
+                },
             }
         )
 
-    slides.sort(key=lambda entry: entry["start_iso"])
-    return slides
+    events.sort(key=lambda entry: entry["slide"]["start_iso"])
+    return events
+
+
+def _event_uid(component, ics_url: str, summary: str, start: datetime) -> str:
+    uid = str(component.get("uid", "")).strip()
+    if uid:
+        return uid
+
+    fallback_source = "\0".join((ics_url, summary, start.isoformat()))
+    return f"generated-{sha256(fallback_source.encode('utf-8')).hexdigest()}"
 
 
 def _normalize_datetime(value) -> datetime:

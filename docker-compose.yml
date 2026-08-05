@@ -7,6 +7,9 @@ services:
       - "80:8000"
     environment:
       CALENDAR_CACHE_REFRESH_SECONDS: "900"
+      EVENT_CAPTION_MODEL_PATH: "/app/data/models/gemma-4-E4B-it-Q5_K_M.gguf"
+      EVENT_CAPTION_THREADS: "2"
+      EVENT_CAPTION_TIMEOUT_SECONDS: "1800"
     volumes:
       - ./config:/app/config
       - ./data/cache:/app/data/cache

@@ -34,6 +34,7 @@ Volumes gemountet, nicht der App-Code.
 - Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
 - Ein Hintergrund-Thread aktualisiert den Kalender-Snapshot sofort nach dem Start und danach alle 15 Minuten
 - Der letzte erfolgreiche Kalender-Snapshot wird in `data/cache/calendar_cache.json` gespeichert und beim Neustart sofort geladen
+- Neue oder in Titel beziehungsweise Beschreibung geaenderte Events werden gesammelt an den lokalen Caption-Worker uebergeben; unveraenderte Captions kommen aus dem Snapshot
 - `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
 
 ## Routen

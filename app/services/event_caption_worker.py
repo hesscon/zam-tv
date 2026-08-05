@@ -428,8 +428,8 @@ def _validate_event(raw_event: Any) -> dict[str, str]:
 
     return {
         "uid": uid.strip(),
-        "title": _normalize_source_text(title),
-        "description": _normalize_source_text(description)[:MAX_DESCRIPTION_CHARS],
+        "title": normalize_source_text(title),
+        "description": normalize_source_text(description)[:MAX_DESCRIPTION_CHARS],
     }
 
 
@@ -540,7 +540,7 @@ def _response_payload(response: Any, expected_format: str) -> dict[str, Any]:
     return payload
 
 
-def _normalize_source_text(value: str) -> str:
+def normalize_source_text(value: str) -> str:
     without_tags = re.sub(r"<[^>]+>", " ", html.unescape(value))
     return re.sub(r"\s+", " ", without_tags).strip()
 
