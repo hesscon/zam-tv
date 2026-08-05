@@ -442,6 +442,10 @@ Die App speichert Uploads in:
 
 - `/opt/zam-tv/data/uploads/`
 
+Der letzte erfolgreiche Kalender-Snapshot liegt in:
+
+- `/opt/zam-tv/data/cache/calendar_cache.json`
+
 ### Nach Updates neu bauen
 Wenn du den Code aktualisiert hast:
 

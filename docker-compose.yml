@@ -9,6 +9,7 @@ services:
       CALENDAR_CACHE_REFRESH_SECONDS: "900"
     volumes:
       - ./config:/app/config
+      - ./data/cache:/app/data/cache
       - ./data/models:/app/data/models:ro
       - ./data/uploads:/app/data/uploads
     restart: unless-stopped

@@ -206,6 +206,7 @@ cython_debug/
 # Project uploads
 data/uploads/*
 !data/uploads/.gitkeep
+data/cache/
 .cursorignore
 .cursorindexingignore
 

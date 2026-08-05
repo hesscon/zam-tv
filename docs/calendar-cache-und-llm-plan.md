@@ -61,7 +61,10 @@ kleinste fehlende Erklaerung zu liefern.
 
 ## Persistenter Cache
 
-Der letzte gueltige Kalender-Snapshot wird in `data/calendar_cache.json` gespeichert. Die Beschriftung und ihre Pruefdaten liegen direkt im jeweiligen Slide. Es gibt keine separate Caption-Map.
+Der letzte gueltige Kalender-Snapshot wird in
+`data/cache/calendar_cache.json` gespeichert. Die Beschriftung und ihre
+Pruefdaten liegen direkt im jeweiligen Slide. Es gibt keine separate
+Caption-Map.
 
 Ein Kalender-Slide enthaelt zusaetzlich mindestens:
 
@@ -80,7 +83,8 @@ So kann der Kalender weiterhin komplett neu aufgebaut werden, ohne unveraenderte
 
 ## Verhalten nach einem Neustart
 
-1. Flask laedt sofort den letzten gueltigen Snapshot aus `calendar_cache.json`.
+1. Flask laedt sofort den letzten gueltigen Snapshot aus
+   `data/cache/calendar_cache.json`.
 2. Die Anzeige verwendet diese Daten, waehrend im Hintergrund eine Aktualisierung startet.
 3. Nach erfolgreichem Neuaufbau werden Speicher-Cache und Datei atomar ersetzt.
 4. Gibt es beim allerersten Start noch keine Cache-Datei, laeuft die normale Playlist vorerst ohne Kalender-Slides weiter.
@@ -91,6 +95,6 @@ Der Browser muss die aktualisierte Playlist danach neu abrufen oder die Seite ne
 
 1. Hintergrundaktualisierung und atomaren Cache-Tausch einfuehren. (umgesetzt)
 2. `UID` und `DESCRIPTION` aus der ICS-Datei uebernehmen.
-3. Persistenten Kalender-Snapshot inklusive Caption-Daten implementieren.
+3. Persistenten Kalender-Snapshot implementieren. (umgesetzt; Caption-Daten folgen mit Schritt 4)
 4. Vorhandenen LLM-Worker an den Kalender-Refresh anbinden.
 5. Ressourcenverbrauch und Laufzeit auf dem Raspberry Pi 4 messen.

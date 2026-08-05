@@ -1,3 +1,4 @@
+import json
 from datetime import timedelta
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -36,7 +37,10 @@ class CalendarSlideCacheTest(TestCase):
 """,
             encoding="utf-8",
         )
-        self.cache = CalendarSlideCache(self.config_path)
+        self.snapshot_path = (
+            Path(self.temp_dir.name) / "cache" / "calendar_cache.json"
+        )
+        self.cache = CalendarSlideCache(self.config_path, self.snapshot_path)
 
     def tearDown(self) -> None:
         self.cache.stop(timeout=1)
@@ -131,6 +135,7 @@ class CalendarSlideCacheTest(TestCase):
 
         self.cache = CalendarSlideCache(
             self.config_path,
+            self.snapshot_path,
             refresh_interval=timedelta(hours=1),
         )
         with patch(
@@ -146,6 +151,7 @@ class CalendarSlideCacheTest(TestCase):
     def test_successful_refresh_logs_result_and_next_interval(self) -> None:
         self.cache = CalendarSlideCache(
             self.config_path,
+            self.snapshot_path,
             refresh_interval=timedelta(seconds=60),
         )
 
@@ -161,9 +167,14 @@ class CalendarSlideCacheTest(TestCase):
         ):
             self.cache.refresh()
 
-        self.assertIn("Kalender-Cache-Refresh gestartet.", logs.output[0])
-        self.assertIn("kalender=1 slides=2", logs.output[1])
-        self.assertIn("naechster_refresh_in=60s", logs.output[1])
+        output = "\n".join(logs.output)
+        self.assertIn("Kalender-Cache-Refresh gestartet.", output)
+        self.assertIn(
+            "Kalender-Cache-Datei aktualisiert: kalender=1 slides=2",
+            output,
+        )
+        self.assertIn("kalender=1 slides=2", output)
+        self.assertIn("naechster_refresh_in=60s", output)
 
     def test_returned_list_cannot_replace_cached_list(self) -> None:
         with patch(
@@ -176,3 +187,83 @@ class CalendarSlideCacheTest(TestCase):
         returned_slides.clear()
 
         self.assertEqual(1, len(self.cache.get_slides(CALENDAR_ITEM)))
+
+    def test_refresh_persists_snapshot_that_a_new_cache_loads(self) -> None:
+        slides = [
+            {
+                "type": "calendar_event",
+                "duration": 12,
+                "summary": "Persistiert",
+            }
+        ]
+        with patch(
+            "app.services.calendar_cache.build_calendar_slides",
+            return_value=slides,
+        ):
+            self.cache.refresh()
+
+        payload = json.loads(self.snapshot_path.read_text(encoding="utf-8"))
+        loaded_cache = CalendarSlideCache(self.config_path, self.snapshot_path)
+
+        self.assertEqual(1, payload["version"])
+        self.assertEqual(
+            "calendar_event",
+            payload["entries"][0]["slides"][0]["type"],
+        )
+        self.assertEqual(slides, loaded_cache.get_slides(CALENDAR_ITEM))
+
+    def test_invalid_snapshot_is_ignored(self) -> None:
+        self.snapshot_path.parent.mkdir(parents=True)
+        self.snapshot_path.write_text("{ungueltig", encoding="utf-8")
+
+        with self.assertLogs("app.services.calendar_cache", level="WARNING"):
+            loaded_cache = CalendarSlideCache(self.config_path, self.snapshot_path)
+
+        self.assertEqual([], loaded_cache.get_slides(CALENDAR_ITEM))
+
+    def test_failed_refresh_does_not_overwrite_persisted_snapshot(self) -> None:
+        old_slides = [{"type": "calendar_event", "summary": "Alter Stand"}]
+        with patch(
+            "app.services.calendar_cache.build_calendar_slides",
+            return_value=old_slides,
+        ):
+            self.cache.refresh()
+        persisted_before_failure = self.snapshot_path.read_text(encoding="utf-8")
+
+        with patch(
+            "app.services.calendar_cache.build_calendar_slides",
+            side_effect=RuntimeError("network down"),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "network down"):
+                self.cache.refresh()
+
+        self.assertEqual(
+            persisted_before_failure,
+            self.snapshot_path.read_text(encoding="utf-8"),
+        )
+
+    def test_file_write_failure_keeps_previous_memory_snapshot(self) -> None:
+        old_slides = [{"type": "calendar_event", "summary": "Alter Stand"}]
+        with patch(
+            "app.services.calendar_cache.build_calendar_slides",
+            return_value=old_slides,
+        ):
+            self.cache.refresh()
+
+        with (
+            patch(
+                "app.services.calendar_cache.build_calendar_slides",
+                return_value=[{"type": "calendar_event", "summary": "Neuer Stand"}],
+            ),
+            patch(
+                "app.services.calendar_cache.os.replace",
+                side_effect=OSError("disk full"),
+            ),
+        ):
+            with self.assertRaisesRegex(OSError, "disk full"):
+                self.cache.refresh()
+
+        self.assertEqual(old_slides, self.cache.get_slides(CALENDAR_ITEM))
+        self.assertFalse(
+            self.snapshot_path.with_name(".calendar_cache.json.tmp").exists()
+        )

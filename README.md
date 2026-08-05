@@ -18,7 +18,8 @@ Wenn du Quellcode geaendert hast, brauchst du aktuell einen Rebuild:
 docker compose up --build
 ```
 
-Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes gemountet, nicht der App-Code.
+Der Grund: Im Compose-Setup werden nur Konfiguration und persistente Daten als
+Volumes gemountet, nicht der App-Code.
 
 ## Aktueller Stand
 
@@ -32,6 +33,7 @@ Der Grund: Im Compose-Setup werden nur `config/` und `data/uploads/` als Volumes
 - `calendar` erzeugt im Hintergrund einzelne Event-Slides aus einer ICS-Quelle
 - Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
 - Ein Hintergrund-Thread aktualisiert den Kalender-Snapshot sofort nach dem Start und danach alle 15 Minuten
+- Der letzte erfolgreiche Kalender-Snapshot wird in `data/cache/calendar_cache.json` gespeichert und beim Neustart sofort geladen
 - `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
 
 ## Routen
@@ -83,7 +85,7 @@ Wichtige Felder:
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
 - `fix_mec_timezone: true` aktiviert bei fehlerhaften Modern Events Calendar-Feeds die Korrektur der doppelt aufgeschlagenen Berliner UTC-Abweichung
 - Waehrend eines Kalender-Refreshs und bei Fehlern wird der letzte erfolgreiche Stand weiterverwendet
-- Beim allerersten Start bleibt der Kalenderbereich leer, bis der erste Hintergrund-Refresh erfolgreich abgeschlossen ist
+- Beim allerersten Start ohne Cache-Datei bleibt der Kalenderbereich leer, bis der erste Hintergrund-Refresh erfolgreich abgeschlossen ist
 
 ## Besonderheiten und Grenzen
 
@@ -95,6 +97,7 @@ Wichtige Felder:
 ## Wichtige Ordner
 
 - `config/content.yaml`: Zentrale Playlist-Konfiguration
+- `data/cache/calendar_cache.json`: Letzter erfolgreicher Kalender-Snapshot
 - `data/uploads/`: Bilder und Videos fuer lokale Medieninhalte
 - `docs/calendar.md`: Entscheidungen und Plan fuer die ICS-/Kalender-Logik
 - `docs/llm-caption-worker.md`: Lokaler Test fuer automatisch erzeugte Event-Kurztexte
