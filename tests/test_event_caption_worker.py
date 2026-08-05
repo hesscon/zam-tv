@@ -112,6 +112,31 @@ class EventCaptionWorkerTest(TestCase):
         )
         self.assertEqual(4, len(model.calls))
 
+    def test_writes_each_completed_result_as_jsonl(self) -> None:
+        model = FakeModel([])
+        result_stream = StringIO()
+
+        event_caption_worker.generate_captions(
+            [
+                {"uid": "event-1", "title": "Eins", "description": ""},
+                {"uid": "event-2", "title": "Zwei", "description": ""},
+            ],
+            model,
+            log_stream=StringIO(),
+            result_stream=result_stream,
+        )
+
+        self.assertEqual(
+            [
+                {"uid": "event-1", "caption": ""},
+                {"uid": "event-2", "caption": ""},
+            ],
+            [
+                json.loads(line)
+                for line in result_stream.getvalue().splitlines()
+            ],
+        )
+
     def test_empty_description_does_not_call_model(self) -> None:
         model = FakeModel([])
 

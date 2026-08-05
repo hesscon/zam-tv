@@ -1,3 +1,4 @@
+from copy import deepcopy
 from unittest import TestCase
 from unittest.mock import Mock, patch
 
@@ -75,6 +76,116 @@ class CalendarSnapshotBuilderTest(TestCase):
         self.assertEqual(["Caption 1", "Caption 2"], [s["caption"] for s in slides])
         self.assertTrue(all(slide["caption_input_hash"] for slide in slides))
         self.assertTrue(all("description" not in slide for slide in slides))
+
+    def test_reports_each_streamed_result_as_snapshot_progress(self) -> None:
+        events = [
+            _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen."),
+            _event("event-2", "Cajon bauen", "Ein Instrument aus Holz bauen."),
+        ]
+
+        def generate(requests):
+            yield {"uid": requests[0]["uid"], "caption": "Erste Caption"}
+            yield {"uid": requests[1]["uid"], "caption": "Zweite Caption"}
+
+        self.worker.generate.side_effect = generate
+        progress = []
+
+        with (
+            patch(
+                "app.services.calendar_snapshot_builder.build_calendar_events",
+                return_value=events,
+            ),
+            self.assertLogs(
+                "app.services.calendar_snapshot_builder",
+                level="INFO",
+            ) as logs,
+        ):
+            self.builder.build(
+                CONFIG,
+                {},
+                on_progress=lambda snapshot: progress.append(deepcopy(snapshot)),
+            )
+
+        key = build_calendar_item_key(CALENDAR_ITEM)
+        first_progress = progress[0][key]
+        second_progress = progress[1][key]
+        self.assertEqual("Erste Caption", first_progress[0]["caption"])
+        self.assertIn("caption_input_hash", first_progress[0])
+        self.assertNotIn("caption_input_hash", first_progress[1])
+        self.assertEqual("Zweite Caption", second_progress[1]["caption"])
+        self.assertIn("caption_input_hash", second_progress[1])
+        output = "\n".join(logs.output)
+        self.assertIn(
+            "Caption erzeugt: uid=event-1 titel='Funkenflug' "
+            "caption='Erste Caption'",
+            output,
+        )
+        self.assertIn(
+            "Caption erzeugt: uid=event-2 titel='Cajon bauen' "
+            "caption='Zweite Caption'",
+            output,
+        )
+
+    def test_logs_when_worker_decides_no_caption_is_needed(self) -> None:
+        event = _event(
+            "event-1",
+            "Klarer Titel",
+            "Eine organisatorische Beschreibung.",
+        )
+        self.worker.generate.side_effect = lambda requests: iter(
+            [{"uid": requests[0]["uid"], "caption": ""}]
+        )
+
+        with (
+            patch(
+                "app.services.calendar_snapshot_builder.build_calendar_events",
+                return_value=[event],
+            ),
+            self.assertLogs(
+                "app.services.calendar_snapshot_builder",
+                level="INFO",
+            ) as logs,
+        ):
+            self.builder.build(CONFIG, {})
+
+        self.assertIn(
+            "Keine Caption erforderlich: uid=event-1 titel='Klarer Titel'",
+            "\n".join(logs.output),
+        )
+
+    def test_worker_failure_after_progress_keeps_completed_result(self) -> None:
+        events = [
+            _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen."),
+            _event("event-2", "Cajon bauen", "Ein Instrument aus Holz bauen."),
+        ]
+
+        def generate(requests):
+            yield {"uid": requests[0]["uid"], "caption": "Erste Caption"}
+            raise RuntimeError("Worker abgebrochen")
+
+        self.worker.generate.side_effect = generate
+        progress = []
+
+        with (
+            patch(
+                "app.services.calendar_snapshot_builder.build_calendar_events",
+                return_value=events,
+            ),
+            self.assertLogs(
+                "app.services.calendar_snapshot_builder",
+                level="ERROR",
+            ),
+        ):
+            snapshot = self.builder.build(
+                CONFIG,
+                {},
+                on_progress=lambda value: progress.append(deepcopy(value)),
+            )
+
+        slides = snapshot[build_calendar_item_key(CALENDAR_ITEM)]
+        self.assertEqual(["Erste Caption", ""], [s["caption"] for s in slides])
+        self.assertTrue(all(s["caption_input_hash"] for s in slides))
+        self.assertEqual(2, len(progress))
 
     def test_reuses_unchanged_caption_without_starting_worker(self) -> None:
         event = _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen.")

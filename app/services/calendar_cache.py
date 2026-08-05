@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from threading import Event, Lock, Thread
@@ -53,13 +54,12 @@ class CalendarSlideCache:
             config = load_config(self._config_path)
             with self._snapshot_lock:
                 previous_snapshot = self._snapshot
-            new_snapshot = self._snapshot_builder.build(config, previous_snapshot)
-
-            refreshed_at = datetime.now(timezone.utc)
-            self._write_snapshot(new_snapshot, refreshed_at)
-
-            with self._snapshot_lock:
-                self._snapshot = new_snapshot
+            new_snapshot = self._snapshot_builder.build(
+                config,
+                previous_snapshot,
+                on_progress=self._publish_snapshot,
+            )
+            self._publish_snapshot(new_snapshot)
 
             slide_count = sum(len(slides) for slides in new_snapshot.values())
             logger.info(
@@ -70,6 +70,15 @@ class CalendarSlideCache:
                 monotonic() - started_at,
                 self._refresh_interval.total_seconds(),
             )
+
+    def _publish_snapshot(self, snapshot: CalendarSnapshot) -> None:
+        published_snapshot = deepcopy(snapshot)
+        self._write_snapshot(
+            published_snapshot,
+            datetime.now(timezone.utc),
+        )
+        with self._snapshot_lock:
+            self._snapshot = published_snapshot
 
     def _load_snapshot(self) -> None:
         if not self._snapshot_path.exists():

@@ -10,6 +10,7 @@ services:
       EVENT_CAPTION_MODEL_PATH: "/app/data/models/gemma-4-E4B-it-Q5_K_M.gguf"
       EVENT_CAPTION_THREADS: "2"
       EVENT_CAPTION_TIMEOUT_SECONDS: "1800"
+      EVENT_CAPTION_NICE_LEVEL: "10"
     volumes:
       - ./config:/app/config
       - ./data/cache:/app/data/cache

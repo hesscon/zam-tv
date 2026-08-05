@@ -324,6 +324,7 @@ def generate_captions(
     max_tokens: int = 40,
     temperature: float = 0.2,
     log_stream: TextIO = sys.stderr,
+    result_stream: TextIO | None = None,
 ) -> list[dict[str, str]]:
     results = []
 
@@ -351,14 +352,18 @@ def generate_captions(
                     temperature=temperature,
                 )
 
-            results.append({"uid": event["uid"], "caption": caption})
+            result = {"uid": event["uid"], "caption": caption}
+            results.append(result)
+            _emit_result(result, result_stream)
             _log(
                 f"Event {index + 1}/{len(events)} ({event['uid']}): "
                 f"{monotonic() - started_at:.2f}s",
                 log_stream,
             )
         except Exception as exc:
-            results.append({"uid": uid, "caption": "", "error": str(exc)})
+            result = {"uid": uid, "caption": "", "error": str(exc)}
+            results.append(result)
+            _emit_result(result, result_stream)
             _log(
                 f"Event {index + 1}/{len(events)} ({uid or 'ohne UID'}) fehlgeschlagen: {exc}",
                 log_stream,
@@ -374,6 +379,7 @@ def classify_events(
     max_tokens: int = 40,
     temperature: float = 0.2,
     log_stream: TextIO = sys.stderr,
+    result_stream: TextIO | None = None,
 ) -> list[dict[str, Any]]:
     results = []
 
@@ -389,20 +395,22 @@ def classify_events(
                 max_tokens=max_tokens,
                 temperature=temperature,
             )
-            results.append(
-                {
-                    "uid": event["uid"],
-                    "title": event["title"],
-                    **classification,
-                }
-            )
+            result = {
+                "uid": event["uid"],
+                "title": event["title"],
+                **classification,
+            }
+            results.append(result)
+            _emit_result(result, result_stream)
             _log(
                 f"Event {index + 1}/{len(events)} ({event['uid']}): "
                 f"{monotonic() - started_at:.2f}s",
                 log_stream,
             )
         except Exception as exc:
-            results.append({"uid": uid, "error": str(exc)})
+            result = {"uid": uid, "error": str(exc)}
+            results.append(result)
+            _emit_result(result, result_stream)
             _log(
                 f"Event {index + 1}/{len(events)} ({uid or 'ohne UID'}) fehlgeschlagen: {exc}",
                 log_stream,
@@ -563,6 +571,11 @@ def _log(message: str, stream: TextIO) -> None:
     print(message, file=stream, flush=True)
 
 
+def _emit_result(result: dict[str, Any], stream: TextIO | None) -> None:
+    if stream is not None:
+        print(json.dumps(result, ensure_ascii=False), file=stream, flush=True)
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_argument_parser().parse_args(argv)
     total_started_at = monotonic()
@@ -585,9 +598,8 @@ def main(argv: list[str] | None = None) -> int:
             model,
             max_tokens=max(1, args.max_tokens),
             temperature=max(0.0, args.temperature),
+            result_stream=sys.stdout,
         )
-        json.dump(results, sys.stdout, ensure_ascii=False, indent=2)
-        sys.stdout.write("\n")
         _log(f"Gesamtlaufzeit: {monotonic() - total_started_at:.2f}s", sys.stderr)
         return 0
     except Exception as exc:

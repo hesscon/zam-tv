@@ -18,13 +18,16 @@ kleinste fehlende Erklaerung zu liefern.
   Hintergrund-Thread neu aufgebaut.
 - `/screen` liest nur den jeweils fertig aufgebauten Snapshot.
 - Bei einem Fehler bleibt der alte Cache erhalten.
-- Der eigenstaendige Caption-Worker mit JSON-Ein-/Ausgabe, Titelklassifikation,
+- Der eigenstaendige Caption-Worker mit JSON-/JSONL-Ein-/Ausgabe, Titelklassifikation,
   optionaler Caption-Erzeugung und `--classify-only` ist implementiert und
   getestet.
 - `calendar_service` liefert `UID` und `DESCRIPTION` als Event-Kandidaten.
 - Der `CalendarSnapshotBuilder` uebernimmt vorhandene Captions und uebergibt
   nur neue oder in Titel beziehungsweise Beschreibung geaenderte Events
   gesammelt an den externen Caption-Worker.
+- Jedes fertige Worker-Ergebnis wird sofort atomar in Speicher- und Datei-Cache
+  uebernommen. Ein spaeterer Worker-Abbruch verwirft bereits fertige Captions
+  daher nicht.
 - Der fertige Snapshot enthaelt die Caption bereits; ihre Darstellung auf dem
   Kalender-Slide folgt separat.
 
@@ -33,7 +36,8 @@ kleinste fehlende Erklaerung zu liefern.
 1. Ein Hintergrund-Thread startet alle 15 Minuten die Aktualisierung.
 2. ICS-Daten und Slides werden vollstaendig neben dem aktiven Cache aufgebaut.
 3. Der alte Cache bleibt waehrenddessen lesbar.
-4. Nach Erfolg wird der neue Snapshot atomar aktiviert.
+4. Nach jedem fertigen Caption-Ergebnis wird der aktuelle Zwischenstand atomar
+   aktiviert; nach Abschluss folgt der finale Snapshot.
 5. Bei Fehlern bleibt der letzte gueltige Snapshot erhalten.
 
 `/screen` liest damit nur fertige Daten und wartet weder auf den ICS-Abruf noch auf das LLM.
@@ -43,7 +47,8 @@ kleinste fehlende Erklaerung zu liefern.
 - Bevorzugtes Testmodell nach den bisherigen Vergleichen: Gemma E4B Q5_K_M.
 - Ausfuehrung einmal pro Aktualisierung in einem kurzlebigen Unterprozess.
 - Alle zu bearbeitenden Events werden gesammelt als JSON ueber `stdin` uebergeben.
-- Ergebnisse kommen als JSON ueber `stdout` zurueck; Logs gehen nach `stderr`.
+- Ergebnisse kommen einzeln als JSONL ueber `stdout` zurueck; Logs gehen nach
+  `stderr`.
 - Ist kein Event neu oder inhaltlich geaendert, wird kein Worker-Prozess
   gestartet.
 - Wiederkehrende Termine mit gleicher Quelle, UID und gleichem Inhalts-Hash
@@ -58,6 +63,11 @@ kleinste fehlende Erklaerung zu liefern.
   hilfreiche inhaltliche Ergaenzung bietet. Das ist eine erfolgreiche
   Enthaltung und kein LLM-Fehler.
 - Das Modell wird pro Durchlauf einmal geladen und verarbeitet danach alle neuen oder geaenderten Events.
+- Der Worker-Timeout misst die Zeit bis zum jeweils naechsten Ergebnis. Jedes
+  empfangene Ergebnis startet diese Frist neu.
+- Nur der Caption-Unterprozess wird mit dem ueber
+  `EVENT_CAPTION_NICE_LEVEL` konfigurierten Nice-Level gestartet
+  (Standard: `10`). Flask selbst bleibt bei Nice `0`.
 - Der Klassifikationsaufruf bewertet ausschliesslich anhand des Titels, wie
   konkret die Aktivitaet und wie allgemein verstaendlich die entscheidenden
   Begriffe sind. Die Beschreibung beeinflusst diese Stufe nicht.

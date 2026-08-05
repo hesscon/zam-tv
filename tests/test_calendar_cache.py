@@ -90,7 +90,7 @@ class CalendarSlideCacheTest(TestCase):
         build_started = Event()
         finish_build = Event()
 
-        def build_snapshot(config, previous_snapshot):
+        def build_snapshot(config, previous_snapshot, on_progress=None):
             build_started.set()
             finish_build.wait(timeout=1)
             return {
@@ -131,7 +131,7 @@ class CalendarSlideCacheTest(TestCase):
     def test_background_thread_refreshes_immediately(self) -> None:
         refreshed = Event()
 
-        def build_snapshot(config, previous_snapshot):
+        def build_snapshot(config, previous_snapshot, on_progress=None):
             refreshed.set()
             return {
                 build_calendar_item_key(CALENDAR_ITEM): (
@@ -151,6 +151,43 @@ class CalendarSlideCacheTest(TestCase):
         self.cache.stop(timeout=1)
 
         self.assertEqual("Neu", self.cache.get_slides(CALENDAR_ITEM)[0]["summary"])
+
+    def test_publishes_and_persists_builder_progress(self) -> None:
+        key = build_calendar_item_key(CALENDAR_ITEM)
+        published_summaries = []
+
+        def build_snapshot(config, previous_snapshot, on_progress=None):
+            partial_snapshot = {
+                key: (
+                    {"type": "calendar_event", "summary": "Erster Zwischenstand"},
+                )
+            }
+            on_progress(partial_snapshot)
+            published_summaries.append(
+                self.cache.get_slides(CALENDAR_ITEM)[0]["summary"]
+            )
+            payload = json.loads(self.snapshot_path.read_text(encoding="utf-8"))
+            published_summaries.append(
+                payload["entries"][0]["slides"][0]["summary"]
+            )
+            return {
+                key: (
+                    {"type": "calendar_event", "summary": "Fertig"},
+                )
+            }
+
+        self.builder.build.side_effect = build_snapshot
+
+        self.cache.refresh()
+
+        self.assertEqual(
+            ["Erster Zwischenstand", "Erster Zwischenstand"],
+            published_summaries,
+        )
+        self.assertEqual(
+            "Fertig",
+            self.cache.get_slides(CALENDAR_ITEM)[0]["summary"],
+        )
 
     def test_successful_refresh_logs_result_and_next_interval(self) -> None:
         self.cache = CalendarSlideCache(

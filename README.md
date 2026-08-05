@@ -34,7 +34,8 @@ Volumes gemountet, nicht der App-Code.
 - Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
 - Ein Hintergrund-Thread aktualisiert den Kalender-Snapshot sofort nach dem Start und danach alle 15 Minuten
 - Der letzte erfolgreiche Kalender-Snapshot wird in `data/cache/calendar_cache.json` gespeichert und beim Neustart sofort geladen
-- Neue oder in Titel beziehungsweise Beschreibung geaenderte Events werden gesammelt an den lokalen Caption-Worker uebergeben; unveraenderte Captions kommen aus dem Snapshot
+- Neue oder in Titel beziehungsweise Beschreibung geaenderte Events werden gesammelt an den lokalen Caption-Worker uebergeben; jedes fertige JSONL-Ergebnis wird sofort im Snapshot persistiert, unveraenderte Captions kommen aus dem vorherigen Snapshot
+- Der Caption-Worker laeuft standardmaessig mit Nice-Level 10, damit Flask und die lokale Bildschirmanzeige bei CPU-Konkurrenz Vorrang haben
 - `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
 
 ## Routen

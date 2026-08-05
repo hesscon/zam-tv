@@ -1,6 +1,7 @@
 import json
 import logging
 from hashlib import sha256
+from typing import Callable
 
 from .calendar_service import build_calendar_events
 from .caption_worker_client import CaptionWorkerClient
@@ -10,6 +11,7 @@ from .event_caption_worker import MAX_DESCRIPTION_CHARS, normalize_source_text
 logger = logging.getLogger(__name__)
 CalendarItemKey = tuple[str, tuple[str, ...], int, str, bool]
 CalendarSnapshot = dict[CalendarItemKey, tuple[dict, ...]]
+SnapshotProgressCallback = Callable[[CalendarSnapshot], None]
 
 
 class CalendarSnapshotBuilder:
@@ -20,11 +22,12 @@ class CalendarSnapshotBuilder:
         self,
         config: dict,
         previous_snapshot: CalendarSnapshot,
+        on_progress: SnapshotProgressCallback | None = None,
     ) -> CalendarSnapshot:
         previous_captions = _index_previous_captions(previous_snapshot)
         slide_lists: dict[CalendarItemKey, list[dict]] = {}
         worker_requests: dict[str, dict] = {}
-        worker_targets: dict[str, list[dict]] = {}
+        worker_targets: dict[str, list[tuple[dict, str]]] = {}
         worker_context: dict[str, tuple[str, str]] = {}
         event_count = 0
         reused_count = 0
@@ -51,14 +54,15 @@ class CalendarSnapshotBuilder:
                 slide = {
                     **event["slide"],
                     "uid": uid,
-                    "caption_input_hash": input_hash,
                     "caption": "",
                 }
 
                 if identity in previous_captions:
+                    slide["caption_input_hash"] = input_hash
                     slide["caption"] = previous_captions[identity]
                     reused_count += 1
                 elif not description:
+                    slide["caption_input_hash"] = input_hash
                     without_description_count += 1
                 else:
                     request_id = _worker_request_id(*identity)
@@ -70,17 +74,25 @@ class CalendarSnapshotBuilder:
                             "description": description,
                         },
                     )
-                    worker_targets.setdefault(request_id, []).append(slide)
+                    worker_targets.setdefault(request_id, []).append(
+                        (slide, input_hash)
+                    )
                     worker_context.setdefault(request_id, (uid, title))
 
                 slides.append(slide)
 
             slide_lists[key] = slides
 
+        snapshot = {
+            key: tuple(slides)
+            for key, slides in slide_lists.items()
+        }
         error_count = self._apply_generated_captions(
             worker_requests,
             worker_targets,
             worker_context,
+            snapshot,
+            on_progress,
         )
         logger.info(
             "Kalender-Snapshot aufgebaut: events=%d captions_wiederverwendet=%d "
@@ -91,16 +103,15 @@ class CalendarSnapshotBuilder:
             without_description_count,
             error_count,
         )
-        return {
-            key: tuple(slides)
-            for key, slides in slide_lists.items()
-        }
+        return snapshot
 
     def _apply_generated_captions(
         self,
         worker_requests: dict[str, dict],
-        worker_targets: dict[str, list[dict]],
+        worker_targets: dict[str, list[tuple[dict, str]]],
         worker_context: dict[str, tuple[str, str]],
+        snapshot: CalendarSnapshot,
+        on_progress: SnapshotProgressCallback | None,
     ) -> int:
         if not worker_requests:
             return 0
@@ -109,67 +120,162 @@ class CalendarSnapshotBuilder:
                 "Caption-Worker ist nicht konfiguriert: events=%d",
                 len(worker_requests),
             )
+            for targets in worker_targets.values():
+                _mark_targets_complete(targets, "")
+            if on_progress is not None:
+                on_progress(snapshot)
             return len(worker_requests)
 
-        try:
-            results = self._caption_worker.generate(list(worker_requests.values()))
-        except Exception as exc:
-            logger.exception(
-                "Caption-Worker fehlgeschlagen: events=%d",
-                len(worker_requests),
-            )
-            for uid, title in worker_context.values():
-                logger.error(
-                    "Caption-Erzeugung fehlgeschlagen: uid=%s titel=%r fehler=%s",
-                    uid,
-                    title,
-                    exc,
-                )
-            return len(worker_requests)
-
-        results_by_id = {
-            result.get("uid"): result
-            for result in results
-            if isinstance(result.get("uid"), str)
-        }
         error_count = 0
+        completed_ids: set[str] = set()
+        try:
+            results = iter(
+                self._caption_worker.generate(list(worker_requests.values()))
+            )
+        except Exception as exc:
+            return self._handle_worker_failure(
+                exc,
+                worker_targets,
+                worker_context,
+                completed_ids,
+                snapshot,
+                on_progress,
+                error_count,
+            )
 
-        for request_id, targets in worker_targets.items():
-            result = results_by_id.get(request_id)
+        while True:
+            try:
+                result = next(results)
+            except StopIteration:
+                break
+            except Exception as exc:
+                return self._handle_worker_failure(
+                    exc,
+                    worker_targets,
+                    worker_context,
+                    completed_ids,
+                    snapshot,
+                    on_progress,
+                    error_count,
+                )
+
+            request_id = result.get("uid")
+            if not isinstance(request_id, str) or request_id not in worker_targets:
+                logger.error("Unerwartetes Caption-Ergebnis: %r", request_id)
+                error_count += 1
+                continue
+            if request_id in completed_ids:
+                logger.error("Doppeltes Caption-Ergebnis: %s", request_id)
+                error_count += 1
+                continue
+
+            completed_ids.add(request_id)
+            error_count += self._apply_result(
+                request_id,
+                result,
+                worker_targets,
+                worker_context,
+            )
+            if on_progress is not None:
+                on_progress(snapshot)
+
+        missing_ids = worker_targets.keys() - completed_ids
+        for request_id in missing_ids:
             uid, title = worker_context[request_id]
-            if result is None:
-                logger.error(
-                    "Caption-Ergebnis fehlt: uid=%s titel=%r",
-                    uid,
-                    title,
-                )
-                error_count += 1
-                continue
+            logger.error(
+                "Caption-Ergebnis fehlt: uid=%s titel=%r",
+                uid,
+                title,
+            )
+            _mark_targets_complete(worker_targets[request_id], "")
+            error_count += 1
 
-            if result.get("error"):
-                logger.error(
-                    "Caption-Erzeugung fehlgeschlagen: uid=%s titel=%r fehler=%s",
-                    uid,
-                    title,
-                    result["error"],
-                )
-                error_count += 1
-                continue
-
-            caption = result.get("caption")
-            if not isinstance(caption, str):
-                logger.error(
-                    "Caption-Ergebnis ist ungueltig: uid=%s titel=%r",
-                    uid,
-                    title,
-                )
-                error_count += 1
-                continue
-
-            for slide in targets:
-                slide["caption"] = caption
-
+        if missing_ids and on_progress is not None:
+            on_progress(snapshot)
         return error_count
+
+    def _handle_worker_failure(
+        self,
+        exc: Exception,
+        worker_targets: dict[str, list[tuple[dict, str]]],
+        worker_context: dict[str, tuple[str, str]],
+        completed_ids: set[str],
+        snapshot: CalendarSnapshot,
+        on_progress: SnapshotProgressCallback | None,
+        error_count: int,
+    ) -> int:
+        logger.exception(
+            "Caption-Worker fehlgeschlagen: events=%d erledigt=%d",
+            len(worker_targets),
+            len(completed_ids),
+        )
+        remaining_ids = worker_targets.keys() - completed_ids
+        for request_id in remaining_ids:
+            uid, title = worker_context[request_id]
+            logger.error(
+                "Caption-Erzeugung fehlgeschlagen: uid=%s titel=%r fehler=%s",
+                uid,
+                title,
+                exc,
+            )
+            _mark_targets_complete(worker_targets[request_id], "")
+        if remaining_ids and on_progress is not None:
+            on_progress(snapshot)
+        return error_count + len(remaining_ids)
+
+    def _apply_result(
+        self,
+        request_id: str,
+        result: dict,
+        worker_targets: dict[str, list[tuple[dict, str]]],
+        worker_context: dict[str, tuple[str, str]],
+    ) -> int:
+        uid, title = worker_context[request_id]
+        caption = result.get("caption")
+
+        if result.get("error"):
+            logger.error(
+                "Caption-Erzeugung fehlgeschlagen: uid=%s titel=%r fehler=%s",
+                uid,
+                title,
+                result["error"],
+            )
+            _mark_targets_complete(worker_targets[request_id], "")
+            return 1
+
+        if not isinstance(caption, str):
+            logger.error(
+                "Caption-Ergebnis ist ungueltig: uid=%s titel=%r",
+                uid,
+                title,
+            )
+            _mark_targets_complete(worker_targets[request_id], "")
+            return 1
+
+        _mark_targets_complete(worker_targets[request_id], caption)
+        if caption:
+            logger.info(
+                "Caption erzeugt: uid=%s titel=%r caption=%r",
+                uid,
+                title,
+                caption,
+            )
+        else:
+            logger.info(
+                "Keine Caption erforderlich: uid=%s titel=%r",
+                uid,
+                title,
+            )
+        return 0
+
+
+def _mark_targets_complete(
+    targets: list[tuple[dict, str]],
+    caption: str,
+) -> None:
+    for slide, input_hash in targets:
+        slide["caption_input_hash"] = input_hash
+        slide["caption"] = caption
 
 
 def build_calendar_item_key(item: dict) -> CalendarItemKey:
