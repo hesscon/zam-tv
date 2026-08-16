@@ -2,6 +2,11 @@ const fileInput = document.getElementById("media_files");
 const dropzone = document.getElementById("upload-dropzone");
 const selection = document.getElementById("upload-selection");
 const cleanupForm = document.getElementById("cleanup-form");
+const applicationLogs = document.getElementById("application-logs");
+
+if (applicationLogs && window.location.hash === "#application-logs") {
+  applicationLogs.focus({ preventScroll: true });
+}
 
 if (fileInput && dropzone && selection) {
   fileInput.addEventListener("change", () => {

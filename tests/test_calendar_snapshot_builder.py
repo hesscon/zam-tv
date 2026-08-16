@@ -117,15 +117,39 @@ class CalendarSnapshotBuilderTest(TestCase):
         self.assertIn("caption_input_hash", second_progress[1])
         output = "\n".join(logs.output)
         self.assertIn(
-            "Caption erzeugt: uid=event-1 titel='Funkenflug' "
-            "caption='Erste Caption'",
+            "Caption erzeugt: uid=event-1 titel='Funkenflug'",
             output,
         )
         self.assertIn(
-            "Caption erzeugt: uid=event-2 titel='Cajon bauen' "
-            "caption='Zweite Caption'",
+            "Caption erzeugt: uid=event-2 titel='Cajon bauen'",
             output,
         )
+        self.assertNotIn("caption='Erste Caption'", output)
+
+    def test_logs_ics_result_without_url_query_parameters(self) -> None:
+        calendar_item = {
+            **CALENDAR_ITEM,
+            "content": "https://example.com/events.ics?token=secret",
+        }
+
+        with (
+            patch(
+                "app.services.calendar_snapshot_builder.build_calendar_events",
+                return_value=[_event("event-1", "Test", "")],
+            ),
+            self.assertLogs(
+                "app.services.calendar_snapshot_builder",
+                level="INFO",
+            ) as logs,
+        ):
+            self.builder.build({"items": [calendar_item]}, {})
+
+        output = "\n".join(logs.output)
+        self.assertIn(
+            "ICS-Abruf erfolgreich: quelle=https://example.com/events.ics events=1",
+            output,
+        )
+        self.assertNotIn("token=secret", output)
 
     def test_logs_when_worker_decides_no_caption_is_needed(self) -> None:
         event = _event(
@@ -283,15 +307,26 @@ class CalendarSnapshotBuilderTest(TestCase):
                 {**CALENDAR_ITEM, "caption_generation_enabled": False},
             ]
         }
-        with patch(
-            "app.services.calendar_snapshot_builder.build_calendar_events",
-            return_value=[
-                _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen."),
-            ],
+        with (
+            patch(
+                "app.services.calendar_snapshot_builder.build_calendar_events",
+                return_value=[
+                    _event(
+                        "event-1",
+                        "Funkenflug",
+                        "Langzeitfotos mit Wunderkerzen.",
+                    ),
+                ],
+            ),
+            self.assertLogs(
+                "app.services.calendar_snapshot_builder",
+                level="INFO",
+            ) as logs,
         ):
             snapshot = self.builder.build(config, {})
 
         self.worker.generate.assert_not_called()
+        self.assertNotIn("Caption-Verarbeitung", "\n".join(logs.output))
         slide = snapshot[build_calendar_item_key(CALENDAR_ITEM)][0]
         self.assertEqual("", slide["caption"])
         self.assertNotIn("caption_input_hash", slide)

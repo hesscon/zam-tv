@@ -2,6 +2,7 @@ import json
 import logging
 from hashlib import sha256
 from typing import Callable
+from urllib.parse import urlsplit, urlunsplit
 
 from .calendar_service import build_calendar_events
 from .caption_worker_client import CaptionWorkerClient
@@ -32,7 +33,7 @@ class CalendarSnapshotBuilder:
         event_count = 0
         reused_count = 0
         without_description_count = 0
-        disabled_count = 0
+        caption_generation_enabled = False
 
         for item in config.get("items", []):
             if not item.get("enabled", True) or item.get("type") != "calendar":
@@ -41,9 +42,17 @@ class CalendarSnapshotBuilder:
             key = build_calendar_item_key(item)
             if key in slide_lists:
                 continue
+            if item.get("caption_generation_enabled", False):
+                caption_generation_enabled = True
 
             slides = []
-            for event in build_calendar_events(item):
+            events = build_calendar_events(item)
+            logger.info(
+                "ICS-Abruf erfolgreich: quelle=%s events=%d",
+                _display_calendar_source(item.get("content", "")),
+                len(events),
+            )
+            for event in events:
                 event_count += 1
                 uid = event["uid"]
                 title = normalize_source_text(event["title"])
@@ -65,9 +74,7 @@ class CalendarSnapshotBuilder:
                 elif not description:
                     slide["caption_input_hash"] = input_hash
                     without_description_count += 1
-                elif not item.get("caption_generation_enabled", False):
-                    disabled_count += 1
-                else:
+                elif item.get("caption_generation_enabled", False):
                     request_id = _worker_request_id(*identity)
                     worker_requests.setdefault(
                         request_id,
@@ -90,6 +97,14 @@ class CalendarSnapshotBuilder:
             key: tuple(slides)
             for key, slides in slide_lists.items()
         }
+        if caption_generation_enabled:
+            logger.info(
+                "Caption-Verarbeitung gestartet: angefragt=%d "
+                "wiederverwendet=%d ohne_beschreibung=%d",
+                len(worker_requests),
+                reused_count,
+                without_description_count,
+            )
         error_count = self._apply_generated_captions(
             worker_requests,
             worker_targets,
@@ -97,17 +112,14 @@ class CalendarSnapshotBuilder:
             snapshot,
             on_progress,
         )
-        logger.info(
-            "Kalender-Snapshot aufgebaut: events=%d captions_wiederverwendet=%d "
-            "captions_angefragt=%d captions_deaktiviert=%d "
-            "ohne_beschreibung=%d caption_fehler=%d",
-            event_count,
-            reused_count,
-            len(worker_requests),
-            disabled_count,
-            without_description_count,
-            error_count,
-        )
+        if caption_generation_enabled:
+            logger.info(
+                "Caption-Verarbeitung abgeschlossen: angefragt=%d "
+                "wiederverwendet=%d fehler=%d",
+                len(worker_requests),
+                reused_count,
+                error_count,
+            )
         return snapshot
 
     def _apply_generated_captions(
@@ -260,10 +272,9 @@ class CalendarSnapshotBuilder:
         _mark_targets_complete(worker_targets[request_id], caption)
         if caption:
             logger.info(
-                "Caption erzeugt: uid=%s titel=%r caption=%r",
+                "Caption erzeugt: uid=%s titel=%r",
                 uid,
                 title,
-                caption,
             )
         else:
             logger.info(
@@ -322,6 +333,17 @@ def _caption_input_hash(title: str, description: str) -> str:
         separators=(",", ":"),
     )
     return sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _display_calendar_source(source: str) -> str:
+    parts = urlsplit(source)
+    if parts.scheme and parts.netloc:
+        display_value = urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+    else:
+        display_value = source.split("?", 1)[0].split("#", 1)[0]
+    if len(display_value) > 200:
+        return f"{display_value[:197]}..."
+    return display_value
 
 
 def _worker_request_id(source: str, uid: str, input_hash: str) -> str:

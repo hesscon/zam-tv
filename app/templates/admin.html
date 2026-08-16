@@ -61,6 +61,18 @@
       - Veranstaltung
     days_ahead: 30</code></pre>
         </section>
+
+        <section class="help-card log-card" id="application-logs" tabindex="-1">
+          <div class="log-card-header">
+            <h2>Letzte Anwendungsmeldungen</h2>
+            <a class="button secondary" href="{{ url_for('main.admin') }}#application-logs">Aktualisieren</a>
+          </div>
+          {% if application_logs %}
+            <pre class="application-log">{{ application_logs | join('\n') }}</pre>
+          {% else %}
+            <p class="empty-log">Noch keine Anwendungsmeldungen vorhanden.</p>
+          {% endif %}
+        </section>
       </section>
 
       <aside class="side-column">

@@ -207,13 +207,24 @@ class CalendarSlideCacheTest(TestCase):
             self.cache.refresh()
 
         output = "\n".join(logs.output)
-        self.assertIn("Kalender-Cache-Refresh gestartet.", output)
-        self.assertIn(
-            "Kalender-Cache-Datei aktualisiert: kalender=1 slides=2",
-            output,
+        self.assertIn("Kalender-Aktualisierung gestartet.", output)
+        self.assertNotIn("Kalender-Cache-Datei aktualisiert", output)
+        self.assertIn("kalender=1 events=2", output)
+        self.assertIn("naechster_versuch_in=60s", output)
+
+    def test_failed_refresh_logs_cause_and_reused_snapshot(self) -> None:
+        self.builder.build.side_effect = RuntimeError(
+            "Fehler bei https://example.com/events.ics?token=secret"
         )
-        self.assertIn("kalender=1 slides=2", output)
-        self.assertIn("naechster_refresh_in=60s", output)
+
+        with self.assertLogs("app.services.calendar_cache", level="ERROR") as logs:
+            with self.assertRaisesRegex(RuntimeError, "token=secret"):
+                self.cache.refresh()
+
+        message = logs.records[0].getMessage()
+        self.assertIn("Kalender-Aktualisierung fehlgeschlagen", message)
+        self.assertIn("letzte erfolgreiche Stand wird weiterverwendet", message)
+        self.assertNotIn("token=secret", message)
 
     def test_returned_list_cannot_replace_cached_list(self) -> None:
         self.builder.build.return_value = {

@@ -25,7 +25,8 @@ Volumes gemountet, nicht der App-Code.
 
 - Eine einzelne Flask-App fuer Admin und Screen
 - Konfiguration komplett ueber `config/content.yaml`
-- Admin-Seite mit YAML-Editor, Dateiliste, Upload-Funktion und Aufraeumen unbenutzter Medien
+- Admin-Seite mit YAML-Editor, Dateiliste, Upload-Funktion, Aufraeumen unbenutzter
+  Medien und den letzten 100 Anwendungsmeldungen des laufenden Prozesses
 - Screen zeigt aktive Inhalte nacheinander an
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter

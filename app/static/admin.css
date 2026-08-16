@@ -134,6 +134,37 @@ pre code {
   margin-bottom: 1.25rem;
 }
 
+.empty-log {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.log-card-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log-card-header h2 {
+  margin-bottom: 0;
+}
+
+.log-card:focus {
+  outline: 0.1875rem solid rgba(245, 158, 11, 0.28);
+  outline-offset: 0.125rem;
+}
+
+.application-log {
+  max-height: 22rem;
+  margin-top: 0.75rem;
+  color: #d1fae5;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .upload-dropzone {
   display: grid;
   gap: 0.375rem;

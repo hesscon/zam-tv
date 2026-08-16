@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import TestCase
@@ -35,6 +36,20 @@ class ViewsTest(TestCase):
     def test_admin_and_screen_remain_available(self) -> None:
         self.assertEqual(200, self.client.get("/admin").status_code)
         self.assertEqual(200, self.client.get("/screen").status_code)
+
+    def test_admin_displays_recent_application_logs_as_escaped_text(self) -> None:
+        logging.getLogger("app.test").warning(
+            "Kalenderfehler <script>alert('x')</script>"
+        )
+
+        response = self.client.get("/admin")
+
+        self.assertIn(b"Letzte Anwendungsmeldungen", response.data)
+        self.assertIn(b'id="application-logs"', response.data)
+        self.assertIn(b'href="/admin#application-logs"', response.data)
+        self.assertIn(b">Aktualisieren</a>", response.data)
+        self.assertIn(b"Kalenderfehler &lt;script&gt;", response.data)
+        self.assertNotIn(b"<script>alert('x')</script>", response.data)
 
     def test_screen_reads_calendar_slides_from_cache(self) -> None:
         calendar_item = """  - type: calendar

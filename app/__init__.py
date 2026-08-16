@@ -8,11 +8,13 @@ from .services.calendar_cache import CalendarSlideCache
 from .services.calendar_snapshot_builder import CalendarSnapshotBuilder
 from .services.caption_worker_client import CaptionWorkerClient
 from .services.config_service import ensure_config_exists
+from .services.recent_log_handler import install_recent_log_handler
 from .views import main_bp
 
 
 def create_app(start_calendar_cache: bool = True) -> Flask:
     app = Flask(__name__)
+    recent_log_handler = install_recent_log_handler()
 
     base_dir = Path(__file__).resolve().parent.parent
     app.config["BASE_DIR"] = base_dir
@@ -65,6 +67,7 @@ def create_app(start_calendar_cache: bool = True) -> Flask:
         refresh_interval=timedelta(seconds=refresh_seconds),
     )
     app.extensions["calendar_slide_cache"] = calendar_cache
+    app.extensions["recent_log_handler"] = recent_log_handler
     if start_calendar_cache:
         calendar_cache.start()
 

@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import re
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -49,24 +50,33 @@ class CalendarSlideCache:
     def refresh(self) -> None:
         with self._refresh_lock:
             started_at = monotonic()
-            logger.info("Kalender-Cache-Refresh gestartet.")
+            logger.info("Kalender-Aktualisierung gestartet.")
 
-            config = load_config(self._config_path)
-            with self._snapshot_lock:
-                previous_snapshot = self._snapshot
-            new_snapshot = self._snapshot_builder.build(
-                config,
-                previous_snapshot,
-                on_progress=self._publish_snapshot,
-            )
-            self._publish_snapshot(new_snapshot)
+            try:
+                config = load_config(self._config_path)
+                with self._snapshot_lock:
+                    previous_snapshot = self._snapshot
+                new_snapshot = self._snapshot_builder.build(
+                    config,
+                    previous_snapshot,
+                    on_progress=self._publish_snapshot,
+                )
+                self._publish_snapshot(new_snapshot)
+            except Exception as exc:
+                logger.error(
+                    "Kalender-Aktualisierung fehlgeschlagen: fehler=%s. "
+                    "Der letzte erfolgreiche Stand wird weiterverwendet.",
+                    _safe_error_message(exc),
+                    exc_info=True,
+                )
+                raise
 
-            slide_count = sum(len(slides) for slides in new_snapshot.values())
+            event_count = sum(len(slides) for slides in new_snapshot.values())
             logger.info(
-                "Kalender-Cache-Refresh erfolgreich: kalender=%d slides=%d "
-                "dauer=%.2fs naechster_refresh_in=%.0fs",
+                "Kalender-Aktualisierung erfolgreich: kalender=%d events=%d "
+                "dauer=%.2fs naechster_versuch_in=%.0fs",
                 len(new_snapshot),
-                slide_count,
+                event_count,
                 monotonic() - started_at,
                 self._refresh_interval.total_seconds(),
             )
@@ -124,7 +134,7 @@ class CalendarSlideCache:
         finally:
             temporary_path.unlink(missing_ok=True)
 
-        logger.info(
+        logger.debug(
             "Kalender-Cache-Datei aktualisiert: kalender=%d slides=%d pfad=%s",
             len(snapshot),
             sum(len(slides) for slides in snapshot.values()),
@@ -154,7 +164,8 @@ class CalendarSlideCache:
             try:
                 self.refresh()
             except Exception:
-                logger.exception("Kalender-Cache konnte nicht aktualisiert werden.")
+                # refresh() already logs the concise cause and keeps the old data.
+                pass
 
             self._stop_event.wait(self._refresh_interval.total_seconds())
 
@@ -226,3 +237,15 @@ def _deserialize_snapshot(
         snapshot[key] = tuple(slides)
 
     return snapshot, refreshed_at
+
+
+def _safe_error_message(exc: Exception) -> str:
+    message = " ".join(str(exc).split()) or exc.__class__.__name__
+    message = re.sub(
+        r"(https?://[^\s?#]+(?:/[^\s?#]*)?)\?[^\s#]*",
+        r"\1?[ausgeblendet]",
+        message,
+    )
+    if len(message) > 500:
+        return f"{message[:497]}..."
+    return message

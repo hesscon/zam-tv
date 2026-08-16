@@ -25,12 +25,7 @@ def index():
 def admin():
     config = load_config(current_app.config["CONFIG_PATH"])
     config_text = current_app.config["CONFIG_PATH"].read_text(encoding="utf-8")
-    return render_template(
-        "admin.html",
-        config=config,
-        config_text=config_text,
-        uploads=list_uploads(current_app.config["UPLOADS_DIR"]),
-    )
+    return render_admin(config, config_text)
 
 
 @main_bp.post("/admin/save")
@@ -43,12 +38,7 @@ def save_admin():
         save_config(current_app.config["CONFIG_PATH"], config_text)
     except ConfigError as exc:
         flash(str(exc), "error")
-        return render_template(
-            "admin.html",
-            config=None,
-            config_text=config_text,
-            uploads=list_uploads(current_app.config["UPLOADS_DIR"]),
-        ), 400
+        return render_admin(None, config_text), 400
 
     flash("Konfiguration gespeichert.", "success")
     return redirect(url_for("main.admin"))
@@ -137,4 +127,15 @@ def list_uploads(uploads_dir) -> list[str]:
     return sorted(
         [path.name for path in uploads_dir.iterdir() if path.is_file() and not path.name.startswith(".")],
         key=str.lower,
+    )
+
+
+def render_admin(config: dict | None, config_text: str):
+    log_handler = current_app.extensions["recent_log_handler"]
+    return render_template(
+        "admin.html",
+        config=config,
+        config_text=config_text,
+        uploads=list_uploads(current_app.config["UPLOADS_DIR"]),
+        application_logs=log_handler.get_lines(),
     )
