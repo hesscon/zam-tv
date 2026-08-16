@@ -9,6 +9,7 @@ from .services.calendar_snapshot_builder import CalendarSnapshotBuilder
 from .services.caption_worker_client import CaptionWorkerClient
 from .services.config_service import ensure_config_exists
 from .services.recent_log_handler import install_recent_log_handler
+from .services.screen_heartbeat import ScreenHeartbeat
 from .views import main_bp
 
 
@@ -68,6 +69,7 @@ def create_app(start_calendar_cache: bool = True) -> Flask:
     )
     app.extensions["calendar_slide_cache"] = calendar_cache
     app.extensions["recent_log_handler"] = recent_log_handler
+    app.extensions["screen_heartbeat"] = ScreenHeartbeat()
     if start_calendar_cache:
         calendar_cache.start()
 

@@ -25,6 +25,8 @@ Der Startpfad auf dem Geraet ist:
 5. `labwc` startet ein kleines Skript
 6. Das Skript wartet auf `http://127.0.0.1/screen`
 7. Chromium startet im Vollbild und zeigt die Signage-Ansicht
+8. Das Skript startet Chromium neu, wenn die Playlist zehn Minuten lang keinen
+   Fortschritt meldet
 
 ## 1. OS vorbereiten
 
@@ -202,59 +204,22 @@ Die Richtlinie ist zuverlaessiger als der veraltete Chromium-Schalter
 
 ## 7. Kiosk-Startskript anlegen
 Wir starten Chromium nicht direkt aus `labwc`, sondern ueber ein kleines Skript.
-Das Skript wartet zunaechst auf die lokale Web-App. Dadurch landet der Browser nach einem Boot nicht auf einer Fehlerseite, waehrend Docker noch startet.
+Das Skript wartet zunaechst auf die lokale Web-App. Dadurch landet der Browser nach
+einem Boot nicht auf einer Fehlerseite, waehrend Docker noch startet. Danach bleibt
+es als einfacher Watchdog aktiv.
 
-Datei anlegen:
+Das mitgelieferte Skript installieren:
 
 ```bash
 mkdir -p ~/.local/bin
-nano ~/.local/bin/start-zam-tv-kiosk.sh
+install -m 755 /opt/zam-tv/scripts/start-zam-tv-kiosk.sh ~/.local/bin/
 ```
 
-Inhalt:
-
-```bash
-#!/bin/bash
-
-set -eu
-
-APP_URL="http://127.0.0.1/screen"
-LOG_FILE="$HOME/.local/state/zam-tv-kiosk.log"
-
-mkdir -p "$HOME/.local/state"
-
-# Je nach Raspberry-Pi-OS-Version heisst das Programm unterschiedlich.
-if command -v chromium > /dev/null; then
-  CHROMIUM="chromium"
-elif command -v chromium-browser > /dev/null; then
-  CHROMIUM="chromium-browser"
-else
-  echo "Chromium wurde nicht gefunden." >&2
-  exit 1
-fi
-
-# Falls Chromium aus einer alten Sitzung noch lebt, beenden wir ihn sauber.
-pkill -f chromium || true
-
-# Auf die Flask-App im Docker-Container warten.
-until curl -fsS "$APP_URL" > /dev/null; do
-  sleep 2
-done
-
-exec "$CHROMIUM" \
-  "$APP_URL" \
-  --kiosk \
-  --ozone-platform=wayland \
-  --start-maximized \
-  --noerrdialogs \
-  --disable-infobars \
-  --lang=de-DE \
-  --no-first-run \
-  --disable-session-crashed-bubble \
-  --check-for-update-interval=31536000 \
-  --password-store=basic \
-  >> "$LOG_FILE" 2>&1
-```
+Die Bildschirmseite sendet beim ersten Anzeigen und nach jedem Slide-Wechsel ein
+Lebenszeichen. Bleibt dieses Lebenszeichen zehn Minuten aus, beendet das Skript nur
+seine eigene Chromium-Instanz und startet sie neu. Ein beendeter Browser wird sofort
+neu gestartet. Wenn stattdessen die Flask-App nicht erreichbar ist, wartet das
+Skript auf Docker und startet den Browser nicht unnoetig wiederholt.
 
 Warum `--password-store=basic`:
 - Im Kiosk-Betrieb auf Raspberry Pi OS taucht sonst je nach Desktop-Umgebung eine stoerende Passwort- oder Schluesselbund-Abfrage von Chromium auf.
@@ -264,12 +229,6 @@ Warum die Wayland- und Sprachoptionen:
 - `--ozone-platform=wayland` sorgt dafuer, dass Chromium auch bei einem manuellen Start per SSH die laufende Wayland-Sitzung verwendet.
 - `--lang=de-DE` stellt die Sprache der Browser-Oberflaeche auf Deutsch.
 - Die in Schritt 6 angelegte Richtlinie verhindert die Uebersetzungs-Einblendung.
-
-Skript ausfuehrbar machen:
-
-```bash
-chmod +x ~/.local/bin/start-zam-tv-kiosk.sh
-```
 
 ## 8. Autostart fuer den Desktop setzen
 Unter aktuellen Raspberry-Pi-OS-Versionen wird Desktop-Autostart ueber `labwc` konfiguriert.
@@ -385,6 +344,16 @@ curl -I http://127.0.0.1/screen
 curl -I http://127.0.0.1/admin
 ```
 
+Wenn Chromium laeuft und bereits einen Slide angezeigt hat, antwortet auch der
+Watchdog-Endpunkt erfolgreich:
+
+```bash
+curl -I http://127.0.0.1/screen/health
+```
+
+Ohne vorheriges Lebenszeichen oder nach mehr als zehn Minuten Stillstand ist der
+Status erwartungsgemaess `503 Service Unavailable`.
+
 ### Kiosk-Log
 
 ```bash
@@ -402,6 +371,44 @@ cat ~/.config/labwc/autostart
 ```bash
 pgrep -af 'chromium.*--kiosk'
 pgrep -af '^swayidle '
+```
+
+### Chromium-Watchdog gezielt testen
+
+Ein beendeter Browser muss nach wenigen Sekunden mit einer neuen PID erscheinen:
+
+```bash
+pgrep -af 'chromium.*--kiosk.*zam-tv-chromium-profile'
+kill <CHROMIUM-PID>
+sleep 5
+pgrep -af 'chromium.*--kiosk.*zam-tv-chromium-profile'
+tail -n 20 ~/.local/state/zam-tv-kiosk.log
+```
+
+Den Haengefall kann man realistisch mit `SIGSTOP` simulieren. Dabei bleiben die
+Prozesse vorhanden, koennen aber keine Slides wechseln und keine Lebenszeichen
+mehr senden:
+
+```bash
+pkill -STOP -f -- "--user-data-dir=$HOME/.local/state/zam-tv-chromium-profile"
+```
+
+Nach etwas mehr als zehn Minuten muss das Log den fehlenden Bildschirmfortschritt
+und den automatischen Neustart melden. Danach sollen `/screen` und `/screen/health`
+wieder erfolgreich antworten:
+
+```bash
+tail -n 20 ~/.local/state/zam-tv-kiosk.log
+curl -I http://127.0.0.1/screen
+curl -I http://127.0.0.1/screen/health
+pgrep -af 'chromium.*--kiosk.*zam-tv-chromium-profile'
+```
+
+Falls der Test vorzeitig abgebrochen werden muss, lassen sich die angehaltenen
+Prozesse wieder fortsetzen:
+
+```bash
+pkill -CONT -f -- "--user-data-dir=$HOME/.local/state/zam-tv-chromium-profile"
 ```
 
 ### Bildschirm-Blanking pruefen
@@ -454,6 +461,14 @@ cd /opt/zam-tv
 docker compose up -d --build
 ```
 
+Wenn sich auch das Kiosk-Skript geaendert hat, erneut auf den Host kopieren und den
+Pi einmal neu starten:
+
+```bash
+install -m 755 /opt/zam-tv/scripts/start-zam-tv-kiosk.sh ~/.local/bin/
+sudo reboot
+```
+
 ### Komplett neu starten
 
 ```bash
@@ -464,7 +479,6 @@ sudo reboot
 Nicht noetig fuer V1, aber praktisch im Dauerbetrieb:
 
 - SSH-Login nur noch per Key
-- kleines Watchdog-Skript fuer Chromium, falls der Browser haengen bleibt
 - `/admin` im lokalen Netz per Reverse Proxy oder Firewall einschraenken
 - Betrieb auf SSD statt nur auf microSD
 

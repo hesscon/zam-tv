@@ -37,6 +37,13 @@ class ViewsTest(TestCase):
         self.assertEqual(200, self.client.get("/admin").status_code)
         self.assertEqual(200, self.client.get("/screen").status_code)
 
+    def test_screen_health_requires_a_heartbeat(self) -> None:
+        self.assertEqual(503, self.client.get("/screen/health").status_code)
+
+        self.assertEqual(204, self.client.post("/screen/heartbeat").status_code)
+
+        self.assertEqual(204, self.client.get("/screen/health").status_code)
+
     def test_admin_displays_recent_application_logs_as_escaped_text(self) -> None:
         logging.getLogger("app.test").warning(
             "Kalenderfehler <script>alert('x')</script>"

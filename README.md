@@ -29,6 +29,7 @@ Volumes gemountet, nicht der App-Code.
   Medien und den letzten 100 Anwendungsmeldungen des laufenden Prozesses
 - Screen zeigt aktive Inhalte nacheinander an
 - Nach einem kompletten Playlist-Durchlauf laedt sich `/screen` neu und uebernimmt so neue Konfigurationsaenderungen
+- `/screen` meldet beim ersten Anzeigen und nach jedem Slide-Wechsel seinen Fortschritt; das Kiosk-Skript startet Chromium nach zehn Minuten Stillstand neu
 - Videos laufen genau einmal komplett durch und wechseln dann automatisch weiter
 - Unterstuetzte Inhaltstypen: `image`, `video`, `web`, `calendar`
 - `calendar` erzeugt im Hintergrund einzelne Event-Slides aus einer ICS-Quelle
@@ -47,6 +48,8 @@ Volumes gemountet, nicht der App-Code.
 - `/admin/upload`: Medien nach `data/uploads/` hochladen
 - `/admin/save`: Formularziel zum Speichern der YAML
 - `/screen`: Signage-Ansicht fuer den Bildschirm
+- `/screen/heartbeat`: Lebenszeichen der Signage-Ansicht
+- `/screen/health`: Watchdog-Status des letzten Lebenszeichens
 - `/uploads/<filename>`: Lokale Medien aus `data/uploads/`
 
 ## YAML-Struktur

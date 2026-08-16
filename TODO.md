@@ -47,6 +47,9 @@
 
 ## Dauerbetrieb
 
-- [ ] Watchdog für Chromium einrichten.
+- [x] Watchdog für Chromium einrichten.
   - Eine leere oder hängende Anzeige erkennen und Chromium automatisch neu starten.
   - Dadurch soll bei diesem Fehler kein Neustart des gesamten Raspberry Pi mehr nötig sein.
+  - `/screen` sendet beim ersten Anzeigen und nach jedem Slide-Wechsel ein Lebenszeichen.
+  - Bleibt der Fortschritt zehn Minuten aus, startet das Kiosk-Skript Chromium neu.
+  - Absturz und eingefrorene Chromium-Prozesse wurden auf dem Zielgeraet praktisch getestet.

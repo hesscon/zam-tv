@@ -118,6 +118,18 @@ def screen():
     )
 
 
+@main_bp.post("/screen/heartbeat")
+def screen_heartbeat():
+    current_app.extensions["screen_heartbeat"].record()
+    return "", 204
+
+
+@main_bp.get("/screen/health")
+def screen_health():
+    heartbeat = current_app.extensions["screen_heartbeat"]
+    return ("", 204) if heartbeat.is_fresh() else ("", 503)
+
+
 @main_bp.get("/uploads/<path:filename>")
 def uploads(filename: str):
     return send_from_directory(current_app.config["UPLOADS_DIR"], filename)

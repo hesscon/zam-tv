@@ -14,6 +14,7 @@ function renderCurrentItem() {
     window.clearTimeout(timeoutId);
     emptyState.hidden = false;
     frame.hidden = true;
+    sendHeartbeat();
     return;
   }
 
@@ -22,6 +23,7 @@ function renderCurrentItem() {
 
   const item = playlist[index];
   content.innerHTML = buildMarkup(item);
+  sendHeartbeat();
 
   if (item.type === "video") {
     const video = content.querySelector("video");
@@ -49,6 +51,15 @@ function renderCurrentItem() {
   timeoutId = window.setTimeout(() => {
     goToNextItem();
   }, getDurationSeconds(item) * 1000);
+}
+
+function sendHeartbeat() {
+  // A heartbeat is tied to actual playlist progress, not just a running timer.
+  window.fetch("/screen/heartbeat", {
+    method: "POST",
+    cache: "no-store",
+    keepalive: true,
+  }).catch(() => {});
 }
 
 function goToNextItem() {
