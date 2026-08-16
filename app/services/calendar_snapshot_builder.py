@@ -32,6 +32,7 @@ class CalendarSnapshotBuilder:
         event_count = 0
         reused_count = 0
         without_description_count = 0
+        disabled_count = 0
 
         for item in config.get("items", []):
             if not item.get("enabled", True) or item.get("type") != "calendar":
@@ -64,6 +65,8 @@ class CalendarSnapshotBuilder:
                 elif not description:
                     slide["caption_input_hash"] = input_hash
                     without_description_count += 1
+                elif not item.get("caption_generation_enabled", False):
+                    disabled_count += 1
                 else:
                     request_id = _worker_request_id(*identity)
                     worker_requests.setdefault(
@@ -96,10 +99,12 @@ class CalendarSnapshotBuilder:
         )
         logger.info(
             "Kalender-Snapshot aufgebaut: events=%d captions_wiederverwendet=%d "
-            "captions_angefragt=%d ohne_beschreibung=%d caption_fehler=%d",
+            "captions_angefragt=%d captions_deaktiviert=%d "
+            "ohne_beschreibung=%d caption_fehler=%d",
             event_count,
             reused_count,
             len(worker_requests),
+            disabled_count,
             without_description_count,
             error_count,
         )

@@ -16,6 +16,7 @@ CALENDAR_ITEM = {
     "categories": ["Veranstaltung"],
     "days_ahead": 15,
     "fix_mec_timezone": False,
+    "caption_generation_enabled": True,
 }
 CONFIG = {"items": [CALENDAR_ITEM]}
 
@@ -275,6 +276,71 @@ class CalendarSnapshotBuilderTest(TestCase):
         slide = snapshot[build_calendar_item_key(CALENDAR_ITEM)][0]
         self.assertEqual("", slide["caption"])
         self.assertTrue(slide["caption_input_hash"])
+
+    def test_does_not_start_worker_when_caption_generation_is_disabled(self) -> None:
+        config = {
+            "items": [
+                {**CALENDAR_ITEM, "caption_generation_enabled": False},
+            ]
+        }
+        with patch(
+            "app.services.calendar_snapshot_builder.build_calendar_events",
+            return_value=[
+                _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen."),
+            ],
+        ):
+            snapshot = self.builder.build(config, {})
+
+        self.worker.generate.assert_not_called()
+        slide = snapshot[build_calendar_item_key(CALENDAR_ITEM)][0]
+        self.assertEqual("", slide["caption"])
+        self.assertNotIn("caption_input_hash", slide)
+
+    def test_missing_caption_setting_does_not_start_worker(self) -> None:
+        config = {
+            "items": [
+                {
+                    key: value
+                    for key, value in CALENDAR_ITEM.items()
+                    if key != "caption_generation_enabled"
+                }
+            ]
+        }
+        with patch(
+            "app.services.calendar_snapshot_builder.build_calendar_events",
+            return_value=[
+                _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen."),
+            ],
+        ):
+            self.builder.build(config, {})
+
+        self.worker.generate.assert_not_called()
+
+    def test_generates_caption_after_disabled_setting_is_enabled(self) -> None:
+        event = _event(
+            "event-1",
+            "Funkenflug",
+            "Langzeitfotos mit Wunderkerzen.",
+        )
+        disabled_config = {
+            "items": [
+                {**CALENDAR_ITEM, "caption_generation_enabled": False},
+            ]
+        }
+        self.worker.generate.side_effect = lambda requests: [
+            {"uid": requests[0]["uid"], "caption": "Leuchtende Fotos aufnehmen"}
+        ]
+
+        with patch(
+            "app.services.calendar_snapshot_builder.build_calendar_events",
+            return_value=[event],
+        ):
+            disabled_snapshot = self.builder.build(disabled_config, {})
+            enabled_snapshot = self.builder.build(CONFIG, disabled_snapshot)
+
+        self.worker.generate.assert_called_once()
+        slide = enabled_snapshot[build_calendar_item_key(CALENDAR_ITEM)][0]
+        self.assertEqual("Leuchtende Fotos aufnehmen", slide["caption"])
 
     def test_worker_error_is_logged_and_empty_caption_is_reused(self) -> None:
         event = _event("event-1", "Funkenflug", "Langzeitfotos mit Wunderkerzen.")

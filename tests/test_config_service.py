@@ -24,6 +24,7 @@ items:
         self.assertEqual([], item["categories"])
         self.assertEqual(14, item["days_ahead"])
         self.assertFalse(item["fix_mec_timezone"])
+        self.assertFalse(item["caption_generation_enabled"])
 
     def test_accepts_mec_timezone_fix_for_calendar(self) -> None:
         config = config_service.parse_config(
@@ -47,5 +48,33 @@ items:
     content: https://example.com/events.ics
     duration: 15
     fix_mec_timezone: "-1"
+"""
+            )
+
+    def test_accepts_enabled_caption_generation_for_calendar(self) -> None:
+        config = config_service.parse_config(
+            """
+items:
+  - type: calendar
+    content: https://example.com/events.ics
+    duration: 15
+    caption_generation_enabled: true
+"""
+        )
+
+        self.assertTrue(config["items"][0]["caption_generation_enabled"])
+
+    def test_rejects_non_boolean_caption_generation_setting(self) -> None:
+        with self.assertRaisesRegex(
+            config_service.ConfigError,
+            "caption_generation_enabled.*true oder false",
+        ):
+            config_service.parse_config(
+                """
+items:
+  - type: calendar
+    content: https://example.com/events.ics
+    duration: 15
+    caption_generation_enabled: "yes"
 """
             )

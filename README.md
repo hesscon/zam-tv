@@ -34,7 +34,7 @@ Volumes gemountet, nicht der App-Code.
 - Kalender-Slides zeigen bei vorhandener Event-URL einen QR-Code zur Veranstaltungsseite
 - Ein Hintergrund-Thread aktualisiert den Kalender-Snapshot sofort nach dem Start und danach alle 15 Minuten
 - Der letzte erfolgreiche Kalender-Snapshot wird in `data/cache/calendar_cache.json` gespeichert und beim Neustart sofort geladen
-- Neue oder in Titel beziehungsweise Beschreibung geaenderte Events werden gesammelt an den lokalen Caption-Worker uebergeben; jedes fertige JSONL-Ergebnis wird sofort im Snapshot persistiert, unveraenderte Captions kommen aus dem vorherigen Snapshot
+- Wenn `caption_generation_enabled: true` gesetzt ist, werden neue oder in Titel beziehungsweise Beschreibung geaenderte Events gesammelt an den lokalen Caption-Worker uebergeben; jedes fertige JSONL-Ergebnis wird sofort im Snapshot persistiert, unveraenderte Captions kommen aus dem vorherigen Snapshot
 - Der Caption-Worker laeuft standardmaessig mit Nice-Level 10, damit Flask und die lokale Bildschirmanzeige bei CPU-Konkurrenz Vorrang haben
 - `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
 
@@ -72,6 +72,8 @@ items:
     content: https://example.com/events.ics
     duration: 12
     enabled: true
+    # Ressourcenschonend standardmaessig ausgeschaltet
+    caption_generation_enabled: false
     categories:
       - Veranstaltung
     days_ahead: 14
@@ -85,6 +87,7 @@ Wichtige Felder:
 - `duration`: Pflicht fuer `image`, `web` und `calendar`
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
+- `caption_generation_enabled: true` aktiviert KI-generierte Kurztexte fuer den jeweiligen Kalender; ohne das Feld ist die Funktion ausgeschaltet
 - `fix_mec_timezone: true` aktiviert bei fehlerhaften Modern Events Calendar-Feeds die Korrektur der doppelt aufgeschlagenen Berliner UTC-Abweichung
 - Waehrend eines Kalender-Refreshs und bei Fehlern wird der letzte erfolgreiche Stand weiterverwendet
 - Beim allerersten Start ohne Cache-Datei bleibt der Kalenderbereich leer, bis der erste Hintergrund-Refresh erfolgreich abgeschlossen ist

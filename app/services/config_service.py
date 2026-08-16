@@ -19,6 +19,7 @@ DEFAULT_CONFIG = """items:
     content: https://example.com/calendar.ics
     duration: 15
     enabled: false
+    caption_generation_enabled: false
     categories:
       - Veranstaltung
     days_ahead: 14
@@ -108,5 +109,16 @@ def parse_config(config_text: str) -> dict:
                     f"Eintrag {index} vom Typ `calendar` braucht `fix_mec_timezone` als true oder false."
                 )
             item["fix_mec_timezone"] = fix_mec_timezone
+
+            caption_generation_enabled = item.get(
+                "caption_generation_enabled",
+                False,
+            )
+            if not isinstance(caption_generation_enabled, bool):
+                raise ConfigError(
+                    f"Eintrag {index} vom Typ `calendar` braucht "
+                    "`caption_generation_enabled` als true oder false."
+                )
+            item["caption_generation_enabled"] = caption_generation_enabled
 
     return config
