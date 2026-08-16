@@ -95,6 +95,10 @@ function buildMarkup(item) {
       : "";
     const title = item.summary || "";
     const longTitleClass = isLongTitle(title) ? " is-long-title" : "";
+    const caption = String(item.caption || "").trim();
+    const captionMarkup = caption
+      ? `<p class="calendar-event-caption">${escapeHtml(caption)}</p>`
+      : "";
     const qrCode = item.qr_code_data_uri
       ? `
         <div class="calendar-event-qr">
@@ -109,6 +113,7 @@ function buildMarkup(item) {
         <div class="calendar-event-body">
           <div class="calendar-event-category">${escapeHtml(item.category || "Veranstaltung")}</div>
           <h1 class="calendar-event-title">${escapeHtml(title || "Ohne Titel")}</h1>
+          ${captionMarkup}
           <p class="calendar-event-date">${escapeHtml(item.start_label || "")}</p>
         </div>
         ${qrCode}

@@ -139,6 +139,8 @@ li {
   --calendar-event-title-size: clamp(2.4rem, 5.9vw, 6.4rem);
   --calendar-event-title-line-height: 1.02;
   --calendar-event-title-max-width: 19ch;
+  --calendar-event-caption-size: clamp(1.1rem, 1.8vw, 1.65rem);
+  --calendar-event-caption-max-width: 30ch;
   --calendar-event-date-size: clamp(1.25rem, 2.5vw, 2.2rem);
   --calendar-event-date-line-height: 1.15;
   --calendar-event-overlay:
@@ -241,6 +243,19 @@ li {
   gap: var(--calendar-event-long-body-gap);
 }
 
+.calendar-event-caption {
+  color: rgba(248, 250, 252, 0.82);
+  display: -webkit-box;
+  font-size: var(--calendar-event-caption-size);
+  font-weight: 400;
+  line-height: 1.25;
+  max-width: var(--calendar-event-caption-max-width);
+  overflow: hidden;
+  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .calendar-event-date {
   color: #e5e7eb;
   font-size: var(--calendar-event-date-size);
@@ -290,6 +305,7 @@ li {
     --calendar-event-body-margin-right: 0;
     --calendar-event-body-text-align: right;
     --calendar-event-title-max-width: 15ch;
+    --calendar-event-caption-max-width: 28ch;
     --calendar-event-overlay:
       linear-gradient(90deg, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.18) 34%, rgba(3, 7, 18, 0.72) 72%, rgba(3, 7, 18, 0.92) 100%),
       linear-gradient(135deg, rgba(245, 158, 11, 0.14), transparent 36%);
@@ -308,6 +324,8 @@ li {
     --calendar-event-body-padding: 2rem 1.75rem var(--calendar-event-bottom-offset);
     --calendar-event-title-size: clamp(2.2rem, 9vw, 4.6rem);
     --calendar-event-title-max-width: 12ch;
+    --calendar-event-caption-size: clamp(1.05rem, 3.8vw, 1.45rem);
+    --calendar-event-caption-max-width: 24ch;
     --calendar-event-date-size: clamp(1.15rem, 4.2vw, 1.7rem);
     --calendar-event-long-title-size: clamp(1.7rem, 7.2vw, 3.5rem);
     --calendar-event-long-title-line-height: 0.94;
