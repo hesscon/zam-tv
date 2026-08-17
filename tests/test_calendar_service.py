@@ -133,6 +133,49 @@ class BuildCalendarSlidesTest(TestCase):
         self.assertEqual("2026-07-25T08:00:00+00:00", matching_slides[0]["start_iso"])
         self.assertEqual("Samstag, 25. Juli 10:00", matching_slides[0]["start_label"])
 
+    def test_keeps_only_next_occurrence_of_recurring_event(self) -> None:
+        item = {
+            "content": "https://example.com/weekly-events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung"],
+            "days_ahead": 20,
+        }
+
+        with patch.object(
+            calendar_service.requests,
+            "get",
+            return_value=_weekly_fixture_response(),
+        ):
+            slides = calendar_service.build_calendar_slides(
+                item,
+                now=datetime(2026, 8, 1, 0, 0, tzinfo=timezone.utc),
+            )
+
+        self.assertEqual(1, len(slides))
+        self.assertEqual("Offener Treff", slides[0]["summary"])
+        self.assertEqual("2026-08-03T18:00:00+00:00", slides[0]["start_iso"])
+
+    def test_shows_following_occurrence_after_previous_one_has_passed(self) -> None:
+        item = {
+            "content": "https://example.com/weekly-events.ics",
+            "duration": 12,
+            "categories": ["Veranstaltung"],
+            "days_ahead": 20,
+        }
+
+        with patch.object(
+            calendar_service.requests,
+            "get",
+            return_value=_weekly_fixture_response(),
+        ):
+            slides = calendar_service.build_calendar_slides(
+                item,
+                now=datetime(2026, 8, 4, 0, 0, tzinfo=timezone.utc),
+            )
+
+        self.assertEqual(1, len(slides))
+        self.assertEqual("2026-08-17T18:00:00+00:00", slides[0]["start_iso"])
+
     def test_mec_timezone_fix_corrects_winter_series_before_expansion(self) -> None:
         item = {
             "content": "https://example.com/mec-events.ics",
@@ -290,6 +333,25 @@ DTSTART;TZID=Europe/Berlin:20260809T120000
 DTEND;TZID=Europe/Berlin:20260809T143000
 SUMMARY:Zentralperspektive Grundlagen
 CATEGORIES:Workshop
+END:VEVENT
+END:VCALENDAR
+"""
+    )
+
+
+def _weekly_fixture_response() -> FakeResponse:
+    return FakeResponse(
+        """BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZAM Test//DE
+BEGIN:VEVENT
+UID:offener-treff@example.com
+DTSTART:20260803T180000Z
+DTEND:20260803T200000Z
+RRULE:FREQ=WEEKLY
+EXDATE:20260810T180000Z
+SUMMARY:Offener Treff
+CATEGORIES:Veranstaltung
 END:VEVENT
 END:VCALENDAR
 """

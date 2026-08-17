@@ -96,7 +96,21 @@ def _build_events(item: dict, now: datetime) -> list[dict]:
         )
 
     events.sort(key=lambda entry: entry["slide"]["start_iso"])
-    return events
+    return _keep_next_event_per_uid(events)
+
+
+def _keep_next_event_per_uid(events: list[dict]) -> list[dict]:
+    next_events = []
+    seen_uids = set()
+
+    for event in events:
+        uid = event["uid"]
+        if uid in seen_uids:
+            continue
+        seen_uids.add(uid)
+        next_events.append(event)
+
+    return next_events
 
 
 def _event_uid(component, ics_url: str, summary: str, start: datetime) -> str:

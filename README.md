@@ -91,6 +91,7 @@ Wichtige Felder:
 - `duration`: Pflicht fuer `image`, `web` und `calendar`
 - `video` braucht keine `duration`, sondern laeuft einmal komplett durch
 - `calendar` kann mit `categories` und `days_ahead` gefiltert werden
+- Bei wiederkehrenden Kalender-Events wird nur der unmittelbar naechste Termin angezeigt
 - `caption_generation_enabled: true` aktiviert KI-generierte Kurztexte fuer den jeweiligen Kalender; ohne das Feld ist die Funktion ausgeschaltet
 - `fix_mec_timezone: true` aktiviert bei fehlerhaften Modern Events Calendar-Feeds die Korrektur der doppelt aufgeschlagenen Berliner UTC-Abweichung
 - Waehrend eines Kalender-Refreshs und bei Fehlern wird der letzte erfolgreiche Stand weiterverwendet

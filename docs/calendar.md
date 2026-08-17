@@ -93,6 +93,8 @@ Wichtig:
 - Die erzeugten Slides erscheinen genau an der Stelle in der Playlist, an der der `calendar`-Eintrag steht
 - Die `duration` des YAML-Eintrags gilt fuer jedes erzeugte Event einzeln
 - Bei 3 gefundenen Events mit `duration: 12` laufen also 3 Slides mit jeweils 12 Sekunden
+- Von einer wiederkehrenden Event-Serie wird nur der unmittelbar naechste Termin angezeigt
+- Nach dessen Ablauf rueckt beim naechsten Kalender-Refresh der folgende Termin nach
 
 ## Darstellung eines Event-Slides
 
@@ -123,6 +125,7 @@ Um die Implementierung schlank zu halten:
 - `DESCRIPTION` wird komplett ignoriert
 - fehlendes `ATTACH` blendet nur das Bild aus, nicht das Event
 - Wiederholungen werden nur innerhalb des konfigurierten Zeitfensters expandiert
+- Mehrere Vorkommen derselben Serie werden anhand ihrer `UID` zusammengefasst
 
 ## Offene spaetere Erweiterungen
 

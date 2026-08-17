@@ -41,9 +41,9 @@
 
 ## Kalender
 
-- [ ] Wiederkehrende Kalender-Events innerhalb von `days_ahead` nicht als einzelne Slides anzeigen.
-  - Noch zu entscheiden: Alle betroffenen Tage gemeinsam in der Datumszeile aufführen.
-  - Alternative: Nur den unmittelbar nächsten Termin des Events anzeigen.
+- [x] Wiederkehrende Kalender-Events innerhalb von `days_ahead` nicht als einzelne Slides anzeigen.
+  - Pro Event-Serie wird nur der unmittelbar nächste Termin angezeigt.
+  - Nach dessen Ablauf erscheint beim nächsten Kalender-Refresh der folgende Termin.
 
 ## Dauerbetrieb
 
