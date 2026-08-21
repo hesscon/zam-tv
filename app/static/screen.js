@@ -7,11 +7,13 @@ const playlist = JSON.parse(root?.dataset.playlist || "[]");
 
 let index = 0;
 let timeoutId = null;
+let videoEndCheckIntervalId = null;
 let manualAdvanceEnabled = false;
 
 function renderCurrentItem() {
+  clearAdvanceTimers();
+
   if (!playlist.length) {
-    window.clearTimeout(timeoutId);
     emptyState.hidden = false;
     frame.hidden = true;
     sendHeartbeat();
@@ -28,29 +30,84 @@ function renderCurrentItem() {
   if (item.type === "video") {
     const video = content.querySelector("video");
     if (video) {
-      window.clearTimeout(timeoutId);
       if (manualAdvanceEnabled) {
         return;
       }
+
+      let hasAdvanced = false;
+      let lastCurrentTime = 0;
+      let lastProgressAt = Date.now();
+      const advanceAfterVideo = () => {
+        if (hasAdvanced) {
+          return;
+        }
+        hasAdvanced = true;
+        clearAdvanceTimers();
+        goToNextItem();
+      };
+
       video.addEventListener(
         "ended",
-        () => {
-          goToNextItem();
-        },
+        advanceAfterVideo,
         { once: true }
       );
+      video.addEventListener("error", advanceAfterVideo, { once: true });
+
+      const scheduleVideoDeadline = () => {
+        const duration = video.duration;
+        const playbackRate = video.playbackRate || 1;
+        if (!Number.isFinite(duration) || duration <= 0) {
+          return;
+        }
+
+        window.clearTimeout(timeoutId);
+        const remainingSeconds = Math.max(0, duration - video.currentTime) / playbackRate;
+        timeoutId = window.setTimeout(advanceAfterVideo, (remainingSeconds + 10) * 1000);
+      };
+
+      video.addEventListener("playing", scheduleVideoDeadline);
+
+      // Chromium on older Raspberry Pis can stop updating the video position
+      // without emitting `ended` and without landing close enough to `duration`.
+      // Once playback has started, four seconds without progress means the
+      // decoder is stuck and the playlist should continue.
+      videoEndCheckIntervalId = window.setInterval(() => {
+        const currentTime = video.currentTime;
+        const hasProgressed = Math.abs(currentTime - lastCurrentTime) >= 0.05;
+
+        if (video.ended) {
+          advanceAfterVideo();
+          return;
+        }
+
+        if (hasProgressed) {
+          lastProgressAt = Date.now();
+        } else if (currentTime > 0.25 && Date.now() - lastProgressAt >= 4000) {
+          advanceAfterVideo();
+          return;
+        }
+
+        lastCurrentTime = currentTime;
+      }, 500);
+
       video.play().catch(() => {});
       return;
     }
   }
 
-  window.clearTimeout(timeoutId);
   if (manualAdvanceEnabled) {
     return;
   }
   timeoutId = window.setTimeout(() => {
     goToNextItem();
   }, getDurationSeconds(item) * 1000);
+}
+
+function clearAdvanceTimers() {
+  window.clearTimeout(timeoutId);
+  window.clearInterval(videoEndCheckIntervalId);
+  timeoutId = null;
+  videoEndCheckIntervalId = null;
 }
 
 function sendHeartbeat() {
@@ -63,6 +120,8 @@ function sendHeartbeat() {
 }
 
 function goToNextItem() {
+  clearAdvanceTimers();
+
   // The simplest way to pick up YAML changes is to reload after one full pass.
   const isLastItem = index >= playlist.length - 1;
   if (isLastItem) {
@@ -178,7 +237,7 @@ window.addEventListener("keydown", () => {
 
   if (!manualAdvanceEnabled) {
     manualAdvanceEnabled = true;
-    window.clearTimeout(timeoutId);
+    clearAdvanceTimers();
     return;
   }
 
