@@ -45,6 +45,16 @@
   - Pro Event-Serie wird nur der unmittelbar nächste Termin angezeigt.
   - Nach dessen Ablauf erscheint beim nächsten Kalender-Refresh der folgende Termin.
 
+## Integrationen
+
+- [ ] LED-Laufband „Textecke“ mit dem Kalender verbinden.
+  - Das Laufband soll den nächsten Event im ZAM-Haupthaus anzeigen.
+  - Die Nachricht per `POST http://texteck.usr.zam.haus/api/v1/message` als JSON
+    mit dem Feld `text` senden.
+  - Netzwerk- und API-Fehler protokollieren; ein nicht erreichbares Laufband darf
+    Kalender-Aktualisierung und Bildschirmanzeige nicht beeinträchtigen.
+  - Projektdokumentation: https://wiki.betreiberverein.de/books/projekte-abgeschlossen/page/41-textecke-3Lf
+
 ## Dauerbetrieb
 
 - [x] Watchdog für Chromium einrichten.
