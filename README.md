@@ -39,6 +39,7 @@ Volumes gemountet, nicht der App-Code.
 - Wenn `caption_generation_enabled: true` gesetzt ist, werden neue oder in Titel beziehungsweise Beschreibung geaenderte Events gesammelt an den lokalen Caption-Worker uebergeben; jedes fertige JSONL-Ergebnis wird sofort im Snapshot persistiert, unveraenderte Captions kommen aus dem vorherigen Snapshot
 - Der Caption-Worker laeuft standardmaessig mit Nice-Level 10, damit Flask und die lokale Bildschirmanzeige bei CPU-Konkurrenz Vorrang haben
 - `/screen` liest nur den fertigen Snapshot und wartet weder auf ICS-Abruf noch auf Parsing
+- Die optionale Texteckenintegration zeigt unabhaengig von der Bildschirm-Playlist den naechsten beziehungsweise aktuell laufenden Haupthaus-Termin auf dem LED-Laufband an
 
 ## Routen
 
@@ -57,6 +58,14 @@ Volumes gemountet, nicht der App-Code.
 Ein minimales Beispiel:
 
 ```yaml
+textecke:
+  enabled: false
+  content: https://example.com/events.ics
+  message_url: http://texteck.usr.zam.haus/api/v1/message
+  categories:
+    - Haupthaus
+  fix_mec_timezone: false
+
 items:
   - type: web
     content: https://zam.haus
@@ -85,6 +94,9 @@ items:
 ```
 
 Wichtige Felder:
+- `textecke`: Optionale, von `items` unabhaengige Anbindung des LED-Laufbands an eine eigene ICS-Quelle
+- Die Textecke sucht fest sieben Tage voraus und verwendet ohne passenden Termin den Text `Entdecke das ZAM in dir`
+- Ein laufender Textecken-Termin wird von `DTSTART` bis `DTEND` mit `JETZT` gekennzeichnet
 - `items`: Liste aller Inhalte in Wiedergabereihenfolge
 - `enabled`: Nur aktive Eintraege werden auf dem Screen gezeigt
 - `content`: URL fuer `web` und `calendar`, Dateiname relativ zu `data/uploads/` fuer `image` und `video`
@@ -110,6 +122,7 @@ Wichtige Felder:
 - `data/cache/calendar_cache.json`: Letzter erfolgreicher Kalender-Snapshot
 - `data/uploads/`: Bilder und Videos fuer lokale Medieninhalte
 - `docs/calendar.md`: Entscheidungen und Plan fuer die ICS-/Kalender-Logik
+- `docs/textecke-integration-plan.md`: Verhalten und Architektur der LED-Texteckenintegration
 - `docs/llm-caption-worker.md`: Lokaler Test fuer automatisch erzeugte Event-Kurztexte
 - `docs/llm-caption-validator.md`: Unabhaengige LLM-Pruefung erzeugter Event-Kurztexte
 - `docs/raspberry-pi-installation.md`: Konkrete Installationsanleitung fuer Raspberry Pi, Docker und Kiosk-Modus

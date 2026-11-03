@@ -1,3 +1,11 @@
+textecke:
+  enabled: false
+  content: https://www.zam.haus/?mec-ical-feed=1
+  message_url: http://texteck.usr.zam.haus/api/v1/message
+  categories:
+    - Haupthaus
+  fix_mec_timezone: true
+
 items:
 
   - type: web

@@ -28,6 +28,14 @@ DEFAULT_CONFIG = """items:
   - type: video
     content: sample.mp4
     enabled: false
+
+textecke:
+  enabled: false
+  content: https://example.com/calendar.ics
+  message_url: http://texteck.usr.zam.haus/api/v1/message
+  categories:
+    - Haupthaus
+  fix_mec_timezone: false
 """
 
 
@@ -121,4 +129,46 @@ def parse_config(config_text: str) -> dict:
                 )
             item["caption_generation_enabled"] = caption_generation_enabled
 
+    _normalize_textecke_config(config)
+
     return config
+
+
+def _normalize_textecke_config(config: dict) -> None:
+    textecke = config.get("textecke")
+    if textecke is None:
+        return
+    if not isinstance(textecke, dict):
+        raise ConfigError("`textecke` muss ein Objekt sein.")
+
+    enabled = textecke.get("enabled", False)
+    if not isinstance(enabled, bool):
+        raise ConfigError("`textecke.enabled` muss true oder false sein.")
+
+    content = textecke.get("content")
+    if not isinstance(content, str) or not content.strip():
+        raise ConfigError("`textecke.content` muss eine ICS-URL sein.")
+
+    message_url = textecke.get("message_url")
+    if not isinstance(message_url, str) or not message_url.strip():
+        raise ConfigError("`textecke.message_url` muss eine URL sein.")
+
+    categories = textecke.get("categories", [])
+    if not isinstance(categories, list) or not all(
+        isinstance(category, str) for category in categories
+    ):
+        raise ConfigError("`textecke.categories` muss eine Liste aus Texten sein.")
+
+    fix_mec_timezone = textecke.get("fix_mec_timezone", False)
+    if not isinstance(fix_mec_timezone, bool):
+        raise ConfigError(
+            "`textecke.fix_mec_timezone` muss true oder false sein."
+        )
+
+    textecke["enabled"] = enabled
+    textecke["content"] = content.strip()
+    textecke["message_url"] = message_url.strip()
+    textecke["categories"] = [
+        category.strip() for category in categories if category.strip()
+    ]
+    textecke["fix_mec_timezone"] = fix_mec_timezone

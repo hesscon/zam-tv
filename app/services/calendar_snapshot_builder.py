@@ -1,8 +1,14 @@
+from base64 import b64encode
 import json
 import logging
+from datetime import datetime
 from hashlib import sha256
 from typing import Callable
 from urllib.parse import urlsplit, urlunsplit
+from zoneinfo import ZoneInfo
+
+import qrcode
+import qrcode.image.svg
 
 from .calendar_service import build_calendar_events
 from .caption_worker_client import CaptionWorkerClient
@@ -10,6 +16,30 @@ from .event_caption_worker import MAX_DESCRIPTION_CHARS, normalize_source_text
 
 
 logger = logging.getLogger(__name__)
+GERMAN_WEEKDAY_NAMES = [
+    "Montag",
+    "Dienstag",
+    "Mittwoch",
+    "Donnerstag",
+    "Freitag",
+    "Samstag",
+    "Sonntag",
+]
+GERMAN_MONTH_NAMES = [
+    "Januar",
+    "Februar",
+    "März",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember",
+]
+DISPLAY_TIMEZONE = ZoneInfo("Europe/Berlin")
 CalendarItemKey = tuple[str, tuple[str, ...], int, str, bool]
 CalendarSnapshot = dict[CalendarItemKey, tuple[dict, ...]]
 SnapshotProgressCallback = Callable[[CalendarSnapshot], None]
@@ -62,7 +92,7 @@ class CalendarSnapshotBuilder:
                 input_hash = _caption_input_hash(title, description)
                 identity = (key[0], uid, input_hash)
                 slide = {
-                    **event["slide"],
+                    **_build_calendar_slide(item, event),
                     "uid": uid,
                     "caption": "",
                 }
@@ -283,6 +313,59 @@ class CalendarSnapshotBuilder:
                 title,
             )
         return 0
+
+
+def _build_calendar_slide(item: dict, event: dict) -> dict:
+    configured_categories = {
+        value.strip() for value in item.get("categories", []) if value
+    }
+    matching_categories = [
+        category
+        for category in event["categories"]
+        if category in configured_categories
+    ]
+    category = (
+        matching_categories[0]
+        if matching_categories
+        else (event["categories"][0] if event["categories"] else "")
+    )
+    return {
+        "type": "calendar_event",
+        "duration": item.get("duration", 15),
+        "category": category,
+        "summary": event["title"],
+        "image_url": event["image_url"],
+        "event_url": event["event_url"],
+        "qr_code_data_uri": _build_qr_code_data_uri(event["event_url"]),
+        "start_iso": event["start"].isoformat(),
+        "start_label": _format_start_label(event["start"]),
+    }
+
+
+def _format_start_label(value: datetime) -> str:
+    local_value = value.astimezone(DISPLAY_TIMEZONE)
+    weekday = GERMAN_WEEKDAY_NAMES[local_value.weekday()]
+    month = GERMAN_MONTH_NAMES[local_value.month - 1]
+    return (
+        f"{weekday}, {local_value.day}. {month} "
+        f"{local_value.strftime('%H:%M')}"
+    )
+
+
+def _build_qr_code_data_uri(event_url: str) -> str:
+    if not event_url:
+        return ""
+
+    try:
+        qr_code = qrcode.make(
+            event_url,
+            image_factory=qrcode.image.svg.SvgPathFillImage,
+        )
+    except (qrcode.exceptions.DataOverflowError, ValueError):
+        return ""
+
+    encoded_svg = b64encode(qr_code.to_string()).decode("ascii")
+    return f"data:image/svg+xml;base64,{encoded_svg}"
 
 
 def _mark_targets_complete(

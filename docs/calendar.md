@@ -66,6 +66,7 @@ Fuer V1 sollen nur diese Felder ausgewertet werden:
 - `ATTACH`
 - `SUMMARY`
 - `DTSTART`
+- `DTEND`
 - `RDATE`, `RRULE` und `EXDATE` fuer Wiederholungen
 - `URL`
 
@@ -116,6 +117,7 @@ Aus der bereitgestellten Datei ergeben sich diese praktischen Punkte:
 - `ATTACH` ist meist eine direkte Bild-URL
 - `URL` verweist direkt auf die zugehoerige Veranstaltungsseite
 - `DTSTART` kommt mit `TZID=Europe/Berlin`
+- `DTEND` wird fuer laufende Termine der Texteckenintegration normalisiert
 - `DESCRIPTION` ist oft leer oder sehr lang und teils unruhig formatiert
 - Wiederholungen werden mit `RDATE`, `RRULE` und `EXDATE` beschrieben
 

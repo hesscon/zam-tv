@@ -1,5 +1,11 @@
 # Texteckenintegration
 
+## Implementierungsstatus
+
+Die hier beschriebene einfache V1 ist umgesetzt. Die Abschnitte zu einem
+gemeinsamen ICS-Cache und zum Wechsel mit manuellen Nachrichten bleiben
+bewusst spaetere Erweiterungen.
+
 ## Ziel
 
 Die LED-Textecke soll automatisch auf Veranstaltungen im ZAM-Haupthaus

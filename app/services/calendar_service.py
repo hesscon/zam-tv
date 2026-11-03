@@ -1,38 +1,15 @@
-from base64 import b64encode
 from datetime import datetime, time, timedelta, timezone
 from hashlib import sha256
+import logging
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
-import qrcode
-import qrcode.image.svg
 import recurring_ical_events
 import requests
 from icalendar import Calendar
 
-GERMAN_WEEKDAY_NAMES = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
-GERMAN_MONTH_NAMES = [
-    "Januar",
-    "Februar",
-    "März",
-    "April",
-    "Mai",
-    "Juni",
-    "Juli",
-    "August",
-    "September",
-    "Oktober",
-    "November",
-    "Dezember",
-]
+logger = logging.getLogger(__name__)
 DISPLAY_TIMEZONE = ZoneInfo("Europe/Berlin")
-
-
-def build_calendar_slides(item: dict, now: datetime | None = None) -> list[dict]:
-    return [
-        event["slide"]
-        for event in build_calendar_events(item, now)
-    ]
 
 
 def build_calendar_events(item: dict, now: datetime | None = None) -> list[dict]:
@@ -58,17 +35,43 @@ def _build_events(item: dict, now: datetime) -> list[dict]:
 
     for component in recurring_ical_events.of(calendar, skip_bad_series=True).between(now, window_end):
         start_value = component.get("dtstart")
-        if not start_value:
+        end_value = component.get("dtend")
+        summary = str(component.get("summary", "")).strip() or "Ohne Titel"
+        uid = _event_uid(component, ics_url, summary, None)
+        if not start_value or not end_value:
+            logger.warning(
+                "Kalender-Event ohne gueltigen Zeitraum wird uebersprungen: "
+                "uid=%s titel=%r",
+                uid,
+                summary,
+            )
             continue
 
-        start = _normalize_datetime(start_value.dt)
+        try:
+            start = _normalize_datetime(start_value.dt)
+            end = _normalize_datetime(end_value.dt)
+        except (AttributeError, TypeError, ValueError, OverflowError):
+            logger.warning(
+                "Kalender-Event mit ungueltigem Zeitraum wird uebersprungen: "
+                "uid=%s titel=%r",
+                uid,
+                summary,
+            )
+            continue
+        if end <= start:
+            logger.warning(
+                "Kalender-Event mit nicht positiver Dauer wird uebersprungen: "
+                "uid=%s titel=%r",
+                uid,
+                summary,
+            )
+            continue
 
         categories = _normalize_categories(component.get("categories"))
         matching_categories = [category for category in categories if category in categories_filter]
         if categories_filter and not matching_categories:
             continue
 
-        summary = str(component.get("summary", "")).strip() or "Ohne Titel"
         description = str(component.get("description", "")).strip()
         uid = _event_uid(component, ics_url, summary, start)
         event_url = _normalize_event_url(component.get("url"))
@@ -77,25 +80,15 @@ def _build_events(item: dict, now: datetime) -> list[dict]:
                 "uid": uid,
                 "title": summary,
                 "description": description,
-                "slide": {
-                    "type": "calendar_event",
-                    "duration": item.get("duration", 15),
-                    "category": (
-                        matching_categories[0]
-                        if matching_categories
-                        else (categories[0] if categories else "")
-                    ),
-                    "summary": summary,
-                    "image_url": str(component.get("attach", "")).strip(),
-                    "event_url": event_url,
-                    "qr_code_data_uri": _build_qr_code_data_uri(event_url),
-                    "start_iso": start.isoformat(),
-                    "start_label": _format_start_label(start),
-                },
+                "categories": categories,
+                "image_url": str(component.get("attach", "")).strip(),
+                "event_url": event_url,
+                "start": start,
+                "end": end,
             }
         )
 
-    events.sort(key=lambda entry: entry["slide"]["start_iso"])
+    events.sort(key=lambda entry: entry["start"])
     return _keep_next_event_per_uid(events)
 
 
@@ -113,12 +106,19 @@ def _keep_next_event_per_uid(events: list[dict]) -> list[dict]:
     return next_events
 
 
-def _event_uid(component, ics_url: str, summary: str, start: datetime) -> str:
+def _event_uid(
+    component,
+    ics_url: str,
+    summary: str,
+    start: datetime | None,
+) -> str:
     uid = str(component.get("uid", "")).strip()
     if uid:
         return uid
 
-    fallback_source = "\0".join((ics_url, summary, start.isoformat()))
+    fallback_source = "\0".join(
+        (ics_url, summary, start.isoformat() if start is not None else "")
+    )
     return f"generated-{sha256(fallback_source.encode('utf-8')).hexdigest()}"
 
 
@@ -134,13 +134,6 @@ def _normalize_datetime(value) -> datetime:
 
 def _utc_now() -> datetime:
     return datetime.now(timezone.utc)
-
-
-def _format_start_label(value: datetime) -> str:
-    local_value = value.astimezone(DISPLAY_TIMEZONE)
-    weekday = GERMAN_WEEKDAY_NAMES[local_value.weekday()]
-    month = GERMAN_MONTH_NAMES[local_value.month - 1]
-    return f"{weekday}, {local_value.day}. {month} {local_value.strftime('%H:%M')}"
 
 
 def _apply_mec_timezone_fix(calendar: Calendar) -> None:
@@ -226,16 +219,3 @@ def _normalize_event_url(value) -> str:
     if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
         return ""
     return event_url
-
-
-def _build_qr_code_data_uri(event_url: str) -> str:
-    if not event_url:
-        return ""
-
-    try:
-        qr_code = qrcode.make(event_url, image_factory=qrcode.image.svg.SvgPathFillImage)
-    except (qrcode.exceptions.DataOverflowError, ValueError):
-        return ""
-
-    encoded_svg = b64encode(qr_code.to_string()).decode("ascii")
-    return f"data:image/svg+xml;base64,{encoded_svg}"

@@ -1,4 +1,5 @@
 from copy import deepcopy
+from datetime import datetime, timedelta, timezone
 from unittest import TestCase
 from unittest.mock import Mock, patch
 
@@ -28,21 +29,16 @@ def _event(
     *,
     start_iso: str = "2026-08-06T18:00:00+00:00",
 ) -> dict:
+    start = datetime.fromisoformat(start_iso)
     return {
         "uid": uid,
         "title": title,
         "description": description,
-        "slide": {
-            "type": "calendar_event",
-            "duration": 12,
-            "summary": title,
-            "category": "Veranstaltung",
-            "image_url": "",
-            "event_url": "",
-            "qr_code_data_uri": "",
-            "start_iso": start_iso,
-            "start_label": "Donnerstag, 6. August 20:00",
-        },
+        "categories": ["Veranstaltung"],
+        "image_url": "",
+        "event_url": "",
+        "start": start,
+        "end": start + timedelta(hours=2),
     }
 
 
@@ -77,6 +73,27 @@ class CalendarSnapshotBuilderTest(TestCase):
         self.assertEqual(["Caption 1", "Caption 2"], [s["caption"] for s in slides])
         self.assertTrue(all(slide["caption_input_hash"] for slide in slides))
         self.assertTrue(all("description" not in slide for slide in slides))
+
+    def test_builds_screen_specific_slide_fields(self) -> None:
+        event = _event("event-1", "Workshop", "")
+        event["event_url"] = "https://example.com/workshop"
+
+        with patch(
+            "app.services.calendar_snapshot_builder.build_calendar_events",
+            return_value=[event],
+        ):
+            snapshot = self.builder.build(CONFIG, {})
+
+        slide = snapshot[build_calendar_item_key(CALENDAR_ITEM)][0]
+        self.assertEqual("calendar_event", slide["type"])
+        self.assertEqual(12, slide["duration"])
+        self.assertEqual("Veranstaltung", slide["category"])
+        self.assertEqual("Workshop", slide["summary"])
+        self.assertEqual(event["start"].isoformat(), slide["start_iso"])
+        self.assertEqual("Donnerstag, 6. August 20:00", slide["start_label"])
+        self.assertTrue(
+            slide["qr_code_data_uri"].startswith("data:image/svg+xml;base64,")
+        )
 
     def test_reports_each_streamed_result_as_snapshot_progress(self) -> None:
         events = [

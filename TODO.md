@@ -47,7 +47,7 @@
 
 ## Integrationen
 
-- [ ] LED-Laufband „Textecke“ mit dem Kalender verbinden.
+- [x] LED-Laufband „Textecke“ mit dem Kalender verbinden.
   - Das Laufband soll den nächsten Event im ZAM-Haupthaus anzeigen.
   - Die Nachricht per `POST http://texteck.usr.zam.haus/api/v1/message` als JSON
     mit dem Feld `text` senden.

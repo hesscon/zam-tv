@@ -10,10 +10,14 @@ from .services.caption_worker_client import CaptionWorkerClient
 from .services.config_service import ensure_config_exists
 from .services.recent_log_handler import install_recent_log_handler
 from .services.screen_heartbeat import ScreenHeartbeat
+from .services.textecke_worker import TexteckeWorker
 from .views import main_bp
 
 
-def create_app(start_calendar_cache: bool = True) -> Flask:
+def create_app(
+    start_calendar_cache: bool = True,
+    start_textecke_worker: bool | None = None,
+) -> Flask:
     app = Flask(__name__)
     recent_log_handler = install_recent_log_handler()
 
@@ -68,9 +72,15 @@ def create_app(start_calendar_cache: bool = True) -> Flask:
         refresh_interval=timedelta(seconds=refresh_seconds),
     )
     app.extensions["calendar_slide_cache"] = calendar_cache
+    textecke_worker = TexteckeWorker(app.config["CONFIG_PATH"])
+    app.extensions["textecke_worker"] = textecke_worker
     app.extensions["recent_log_handler"] = recent_log_handler
     app.extensions["screen_heartbeat"] = ScreenHeartbeat()
     if start_calendar_cache:
         calendar_cache.start()
+    if start_textecke_worker is None:
+        start_textecke_worker = start_calendar_cache
+    if start_textecke_worker:
+        textecke_worker.start()
 
     return app

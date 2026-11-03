@@ -10,6 +10,51 @@ MODULE_SPEC.loader.exec_module(config_service)
 
 
 class ParseConfigTest(TestCase):
+    def test_normalizes_textecke_config(self) -> None:
+        config = config_service.parse_config(
+            """
+textecke:
+  enabled: true
+  content: https://example.com/events.ics
+  message_url: http://texteck.example/api/v1/message
+  categories:
+    - Haupthaus
+"""
+        )
+
+        textecke = config["textecke"]
+        self.assertTrue(textecke["enabled"])
+        self.assertEqual(["Haupthaus"], textecke["categories"])
+        self.assertFalse(textecke["fix_mec_timezone"])
+
+    def test_accepts_config_without_textecke(self) -> None:
+        self.assertEqual({"items": []}, config_service.parse_config("items: []"))
+
+    def test_rejects_invalid_textecke_settings(self) -> None:
+        invalid_configs = (
+            ('enabled: "yes"', "enabled"),
+            ("enabled: false", "content"),
+            (
+                "enabled: false\n  content: https://example.com/events.ics",
+                "message_url",
+            ),
+            (
+                """enabled: false
+  content: https://example.com/events.ics
+  message_url: http://texteck.example/api/v1/message
+  categories: Haupthaus""",
+                "categories",
+            ),
+        )
+
+        for body, expected_message in invalid_configs:
+            with self.subTest(body=body):
+                with self.assertRaisesRegex(
+                    config_service.ConfigError,
+                    expected_message,
+                ):
+                    config_service.parse_config(f"textecke:\n  {body}\n")
+
     def test_normalizes_calendar_defaults(self) -> None:
         config = config_service.parse_config(
             """
